@@ -13,8 +13,16 @@ export default function Statistics({ data }) {
       <Paper variant="outlined" sx={{ p: { xs: 1, sm: 1, md: 2 } }}>
         <Box mt={2} sx={{ display: 'flex', flexWrap: 'wrap' }}>
           <StatsBox name="Real-Time Events" count={data.totalEvents} />
-          <StatsBox name="Tags" count={data.totalTags} />
-          <StatsBox name="Locations" count={data.totalLocations} />
+          <StatsBox
+            name="Tags"
+            count={data.totalTags}
+            href="/statistics/tags"
+          />
+          <StatsBox
+            name="Locations"
+            count={data.totalLocations}
+            href="/statistics/locations"
+          />
           <StatsBox name="Contributions" count={data.totalContLogs} />
           <StatsBox name="Images" count={0} />
           <StatsBox name="Videos" count={0} />
@@ -29,15 +37,14 @@ export default function Statistics({ data }) {
 }
 
 export async function getServerSideProps(context) {
-  const client = await connect();
-  const DB_NAME = process.env.DB_NAME;
-  const eventsCol = client.db(DB_NAME).collection('events');
+  const db = await connect();
+  const eventsCol = db.collection('events');
   const totalEvents = await eventsCol.estimatedDocumentCount();
-  const tagsCol = client.db(DB_NAME).collection('event-categories');
+  const tagsCol = db.collection('event-categories');
   const totalTags = await tagsCol.estimatedDocumentCount();
-  const loctaionsCol = client.db(DB_NAME).collection('event-locations');
+  const loctaionsCol = db.collection('event-locations');
   const totalLocations = await loctaionsCol.estimatedDocumentCount();
-  const contLogsCol = client.db(DB_NAME).collection('contribution-logs');
+  const contLogsCol = db.collection('contribution-logs');
   const totalContLogs = await contLogsCol.estimatedDocumentCount();
   return {
     props: {

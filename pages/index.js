@@ -70,9 +70,8 @@ export default function Home({ data }) {
 }
 
 export async function getServerSideProps(context) {
-  const client = await connect();
-  const DB_NAME = process.env.DB_NAME;
-  const eventsCol = client.db(DB_NAME).collection('events');
+  const db = await connect();
+  const eventsCol = db.collection('events');
   const cursor = eventsCol.aggregate([
     {
       $match: {
@@ -101,9 +100,9 @@ export async function getServerSideProps(context) {
 
   const events = JSON.parse(JSON.stringify(await cursor.toArray()));
   const totalEvents = await eventsCol.estimatedDocumentCount();
-  const tagsCol = client.db(DB_NAME).collection('event-categories');
+  const tagsCol = db.collection('event-categories');
   const totalTags = await tagsCol.estimatedDocumentCount();
-  const loctaionsCol = client.db(DB_NAME).collection('event-locations');
+  const loctaionsCol = db.collection('event-locations');
   const totalLocations = await loctaionsCol.estimatedDocumentCount();
   return {
     props: {

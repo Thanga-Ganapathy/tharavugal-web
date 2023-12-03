@@ -104,9 +104,8 @@ export default function FoodIngredients({ data }) {
 }
 
 export async function getServerSideProps(context) {
-  const client = await connect();
-  const DB_NAME = process.env.DB_NAME;
-  const col = client.db(DB_NAME).collection('food-ingredients');
+  const db = await connect();
+  const col = db.collection('food-ingredients');
   const cursor = col.find(
     {},
     {

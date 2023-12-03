@@ -53,6 +53,8 @@ export default function App({ Component, pageProps }) {
         '/entities',
         '/literatures',
         '/statistics',
+        '/statistics/tags',
+        '/statistics/locations',
         '/events/[slug]',
         '/contribution-logs',
         '/knowledge-base',

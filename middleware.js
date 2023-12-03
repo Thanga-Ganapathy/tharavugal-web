@@ -11,6 +11,8 @@ const routesConfig = {
     { path: '/api/visualize' },
     { path: '/api/events/.+' },
     { path: '/api/explore' },
+    { path: '/api/statistics/tags/.+'},
+    { path: '/api/statistics/locations/.+'},
   ],
   protected: [
     { path: '/api/admin', roles: [USER_ROLES.ADMIN] },

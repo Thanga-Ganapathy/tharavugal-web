@@ -3,9 +3,9 @@ import { endOfDay, startOfDay } from 'date-fns';
 import { zonedTimeToUtc } from 'date-fns-tz';
 
 export default async function handler(req, res) {
-  const client = await connect();
-  const DB_NAME = process.env.DB_NAME;
-  const eventsCol = client.db(DB_NAME).collection('events');
+  const db = await connect();
+  
+  const eventsCol = db.collection('events');
   let output;
 
   switch (req.method) {
@@ -90,8 +90,6 @@ export default async function handler(req, res) {
       output = res.status(401);
       break;
   }
-
-  client.close();
 
   return output;
 }

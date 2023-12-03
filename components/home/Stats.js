@@ -13,8 +13,12 @@ export default function Stats({ data }) {
 
       <Box mt={2} sx={{ display: 'flex', flexWrap: 'wrap' }}>
         <StatsBox name="Real-Time Events" count={data.totalEvents} />
-        <StatsBox name="Tags" count={data.totalTags} />
-        <StatsBox name="Locations" count={data.totalLocations} />
+        <StatsBox name="Tags" count={data.totalTags} href="/statistics/tags" />
+        <StatsBox
+          name="Locations"
+          count={data.totalLocations}
+          href="/statistics/locations"
+        />
       </Box>
 
       <Box sx={{ m: 1, textAlign: 'right' }}>

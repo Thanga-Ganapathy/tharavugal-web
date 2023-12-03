@@ -20,9 +20,8 @@ export default function Admin({ data }) {
 }
 
 export async function getServerSideProps(context) {
-  const client = await connect();
-  const DB_NAME = process.env.DB_NAME;
-  const eventsCol = client.db(DB_NAME).collection('events');
+  const db = await connect();
+  const eventsCol = db.collection('events');
   const totalEvents = await eventsCol.estimatedDocumentCount();
 
   return {

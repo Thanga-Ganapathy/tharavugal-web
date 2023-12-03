@@ -1,7 +1,8 @@
 import { MongoClient, ServerApiVersion } from 'mongodb';
 
-export async function connect() {
+export async function connect(dbName) {
   const DB_URI = process.env.DB_URI;
+  const DB_NAME = dbName || process.env.DB_NAME;
   const client = new MongoClient(DB_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
@@ -14,5 +15,5 @@ export async function connect() {
     client.close();
   }
 
-  return client;
+  return client.db(DB_NAME);
 }

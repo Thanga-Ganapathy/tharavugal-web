@@ -103,9 +103,8 @@ export default function ContributionLogs({ logs, R2_DOMAIN }) {
 }
 
 export async function getServerSideProps(context) {
-  const client = await connect();
-  const DB_NAME = process.env.DB_NAME;
-  const col = client.db(DB_NAME).collection('contribution-logs');
+  const db = await connect();
+  const col = db.collection('contribution-logs');
   const cursor = col.find(
     {},
     {

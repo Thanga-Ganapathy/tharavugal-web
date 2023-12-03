@@ -1,9 +1,9 @@
 import { connect } from '@/utils/db';
 
 export default async function handler(req, res) {
-  const client = await connect();
-  const DB_NAME = process.env.DB_NAME;
-  const collection = client.db(DB_NAME).collection('events');
+  const db = await connect();
+  
+  const collection = db.collection('events');
   let output;
 
   const getFormatByView = () => {
@@ -103,8 +103,6 @@ export default async function handler(req, res) {
       output = res.status(401);
       break;
   }
-
-  client.close();
 
   return output;
 }

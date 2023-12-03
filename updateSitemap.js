@@ -38,11 +38,11 @@ const urlset = {
 
 async function run() {
   console.log('Updating sitemap...');
-  const client = await connect();
   const DB_NAME = 'tharavugal';
+  const db = await connect(DB_NAME);
 
   // Events
-  const collection = client.db(DB_NAME).collection('events');
+  const collection = db.collection('events');
   const cursor = await collection.find(
     {},
     { projection: { _id: 0, slug: 1, updatedAt: 1 } }
@@ -56,7 +56,7 @@ async function run() {
   }));
 
   // Food Ingredients
-  const foodIngCol = client.db(DB_NAME).collection('food-ingredients');
+  const foodIngCol = db.collection('food-ingredients');
   const foodIngCursor = await foodIngCol.find(
     {},
     { projection: { _id: 0, slug: 1, updatedAt: 1 } }

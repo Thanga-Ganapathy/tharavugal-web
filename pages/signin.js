@@ -29,21 +29,25 @@ export default function Signin() {
   const handleSubmit = async (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
-    const result = await APIClient.post(
-      '/api/signin',
-      Object.fromEntries(data)
-    );
-    if (result.ok) {
-      setAppState((s) => ({
-        ...s,
-        user: result.data.user,
-      }));
-      localStorage.setItem('user', JSON.stringify(result.data.user));
-      router.replace(
-        result.data.user.role === USER_ROLES.ADMIN ? '/admin' : '/'
+    try {
+      const result = await APIClient.post(
+        '/api/signin',
+        Object.fromEntries(data)
       );
-    } else {
-      showAlert('error', result.data.message);
+      if (result.ok) {
+        setAppState((s) => ({
+          ...s,
+          user: result.data.user,
+        }));
+        localStorage.setItem('user', JSON.stringify(result.data.user));
+        router.replace(
+          result.data.user.role === USER_ROLES.ADMIN ? '/admin' : '/'
+        );
+      } else {
+        showAlert('error', result.data.message);
+      }
+    } catch (error) {
+      showAlert('error', "Server Error");
     }
   };
 
