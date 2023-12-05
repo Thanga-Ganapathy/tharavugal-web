@@ -85,11 +85,18 @@ export default function Locations({ data }) {
             {loading && <CircularProgress />}
           </Box>
           <Box sx={{ display: loading ? 'none' : 'initial' }}>
-            {locations.length === 0 && <Alert severity="info">No locations found.</Alert>}
+            {locations.length === 0 && (
+              <Alert severity="info">No locations found.</Alert>
+            )}
           </Box>
           <Box sx={{ display: loading ? 'none' : 'flex', flexWrap: 'wrap' }}>
             {locations.map((t, i) => (
-              <StatsBox key={i} count={t.count} name={t.location} />
+              <StatsBox
+                key={i}
+                count={t.count}
+                name={t.location}
+                href={`/explore?location=${t.location}`}
+              />
             ))}
           </Box>
         </Box>

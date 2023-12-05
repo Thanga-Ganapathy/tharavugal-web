@@ -89,7 +89,7 @@ export default function Tags({ data }) {
           </Box>
           <Box sx={{ display: loading ? 'none' : 'flex', flexWrap: 'wrap' }}>
             {tags.map((t, i) => (
-              <StatsBox key={i} count={t.count} name={t.tag} />
+              <StatsBox key={i} count={t.count} name={t.tag} href={`/explore?tag=${t.tag}`} />
             ))}
           </Box>
         </Box>
