@@ -196,7 +196,7 @@ export default function EventView() {
               </Card>
             </Box>
 
-            <Box>
+            <Box sx={{ display: 'flex', flexWrap: 'wrap' }}>
               <Card variant="outlined" sx={{ m: 1 }}>
                 <CardContent>
                   <Typography
