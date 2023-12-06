@@ -1,6 +1,14 @@
 import Layout from '@/components/layouts/DefaultLayout';
 import { Masonry } from '@mui/lab';
-import { Alert, Box, Divider, Paper, Typography } from '@mui/material';
+import {
+  Box,
+  Card,
+  CardContent,
+  Chip,
+  Divider,
+  Paper,
+  Typography,
+} from '@mui/material';
 import Link from 'next/link';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 
@@ -8,15 +16,29 @@ export default function Thirukkural() {
   return (
     <Layout title="Thirukkural">
       <Box textAlign="center">
-        <Typography variant="h4">Thirukkural</Typography>
+        <Typography variant="h5">திருக்குறள் (Thirukkural)</Typography>
       </Box>
-      <Alert severity="warning">
-        Work in Pipeline, please follow the{' '}
-        <Link href="/work-pipeline">Work Pipeline</Link> for updates.
-      </Alert>
-
       <Box mt={2}>
-        <Paper sx={{ p: 2 }}>
+        <Card>
+          <CardContent>
+            <Box sx={{ display: 'flex', justifyContent: 'right' }}>
+              <Chip
+                label="Random"
+                variant="filled"
+                color="secondary"
+                size="small"
+              />
+            </Box>
+            <Box sx={{ display: 'flex', justifyContent: 'center' }}>
+              <Box
+                sx={{ fontSize: { xs: '14px', sm: '18px', md: '24px' } }}
+                component="pre"
+              >{`அறத்தான் வருவதே இன்பம்மற் றெல்லாம் 
+புறத்த புகழும் இல`}</Box>
+            </Box>
+          </CardContent>
+        </Card>
+        <Paper sx={{ p: 2, mt: 2 }}>
           <Typography
             variant="h6"
             sx={{ display: 'flex', alignItems: 'center' }}
@@ -36,7 +58,7 @@ export default function Thirukkural() {
                 m: 2,
               }}
             >
-              VIRTUE
+              அறத்துப்பால் (VIRTUE)
             </Box>
             <Box
               component={Link}
@@ -48,7 +70,7 @@ export default function Thirukkural() {
                 m: 2,
               }}
             >
-              WEALTH
+              பொருட்பால் (WEALTH)
             </Box>
             <Box
               component={Link}
@@ -60,7 +82,7 @@ export default function Thirukkural() {
                 m: 2,
               }}
             >
-              LOVE
+              இன்பத்துப்பால் (LOVE)
             </Box>
           </Box>
         </Paper>
