@@ -40,7 +40,8 @@ export default function OpenDiscussions() {
   const data = [
     'Government should undertake private orphanages?',
     'Is palm toddy should be made open to the public in thamizhl naadu?',
-    'Should we rename Brahmi script into Thamizhi script?'
+    'Should we rename Brahmi script into Thamizhi script?',
+    'How can we avoid flood disasters in Chennai and surrounding districts?'
   ];
 
   return (
