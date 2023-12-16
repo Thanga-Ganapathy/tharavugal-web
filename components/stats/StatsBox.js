@@ -14,7 +14,7 @@ export default function StatsBox({ name, count, href }) {
         m: 1,
         minWidth: '100px',
         userSelect: 'none',
-        cursor: 'pointer',
+        cursor: href ? 'pointer' : 'initial',
         border: '2px solid gray',
         borderRadius: '5px',
         p: 1,

@@ -28,11 +28,17 @@ export default function Tools() {
         py={2}
         sx={{ display: 'flex', justifyContent: 'flex-start', flexWrap: 'wrap' }}
       >
-        <ToolBox icon={ExploreOutlinedIcon} label="Explore" path="/explore" />
+        <ToolBox
+          icon={ExploreOutlinedIcon}
+          label="Explore"
+          path="/explore"
+          active
+        />
         <ToolBox
           icon={InsertChartOutlinedTwoToneIcon}
           label="Visualizer"
           path="/visualizer"
+          active
         />
         <ToolBox icon={ScienceOutlinedIcon} label="Research" path="/research" />
       </Box>
@@ -43,6 +49,7 @@ export default function Tools() {
         sx={{ display: 'flex', justifyContent: 'flex-start', flexWrap: 'wrap' }}
       >
         <ToolBox
+          active
           icon={FastfoodIcon}
           label="Food Ingredients"
           path="/food-ingredients"
@@ -65,6 +72,7 @@ export default function Tools() {
           path="/thamizhl-dictionary"
         />
         <ToolBox
+          active
           icon={BookOutlinedIcon}
           label="Thirukkural"
           path="/thirukkural"

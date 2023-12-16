@@ -14,6 +14,13 @@ import { setAppState } from '@/store';
 import { SWRConfig } from 'swr';
 import APIClient from '@/utils/APIClient';
 
+function matchRoute(path, arr) {
+  return arr.find((p) => {
+    const arr = path.match(p);
+    if (arr && arr[0] === path) return true;
+  });
+}
+
 export default function App({ Component, pageProps }) {
   const router = useRouter();
   const [authorized, setAuthorized] = useState(false);
@@ -37,9 +44,7 @@ export default function App({ Component, pageProps }) {
         '/explore',
         '/research',
         '/thirukkural',
-        '/thirukkural/virtue',
-        '/thirukkural/wealth',
-        '/thirukkural/love',
+        '/thirukkural/chapters/.+',
         '/on-this-day',
         '/thamizhl-calendar',
         '/open-discussions',
@@ -55,7 +60,7 @@ export default function App({ Component, pageProps }) {
         '/statistics',
         '/statistics/tags',
         '/statistics/locations',
-        '/events/[slug]',
+        '/events/.+',
         '/contribution-logs',
         '/knowledge-base',
         '/contact-us',
@@ -67,21 +72,19 @@ export default function App({ Component, pageProps }) {
         '/contribute',
         '/open-issues',
         '/food-ingredients',
-        '/food-ingredients/[slug]',
+        '/food-ingredients/.+',
       ];
       const path = url.split('?')[0];
       const user = window.localStorage.getItem('user');
-      if (!user && !publicPaths.includes(path)) {
+      if (!user && !matchRoute(path, publicPaths)) {
         setAuthorized(false);
-        router.push({
-          pathname: '/signin',
-        });
+        router.push('/signin');
       } else {
         setAuthorized(true);
       }
     }
     // run auth check on initial load
-    authCheck(router.pathname);
+    authCheck(window.location.pathname);
 
     // set authorized to false to hide page content while changing routes
     const hideContent = () => setAuthorized(false);
@@ -104,7 +107,7 @@ export default function App({ Component, pageProps }) {
         <Box
           sx={{
             width: '100%',
-            height: '100vh'
+            height: '100vh',
           }}
         >
           <Box
@@ -113,7 +116,7 @@ export default function App({ Component, pageProps }) {
               flexDirection: 'column',
               alignItems: 'center',
               justifyContent: 'center',
-              height: '100%'
+              height: '100%',
             }}
           >
             <Box sx={{ color: '#FF851B' }}>

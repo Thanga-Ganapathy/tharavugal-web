@@ -1,7 +1,7 @@
 import { Box, Typography } from '@mui/material';
 import { useRouter } from 'next/router';
 
-export default function ToolBox({ icon: Icon, label, path }) {
+export default function ToolBox({ icon: Icon, label, path, active }) {
   const router = useRouter();
 
   return (
@@ -14,13 +14,13 @@ export default function ToolBox({ icon: Icon, label, path }) {
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
-        border: '2px dashed #01FF70',
+        border: active ? '2px dashed #01FF70' : '2px dashed gray',
         cursor: 'pointer',
         textTransform: 'uppercase',
         m: 1,
         p: 1,
         '&:hover': {
-          background: '#01ff709e',
+          backgroundColor: 'rgba(1, 255, 112, 0.5)',
         },
       }}
     >
