@@ -12,8 +12,8 @@ import Kural from '@/components/thirukkural/Kural';
 
 export default function Thirukkural() {
   const randomKural = thirukkural.chapters.find(
-    (c) => c.name === 'கடவுள் வாழ்த்து'
-  ).kurals[0];
+    (c) => c.name === 'அறன் வலியுறுத்தல்'
+  ).kurals[8];
 
   return (
     <Layout title="Thirukkural">
