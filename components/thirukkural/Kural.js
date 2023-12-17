@@ -24,7 +24,7 @@ export default function Kural({ data }) {
           <Typography sx={{ color: 'text.secondary' }}>{exp.author}</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Alert icon={false} severity="info">
+          <Alert icon={false} severity="success">
             <Box dangerouslySetInnerHTML={{ __html: exp.text }} />
           </Alert>
         </AccordionDetails>
@@ -45,13 +45,19 @@ export default function Kural({ data }) {
         >
           <Typography
             variant="body1"
-            sx={{ fontSize: { xs: '16px', sm: '24px', md: '26px' } }}
+            sx={{
+              fontSize: { xs: '16px', sm: '24px', md: '26px' },
+              color: (t) => t.palette.primary.main,
+            }}
           >
             {data.kural.l1}
           </Typography>
           <Typography
             variant="body1"
-            sx={{ fontSize: { xs: '16px', sm: '24px', md: '26px' } }}
+            sx={{
+              fontSize: { xs: '16px', sm: '24px', md: '26px' },
+              color: (t) => t.palette.primary.main,
+            }}
           >
             {data.kural.l2}
           </Typography>
