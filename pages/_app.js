@@ -73,6 +73,7 @@ export default function App({ Component, pageProps }) {
         '/open-issues',
         '/food-ingredients',
         '/food-ingredients/.+',
+        '/aathichoodi'
       ];
       const path = url.split('?')[0];
       const user = window.localStorage.getItem('user');

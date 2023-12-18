@@ -1,4 +1,4 @@
-import { Box, Paper, Typography } from '@mui/material';
+import { Box, Paper, Typography, Alert, AlertTitle } from '@mui/material';
 
 function InfoBox({ title, content }) {
   return (
@@ -9,23 +9,20 @@ function InfoBox({ title, content }) {
   );
 }
 
-function InfoTextBox({ content }) {
-  return (
-    <Paper sx={{ minHeight: '50px', p: 2, m: 1 }}>
-      <Typography color="primary" variant="body1">
-        {content}
-      </Typography>
-    </Paper>
-  );
-}
-
 export default function Info() {
   return (
     <Box sx={{ display: 'flex', flexWrap: 'wrap' }}>
       <InfoBox title="Author(s)" content="Unknown" />
       <InfoBox title="Chapters" content="133" />
       <InfoBox title="Kurals" content="1,330" />
-      <InfoTextBox content="The Thiruthanigai Visakhaperumalayar and Arumuka Navalar from Yaalpaanam were the first to copy thirukkural from palm script into a modern printing press." />
+      <Paper>
+        <Alert severity="info" variant="outlined">
+          <AlertTitle>Info</AlertTitle>
+          The <strong>Thiruthanigai Visakhaperumalayar</strong> and{' '}
+          <strong>Arumuka Navalar</strong> from Yaalpaanam were the first known
+          to copy thirukkural from palm script into a modern printing press.
+        </Alert>
+      </Paper>
     </Box>
   );
 }

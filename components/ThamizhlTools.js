@@ -30,6 +30,12 @@ export default function ThamizhlTools() {
           path="/thirukkural"
         />
         <ToolBox
+          active
+          icon={BookOutlinedIcon}
+          label="Aathichoodi"
+          path="/aathichoodi"
+        />
+        <ToolBox
           icon={CalendarMonthOutlinedIcon}
           label="Thamizhl Calendar"
           path="/thamizhl-calendar"
