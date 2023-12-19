@@ -24,6 +24,22 @@ export default function Athigaaram() {
     return 'Loading...';
   }
 
+  const sortedKurals = () => {
+    return chapter.kurals.sort((a, b) => {
+      const nameA = a.kural.l1;
+      const nameB = b.kural.l1;
+      if (nameA < nameB) {
+        return -1;
+      }
+      if (nameA > nameB) {
+        return 1;
+      }
+
+      // names must be equal
+      return 0;
+    });
+  };
+
   return (
     <Layout>
       <Box textAlign="center">
@@ -33,8 +49,8 @@ export default function Athigaaram() {
         </Typography>
       </Box>
       <Box sx={{ mt: 2 }}>
-        {chapter.kurals.map((kural, i) => (
-          <Kural key={i} data={kural} />
+        {sortedKurals().map((kural, i) => (
+          <Kural key={i} data={kural} index={i} />
         ))}
       </Box>
     </Layout>

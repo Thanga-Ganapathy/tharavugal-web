@@ -1,10 +1,5 @@
 import Layout from '@/components/layouts/DefaultLayout';
-import {
-  Box,
-  Chip,
-  Paper,
-  Typography,
-} from '@mui/material';
+import { Box, Chip, Paper, Typography } from '@mui/material';
 import Info from '@/components/thirukkural/Info';
 import Chapters from '@/components/thirukkural/Chapters';
 import { thirukkural } from '@/data/thirukkural';
@@ -22,22 +17,13 @@ export default function Thirukkural() {
       </Box>
       <Box mt={2}>
         <Box sx={{ position: 'relative' }}>
-          <Box
-            sx={{
-              display: 'flex',
-              justifyContent: 'right',
-              position: 'absolute',
-              right: '5px',
-              top: '5px',
-            }}
-          >
-            <Chip
-              label="Random"
-              variant="filled"
-              color="secondary"
-              size="small"
-            />
-          </Box>
+          <Chip
+            label="Random"
+            variant="filled"
+            color="secondary"
+            size="small"
+            sx={{ position: 'absolute', right: '15px', top: '5px' }}
+          />
           <Kural data={randomKural} />
         </Box>
         <Box

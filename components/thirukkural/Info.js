@@ -13,6 +13,7 @@ export default function Info() {
   return (
     <Box sx={{ display: 'flex', flexWrap: 'wrap' }}>
       <InfoBox title="Author(s)" content="Unknown" />
+      <InfoBox title="Original Publication" content="Unknown" />
       <InfoBox title="Chapters" content="133" />
       <InfoBox title="Kurals" content="1,330" />
       <Paper>
