@@ -1,5 +1,5 @@
 import Layout from '@/components/layouts/DefaultLayout';
-import { Box, Chip, Paper, Typography } from '@mui/material';
+import { Box, Chip, Paper, Typography, Alert, AlertTitle } from '@mui/material';
 import Info from '@/components/thirukkural/Info';
 import Chapters from '@/components/thirukkural/Chapters';
 import { thirukkural } from '@/data/thirukkural';
@@ -42,6 +42,11 @@ export default function Thirukkural() {
             <Info />
           </Box>
         </Box>
+      </Box>
+      <Box sx={{ mt: 4 }}>
+        <Alert severity="warning">
+          The chapters and kurals have been ordered based on the alphabet.
+        </Alert>
       </Box>
     </Layout>
   );
