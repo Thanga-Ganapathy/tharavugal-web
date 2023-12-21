@@ -8,6 +8,7 @@ import kurals7 from './chapters/மக்கட்பேறு';
 import kurals8 from './chapters/அன்புடைமை';
 import kurals9 from './chapters/விருந்தோம்பல்';
 import kurals10 from './chapters/இனியவை-கூறல்';
+import kurals11 from './chapters/செய்நன்றி-அறிதல்';
 
 export const thirukkural = {
   chapters: [
@@ -66,11 +67,18 @@ export const thirukkural = {
       slug: 'விருந்தோம்பல்',
       translations: [{ id: 'en', text: 'Cherishing Guests' }],
       kurals: kurals9,
-    },{
+    },
+    {
       name: 'இனியவை கூறல்',
       slug: 'இனியவை-கூறல்',
       translations: [{ id: 'en', text: 'The Utterance of Pleasant Words' }],
       kurals: kurals10,
+    },
+    {
+      name: 'செய்நன்றி அறிதல்',
+      slug: 'செய்நன்றி-அறிதல்',
+      translations: [{ id: 'en', text: 'The Utterance of Pleasant Words' }],
+      kurals: kurals11,
     },
   ],
 };
