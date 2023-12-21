@@ -5,7 +5,7 @@ import { connect } from './utils/db';
 
 const baseUrl = {
   loc: 'https://tharavugal.org/',
-  lastmod: '2023-11-12',
+  lastmod: '2023-12-22',
 };
 
 const staticUrls = [

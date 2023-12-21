@@ -12,7 +12,7 @@ export default function ThamizhlTools() {
       <Typography variant="h6" sx={{ display: 'flex', alignItems: 'center' }}>
         <ChevronRightIcon /> Thamizhl
       </Typography>
-      <Divider />
+      <Divider sx={{ borderColor: 'darkgray' }} />
 
       <Box
         py={2}

@@ -9,7 +9,7 @@ export default function Stats({ data }) {
       <Typography variant="h6" sx={{ display: 'flex', alignItems: 'center' }}>
         <ChevronRightIcon /> Stats
       </Typography>
-      <Divider />
+      <Divider sx={{ borderColor: 'darkgray' }} />
 
       <Box mt={2} sx={{ display: 'flex', flexWrap: 'wrap' }}>
         <StatsBox name="Real-Time Events" count={data.totalEvents} />

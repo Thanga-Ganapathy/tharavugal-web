@@ -42,7 +42,7 @@ export default function Events({ data, styles }) {
           <Box ml={1} className={styles.blob + ' ' + styles.green} />
         </Box>
       </Box>
-      <Divider />
+      <Divider sx={{ borderColor: 'darkgray' }} />
       <Box my={2}>
         <Timeline>{renderEvents()}</Timeline>
       </Box>

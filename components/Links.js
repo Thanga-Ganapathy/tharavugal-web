@@ -8,7 +8,7 @@ export default function Links() {
       <Typography variant="h6" sx={{ display: 'flex', alignItems: 'center' }}>
         <ChevronRightIcon /> Links
       </Typography>
-      <Divider />
+      <Divider sx={{ borderColor: 'darkgray' }} />
       <Box>
         <ul>
           <li>

@@ -114,7 +114,7 @@ export default function FeaturedVisualizations() {
       <Typography variant="h6" sx={{ display: 'flex', alignItems: 'center' }}>
         <ChevronRightIcon /> Visualizations (Featured)
       </Typography>
-      <Divider />
+      <Divider sx={{ borderColor: 'darkgray' }} />
       <Box p={2}>
         {list.map((l, i) => (
           <FeaturedBox key={i} data={l} />

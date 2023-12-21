@@ -50,7 +50,7 @@ export default function Resources() {
       <Typography variant="h6" sx={{ display: 'flex', alignItems: 'center' }}>
         <ChevronRightIcon /> Resources
       </Typography>
-      <Divider />
+      <Divider sx={{ borderColor: 'darkgray' }} />
       <Box mt={1} sx={{ mt: 1, display: 'flex', flexWrap: 'wrap' }}>
         <Resource name="IMAGES" icon={ImageOutlinedIcon} path="/images" />
         <Resource

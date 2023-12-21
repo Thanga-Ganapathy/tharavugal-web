@@ -8,7 +8,7 @@ export default function RecentEntities() {
       <Typography variant="h6" sx={{ display: 'flex', alignItems: 'center' }}>
         <ChevronRightIcon /> Recent Entities
       </Typography>
-      <Divider />
+      <Divider sx={{ borderColor: 'darkgray' }} />
       <Box mt={1}>
         <Alert severity="info">No Data.</Alert>
       </Box>

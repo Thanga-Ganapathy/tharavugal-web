@@ -18,7 +18,7 @@ export default function Tools() {
       <Typography variant="h6" sx={{ display: 'flex', alignItems: 'center' }}>
         <ChevronRightIcon /> Tools
       </Typography>
-      <Divider />
+      <Divider sx={{ borderColor: 'darkgray' }} />
 
       <Divider sx={{ mt: 2 }}>Real-Time Events</Divider>
       <Box
