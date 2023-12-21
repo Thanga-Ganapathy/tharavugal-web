@@ -32,15 +32,11 @@ export default function Events({ data, styles }) {
 
   return (
     <Paper sx={{ p: 2 }}>
-      <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
-        <Typography variant="h6" sx={{ display: 'flex', alignItems: 'center' }}>
-          <ChevronRightIcon /> Real-Time Events
+      <Box sx={{ display: 'flex', alignItems: 'center' }}>
+        <Box ml={1} className={styles.blob + ' ' + styles.green} />
+        <Typography variant="h6" sx={{ ml: 2 }}>
+          Real-Time Events
         </Typography>
-
-        <Box sx={{ display: 'flex', alignItems: 'center' }}>
-          <Box component="span">LIVE</Box>
-          <Box ml={1} className={styles.blob + ' ' + styles.green} />
-        </Box>
       </Box>
       <Divider sx={{ borderColor: 'darkgray' }} />
       <Box my={2}>
