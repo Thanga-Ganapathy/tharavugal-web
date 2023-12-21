@@ -11,6 +11,7 @@ import kurals10 from './chapters/இனியவை-கூறல்';
 import kurals11 from './chapters/செய்நன்றி-அறிதல்';
 import kurals12 from './chapters/நடுவு-நிலைமை';
 import kurals13 from './chapters/அடக்கமுடைமை';
+import kurals14 from './chapters/ஒழுக்கமுடைமை';
 
 export const thirukkural = {
   chapters: [
@@ -93,6 +94,12 @@ export const thirukkural = {
       slug: 'அடக்கமுடைமை',
       translations: [{ id: 'en', text: 'The Possession of Self-restraint' }],
       kurals: kurals13,
+    },
+    {
+      name: 'ஒழுக்கமுடைமை',
+      slug: 'ஒழுக்கமுடைமை',
+      translations: [{ id: 'en', text: 'The Possession of Decorum' }],
+      kurals: kurals14,
     },
   ],
 };
