@@ -72,7 +72,7 @@ export default function Kural({ data, index }) {
           >
             <ChevronRightIcon /> தமிழ்
           </Typography>
-          <Divider />
+          <Divider sx={{ borderColor: 'darkgray' }} />
           <Box sx={{ mt: 2 }}>{renderExplanations('ta')}</Box>
         </Box>
         <Box sx={{ mt: 2 }}>
@@ -82,7 +82,7 @@ export default function Kural({ data, index }) {
           >
             <ChevronRightIcon /> English
           </Typography>
-          <Divider />
+          <Divider sx={{ borderColor: 'darkgray' }} />
           <Box sx={{ mt: 2 }}>{renderExplanations('en')}</Box>
         </Box>
       </CardContent>

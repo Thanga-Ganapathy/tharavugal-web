@@ -1,4 +1,12 @@
-import { Box, Divider, Typography } from '@mui/material';
+import {
+  Box,
+  Divider,
+  Table,
+  TableBody,
+  TableCell,
+  TableRow,
+  Typography,
+} from '@mui/material';
 import Link from 'next/link';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import { thirukkural } from '@/data/thirukkural';
@@ -23,26 +31,26 @@ export default function Chapters() {
       <Typography variant="h6" sx={{ display: 'flex', alignItems: 'center' }}>
         <ChevronRightIcon /> அதிகாரங்கள் (Chapters)
       </Typography>
-      <Divider />
+      <Divider sx={{ borderColor: 'darkgray' }} />
 
       <Box mt={2}>
-        <Box component="table" sx={{ borderCollapse: 'collapse' }}>
-          <Box component="tbody">
-            {chapters.map((ch, i) => (
-              <Box component="tr" key={i}>
-                <Box component="td" sx={{ border: '1px solid black', p: 1 }}>
-                  {i + 1}
-                </Box>
-                <Box component="td" sx={{ border: '1px solid black', p: 1 }}>
-                  <Link href={{ pathname: `/thirukkural/chapters/${ch.slug}` }}>
-                    {ch.name} ({ch.translations.find((t) => t.id === 'en').text}
-                    )
+        <Table>
+          <TableBody>
+            {chapters.map((row, i) => (
+              <TableRow key={i}>
+                <TableCell>{i + 1}</TableCell>
+                <TableCell>
+                  <Link
+                    href={{ pathname: `/thirukkural/chapters/${row.slug}` }}
+                  >
+                    {row.name} (
+                    {row.translations.find((t) => t.id === 'en').text})
                   </Link>
-                </Box>
-              </Box>
+                </TableCell>
+              </TableRow>
             ))}
-          </Box>
-        </Box>
+          </TableBody>
+        </Table>
       </Box>
     </>
   );
