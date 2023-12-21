@@ -12,6 +12,7 @@ import kurals11 from './chapters/செய்நன்றி-அறிதல்'
 import kurals12 from './chapters/நடுவு-நிலைமை';
 import kurals13 from './chapters/அடக்கமுடைமை';
 import kurals14 from './chapters/ஒழுக்கமுடைமை';
+import kurals15 from './chapters/பிறனில்-விழையாமை';
 
 export const thirukkural = {
   chapters: [
@@ -100,6 +101,12 @@ export const thirukkural = {
       slug: 'ஒழுக்கமுடைமை',
       translations: [{ id: 'en', text: 'The Possession of Decorum' }],
       kurals: kurals14,
+    },
+    {
+      name: 'பிறனில் விழையாமை',
+      slug: 'பிறனில்-விழையாமை',
+      translations: [{ id: 'en', text: "Not Coveting another's Wife" }],
+      kurals: kurals15,
     },
   ],
 };

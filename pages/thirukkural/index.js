@@ -1,5 +1,13 @@
 import Layout from '@/components/layouts/DefaultLayout';
-import { Box, Chip, Paper, Typography, Alert, AlertTitle } from '@mui/material';
+import {
+  Box,
+  Chip,
+  Paper,
+  Typography,
+  Alert,
+  AlertTitle,
+  Badge,
+} from '@mui/material';
 import Info from '@/components/thirukkural/Info';
 import Chapters from '@/components/thirukkural/Chapters';
 import { thirukkural } from '@/data/thirukkural';
@@ -13,19 +21,11 @@ export default function Thirukkural() {
   return (
     <Layout title="Thirukkural">
       <Box textAlign="center">
-        <Typography variant="h5">திருக்குறள் (Thirukkural)</Typography>
+        <Badge badgeContent="ALPHA" color="secondary">
+          <Typography variant="h5">திருக்குறள் (Thirukkural)</Typography>
+        </Badge>
       </Box>
-      <Box mt={2}>
-        <Box sx={{ position: 'relative' }}>
-          <Chip
-            label="Random"
-            variant="filled"
-            color="secondary"
-            size="small"
-            sx={{ position: 'absolute', right: '15px', top: '5px' }}
-          />
-          <Kural data={randomKural} />
-        </Box>
+      <Box mt={1}>
         <Box
           sx={{
             display: {
@@ -39,6 +39,7 @@ export default function Thirukkural() {
             <Chapters />
           </Paper>
           <Box sx={{ mt: 2 }}>
+            <Kural data={randomKural} />
             <Info />
           </Box>
         </Box>
