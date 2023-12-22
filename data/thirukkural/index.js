@@ -18,6 +18,8 @@ import kurals17 from './chapters/அழுக்காறாமை';
 import kurals18 from './chapters/வெஃகாமை';
 import kurals19 from './chapters/புறங்கூறாமை';
 import kurals20 from './chapters/பயனில-சொல்லாமை';
+import kurals21 from './chapters/தீவினையச்சம்';
+import kurals22 from './chapters/ஒப்புரவறிதல்';
 
 export const thirukkural = {
   chapters: [
@@ -138,11 +140,29 @@ export const thirukkural = {
       slug: 'புறங்கூறாமை',
       translations: [{ id: 'en', text: 'Not Backbiting' }],
       kurals: kurals19,
-    },{
+    },
+    {
       name: 'பயனில சொல்லாமை',
-      slug: 'பயனில சொல்லாமை',
+      slug: 'பயனில-சொல்லாமை',
       translations: [{ id: 'en', text: 'The Not Speaking Profitless Words' }],
       kurals: kurals20,
+    },
+    {
+      name: 'தீவினையச்சம்',
+      slug: 'தீவினையச்சம்',
+      translations: [{ id: 'en', text: 'Dread of Evil Deeds' }],
+      kurals: kurals21,
+    },
+    {
+      name: 'ஒப்புரவறிதல்',
+      slug: 'ஒப்புரவறிதல்',
+      translations: [
+        {
+          id: 'en',
+          text: "The Knowledge of what is Befitting a Man's Position",
+        },
+      ],
+      kurals: kurals22,
     },
   ],
 };
