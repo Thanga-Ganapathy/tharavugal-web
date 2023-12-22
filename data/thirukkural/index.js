@@ -16,6 +16,8 @@ import kurals15 from './chapters/பிறனில்-விழையாமை'
 import kurals16 from './chapters/பொறையுடைமை';
 import kurals17 from './chapters/அழுக்காறாமை';
 import kurals18 from './chapters/வெஃகாமை';
+import kurals19 from './chapters/புறங்கூறாமை';
+import kurals20 from './chapters/பயனில-சொல்லாமை';
 
 export const thirukkural = {
   chapters: [
@@ -130,6 +132,17 @@ export const thirukkural = {
       slug: 'வெஃகாமை',
       translations: [{ id: 'en', text: 'Not Coveting' }],
       kurals: kurals18,
+    },
+    {
+      name: 'புறங்கூறாமை',
+      slug: 'புறங்கூறாமை',
+      translations: [{ id: 'en', text: 'Not Backbiting' }],
+      kurals: kurals19,
+    },{
+      name: 'பயனில சொல்லாமை',
+      slug: 'பயனில சொல்லாமை',
+      translations: [{ id: 'en', text: 'The Not Speaking Profitless Words' }],
+      kurals: kurals20,
     },
   ],
 };
