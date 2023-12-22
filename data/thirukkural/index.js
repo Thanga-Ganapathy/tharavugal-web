@@ -14,6 +14,7 @@ import kurals13 from './chapters/அடக்கமுடைமை';
 import kurals14 from './chapters/ஒழுக்கமுடைமை';
 import kurals15 from './chapters/பிறனில்-விழையாமை';
 import kurals16 from './chapters/பொறையுடைமை';
+import kurals17 from './chapters/அழுக்காறாமை';
 
 export const thirukkural = {
   chapters: [
@@ -108,11 +109,21 @@ export const thirukkural = {
       slug: 'பிறனில்-விழையாமை',
       translations: [{ id: 'en', text: "Not Coveting another's Wife" }],
       kurals: kurals15,
-    },{
+    },
+    {
       name: 'பொறையுடைமை',
       slug: 'பொறையுடைமை',
-      translations: [{ id: 'en', text: "The Possession of Patience: Forbearance" }],
+      translations: [
+        { id: 'en', text: 'The Possession of Patience: Forbearance' },
+      ],
       kurals: kurals16,
+    },{
+      name: 'அழுக்காறாமை',
+      slug: 'அழுக்காறாமை',
+      translations: [
+        { id: 'en', text: 'Not Envying' },
+      ],
+      kurals: kurals17,
     },
   ],
 };
