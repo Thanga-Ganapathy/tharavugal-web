@@ -20,6 +20,9 @@ import kurals19 from './chapters/புறங்கூறாமை';
 import kurals20 from './chapters/பயனில-சொல்லாமை';
 import kurals21 from './chapters/தீவினையச்சம்';
 import kurals22 from './chapters/ஒப்புரவறிதல்';
+import kurals23 from './chapters/ஈகை';
+import kurals24 from './chapters/புகழ்';
+import kurals25 from './chapters/அருளுடைமை';
 
 export const thirukkural = {
   chapters: [
@@ -163,6 +166,38 @@ export const thirukkural = {
         },
       ],
       kurals: kurals22,
+    },
+    {
+      name: 'ஈகை',
+      slug: 'ஈகை',
+      translations: [
+        {
+          id: 'en',
+          text: 'Giving',
+        },
+      ],
+      kurals: kurals23,
+    },
+    {
+      name: 'புகழ்',
+      slug: 'புகழ்',
+      translations: [
+        {
+          id: 'en',
+          text: 'Renown',
+        },
+      ],
+      kurals: kurals24,
+    },{
+      name: 'அருளுடைமை',
+      slug: 'அருளுடைமை',
+      translations: [
+        {
+          id: 'en',
+          text: 'The Possession of Benevolence',
+        },
+      ],
+      kurals: kurals25,
     },
   ],
 };
