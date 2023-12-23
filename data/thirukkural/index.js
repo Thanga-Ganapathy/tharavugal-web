@@ -23,6 +23,11 @@ import kurals22 from './chapters/ஒப்புரவறிதல்';
 import kurals23 from './chapters/ஈகை';
 import kurals24 from './chapters/புகழ்';
 import kurals25 from './chapters/அருளுடைமை';
+import kurals26 from './chapters/புலால்-மறுத்தல்';
+import kurals27 from './chapters/தவம்';
+import kurals28 from './chapters/கூடா-ஒழுக்கம்';
+import kurals29 from './chapters/கள்ளாமை';
+import kurals30 from './chapters/வாய்மை';
 
 export const thirukkural = {
   chapters: [
@@ -188,7 +193,8 @@ export const thirukkural = {
         },
       ],
       kurals: kurals24,
-    },{
+    },
+    {
       name: 'அருளுடைமை',
       slug: 'அருளுடைமை',
       translations: [
@@ -198,6 +204,61 @@ export const thirukkural = {
         },
       ],
       kurals: kurals25,
+    },
+    {
+      name: 'புலால் மறுத்தல்',
+      slug: 'புலால்-மறுத்தல்',
+      translations: [
+        {
+          id: 'en',
+          text: 'The Renunciation of Flesh',
+        },
+      ],
+      kurals: kurals26,
+    },
+    {
+      name: 'தவம்',
+      slug: 'தவம்',
+      translations: [
+        {
+          id: 'en',
+          text: 'Penance',
+        },
+      ],
+      kurals: kurals27,
+    },
+    {
+      name: 'கூடா ஒழுக்கம்',
+      slug: 'கூடா-ஒழுக்கம்',
+      translations: [
+        {
+          id: 'en',
+          text: 'Inconsistent Conduct',
+        },
+      ],
+      kurals: kurals28,
+    },
+    {
+      name: 'கள்ளாமை',
+      slug: 'கள்ளாமை',
+      translations: [
+        {
+          id: 'en',
+          text: 'The Absence of Fraud',
+        },
+      ],
+      kurals: kurals29,
+    },
+    {
+      name: 'வாய்மை',
+      slug: 'வாய்மை',
+      translations: [
+        {
+          id: 'en',
+          text: 'Veracity',
+        },
+      ],
+      kurals: kurals30,
     },
   ],
 };
