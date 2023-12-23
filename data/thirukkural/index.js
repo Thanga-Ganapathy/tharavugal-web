@@ -30,6 +30,9 @@ import kurals29 from './chapters/கள்ளாமை';
 import kurals30 from './chapters/வாய்மை';
 import kurals31 from './chapters/வெகுளாமை';
 import kurals32 from './chapters/இன்னா-செய்யாமை';
+import kurals33 from './chapters/கொல்லாமை';
+import kurals34 from './chapters/நிலையாமை';
+import kurals35 from './chapters/துறவு';
 
 export const thirukkural = {
   chapters: [
@@ -283,6 +286,39 @@ export const thirukkural = {
         },
       ],
       kurals: kurals32,
+    },
+    {
+      name: 'கொல்லாமை',
+      slug: 'கொல்லாமை',
+      translations: [
+        {
+          id: 'en',
+          text: 'Not Killing',
+        },
+      ],
+      kurals: kurals33,
+    },
+    {
+      name: 'நிலையாமை',
+      slug: 'நிலையாமை',
+      translations: [
+        {
+          id: 'en',
+          text: 'Instability',
+        },
+      ],
+      kurals: kurals34,
+    },
+    {
+      name: 'துறவு',
+      slug: 'துறவு',
+      translations: [
+        {
+          id: 'en',
+          text: 'Renunciation',
+        },
+      ],
+      kurals: kurals35,
     },
   ],
 };
