@@ -28,6 +28,8 @@ import kurals27 from './chapters/தவம்';
 import kurals28 from './chapters/கூடா-ஒழுக்கம்';
 import kurals29 from './chapters/கள்ளாமை';
 import kurals30 from './chapters/வாய்மை';
+import kurals31 from './chapters/வெகுளாமை';
+import kurals32 from './chapters/இன்னா-செய்யாமை';
 
 export const thirukkural = {
   chapters: [
@@ -259,6 +261,28 @@ export const thirukkural = {
         },
       ],
       kurals: kurals30,
+    },
+    {
+      name: 'வெகுளாமை',
+      slug: 'வெகுளாமை',
+      translations: [
+        {
+          id: 'en',
+          text: 'The not being Angry',
+        },
+      ],
+      kurals: kurals31,
+    },
+    {
+      name: 'இன்னா செய்யாமை',
+      slug: 'இன்னா-செய்யாமை',
+      translations: [
+        {
+          id: 'en',
+          text: 'Not doing Evil',
+        },
+      ],
+      kurals: kurals32,
     },
   ],
 };
