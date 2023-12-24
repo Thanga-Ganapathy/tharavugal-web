@@ -38,6 +38,9 @@ import kurals37 from './chapters/அவா-அறுத்தல்';
 import kurals38 from './chapters/ஊழ்';
 import kurals39 from './chapters/இறைமாட்சி';
 import kurals40 from './chapters/கல்வி';
+import kurals41 from './chapters/கல்லாமை';
+import kurals42 from './chapters/கேள்வி';
+import kurals43 from './chapters/அறிவுடைமை';
 
 export const thirukkural = {
   chapters: [
@@ -379,6 +382,39 @@ export const thirukkural = {
         },
       ],
       kurals: kurals40,
+    },
+    {
+      name: 'கல்லாமை',
+      slug: 'கல்லாமை',
+      translations: [
+        {
+          id: 'en',
+          text: 'Ignorance',
+        },
+      ],
+      kurals: kurals41,
+    },
+    {
+      name: 'கேள்வி',
+      slug: 'கேள்வி',
+      translations: [
+        {
+          id: 'en',
+          text: 'Hearing',
+        },
+      ],
+      kurals: kurals42,
+    },
+    {
+      name: 'அறிவுடைமை',
+      slug: 'அறிவுடைமை',
+      translations: [
+        {
+          id: 'en',
+          text: 'The Possession of Knowledge',
+        },
+      ],
+      kurals: kurals43,
     },
   ],
 };

@@ -41,7 +41,7 @@ export default function Athigaaram() {
   };
 
   return (
-    <Layout>
+    <Layout title={`${chapter.name} - திருக்குறள்`}>
       <Box textAlign="center">
         <Typography variant="h5">{chapter.name} - திருக்குறள்</Typography>
         <Typography variant="body1">
