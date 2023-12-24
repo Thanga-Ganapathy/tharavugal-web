@@ -41,6 +41,13 @@ import kurals40 from './chapters/கல்வி';
 import kurals41 from './chapters/கல்லாமை';
 import kurals42 from './chapters/கேள்வி';
 import kurals43 from './chapters/அறிவுடைமை';
+import kurals44 from './chapters/குற்றம்கடிதல்';
+import kurals45 from './chapters/பெரியாரைத்-துணைக்கோடல்';
+import kurals46 from './chapters/சிற்றினஞ்-சேராமை';
+import kurals47 from './chapters/தெரிந்து-செயல்வகை';
+import kurals48 from './chapters/வலி-அறிதல்';
+import kurals49 from './chapters/காலம்-அறிதல்';
+import kurals50 from './chapters/இடன்-அறிதல்';
 
 export const thirukkural = {
   chapters: [
@@ -415,6 +422,83 @@ export const thirukkural = {
         },
       ],
       kurals: kurals43,
+    },
+    {
+      name: 'குற்றம்கடிதல்',
+      slug: 'குற்றம்கடிதல்',
+      translations: [
+        {
+          id: 'en',
+          text: 'The Correction of Faults',
+        },
+      ],
+      kurals: kurals44,
+    },
+    {
+      name: 'பெரியாரைத் துணைக்கோடல்',
+      slug: 'பெரியாரைத்-துணைக்கோடல்',
+      translations: [
+        {
+          id: 'en',
+          text: 'Seeking the Aid of Great Men',
+        },
+      ],
+      kurals: kurals45,
+    },
+    {
+      name: 'சிற்றினஞ் சேராமை',
+      slug: 'சிற்றினஞ்-சேராமை',
+      translations: [
+        {
+          id: 'en',
+          text: 'Avoiding mean Associations',
+        },
+      ],
+      kurals: kurals46,
+    },
+    {
+      name: 'தெரிந்து செயல்வகை',
+      slug: 'தெரிந்து-செயல்வகை',
+      translations: [
+        {
+          id: 'en',
+          text: 'Acting after due Consideration',
+        },
+      ],
+      kurals: kurals47,
+    },
+    {
+      name: 'வலி அறிதல்',
+      slug: 'வலி-அறிதல்',
+      translations: [
+        {
+          id: 'en',
+          text: 'The Knowledge of Power',
+        },
+      ],
+      kurals: kurals48,
+    },
+    {
+      name: 'காலம் அறிதல்',
+      slug: 'காலம்-அறிதல்',
+      translations: [
+        {
+          id: 'en',
+          text: 'Knowing the fitting Time',
+        },
+      ],
+      kurals: kurals49,
+    },
+    {
+      name: 'இடன் அறிதல்',
+      slug: 'இடன்-அறிதல்',
+      translations: [
+        {
+          id: 'en',
+          text: 'Knowing the Place',
+        },
+      ],
+      kurals: kurals50,
     },
   ],
 };
