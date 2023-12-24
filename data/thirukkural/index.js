@@ -33,6 +33,11 @@ import kurals32 from './chapters/இன்னா-செய்யாமை';
 import kurals33 from './chapters/கொல்லாமை';
 import kurals34 from './chapters/நிலையாமை';
 import kurals35 from './chapters/துறவு';
+import kurals36 from './chapters/மெய்யுணர்தல்';
+import kurals37 from './chapters/அவா-அறுத்தல்';
+import kurals38 from './chapters/ஊழ்';
+import kurals39 from './chapters/இறைமாட்சி';
+import kurals40 from './chapters/கல்வி';
 
 export const thirukkural = {
   chapters: [
@@ -319,6 +324,61 @@ export const thirukkural = {
         },
       ],
       kurals: kurals35,
+    },
+    {
+      name: 'மெய்யுணர்தல்',
+      slug: 'மெய்யுணர்தல்',
+      translations: [
+        {
+          id: 'en',
+          text: 'Knowledge of the True',
+        },
+      ],
+      kurals: kurals36,
+    },
+    {
+      name: 'அவா அறுத்தல்',
+      slug: 'அவா-அறுத்தல்',
+      translations: [
+        {
+          id: 'en',
+          text: 'The Extirpation of Desire',
+        },
+      ],
+      kurals: kurals37,
+    },
+    {
+      name: 'ஊழ்',
+      slug: 'ஊழ்',
+      translations: [
+        {
+          id: 'en',
+          text: 'Fate',
+        },
+      ],
+      kurals: kurals38,
+    },
+    {
+      name: 'இறைமாட்சி',
+      slug: 'இறைமாட்சி',
+      translations: [
+        {
+          id: 'en',
+          text: 'The Greatness of a King',
+        },
+      ],
+      kurals: kurals39,
+    },
+    {
+      name: 'கல்வி',
+      slug: 'கல்வி',
+      translations: [
+        {
+          id: 'en',
+          text: 'Learning',
+        },
+      ],
+      kurals: kurals40,
     },
   ],
 };
