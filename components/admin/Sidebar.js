@@ -26,6 +26,7 @@ export default function Sidebar() {
     { menu: 'Entities', path: '/admin/entities' },
     { menu: 'Food Ingredients', path: '/admin/food-ingredients' },
     { menu: 'Contribution Logs', path: '/admin/contribution-logs' },
+    { menu: 'Resources', path: '/admin/resources' },
   ];
 
   return (

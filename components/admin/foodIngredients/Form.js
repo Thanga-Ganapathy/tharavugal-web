@@ -10,7 +10,6 @@ import { countries } from '@/data/countries';
 import { foodIngredientsData } from '@/data/foodIngredients';
 import SwitchField from '@/components/forms/mui/SwitchField';
 import MultiSelectField from '@/components/forms/mui/MultiSelectField';
-import { Field } from '@opentf/react-form';
 import { useFieldArray } from '@opentf/react-form';
 
 const ItemsField = () => {

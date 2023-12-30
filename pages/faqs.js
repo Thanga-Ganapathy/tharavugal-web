@@ -33,8 +33,8 @@ export default function FAQs() {
           q="What is the meaning of `Tharavugal`?"
           a={
             <Box>
-              The <strong>Tharavugal</strong> is a <strong>Thamizhl (தமிழ்)</strong>{' '}
-              language word, which means <strong>Data</strong>.
+              <strong>Tharavugal</strong> is a Thamizhl (தமிழ்) language word,
+              and in simple terms, it means data.
             </Box>
           }
         />

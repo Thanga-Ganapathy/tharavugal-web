@@ -1,10 +1,11 @@
-import { TextField } from "@mui/material";
-import { useField } from "@opentf/react-form";
+import { TextField } from '@mui/material';
+import { useField } from '@opentf/react-form';
 
 export default function MUITextAreaField({ name, label, ...otherProps }) {
   const { field, error } = useField(name);
   return (
     <TextField
+      fullWidth
       size="small"
       multiline
       rows={2}

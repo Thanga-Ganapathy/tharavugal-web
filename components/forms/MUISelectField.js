@@ -17,8 +17,8 @@ export default function MUISelectField({ name, label, options, multiple }) {
         multiple={multiple}
       >
         {options.map((o, i) => (
-          <MenuItem key={i} value={o}>
-            {o}
+          <MenuItem key={i} value={typeof o === 'string' ? o : o.value}>
+            {typeof o === 'string' ? o : o.label}
           </MenuItem>
         ))}
       </Select>

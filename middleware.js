@@ -24,6 +24,8 @@ const routesConfig = {
     { path: '/api/food-ingredients', roles: [USER_ROLES.ADMIN] },
     { path: '/api/food-ingredients/.+', roles: [USER_ROLES.ADMIN] },
     { path: '/api/uploads', roles: [USER_ROLES.ADMIN] },
+    { path: '/api/admin/resources', roles: [USER_ROLES.ADMIN] },
+    { path: '/api/admin/resources/.+', roles: [USER_ROLES.ADMIN] },
   ],
 };
 
