@@ -1,7 +1,7 @@
 import { Box, Typography } from '@mui/material';
 import { useRouter } from 'next/router';
 
-export default function StatsBox({ name, count, href }) {
+export default function StatsBox({ name, count = 0, href }) {
   const router = useRouter();
 
   return (

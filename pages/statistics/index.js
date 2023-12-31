@@ -1,10 +1,25 @@
 import Layout from '@/components/layouts/DefaultLayout';
 import StatsBox from '@/components/stats/StatsBox';
 import { connect } from '@/utils/db';
-import { Alert, Box, Paper, Typography } from '@mui/material';
-import Link from 'next/link';
+import { Box, Paper, Typography } from '@mui/material';
 
 export default function Statistics({ data }) {
+  const imagesCount = data.statsRecords.find(
+    (r) => r.groupName === 'Resources' && r.name === 'Image'
+  )?.value;
+  const videosCount = data.statsRecords.find(
+    (r) => r.groupName === 'Resources' && r.name === 'Video'
+  )?.value;
+  const audiosCount = data.statsRecords.find(
+    (r) => r.groupName === 'Resources' && r.name === 'Audio'
+  )?.value;
+  const docsCount = data.statsRecords.find(
+    (r) => r.groupName === 'Resources' && r.name === 'Document'
+  )?.value;
+  const booksCount = data.statsRecords.find(
+    (r) => r.groupName === 'Resources' && r.name === 'Book'
+  )?.value;
+
   return (
     <Layout title="Statistics">
       <Box textAlign="center">
@@ -24,10 +39,11 @@ export default function Statistics({ data }) {
             href="/statistics/locations"
           />
           <StatsBox name="Contributions" count={data.totalContLogs} />
-          <StatsBox name="Images" count={0} />
-          <StatsBox name="Videos" count={0} />
-          <StatsBox name="Documents" count={0} />
-          <StatsBox name="Books" count={0} />
+          <StatsBox name="Images" count={imagesCount} />
+          <StatsBox name="Videos" count={videosCount} />
+          <StatsBox name="Audios" count={audiosCount} />
+          <StatsBox name="Documents" count={docsCount} />
+          <StatsBox name="Books" count={booksCount} />
           <StatsBox name="Entities" count={0} />
           <StatsBox name="Open Issues" count={0} />
         </Box>
@@ -46,6 +62,10 @@ export async function getServerSideProps(context) {
   const totalLocations = await loctaionsCol.estimatedDocumentCount();
   const contLogsCol = db.collection('contribution-logs');
   const totalContLogs = await contLogsCol.estimatedDocumentCount();
+  const statsCol = db.collection('statistics');
+  const statsRecords = await statsCol
+    .find({}, { projection: { _id: 0 } })
+    .toArray();
   return {
     props: {
       data: {
@@ -53,6 +73,7 @@ export async function getServerSideProps(context) {
         totalTags,
         totalLocations,
         totalContLogs,
+        statsRecords,
       },
     },
   };

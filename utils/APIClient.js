@@ -11,7 +11,8 @@ export default class APIClient {
       const error = new Error(res.statusText);
       error.status = res.status;
       if (res.status === 401) {
-        localStorage.clear();
+        window.sessionStorage.clear();
+        localStorage.removeItem('user');
         window.location = '/';
       }
       throw error;
@@ -39,7 +40,8 @@ export default class APIClient {
   }
 
   static async delete(url, data, headers = {}) {
-    const response = await fetch(url + `?id=${data.id}`, {
+    const searchParams = new URLSearchParams(data);
+    const response = await fetch(url + `?${searchParams.toString()}`, {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json',

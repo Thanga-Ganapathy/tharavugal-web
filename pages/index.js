@@ -6,15 +6,15 @@ import Events from '@/components/Events';
 import { connect } from '@/utils/db';
 
 import styles from './index.module.css';
-import SearchForm from '@/components/SearchForm';
-import Tools from '@/components/tools';
-import Resources from '@/components/Resources';
+import SearchForm from '@/components/home/SearchForm';
+import Tools from '@/components/home/tools';
+import Resources from '@/components/home/Resources';
 import FeaturedVisualizations from '@/components/home/FeaturedVisualizations';
-import RecentDiscussions from '@/components/RecentDiscussions';
-import RecentEntities from '@/components/RecentEntities';
-import Links from '@/components/Links';
+import RecentDiscussions from '@/components/home/RecentDiscussions';
+import RecentEntities from '@/components/home/RecentEntities';
+import Links from '@/components/home/Links';
 import Stats from '@/components/home/Stats';
-import ThamizhlTools from '@/components/ThamizhlTools';
+import ThamizhlTools from '@/components/home/ThamizhlTools';
 
 export default function Home({ data }) {
   const router = useRouter();

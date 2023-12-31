@@ -4,6 +4,7 @@ import ImageOutlinedIcon from '@mui/icons-material/ImageOutlined';
 import VideoCameraBackOutlinedIcon from '@mui/icons-material/VideoCameraBackOutlined';
 import ArticleOutlinedIcon from '@mui/icons-material/ArticleOutlined';
 import LibraryBooksOutlinedIcon from '@mui/icons-material/LibraryBooksOutlined';
+import AudioFileOutlinedIcon from '@mui/icons-material/AudioFileOutlined';
 import { useRouter } from 'next/router';
 
 function Resource({ name, icon: Icon, path }) {
@@ -52,18 +53,31 @@ export default function Resources() {
       </Typography>
       <Divider sx={{ borderColor: 'darkgray' }} />
       <Box mt={1} sx={{ mt: 1, display: 'flex', flexWrap: 'wrap' }}>
-        <Resource name="IMAGES" icon={ImageOutlinedIcon} path="/images" />
+        <Resource
+          name="IMAGES"
+          icon={ImageOutlinedIcon}
+          path="/resources/images"
+        />
         <Resource
           name="VIDEOS"
           icon={VideoCameraBackOutlinedIcon}
-          path="/videos"
+          path="/resources/videos"
+        />
+        <Resource
+          name="AUDIOS"
+          icon={AudioFileOutlinedIcon}
+          path="/resources/audios"
         />
         <Resource
           name="DOCUMENTS"
           icon={ArticleOutlinedIcon}
-          path="/documents"
+          path="/resources/documents"
         />
-        <Resource name="BOOKS" icon={LibraryBooksOutlinedIcon} path="/books" />
+        <Resource
+          name="BOOKS"
+          icon={LibraryBooksOutlinedIcon}
+          path="/resources/books"
+        />
       </Box>
     </Box>
   );

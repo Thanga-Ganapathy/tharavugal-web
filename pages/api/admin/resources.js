@@ -1,3 +1,4 @@
+import { RESOUCE_TYPES } from '@/constants';
 import { connect } from '@/utils/db';
 
 export default async function handler(req, res) {
@@ -20,6 +21,16 @@ export default async function handler(req, res) {
         createdAt: new Date(),
         updatedAt: new Date(),
       });
+
+      const statsCol = db.collection('statistics');
+      await statsCol.updateOne(
+        {
+          groupName: 'Resources',
+          name: RESOUCE_TYPES[req.body.type],
+        },
+        { $inc: { value: 1 } },
+        { upsert: true }
+      );
 
       if (result.insertedId) {
         output = res.status(200).json({ message: 'Create Success!' });
@@ -47,10 +58,18 @@ export default async function handler(req, res) {
       if (resource.file || resource.thumb) {
         return res.status(422).json({ message: 'Delete Failed!' });
       }
-      
+
       const delResult = await collection.deleteOne({ id: req.query.id });
 
       if (delResult.deletedCount) {
+        const statsCol = db.collection('statistics');
+        await statsCol.updateOne(
+          {
+            groupName: 'Resources',
+            name: RESOUCE_TYPES[resource.type],
+          },
+          { $inc: { value: -1 } }
+        );
         output = res.status(200).json({ message: 'Deleted!' });
         break;
       }
