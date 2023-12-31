@@ -48,7 +48,13 @@ export default function Resource({ domain, data }) {
         open={open}
         onClose={() => setOpen(false)}
       >
-        <Box sx={{ display: 'grid', gridTemplateColumns: '75fr 10px 25fr' }}>
+        <Box
+          sx={{
+            display: { xs: 'flex', sm: 'flex', md: 'grid' },
+            gridTemplateColumns: { md: '75fr 10px 25fr' },
+            flexDirection: { xs: 'column', sm: 'column' },
+          }}
+        >
           <Box sx={{ p: 1 }}>
             {data.publicAccess && (
               <ProgressiveImg

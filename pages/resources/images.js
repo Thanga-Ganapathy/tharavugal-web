@@ -55,7 +55,8 @@ export async function getServerSideProps(context) {
         },
       }
     )
-    .sort({ updatedAt: -1 });
+    .sort({ updatedAt: -1 })
+    .limit(10);
 
   const images = JSON.parse(JSON.stringify(await cursor.toArray()));
   return {
