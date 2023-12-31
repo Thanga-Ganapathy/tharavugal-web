@@ -25,7 +25,8 @@ export default function New({ onClose }) {
       initialValues={{
         id: uuid(),
         type: '',
-        file: '',
+        file: null,
+        thumb: null,
         name: '',
         desc: '',
         publicAccess: false,

@@ -42,6 +42,12 @@ export default async function handler(req, res) {
       break;
 
     case 'DELETE':
+      const resource = await collection.findOne({ id: req.query.id });
+
+      if (resource.file || resource.thumb) {
+        return res.status(422).json({ message: 'Delete Failed!' });
+      }
+      
       const delResult = await collection.deleteOne({ id: req.query.id });
 
       if (delResult.deletedCount) {

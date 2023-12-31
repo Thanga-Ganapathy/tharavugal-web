@@ -92,8 +92,8 @@ export const contributionLogsSchema = z.object({
 export const resourcesSchema = z.object({
   id: z.string().uuid(),
   type: z.number().min(0, '*Required').max(6, 'Invalid value'),
-  file: z.object({ loc: z.string(), size: z.number() }),
-  thumb: z.object({ loc: z.string(), size: z.number() }).optional(),
+  file: z.object({ loc: z.string(), size: z.number() }).nullable(),
+  thumb: z.object({ loc: z.string(), size: z.number() }).optional().nullable(),
   name: z.string().min(1, '*Required'),
   desc: z.string().optional(),
   publicAccess: z.boolean(),

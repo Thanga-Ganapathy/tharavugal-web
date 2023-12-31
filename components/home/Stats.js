@@ -1,6 +1,7 @@
 import { Box, Divider, Typography } from '@mui/material';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import Link from 'next/link';
+import KeyboardDoubleArrowRightIcon from '@mui/icons-material/KeyboardDoubleArrowRight';
 import StatsBox from '../stats/StatsBox';
 
 export default function Stats({ data }) {
@@ -21,8 +22,12 @@ export default function Stats({ data }) {
         />
       </Box>
 
-      <Box sx={{ m: 1, textAlign: 'right' }}>
-        <Link href="/statistics">View All</Link>
+      <Box
+        component={Link}
+        href="/statistics"
+        sx={{ display: 'flex', justifyContent: 'right' }}
+      >
+        View All <KeyboardDoubleArrowRightIcon />{' '}
       </Box>
     </Box>
   );

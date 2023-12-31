@@ -10,7 +10,8 @@ import styles from '../../pages/index.module.css';
 import AppDrawer from './AppDrawer';
 
 function logout() {
-  localStorage.clear();
+  window.sessionStorage.clear();
+  localStorage.removeItem('user');
   window.location = '/';
 }
 

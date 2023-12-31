@@ -23,6 +23,15 @@ export default function UploadField({
     done: false,
   });
 
+  const handleDelete = async () => {
+    if (window.confirm('Delete?')) {
+      const key =
+        typeof field.value === 'string' ? field.value : field.value.loc;
+      const res = await APIClient.delete('/api/uploads', { id: key });
+      field.onChange(null);
+    }
+  };
+
   const handleChange = async (e) => {
     setState({ ...state, file: e.target.files[0] });
   };
@@ -126,7 +135,12 @@ export default function UploadField({
           ✔️ {typeof field.value === 'string' ? field.value : field.value.loc}
         </Box>
         <Box>
-          <Button variant="outlined" color="error" size="small">
+          <Button
+            variant="outlined"
+            color="error"
+            size="small"
+            onClick={handleDelete}
+          >
             Remove
           </Button>
         </Box>
