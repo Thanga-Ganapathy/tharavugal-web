@@ -53,6 +53,11 @@ import kurals52 from './chapters/தெரிந்து-விளையாட�
 import kurals53 from './chapters/சுற்றந்-தழால்';
 import kurals54 from './chapters/பொச்சாவாமை';
 import kurals55 from './chapters/செங்கோன்மை';
+import kurals56 from './chapters/கொடுங்கோன்மை';
+import kurals57 from './chapters/வெருவந்த-செய்யாமை';
+import kurals58 from './chapters/கண்ணோட்டம்';
+import kurals59 from './chapters/ஒற்றாடல்';
+import kurals60 from './chapters/ஊக்கம்-உடைமை';
 
 export const thirukkural = {
   chapters: [
@@ -559,6 +564,61 @@ export const thirukkural = {
         },
       ],
       kurals: kurals55,
+    },
+    {
+      name: 'கொடுங்கோன்மை',
+      slug: 'கொடுங்கோன்மை',
+      translations: [
+        {
+          id: 'en',
+          text: "The Cruel Sceptre"
+        },
+      ],
+      kurals: kurals56,
+    },
+    {
+      name: 'வெருவந்த செய்யாமை',
+      slug: 'வெருவந்த-செய்யாமை',
+      translations: [
+        {
+          id: 'en',
+          text: "Absence of 'Terrorism"
+        },
+      ],
+      kurals: kurals57,
+    },
+    {
+      name: 'கண்ணோட்டம்',
+      slug: 'கண்ணோட்டம்',
+      translations: [
+        {
+          id: 'en',
+          text: "Benignity"
+        },
+      ],
+      kurals: kurals58,
+    },
+    {
+      name: 'ஒற்றாடல்',
+      slug: 'ஒற்றாடல்',
+      translations: [
+        {
+          id: 'en',
+          text: "Detectives"
+        },
+      ],
+      kurals: kurals59,
+    },
+    {
+      name: 'ஊக்கம் உடைமை',
+      slug: 'ஊக்கம்-உடைமை',
+      translations: [
+        {
+          id: 'en',
+          text: "Energy"
+        },
+      ],
+      kurals: kurals60,
     },
   ],
 };
