@@ -48,6 +48,11 @@ import kurals47 from './chapters/தெரிந்து-செயல்வக�
 import kurals48 from './chapters/வலி-அறிதல்';
 import kurals49 from './chapters/காலம்-அறிதல்';
 import kurals50 from './chapters/இடன்-அறிதல்';
+import kurals51 from './chapters/தெரிந்து-தெளிதல்';
+import kurals52 from './chapters/தெரிந்து-விளையாடல்';
+import kurals53 from './chapters/சுற்றந்-தழால்';
+import kurals54 from './chapters/பொச்சாவாமை';
+import kurals55 from './chapters/செங்கோன்மை';
 
 export const thirukkural = {
   chapters: [
@@ -499,6 +504,61 @@ export const thirukkural = {
         },
       ],
       kurals: kurals50,
+    },
+    {
+      name: 'தெரிந்து தெளிதல்',
+      slug: 'தெரிந்து-தெளிதல்',
+      translations: [
+        {
+          id: 'en',
+          text: 'Selection and Confidence',
+        },
+      ],
+      kurals: kurals51,
+    },
+    {
+      name: 'தெரிந்து விளையாடல்',
+      slug: 'தெரிந்து-விளையாடல்',
+      translations: [
+        {
+          id: 'en',
+          text: 'Selection and Employment',
+        },
+      ],
+      kurals: kurals52,
+    },
+    {
+      name: 'சுற்றந் தழால்',
+      slug: 'சுற்றந்-தழால்',
+      translations: [
+        {
+          id: 'en',
+          text: "Cherishing one's Kindred"
+        },
+      ],
+      kurals: kurals53,
+    },
+    {
+      name: 'பொச்சாவாமை',
+      slug: 'பொச்சாவாமை',
+      translations: [
+        {
+          id: 'en',
+          text: "Unforgetfulness"
+        },
+      ],
+      kurals: kurals54,
+    },
+    {
+      name: 'செங்கோன்மை',
+      slug: 'செங்கோன்மை',
+      translations: [
+        {
+          id: 'en',
+          text: "The Right Sceptre"
+        },
+      ],
+      kurals: kurals55,
     },
   ],
 };
