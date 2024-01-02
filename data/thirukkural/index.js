@@ -73,6 +73,11 @@ import kurals72 from './chapters/அவை-அறிதல்';
 import kurals73 from './chapters/அவை-அஞ்சாமை';
 import kurals74 from './chapters/நாடு';
 import kurals75 from './chapters/அரண்';
+import kurals76 from './chapters/பொருள்-செயல்வகை';
+import kurals77 from './chapters/படைமாட்சி';
+import kurals78 from './chapters/படைச்செருக்கு';
+import kurals79 from './chapters/நட்பு';
+import kurals80 from './chapters/நட்பாராய்தல்';
 
 export const thirukkural = {
   chapters: [
@@ -553,7 +558,7 @@ export const thirukkural = {
       translations: [
         {
           id: 'en',
-          text: "Cherishing one's Kindred"
+          text: "Cherishing one's Kindred",
         },
       ],
       kurals: kurals53,
@@ -564,7 +569,7 @@ export const thirukkural = {
       translations: [
         {
           id: 'en',
-          text: "Unforgetfulness"
+          text: 'Unforgetfulness',
         },
       ],
       kurals: kurals54,
@@ -575,7 +580,7 @@ export const thirukkural = {
       translations: [
         {
           id: 'en',
-          text: "The Right Sceptre"
+          text: 'The Right Sceptre',
         },
       ],
       kurals: kurals55,
@@ -586,7 +591,7 @@ export const thirukkural = {
       translations: [
         {
           id: 'en',
-          text: "The Cruel Sceptre"
+          text: 'The Cruel Sceptre',
         },
       ],
       kurals: kurals56,
@@ -597,7 +602,7 @@ export const thirukkural = {
       translations: [
         {
           id: 'en',
-          text: "Absence of 'Terrorism"
+          text: "Absence of 'Terrorism",
         },
       ],
       kurals: kurals57,
@@ -608,7 +613,7 @@ export const thirukkural = {
       translations: [
         {
           id: 'en',
-          text: "Benignity"
+          text: 'Benignity',
         },
       ],
       kurals: kurals58,
@@ -619,7 +624,7 @@ export const thirukkural = {
       translations: [
         {
           id: 'en',
-          text: "Detectives"
+          text: 'Detectives',
         },
       ],
       kurals: kurals59,
@@ -630,7 +635,7 @@ export const thirukkural = {
       translations: [
         {
           id: 'en',
-          text: "Energy"
+          text: 'Energy',
         },
       ],
       kurals: kurals60,
@@ -641,7 +646,7 @@ export const thirukkural = {
       translations: [
         {
           id: 'en',
-          text: "Unsluggishness"
+          text: 'Unsluggishness',
         },
       ],
       kurals: kurals61,
@@ -652,7 +657,7 @@ export const thirukkural = {
       translations: [
         {
           id: 'en',
-          text: "Manly Effort"
+          text: 'Manly Effort',
         },
       ],
       kurals: kurals62,
@@ -663,7 +668,7 @@ export const thirukkural = {
       translations: [
         {
           id: 'en',
-          text: "Hopefulness in Trouble"
+          text: 'Hopefulness in Trouble',
         },
       ],
       kurals: kurals63,
@@ -674,7 +679,7 @@ export const thirukkural = {
       translations: [
         {
           id: 'en',
-          text: "The Office of Minister of State"
+          text: 'The Office of Minister of State',
         },
       ],
       kurals: kurals64,
@@ -685,7 +690,7 @@ export const thirukkural = {
       translations: [
         {
           id: 'en',
-          text: "Power in Speech"
+          text: 'Power in Speech',
         },
       ],
       kurals: kurals65,
@@ -696,7 +701,7 @@ export const thirukkural = {
       translations: [
         {
           id: 'en',
-          text: "Purity in Action"
+          text: 'Purity in Action',
         },
       ],
       kurals: kurals66,
@@ -707,7 +712,7 @@ export const thirukkural = {
       translations: [
         {
           id: 'en',
-          text: "Power in Action"
+          text: 'Power in Action',
         },
       ],
       kurals: kurals67,
@@ -718,7 +723,7 @@ export const thirukkural = {
       translations: [
         {
           id: 'en',
-          text: "The Method of Acting"
+          text: 'The Method of Acting',
         },
       ],
       kurals: kurals68,
@@ -729,7 +734,7 @@ export const thirukkural = {
       translations: [
         {
           id: 'en',
-          text: "The Envoy"
+          text: 'The Envoy',
         },
       ],
       kurals: kurals69,
@@ -740,7 +745,7 @@ export const thirukkural = {
       translations: [
         {
           id: 'en',
-          text: "Conduct in the Presence of the King"
+          text: 'Conduct in the Presence of the King',
         },
       ],
       kurals: kurals70,
@@ -751,7 +756,7 @@ export const thirukkural = {
       translations: [
         {
           id: 'en',
-          text: "The Knowledge of Indications"
+          text: 'The Knowledge of Indications',
         },
       ],
       kurals: kurals71,
@@ -762,7 +767,7 @@ export const thirukkural = {
       translations: [
         {
           id: 'en',
-          text: "The Knowledge of the Council Chamber"
+          text: 'The Knowledge of the Council Chamber',
         },
       ],
       kurals: kurals72,
@@ -773,7 +778,7 @@ export const thirukkural = {
       translations: [
         {
           id: 'en',
-          text: "Not to dread the Council"
+          text: 'Not to dread the Council',
         },
       ],
       kurals: kurals73,
@@ -784,7 +789,7 @@ export const thirukkural = {
       translations: [
         {
           id: 'en',
-          text: "The Land"
+          text: 'The Land',
         },
       ],
       kurals: kurals74,
@@ -795,10 +800,65 @@ export const thirukkural = {
       translations: [
         {
           id: 'en',
-          text: "The Fortification"
+          text: 'The Fortification',
         },
       ],
       kurals: kurals75,
+    },
+    {
+      name: 'பொருள் செயல்வகை',
+      slug: 'பொருள்-செயல்வகை',
+      translations: [
+        {
+          id: 'en',
+          text: 'Way of Accumulating Wealth',
+        },
+      ],
+      kurals: kurals76,
+    },
+    {
+      name: 'படைமாட்சி',
+      slug: 'படைமாட்சி',
+      translations: [
+        {
+          id: 'en',
+          text: 'The Excellence of an Army',
+        },
+      ],
+      kurals: kurals77,
+    },
+    {
+      name: 'படைச்செருக்கு',
+      slug: 'படைச்செருக்கு',
+      translations: [
+        {
+          id: 'en',
+          text: 'Military Spirit',
+        },
+      ],
+      kurals: kurals78,
+    },
+    {
+      name: 'நட்பு',
+      slug: 'நட்பு',
+      translations: [
+        {
+          id: 'en',
+          text: 'Friendship',
+        },
+      ],
+      kurals: kurals79,
+    },
+    {
+      name: 'நட்பாராய்தல்',
+      slug: 'நட்பாராய்தல்',
+      translations: [
+        {
+          id: 'en',
+          text: 'Investigation in forming Friendship',
+        },
+      ],
+      kurals: kurals80,
     },
   ],
 };
