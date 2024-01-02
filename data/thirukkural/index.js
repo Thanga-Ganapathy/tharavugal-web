@@ -63,6 +63,11 @@ import kurals62 from './chapters/ஆள்வினையுடைமை';
 import kurals63 from './chapters/இடுக்கண்-அழியாமை';
 import kurals64 from './chapters/அமைச்சு';
 import kurals65 from './chapters/சொல்-வன்மை';
+import kurals66 from './chapters/வினைத்-தூய்மை';
+import kurals67 from './chapters/வினைத்-திட்பம்';
+import kurals68 from './chapters/வினை-செயல்-வகை';
+import kurals69 from './chapters/தூது';
+import kurals70 from './chapters/மன்னரைச்-சேர்ந்து-ஒழுகல்';
 
 export const thirukkural = {
   chapters: [
@@ -679,6 +684,61 @@ export const thirukkural = {
         },
       ],
       kurals: kurals65,
+    },
+    {
+      name: 'வினைத் தூய்மை',
+      slug: 'வினைத்-தூய்மை',
+      translations: [
+        {
+          id: 'en',
+          text: "Purity in Action"
+        },
+      ],
+      kurals: kurals66,
+    },
+    {
+      name: 'வினைத் திட்பம்',
+      slug: 'வினைத்-திட்பம்',
+      translations: [
+        {
+          id: 'en',
+          text: "Power in Action"
+        },
+      ],
+      kurals: kurals67,
+    },
+    {
+      name: 'வினை செயல் வகை',
+      slug: 'வினை-செயல்-வகை',
+      translations: [
+        {
+          id: 'en',
+          text: "The Method of Acting"
+        },
+      ],
+      kurals: kurals68,
+    },
+    {
+      name: 'தூது',
+      slug: 'தூது',
+      translations: [
+        {
+          id: 'en',
+          text: "The Envoy"
+        },
+      ],
+      kurals: kurals69,
+    },
+    {
+      name: 'மன்னரைச் சேர்ந்து ஒழுகல்',
+      slug: 'மன்னரைச்-சேர்ந்து-ஒழுகல்',
+      translations: [
+        {
+          id: 'en',
+          text: "Conduct in the Presence of the King"
+        },
+      ],
+      kurals: kurals70,
     },
   ],
 };
