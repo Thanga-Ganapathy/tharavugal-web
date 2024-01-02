@@ -58,6 +58,11 @@ import kurals57 from './chapters/வெருவந்த-செய்யாம�
 import kurals58 from './chapters/கண்ணோட்டம்';
 import kurals59 from './chapters/ஒற்றாடல்';
 import kurals60 from './chapters/ஊக்கம்-உடைமை';
+import kurals61 from './chapters/மடி-இன்மை';
+import kurals62 from './chapters/ஆள்வினையுடைமை';
+import kurals63 from './chapters/இடுக்கண்-அழியாமை';
+import kurals64 from './chapters/அமைச்சு';
+import kurals65 from './chapters/சொல்-வன்மை';
 
 export const thirukkural = {
   chapters: [
@@ -619,6 +624,61 @@ export const thirukkural = {
         },
       ],
       kurals: kurals60,
+    },
+    {
+      name: 'மடி இன்மை',
+      slug: 'மடி-இன்மை',
+      translations: [
+        {
+          id: 'en',
+          text: "Unsluggishness"
+        },
+      ],
+      kurals: kurals61,
+    },
+    {
+      name: 'ஆள்வினையுடைமை',
+      slug: 'ஆள்வினையுடைமை',
+      translations: [
+        {
+          id: 'en',
+          text: "Manly Effort"
+        },
+      ],
+      kurals: kurals62,
+    },
+    {
+      name: 'இடுக்கண் அழியாமை',
+      slug: 'இடுக்கண்-அழியாமை',
+      translations: [
+        {
+          id: 'en',
+          text: "Hopefulness in Trouble"
+        },
+      ],
+      kurals: kurals63,
+    },
+    {
+      name: 'அமைச்சு',
+      slug: 'அமைச்சு',
+      translations: [
+        {
+          id: 'en',
+          text: "The Office of Minister of State"
+        },
+      ],
+      kurals: kurals64,
+    },
+    {
+      name: 'சொல் வன்மை',
+      slug: 'சொல்-வன்மை',
+      translations: [
+        {
+          id: 'en',
+          text: "Power in Speech"
+        },
+      ],
+      kurals: kurals65,
     },
   ],
 };
