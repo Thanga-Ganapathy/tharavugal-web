@@ -68,6 +68,11 @@ import kurals67 from './chapters/வினைத்-திட்பம்';
 import kurals68 from './chapters/வினை-செயல்-வகை';
 import kurals69 from './chapters/தூது';
 import kurals70 from './chapters/மன்னரைச்-சேர்ந்து-ஒழுகல்';
+import kurals71 from './chapters/குறிப்பறிதல்';
+import kurals72 from './chapters/அவை-அறிதல்';
+import kurals73 from './chapters/அவை-அஞ்சாமை';
+import kurals74 from './chapters/நாடு';
+import kurals75 from './chapters/அரண்';
 
 export const thirukkural = {
   chapters: [
@@ -739,6 +744,61 @@ export const thirukkural = {
         },
       ],
       kurals: kurals70,
+    },
+    {
+      name: 'குறிப்பறிதல்',
+      slug: 'குறிப்பறிதல்',
+      translations: [
+        {
+          id: 'en',
+          text: "The Knowledge of Indications"
+        },
+      ],
+      kurals: kurals71,
+    },
+    {
+      name: 'அவை அறிதல்',
+      slug: 'அவை-அறிதல்',
+      translations: [
+        {
+          id: 'en',
+          text: "The Knowledge of the Council Chamber"
+        },
+      ],
+      kurals: kurals72,
+    },
+    {
+      name: 'அவை அஞ்சாமை',
+      slug: 'அவை-அஞ்சாமை',
+      translations: [
+        {
+          id: 'en',
+          text: "Not to dread the Council"
+        },
+      ],
+      kurals: kurals73,
+    },
+    {
+      name: 'நாடு',
+      slug: 'நாடு',
+      translations: [
+        {
+          id: 'en',
+          text: "The Land"
+        },
+      ],
+      kurals: kurals74,
+    },
+    {
+      name: 'அரண்',
+      slug: 'அரண்',
+      translations: [
+        {
+          id: 'en',
+          text: "The Fortification"
+        },
+      ],
+      kurals: kurals75,
     },
   ],
 };
