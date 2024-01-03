@@ -83,6 +83,11 @@ import kurals82 from './chapters/தீ-நட்பு';
 import kurals83 from './chapters/கூடா-நட்பு';
 import kurals84 from './chapters/பேதைமை';
 import kurals85 from './chapters/புல்லறிவாண்மை';
+import kurals86 from './chapters/இகல்';
+import kurals87 from './chapters/பகை-மாட்சி';
+import kurals88 from './chapters/பகைத்திறம்-தெரிதல்';
+import kurals89 from './chapters/உட்பகை';
+import kurals90 from './chapters/பெரியாரைப்-பிழையாமை';
 
 export const thirukkural = {
   chapters: [
@@ -919,6 +924,61 @@ export const thirukkural = {
         },
       ],
       kurals: kurals85,
+    },
+    {
+      name: 'இகல்',
+      slug: 'இகல்',
+      translations: [
+        {
+          id: 'en',
+          text: 'Hostility',
+        },
+      ],
+      kurals: kurals86,
+    },
+    {
+      name: 'பகை மாட்சி',
+      slug: 'பகை-மாட்சி',
+      translations: [
+        {
+          id: 'en',
+          text: 'The Might of Hatred',
+        },
+      ],
+      kurals: kurals87,
+    },
+    {
+      name: 'பகைத்திறம் தெரிதல்',
+      slug: 'பகைத்திறம்-தெரிதல்',
+      translations: [
+        {
+          id: 'en',
+          text: 'Knowing the Quality of Hate',
+        },
+      ],
+      kurals: kurals88,
+    },
+    {
+      name: 'உட்பகை',
+      slug: 'உட்பகை',
+      translations: [
+        {
+          id: 'en',
+          text: 'Enmity Within',
+        },
+      ],
+      kurals: kurals89,
+    },
+    {
+      name: 'பெரியாரைப் பிழையாமை',
+      slug: 'பெரியாரைப்-பிழையாமை',
+      translations: [
+        {
+          id: 'en',
+          text: 'Not Offending the Great',
+        },
+      ],
+      kurals: kurals90,
     },
   ],
 };
