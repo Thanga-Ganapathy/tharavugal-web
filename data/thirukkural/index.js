@@ -78,6 +78,11 @@ import kurals77 from './chapters/படைமாட்சி';
 import kurals78 from './chapters/படைச்செருக்கு';
 import kurals79 from './chapters/நட்பு';
 import kurals80 from './chapters/நட்பாராய்தல்';
+import kurals81 from './chapters/பழைமை';
+import kurals82 from './chapters/தீ-நட்பு';
+import kurals83 from './chapters/கூடா-நட்பு';
+import kurals84 from './chapters/பேதைமை';
+import kurals85 from './chapters/புல்லறிவாண்மை';
 
 export const thirukkural = {
   chapters: [
@@ -859,6 +864,61 @@ export const thirukkural = {
         },
       ],
       kurals: kurals80,
+    },
+    {
+      name: 'பழைமை',
+      slug: 'பழைமை',
+      translations: [
+        {
+          id: 'en',
+          text: 'Familiarity',
+        },
+      ],
+      kurals: kurals81,
+    },
+    {
+      name: 'தீ நட்பு',
+      slug: 'தீ-நட்பு',
+      translations: [
+        {
+          id: 'en',
+          text: 'Evil Friendship',
+        },
+      ],
+      kurals: kurals82,
+    },
+    {
+      name: 'கூடா நட்பு',
+      slug: 'கூடா-நட்பு',
+      translations: [
+        {
+          id: 'en',
+          text: 'Unreal Friendship',
+        },
+      ],
+      kurals: kurals83,
+    },
+    {
+      name: 'பேதைமை',
+      slug: 'பேதைமை',
+      translations: [
+        {
+          id: 'en',
+          text: 'Folly',
+        },
+      ],
+      kurals: kurals84,
+    },
+    {
+      name: 'புல்லறிவாண்மை',
+      slug: 'புல்லறிவாண்மை',
+      translations: [
+        {
+          id: 'en',
+          text: 'Ignorance',
+        },
+      ],
+      kurals: kurals85,
     },
   ],
 };
