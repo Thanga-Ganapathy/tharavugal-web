@@ -88,6 +88,16 @@ import kurals87 from './chapters/பகை-மாட்சி';
 import kurals88 from './chapters/பகைத்திறம்-தெரிதல்';
 import kurals89 from './chapters/உட்பகை';
 import kurals90 from './chapters/பெரியாரைப்-பிழையாமை';
+import kurals91 from './chapters/பெண்வழிச்-சேறல்';
+import kurals92 from './chapters/வரைவின்-மகளிர்';
+import kurals93 from './chapters/கள்ளுண்ணாமை';
+import kurals94 from './chapters/சூது';
+import kurals95 from './chapters/மருந்து';
+import kurals96 from './chapters/குடிமை';
+import kurals97 from './chapters/மானம்';
+import kurals98 from './chapters/பெருமை';
+import kurals99 from './chapters/சான்றாண்மை';
+import kurals100 from './chapters/பண்புடைமை';
 
 export const thirukkural = {
   chapters: [
@@ -979,6 +989,116 @@ export const thirukkural = {
         },
       ],
       kurals: kurals90,
+    },
+    {
+      name: 'பெண்வழிச் சேறல்',
+      slug: 'பெண்வழிச்-சேறல்',
+      translations: [
+        {
+          id: 'en',
+          text: 'Being led by Women',
+        },
+      ],
+      kurals: kurals91,
+    },
+    {
+      name: 'வரைவின் மகளிர்',
+      slug: 'வரைவின்-மகளிர்',
+      translations: [
+        {
+          id: 'en',
+          text: 'Wanton Women',
+        },
+      ],
+      kurals: kurals92,
+    },
+    {
+      name: 'கள்ளுண்ணாமை',
+      slug: 'கள்ளுண்ணாமை',
+      translations: [
+        {
+          id: 'en',
+          text: 'Not Drinking Palm Wine',
+        },
+      ],
+      kurals: kurals93,
+    },
+    {
+      name: 'சூது',
+      slug: 'சூது',
+      translations: [
+        {
+          id: 'en',
+          text: 'Gambling',
+        },
+      ],
+      kurals: kurals94,
+    },
+    {
+      name: 'மருந்து',
+      slug: 'மருந்து',
+      translations: [
+        {
+          id: 'en',
+          text: 'Medicine',
+        },
+      ],
+      kurals: kurals95,
+    },
+    {
+      name: 'குடிமை',
+      slug: 'குடிமை',
+      translations: [
+        {
+          id: 'en',
+          text: 'Nobility',
+        },
+      ],
+      kurals: kurals96,
+    },
+    {
+      name: 'மானம்',
+      slug: 'மானம்',
+      translations: [
+        {
+          id: 'en',
+          text: 'Honour',
+        },
+      ],
+      kurals: kurals97,
+    },
+    {
+      name: 'பெருமை',
+      slug: 'பெருமை',
+      translations: [
+        {
+          id: 'en',
+          text: 'Greatness',
+        },
+      ],
+      kurals: kurals98,
+    },
+    {
+      name: 'சான்றாண்மை',
+      slug: 'சான்றாண்மை',
+      translations: [
+        {
+          id: 'en',
+          text: 'Perfectness',
+        },
+      ],
+      kurals: kurals99,
+    },
+    {
+      name: 'பண்புடைமை',
+      slug: 'பண்புடைமை',
+      translations: [
+        {
+          id: 'en',
+          text: 'Courtesy',
+        },
+      ],
+      kurals: kurals100,
     },
   ],
 };
