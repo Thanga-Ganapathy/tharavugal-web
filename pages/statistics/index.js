@@ -19,6 +19,9 @@ export default function Statistics({ data }) {
   const booksCount = data.statsRecords.find(
     (r) => r.groupName === 'Resources' && r.name === 'Book'
   )?.value;
+  const thamizhlDictCount = data.statsRecords.find(
+    (r) => r.groupName === 'Thamizhl Dictionary' && r.name === 'Default'
+  )?.value;
 
   return (
     <Layout title="Statistics">
@@ -46,6 +49,10 @@ export default function Statistics({ data }) {
           <StatsBox name="Books" count={booksCount} />
           <StatsBox name="Entities" count={0} />
           <StatsBox name="Open Issues" count={0} />
+          <StatsBox
+            name="Thamizhl Dictionary"
+            count={thamizhlDictCount}
+          />
         </Box>
       </Paper>
     </Layout>

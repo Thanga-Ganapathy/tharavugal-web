@@ -13,6 +13,7 @@ const routesConfig = {
     { path: '/api/explore' },
     { path: '/api/statistics/tags/.+'},
     { path: '/api/statistics/locations/.+'},
+    { path: '/api/thamizhl-dictionary'},
   ],
   protected: [
     { path: '/api/admin', roles: [USER_ROLES.ADMIN] },
@@ -26,6 +27,8 @@ const routesConfig = {
     { path: '/api/uploads', roles: [USER_ROLES.ADMIN] },
     { path: '/api/admin/resources', roles: [USER_ROLES.ADMIN] },
     { path: '/api/admin/resources/.+', roles: [USER_ROLES.ADMIN] },
+    { path: '/api/admin/thamizhl-dictionary', roles: [USER_ROLES.ADMIN] },
+    { path: '/api/admin/thamizhl-dictionary/.+', roles: [USER_ROLES.ADMIN] },
   ],
 };
 

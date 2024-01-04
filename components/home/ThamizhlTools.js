@@ -19,6 +19,7 @@ export default function ThamizhlTools() {
         sx={{ display: 'flex', justifyContent: 'flex-start', flexWrap: 'wrap' }}
       >
         <ToolBox
+          active
           icon={ImportContactsIcon}
           label="Thamizhl Dictionary"
           path="/thamizhl-dictionary"

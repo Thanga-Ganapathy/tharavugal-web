@@ -27,6 +27,7 @@ export default function Sidebar() {
     { menu: 'Food Ingredients', path: '/admin/food-ingredients' },
     { menu: 'Contribution Logs', path: '/admin/contribution-logs' },
     { menu: 'Resources', path: '/admin/resources' },
+    { menu: 'Thamizhl Dictionary', path: '/admin/thamizhl-dictionary' },
   ];
 
   return (

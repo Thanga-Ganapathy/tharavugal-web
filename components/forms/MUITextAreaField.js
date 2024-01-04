@@ -8,7 +8,7 @@ export default function MUITextAreaField({ name, label, ...otherProps }) {
       fullWidth
       size="small"
       multiline
-      rows={2}
+      minRows={2}
       disabled={Boolean(otherProps.disabled)}
       error={Boolean(error)}
       label={label}

@@ -98,3 +98,16 @@ export const resourcesSchema = z.object({
   desc: z.string().optional(),
   publicAccess: z.boolean(),
 });
+
+export const thamizhlDictionarySchema = z.object({
+  id: z.string().uuid(),
+  word: z.string().min(1, '*Required'),
+  definitions: z
+    .array(
+      z.object({
+        langID: z.string().min(1, '*Required'),
+        definition: z.string().min(1, '*Required'),
+      })
+    )
+    .nonempty(),
+});
