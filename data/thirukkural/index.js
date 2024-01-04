@@ -103,6 +103,11 @@ import kurals102 from './chapters/நாணுடைமை';
 import kurals103 from './chapters/குடிசெயல்-வகை';
 import kurals104 from './chapters/உழவு';
 import kurals105 from './chapters/நல்குரவு';
+import kurals106 from './chapters/இரவு';
+import kurals107 from './chapters/இரவச்சம்';
+import kurals108 from './chapters/கயமை';
+import kurals109 from './chapters/தகையணங்குறுத்தல்';
+import kurals110 from './chapters/காம-குறிப்பறிதல்';
 
 export const thirukkural = {
   chapters: [
@@ -1159,6 +1164,61 @@ export const thirukkural = {
         },
       ],
       kurals: kurals105,
+    },
+    {
+      name: 'இரவு',
+      slug: 'இரவு',
+      translations: [
+        {
+          id: 'en',
+          text: 'Mendicancy',
+        },
+      ],
+      kurals: kurals106,
+    },
+    {
+      name: 'இரவச்சம்',
+      slug: 'இரவச்சம்',
+      translations: [
+        {
+          id: 'en',
+          text: 'The Dread of Mendicancy',
+        },
+      ],
+      kurals: kurals107,
+    },
+    {
+      name: 'கயமை',
+      slug: 'கயமை',
+      translations: [
+        {
+          id: 'en',
+          text: 'Baseness',
+        },
+      ],
+      kurals: kurals108,
+    },
+    {
+      name: 'தகையணங்குறுத்தல்',
+      slug: 'தகையணங்குறுத்தல்',
+      translations: [
+        {
+          id: 'en',
+          text: 'Mental Disturbance caused by the Beauty of the Princess',
+        },
+      ],
+      kurals: kurals109,
+    },
+    {
+      name: 'காம குறிப்பறிதல்',
+      slug: 'காம-குறிப்பறிதல்',
+      translations: [
+        {
+          id: 'en',
+          text: 'Recognition of the Signs (of Mutual Love)',
+        },
+      ],
+      kurals: kurals110,
     },
   ],
 };
