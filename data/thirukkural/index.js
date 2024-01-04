@@ -108,6 +108,11 @@ import kurals107 from './chapters/இரவச்சம்';
 import kurals108 from './chapters/கயமை';
 import kurals109 from './chapters/தகையணங்குறுத்தல்';
 import kurals110 from './chapters/காம-குறிப்பறிதல்';
+import kurals111 from './chapters/புணர்ச்சி-மகிழ்தல்';
+import kurals112 from './chapters/நலம்-புனைத்துரைத்தல்';
+import kurals113 from './chapters/காதற்-சிறப்புரைத்தல்';
+import kurals114 from './chapters/நானுத்-துறவுரைத்தல்';
+import kurals115 from './chapters/அலர்-அறிவுறுத்தல்';
 
 export const thirukkural = {
   chapters: [
@@ -1219,6 +1224,61 @@ export const thirukkural = {
         },
       ],
       kurals: kurals110,
+    },
+    {
+      name: 'புணர்ச்சி மகிழ்தல்',
+      slug: 'புணர்ச்சி-மகிழ்தல்',
+      translations: [
+        {
+          id: 'en',
+          text: 'Rejoicing in the Embrace',
+        },
+      ],
+      kurals: kurals111,
+    },
+    {
+      name: 'நலம் புனைத்துரைத்தல்',
+      slug: 'நலம்-புனைத்துரைத்தல்',
+      translations: [
+        {
+          id: 'en',
+          text: 'The Praise of her Beauty',
+        },
+      ],
+      kurals: kurals112,
+    },
+    {
+      name: 'காதற் சிறப்புரைத்தல்',
+      slug: 'காதற்-சிறப்புரைத்தல்',
+      translations: [
+        {
+          id: 'en',
+          text: 'Declaration of Loves special Excellence',
+        },
+      ],
+      kurals: kurals113,
+    },
+    {
+      name: 'நானுத் துறவுரைத்தல்',
+      slug: 'நானுத்-துறவுரைத்தல்',
+      translations: [
+        {
+          id: 'en',
+          text: 'The Abandonment of Reserve',
+        },
+      ],
+      kurals: kurals114,
+    },
+    {
+      name: 'அலர் அறிவுறுத்தல்',
+      slug: 'அலர்-அறிவுறுத்தல்',
+      translations: [
+        {
+          id: 'en',
+          text: 'The Announcement of the Rumour',
+        },
+      ],
+      kurals: kurals115,
     },
   ],
 };
