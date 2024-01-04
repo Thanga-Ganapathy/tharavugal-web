@@ -98,6 +98,11 @@ import kurals97 from './chapters/மானம்';
 import kurals98 from './chapters/பெருமை';
 import kurals99 from './chapters/சான்றாண்மை';
 import kurals100 from './chapters/பண்புடைமை';
+import kurals101 from './chapters/நன்றியில்-செல்வம்';
+import kurals102 from './chapters/நாணுடைமை';
+import kurals103 from './chapters/குடிசெயல்-வகை';
+import kurals104 from './chapters/உழவு';
+import kurals105 from './chapters/நல்குரவு';
 
 export const thirukkural = {
   chapters: [
@@ -1099,6 +1104,61 @@ export const thirukkural = {
         },
       ],
       kurals: kurals100,
+    },
+    {
+      name: 'நன்றியில் செல்வம்',
+      slug: 'நன்றியில்-செல்வம்',
+      translations: [
+        {
+          id: 'en',
+          text: 'Wealth without Benefaction',
+        },
+      ],
+      kurals: kurals101,
+    },
+    {
+      name: 'நாணுடைமை',
+      slug: 'நாணுடைமை',
+      translations: [
+        {
+          id: 'en',
+          text: 'Shame',
+        },
+      ],
+      kurals: kurals102,
+    },
+    {
+      name: 'குடிசெயல் வகை',
+      slug: 'குடிசெயல்-வகை',
+      translations: [
+        {
+          id: 'en',
+          text: 'The Way of Maintaining the Family',
+        },
+      ],
+      kurals: kurals103,
+    },
+    {
+      name: 'உழவு',
+      slug: 'உழவு',
+      translations: [
+        {
+          id: 'en',
+          text: 'Agriculture',
+        },
+      ],
+      kurals: kurals104,
+    },
+    {
+      name: 'நல்குரவு',
+      slug: 'நல்குரவு',
+      translations: [
+        {
+          id: 'en',
+          text: 'Poverty',
+        },
+      ],
+      kurals: kurals105,
     },
   ],
 };
