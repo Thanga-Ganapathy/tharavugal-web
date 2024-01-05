@@ -35,7 +35,12 @@ export default function Home({ data }) {
           columnGap: 2,
         }}
       >
-        <Events data={data.events} styles={styles} />
+        <Box>
+          <Events data={data.events} styles={styles} />
+          <Paper sx={{ mt: 2 }}>
+            <Resources />
+          </Paper>
+        </Box>
         <Box>
           <Paper sx={{ mt: { xs: 2, sm: 0 } }}>
             <Stats
@@ -54,9 +59,6 @@ export default function Home({ data }) {
           </Paper>
           <Paper sx={{ mt: 2 }}>
             <FeaturedVisualizations />
-          </Paper>
-          <Paper sx={{ mt: 2 }}>
-            <Resources />
           </Paper>
           <Paper sx={{ mt: 2 }}>
             <RecentDiscussions />

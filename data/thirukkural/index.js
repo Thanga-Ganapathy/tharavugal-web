@@ -113,6 +113,24 @@ import kurals112 from './chapters/நலம்-புனைத்துரைத
 import kurals113 from './chapters/காதற்-சிறப்புரைத்தல்';
 import kurals114 from './chapters/நானுத்-துறவுரைத்தல்';
 import kurals115 from './chapters/அலர்-அறிவுறுத்தல்';
+import kurals116 from './chapters/பிரிவாற்றாமை';
+import kurals117 from './chapters/படர்-மெலிந்-திரங்கல்';
+import kurals118 from './chapters/கண்விதுப்பழிதல்';
+import kurals119 from './chapters/பசப்புறு-பருவரல்';
+import kurals120 from './chapters/தனிப்படர்-மிகுதி';
+import kurals121 from './chapters/நினைந்தவர்-புலம்பல்';
+import kurals122 from './chapters/கனவு-நிலை-உரைத்தல்';
+import kurals123 from './chapters/பொழுது-கண்டு-இரங்கல்';
+import kurals124 from './chapters/உறுப்பு-நலன்-அறிதல்';
+import kurals125 from './chapters/நெஞ்சொடு-கிளத்தல்';
+import kurals126 from './chapters/நிறையழிதல்';
+import kurals127 from './chapters/அவர்-வயின்-விதும்பல்';
+import kurals128 from './chapters/குறிப்பறிவுறுத்தல்';
+import kurals129 from './chapters/புணர்ச்சி-விதும்பல்';
+import kurals130 from './chapters/நெஞ்சொடு-புலத்தல்';
+import kurals131 from './chapters/புலவி';
+import kurals132 from './chapters/புலவி-நுணுக்கம்';
+import kurals133 from './chapters/ஊடலுவகை';
 
 export const thirukkural = {
   chapters: [
@@ -1279,6 +1297,204 @@ export const thirukkural = {
         },
       ],
       kurals: kurals115,
+    },
+    {
+      name: 'பிரிவாற்றாமை',
+      slug: 'பிரிவாற்றாமை',
+      translations: [
+        {
+          id: 'en',
+          text: 'Separation unendurable',
+        },
+      ],
+      kurals: kurals116,
+    },
+    {
+      name: 'படர் மெலிந் திரங்கல்',
+      slug: 'படர்-மெலிந்-திரங்கல்',
+      translations: [
+        {
+          id: 'en',
+          text: 'Complainings',
+        },
+      ],
+      kurals: kurals117,
+    },
+    {
+      name: 'கண்விதுப்பழிதல்',
+      slug: 'கண்விதுப்பழிதல்',
+      translations: [
+        {
+          id: 'en',
+          text: 'Eyes consumed with Grief',
+        },
+      ],
+      kurals: kurals118,
+    },
+    {
+      name: 'பசப்புறு பருவரல்',
+      slug: 'பசப்புறு-பருவரல்',
+      translations: [
+        {
+          id: 'en',
+          text: 'The Pallid Hue',
+        },
+      ],
+      kurals: kurals119,
+    },
+    {
+      name: 'தனிப்படர் மிகுதி',
+      slug: 'தனிப்படர்-மிகுதி',
+      translations: [
+        {
+          id: 'en',
+          text: 'The Solitary Anguish',
+        },
+      ],
+      kurals: kurals120,
+    },
+    {
+      name: 'நினைந்தவர் புலம்பல்',
+      slug: 'நினைந்தவர்-புலம்பல்',
+      translations: [
+        {
+          id: 'en',
+          text: 'Sad Memories',
+        },
+      ],
+      kurals: kurals121,
+    },
+    {
+      name: 'கனவு நிலை உரைத்தல்',
+      slug: 'கனவு-நிலை-உரைத்தல்',
+      translations: [
+        {
+          id: 'en',
+          text: 'The Visions of the Night',
+        },
+      ],
+      kurals: kurals122,
+    },
+    {
+      name: 'பொழுது கண்டு இரங்கல்',
+      slug: 'பொழுது-கண்டு-இரங்கல்',
+      translations: [
+        {
+          id: 'en',
+          text: 'Lamentations at Eventide',
+        },
+      ],
+      kurals: kurals123,
+    },
+    {
+      name: 'உறுப்பு நலன் அறிதல்',
+      slug: 'உறுப்பு-நலன்-அறிதல்',
+      translations: [
+        {
+          id: 'en',
+          text: 'Wasting Away',
+        },
+      ],
+      kurals: kurals124,
+    },
+    {
+      name: 'நெஞ்சொடு கிளத்தல்',
+      slug: 'நெஞ்சொடு-கிளத்தல்',
+      translations: [
+        {
+          id: 'en',
+          text: 'Soliloquy',
+        },
+      ],
+      kurals: kurals125,
+    },
+    {
+      name: 'நிறையழிதல்',
+      slug: 'நிறையழிதல்',
+      translations: [
+        {
+          id: 'en',
+          text: 'Reserve Overcome',
+        },
+      ],
+      kurals: kurals126,
+    },
+    {
+      name: 'அவர் வயின் விதும்பல்',
+      slug: 'அவர்-வயின்-விதும்பல்',
+      translations: [
+        {
+          id: 'en',
+          text: 'Mutual Desire',
+        },
+      ],
+      kurals: kurals127,
+    },
+    {
+      name: 'குறிப்பறிவுறுத்தல்',
+      slug: 'குறிப்பறிவுறுத்தல்',
+      translations: [
+        {
+          id: 'en',
+          text: 'The Reading of the Signs',
+        },
+      ],
+      kurals: kurals128,
+    },
+    {
+      name: 'புணர்ச்சி விதும்பல்',
+      slug: 'புணர்ச்சி-விதும்பல்',
+      translations: [
+        {
+          id: 'en',
+          text: 'Desire for Reunion',
+        },
+      ],
+      kurals: kurals129,
+    },
+    {
+      name: 'நெஞ்சொடு புலத்தல்',
+      slug: 'நெஞ்சொடு-புலத்தல்',
+      translations: [
+        {
+          id: 'en',
+          text: 'Expostulation with Oneself',
+        },
+      ],
+      kurals: kurals130,
+    },
+    {
+      name: 'புலவி',
+      slug: 'புலவி',
+      translations: [
+        {
+          id: 'en',
+          text: 'Pouting',
+        },
+      ],
+      kurals: kurals131,
+    },
+    {
+      name: 'புலவி நுணுக்கம்',
+      slug: 'புலவி-நுணுக்கம்',
+      translations: [
+        {
+          id: 'en',
+          text: 'Feigned Anger',
+        },
+      ],
+      kurals: kurals132,
+    },
+    {
+      name: 'ஊடலுவகை',
+      slug: 'ஊடலுவகை',
+      translations: [
+        {
+          id: 'en',
+          text: 'The Pleasures of Temporary Variance',
+        },
+      ],
+      kurals: kurals133,
     },
   ],
 };
