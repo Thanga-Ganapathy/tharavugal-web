@@ -2,6 +2,7 @@ import fs from 'fs';
 import { toXML } from 'jstoxml';
 import { format } from 'date-fns';
 import { connect } from './utils/db';
+import { thirukkural } from '@/data/thirukkural/index';
 
 const baseUrl = {
   loc: 'https://tharavugal.org/',
@@ -17,8 +18,44 @@ const staticUrls = [
   },
   {
     url: {
-      loc: 'https://tharavugal.org/videos',
-      lastmod: '2023-10-11',
+      loc: 'https://tharavugal.org/resources/images',
+      lastmod: '2024-01-06',
+    },
+  },
+  {
+    url: {
+      loc: 'https://tharavugal.org/resources/videos',
+      lastmod: '2024-01-06',
+    },
+  },
+  {
+    url: {
+      loc: 'https://tharavugal.org/resources/audios',
+      lastmod: '2024-01-06',
+    },
+  },
+  {
+    url: {
+      loc: 'https://tharavugal.org/resources/documents',
+      lastmod: '2024-01-06',
+    },
+  },
+  {
+    url: {
+      loc: 'https://tharavugal.org/resources/books',
+      lastmod: '2024-01-06',
+    },
+  },
+  {
+    url: {
+      loc: 'https://tharavugal.org/aathichoodi',
+      lastmod: '2024-01-06',
+    },
+  },
+  {
+    url: {
+      loc: 'https://tharavugal.org/thamizhl-dictionary',
+      lastmod: '2024-01-06',
     },
   },
   {
@@ -69,6 +106,15 @@ async function run() {
     },
   }));
 
+  // Thirukkural
+  const thirukkuralSlugs = thirukkural.chapters.map((ch) => ch.slug);
+  const xmlThirukkural = thirukkuralSlugs.map((s) => ({
+    url: {
+      loc: 'https://tharavugal.org/thirukkural/chapters/' + s,
+      lastmod: '2024-01-06',
+    },
+  }));
+
   // XML
   const xml = toXML(
     {
@@ -78,6 +124,7 @@ async function run() {
         { url: baseUrl },
         ...staticUrls,
         ...xmlFoodIngredients,
+        ...xmlThirukkural,
         ...xmlEvents,
       ],
     },

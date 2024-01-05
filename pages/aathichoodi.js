@@ -54,9 +54,9 @@ function AathichoodiBox({ data, index }) {
 
 export default function Aathichoodi() {
   return (
-    <Layout title="Thirukkural">
+    <Layout title="ஆத்திசூடி - Aathichoodi">
       <Box textAlign="center">
-        <Typography variant="h5">ஆத்திசூடி (Aathichoodi)</Typography>
+        <Typography variant="h5">ஆத்திசூடி - Aathichoodi</Typography>
       </Box>
       <Box sx={{ mt: 2 }}>
         {aathichoodi.map((a, i) => (
