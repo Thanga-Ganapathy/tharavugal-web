@@ -27,6 +27,11 @@ function FeaturedBox({ data }) {
           p: 3,
           userSelect: 'none',
           cursor: 'pointer',
+          borderColor: (t) => t.palette.primary.light,
+          '&:hover': {
+            background: '#01ff709e',
+            borderColor: '#01ff709e',
+          },
         }}
       >
         <Typography

@@ -29,7 +29,10 @@ function Resource({ name, icon: Icon, path }) {
       onClick={() => router.push(path)}
     >
       <Box sx={{ display: 'flex', justifyContent: 'center' }}>
-        <Icon sx={{ fontSize: 50 }} />
+        <Box
+          component={Icon}
+          sx={{ fontSize: 50, color: (t) => t.palette.secondary.main }}
+        />
       </Box>
       <Typography
         textAlign="center"
