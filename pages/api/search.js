@@ -2,9 +2,10 @@ import { connect } from '@/utils/db';
 
 export default async function handler(req, res) {
   const db = await connect();
-  
+
   const eventsCol = db.collection('events');
   const foodIngCol = db.collection('food-ingredients');
+  const resCol = db.collection('resources');
   let output;
 
   switch (req.method) {
@@ -29,7 +30,7 @@ export default async function handler(req, res) {
 
       cursor = await foodIngCol
         .find(
-          { $text: { $search: req.query.q } },
+          { name: { $regex: req.query.q, $options: 'i' } },
           {
             projection: {
               _id: 0,
@@ -42,7 +43,27 @@ export default async function handler(req, res) {
         .limit(10);
       const foodIngredients = await cursor.toArray();
 
-      output = res.status(200).json({ data: { events, foodIngredients } });
+      cursor = await resCol
+        .find(
+          { name: { $regex: req.query.q, $options: 'i' } },
+          {
+            projection: {
+              _id: 0,
+              name: 1,
+              thumb: 1,
+              type: 1,
+              publicAccess: 1,
+              file: 1,
+              desc: 1,
+            },
+          }
+        )
+        .limit(10);
+      const resources = await cursor.toArray();
+
+      output = res
+        .status(200)
+        .json({ data: { events, foodIngredients, resources } });
       break;
     default:
       output = res.status(401);
