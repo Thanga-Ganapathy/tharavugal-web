@@ -88,14 +88,14 @@ export default function FeaturedVisualizations() {
     },
     {
       title: '🌎 Natural Disasters',
-      subtitle: `(${format(new Date(), 'yyyy')})`,
+      subtitle: `(${format(new Date(), 'yyyy')}) - Months view`,
       severity: 'error.main',
       filters: {
         category: 'Natural Disaster',
         from: new Date(`${currentYear}-01-01`),
         to: new Date(),
         locations: [],
-        view: 'Date',
+        view: 'Month',
         chartType: 'Bar Chart',
       },
     },
