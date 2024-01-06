@@ -205,6 +205,38 @@ export default function Contribute() {
         <Card sx={{ mt: 2 }}>
           <CardContent>
             <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
+              <Typography variant="h6">Language Scholars</Typography>
+              <Chip
+                color="info"
+                size="small"
+                icon={<InfoIcon />}
+                label="Members Only"
+              />
+            </Box>
+
+            <Typography variant="body1" sx={{ mt: 2 }}>
+              We need scholars of any language to improve, correct, and have
+              meaningful text content.
+              <br />
+              <br />
+              Some of the areas like:
+              <ul>
+                <li>
+                  We need <strong>Thamizhl</strong> language scholars to verify{' '}
+                  <strong>Thirukkural</strong> here.
+                </li>
+                <li>
+                  We need <strong>Thamizhl</strong> language scholars to have
+                  more thamizhl dictionary words here.
+                </li>
+              </ul>
+            </Typography>
+          </CardContent>
+        </Card>
+
+        <Card sx={{ mt: 2 }}>
+          <CardContent>
+            <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
               <Typography variant="h6">Your feedback matters</Typography>
             </Box>
 

@@ -21,7 +21,7 @@ export default function Thirukkural() {
   return (
     <Layout title="Thirukkural">
       <Box textAlign="center">
-        <Badge badgeContent="ALPHA" color="secondary">
+        <Badge badgeContent="BETA" color="warning">
           <Typography variant="h5">திருக்குறள் (Thirukkural)</Typography>
         </Badge>
       </Box>
