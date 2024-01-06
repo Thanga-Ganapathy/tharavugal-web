@@ -21,9 +21,6 @@ export default function Links() {
             <Link href="/open-issues">Open Issues</Link>
           </li>
           <li>
-            <Link href="/social-issues">Social Issues</Link>
-          </li>
-          <li>
             <Link href="/contributing-process">Contributing Process</Link>
           </li>
           <li>

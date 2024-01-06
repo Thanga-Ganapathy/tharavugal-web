@@ -2,11 +2,11 @@ import { Alert, Box, Divider, Typography } from '@mui/material';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import Link from 'next/link';
 
-export default function RecentDiscussions() {
+export default function RecentOpenIssues() {
   return (
     <Box p={1}>
       <Typography variant="h6" sx={{ display: 'flex', alignItems: 'center' }}>
-        <ChevronRightIcon /> Recent Open Discussions
+        <ChevronRightIcon /> Recent Open Issues
       </Typography>
       <Divider sx={{ borderColor: 'darkgray' }} />
       <Box mt={1}>

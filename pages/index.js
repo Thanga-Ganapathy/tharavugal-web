@@ -15,6 +15,7 @@ import RecentEntities from '@/components/home/RecentEntities';
 import Links from '@/components/home/Links';
 import Stats from '@/components/home/Stats';
 import ThamizhlTools from '@/components/home/ThamizhlTools';
+import RecentOpenIssues from '@/components/home/RecentOpenIssues';
 
 export default function Home({ data }) {
   const router = useRouter();
@@ -62,6 +63,9 @@ export default function Home({ data }) {
           </Paper>
           <Paper sx={{ mt: 2 }}>
             <RecentDiscussions />
+          </Paper>
+          <Paper sx={{ mt: 2 }}>
+            <RecentOpenIssues />
           </Paper>
           <Paper sx={{ mt: 2 }}>
             <RecentEntities />

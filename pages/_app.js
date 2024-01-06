@@ -68,7 +68,6 @@ export default function App({ Component, pageProps }) {
         '/faqs',
         '/terms-conditions',
         '/privacy-policy',
-        '/social-issues',
         '/contribute',
         '/open-issues',
         '/food-ingredients',

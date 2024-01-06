@@ -157,9 +157,11 @@ export default function Search({ data }) {
       />
       <Paper sx={{ p: { xs: 1, sm: 1, md: 2 }, minHeight: '300px' }}>
         <Tabs
+          variant="scrollable"
+          scrollButtons="auto"
           value={value}
           onChange={handleChange}
-          aria-label="basic tabs example"
+          aria-label="search results tabs"
         >
           <Tab label="Primary" {...a11yProps(0)} />
           <Tab label="Images" {...a11yProps(1)} />
