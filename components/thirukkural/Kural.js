@@ -11,6 +11,7 @@ import {
 } from '@mui/material';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
+import ThamizhlWord from '../thamizhlDictionary/ThamizhlWord';
 
 export default function Kural({ data, index }) {
   const renderExplanations = (lang, langID) => {
@@ -45,6 +46,29 @@ export default function Kural({ data, index }) {
         </Typography>
         <Divider sx={{ borderColor: 'darkgray' }} />
         <Box sx={{ mt: 2 }}>{explnsArr}</Box>
+      </Box>
+    );
+  };
+
+  const renderAgarathi = () => {
+    return (
+      <Box
+        sx={{
+          p: { xs: 1, sm: 1, md: 2 },
+        }}
+      >
+        <Accordion>
+          <AccordionSummary expandIcon={<ExpandMoreIcon />}>
+            <Typography sx={{ width: '33%', flexShrink: 0 }}>அகராதி</Typography>
+          </AccordionSummary>
+          <AccordionDetails>
+            <Box sx={{ display: 'flex', flexWrap: 'wrap' }}>
+              {data.agarathi.map((a, i) => (
+                <ThamizhlWord data={a} key={i} />
+              ))}
+            </Box>
+          </AccordionDetails>
+        </Accordion>
       </Box>
     );
   };
@@ -97,6 +121,7 @@ export default function Kural({ data, index }) {
           </Box>
         </Box>
         <Box>{renderExplanations('தமிழ்', 'ta')}</Box>
+        {data.agarathi && renderAgarathi()}
         <Box>{renderExplanations('English', 'en')}</Box>
       </CardContent>
     </Card>

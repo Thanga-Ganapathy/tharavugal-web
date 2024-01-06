@@ -463,6 +463,42 @@ export default [
       l1: 'அறத்தான் வருவதே யின்பமற் றெல்லாம்',
       l2: 'புறத்த புகழு மில',
     },
+    agarathi: [
+      {
+        id: '6140c108-f4a3-4f91-839c-a4b73eb0bc7e',
+        word: 'அறம்',
+        definitions: [
+          {
+            langID: 'ta',
+            definition: 'நல்வினை',
+          },
+          {
+            langID: 'ta',
+            definition: 'தருமம்',
+          },
+        ],
+      },
+      {
+        id: '9c979cd2-0efc-4608-bb24-7340d820f1ab',
+        word: 'புறம்',
+        definitions: [
+          {
+            langID: 'ta',
+            definition: 'வெளியிடம்',
+          },
+        ],
+      },
+      {
+        id: '1e5cebf4-b90d-4afd-b1c0-98be7afc0854',
+        word: 'இன்பம்',
+        definitions: [
+          {
+            langID: 'ta',
+            definition: 'மனமகிழ்ச்சி',
+          },
+        ],
+      },
+    ],
     translations: [
       {
         id: 'ta',

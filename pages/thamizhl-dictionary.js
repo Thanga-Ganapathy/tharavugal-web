@@ -1,15 +1,5 @@
 import Layout from '@/components/layouts/DefaultLayout';
-import {
-  Box,
-  Paper,
-  Typography,
-  Alert,
-  CardContent,
-  Card,
-  IconButton,
-  CircularProgress,
-  Button,
-} from '@mui/material';
+import { Box, Paper, Typography, Alert } from '@mui/material';
 import { connect } from '@/utils/db';
 import HeadingWithDivider from '@/components/HeadingWithDivider';
 import { Form } from '@opentf/react-form';
@@ -18,21 +8,7 @@ import { Field } from '@opentf/react-form';
 import { useState } from 'react';
 import LoadingButton from '@mui/lab/LoadingButton';
 import APIClient from '@/utils/APIClient';
-
-function ThamizhlWord({ data }) {
-  return (
-    <Card variant="outlined" sx={{ m: 2, minWidth: '300px' }}>
-      <CardContent>
-        <Typography variant="h6">{data.word}</Typography>
-        {data.definitions.map((def, i) => (
-          <Alert key={i} icon={false} severity="info" sx={{ mt: 1 }}>
-            <pre>{def.definition}</pre>
-          </Alert>
-        ))}
-      </CardContent>
-    </Card>
-  );
-}
+import ThamizhlWord from '@/components/thamizhlDictionary/ThamizhlWord';
 
 function SearchForm({ isLoading, onSubmit }) {
   return (
