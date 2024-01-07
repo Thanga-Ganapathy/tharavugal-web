@@ -6,12 +6,29 @@ import { Box, Button } from '@mui/material';
 import MUIAsyncSelectField from '@/components/forms/MUIAsyncSelect';
 import MUIDateField from '@/components/forms/MUIDateField';
 import MUISelectField from '@/components/forms/MUISelectField';
+import { useAppState } from '@/store';
+import { useEffect } from 'react';
+import { useRef } from 'react';
 
-export default function Basic({ initialValues, onChange }) {
+export default function Basic({ onChange }) {
+  const filter = useAppState((s) => s.visualizer.filter);
+  const initialValues = {
+    category: '',
+    from: new Date(),
+    to: new Date(),
+    locations: [],
+    view: 'Date',
+  };
   const viewOptions = ['Date', 'Week', 'Month', 'Year'];
+  const formRef = useRef();
+
+  useEffect(() => {
+    formRef.current.actions.reset(filter)
+  }, [filter])
 
   return (
     <Form
+      ref={formRef}
       initialValues={initialValues}
       onSubmit={(values) => {
         const data = produce(values, (draft) => {

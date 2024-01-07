@@ -1,6 +1,6 @@
-import { TextField } from "@mui/material";
+import { TextField } from '@mui/material';
 import { TimePicker } from '@mui/x-date-pickers/TimePicker';
-import { useField } from "@opentf/react-form";
+import { useField } from '@opentf/react-form';
 
 export default function MUITimeField({ name, label, ...otherProps }) {
   const { field, error, setValue } = useField(name);
@@ -12,11 +12,11 @@ export default function MUITimeField({ name, label, ...otherProps }) {
       label={label}
       error={Boolean(error)}
       helperText={error}
-      renderInput={(params) => (
-        <TextField sx={{ mt: 2 }} size="small" {...params} />
-      )}
       onChange={(newValue) => setValue(newValue)}
       format="HH:mm:ss"
+      slotProps={{
+        textField: { sx: { mt: 2 }, size: 'small' },
+      }}
     />
   );
 }

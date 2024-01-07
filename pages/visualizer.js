@@ -1,45 +1,49 @@
 import { useRouter } from 'next/router';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { format } from 'date-fns';
 import { produce } from 'immer';
-import { Alert, Badge, Box, Divider, Paper, Typography } from '@mui/material';
-import ChevronRightIcon from '@mui/icons-material/ChevronRight';
-
+import { Alert, Badge, Box, Paper, Typography } from '@mui/material';
 import Charts from '@/components/Visualizer/Charts';
 import Filters from '@/components/Visualizer/Filters';
 import Layout from '@/components/layouts/DefaultLayout';
 import APIClient from '@/utils/APIClient';
+import HeadingWithDivider from '@/components/HeadingWithDivider';
+import { setAppState } from '@/store';
+import { sleep } from '@opentf/utils';
 
 export default function Visualizer() {
   const router = useRouter();
-  const [state, setState] = useState({
-    data: [],
-    category: '',
-    isLoading: false,
-    chartType: 'Bar Chart',
-    initialValues: {
-      category: '',
-      from: new Date(),
-      to: new Date(),
-      locations: [],
-      view: 'Date',
-    },
-  });
+
+  useEffect(() => {
+    return () => {
+      setAppState((s) => ({
+        visualizer: {
+          ...s.visualizer,
+          filter: null,
+          data: [],
+          chartType: 'Bar Chart',
+        },
+      }));
+    };
+  }, []);
 
   useEffect(() => {
     if (router.query.q) {
       const parsedQuery = JSON.parse(atob(router.query.q));
-      setState({
-        ...state,
-        chartType: parsedQuery.chartType,
-        initialValues: {
-          category: parsedQuery.category,
-          from: new Date(parsedQuery.from),
-          to: new Date(parsedQuery.to),
-          locations: parsedQuery.locations,
-          view: parsedQuery.view,
+      const filter = {
+        category: parsedQuery.category,
+        from: new Date(parsedQuery.from),
+        to: new Date(parsedQuery.to),
+        locations: parsedQuery.locations,
+        view: parsedQuery.view,
+      };
+      setAppState((s) => ({
+        visualizer: {
+          ...s.visualizer,
+          filter,
+          chartType: parsedQuery.chartType,
         },
-      });
+      }));
       const data = produce(parsedQuery, (draft) => {
         draft.from = format(new Date(draft.from), 'yyyy-MM-dd');
         draft.to = format(new Date(draft.to), 'yyyy-MM-dd');
@@ -47,7 +51,7 @@ export default function Visualizer() {
       });
       fetchData(data);
     }
-  }, [router.query]);
+  }, [router.query.q]);
 
   const formatLabelsByView = (data, view) => {
     if (view === 'Date' || view === 'Year') {
@@ -88,14 +92,18 @@ export default function Visualizer() {
   };
 
   async function fetchData(data) {
-    setState((s) => ({ ...s, isLoading: true }));
+    await sleep(1);
+    setAppState((s) => ({
+      visualizer: { ...s.visualizer, loading: true },
+    }));
     const response = await APIClient.post('/api/visualize', data);
-
-    setState((s) => ({
-      ...s,
-      data: formatLabelsByView(response.data.data, data.view),
-      category: data.category,
-      isLoading: false,
+    setAppState((s) => ({
+      visualizer: {
+        ...s.visualizer,
+        loading: false,
+        title: data.category,
+        data: formatLabelsByView(response.data.data, data.view),
+      },
     }));
   }
 
@@ -118,25 +126,11 @@ export default function Visualizer() {
         }}
       >
         <Paper sx={{ p: 2 }}>
-          <Typography
-            variant="h6"
-            sx={{ display: 'flex', alignItems: 'center' }}
-          >
-            <ChevronRightIcon /> Filters
-          </Typography>
-          <Divider />
-          <Filters
-            initialValues={state.initialValues}
-            onChange={(data) => fetchData(data)}
-          />
+          <HeadingWithDivider title="Filters" />
+          <Filters onChange={(data) => fetchData(data)} />
         </Paper>
         <Paper sx={{ mt: { xs: 2, md: 0 }, minHeight: { xs: '300px' } }}>
-          <Charts
-            chartType={state.chartType}
-            data={state.data}
-            title={state.category}
-            isLoading={state.isLoading}
-          />
+          <Charts />
         </Paper>
       </Box>
     </Layout>

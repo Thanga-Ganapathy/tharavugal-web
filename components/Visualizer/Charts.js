@@ -13,15 +13,15 @@ import AreaChart from './charts/Area';
 import LineChart from './charts/Line';
 import PieChart from './charts/Pie';
 import DoughnutChart from './charts/DoughnutChart';
+import { setAppState, useAppState } from '@/store';
 
-export default function Charts({ chartType, title, data, isLoading }) {
-  const [state, setState] = useState({ chartType });
-
-  useEffect(() => {
-    if (state.chartType !== chartType) {
-      setState((s) => ({ ...s, chartType }));
-    }
-  }, [chartType]);
+export default function Charts() {
+  const { chartType, title, data, isLoading } = useAppState((s) => ({
+    chartType: s.visualizer.chartType,
+    title: s.visualizer.title,
+    data: s.visualizer.data,
+    isLoading: s.visualizer.loading,
+  }));
 
   if (isLoading) {
     return (
@@ -56,7 +56,7 @@ export default function Charts({ chartType, title, data, isLoading }) {
   }
 
   const renderChart = () => {
-    switch (state.chartType) {
+    switch (chartType) {
       case 'Area Chart':
         return <AreaChart title={title} data={data} />;
       case 'Bar Chart':
@@ -79,9 +79,13 @@ export default function Charts({ chartType, title, data, isLoading }) {
           <InputLabel id="chart-type-label">Chart Type</InputLabel>
           <Select
             labelId="chart-type-label"
-            value={state.chartType}
+            value={chartType}
             label="Chart Type"
-            onChange={(e) => setState({ ...state, chartType: e.target.value })}
+            onChange={(e) =>
+              setAppState((s) => ({
+                visualizer: { ...s.visualizer, chartType: e.target.value },
+              }))
+            }
           >
             <MenuItem value="Area Chart">Area Chart</MenuItem>
             <MenuItem value="Bar Chart">Bar Chart</MenuItem>

@@ -6,7 +6,7 @@ import { useState } from 'react';
 export default function MUIAsyncSelectField({ name, label, url, multiple }) {
   const [options, setOptions] = useState([]);
   const [loading, setLoading] = useState(false);
-  const { field, error } = useField(name, []);
+  const { field, error } = useField(name, multiple ? [] : '');
 
   const fetchOptions = async (val) => {
     if (!val) {
