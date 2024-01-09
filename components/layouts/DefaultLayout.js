@@ -13,6 +13,7 @@ import { useAppState } from '@/store';
 import Link from 'next/link';
 import { useState } from 'react';
 import OpenInNewOutlinedIcon from '@mui/icons-material/OpenInNewOutlined';
+import { format } from 'date-fns';
 
 export default function DefaultLayout({ children, title = 'Loading' }) {
   const [agreement, setAgreement] = useState(localStorage.getItem('agreement'));
@@ -179,7 +180,7 @@ export default function DefaultLayout({ children, title = 'Loading' }) {
           </Grid>
         </Grid>
         <Box sx={{ mt: 3 }} textAlign="center">
-          © 2023 Tharavugal.org
+          © 2023 - {format(new Date(), 'yyyy')} Tharavugal.org
         </Box>
       </Box>
       {!agreement && (

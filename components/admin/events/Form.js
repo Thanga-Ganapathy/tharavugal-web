@@ -12,13 +12,15 @@ import MUIAsyncSelectField from '@/components/forms/MUIAsyncSelect';
 import { useEffect } from 'react';
 
 function slugify(str, locations, id) {
-  str =
-    str.replaceAll('.', '-').replaceAll(',', '').trim() + 
+  let out =
+    str.replaceAll('.', '-').replaceAll(',', '').trim() +
     ' ' +
     locations.join(' ') +
     ' ' +
     id.split('-')[0];
-  return str.replaceAll(' ', '-').toLowerCase();
+  out = out.replaceAll(' ', '-');
+  out = out.replaceAll('"', '');
+  return out.toLowerCase();
 }
 
 function SlugField({ name, label }) {
