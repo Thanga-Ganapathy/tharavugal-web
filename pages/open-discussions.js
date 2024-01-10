@@ -44,7 +44,8 @@ export default function OpenDiscussions() {
     'How can we avoid flood disasters in Chennai and surrounding districts?',
     'Sexual abuse of girl children.',
     'Untouchability between people.',
-    'Malnutrition among children.'
+    'Malnutrition among children.',
+    'What is Dravidian?'
   ];
 
   return (
