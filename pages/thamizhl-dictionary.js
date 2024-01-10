@@ -2,49 +2,10 @@ import Layout from '@/components/layouts/DefaultLayout';
 import { Box, Paper, Typography, Alert } from '@mui/material';
 import { connect } from '@/utils/db';
 import HeadingWithDivider from '@/components/HeadingWithDivider';
-import { Form } from '@opentf/react-form';
-import SearchIcon from '@mui/icons-material/Search';
-import { Field } from '@opentf/react-form';
 import { useState } from 'react';
-import LoadingButton from '@mui/lab/LoadingButton';
 import APIClient from '@/utils/APIClient';
 import ThamizhlWord from '@/components/thamizhlDictionary/ThamizhlWord';
-
-function SearchForm({ isLoading, onSubmit }) {
-  return (
-    <Box
-      component={Form}
-      initialValues={{ searchText: '' }}
-      sx={{ width: '100%', display: 'flex', justifyContent: 'center' }}
-      onSubmit={onSubmit}
-    >
-      <Box
-        name="searchText"
-        type="search"
-        component={Field}
-        sx={(theme) => ({
-          width: { xs: '75%', md: '40%' },
-          padding: '15px',
-          borderRadius: '15px',
-          border: '1px solid gray',
-          outlineColor: theme.palette.primary.light,
-        })}
-        placeholder="Type here..."
-      />
-      <LoadingButton
-        sx={{ ml: 2 }}
-        type="submit"
-        loading={isLoading}
-        loadingPosition="start"
-        startIcon={<SearchIcon />}
-        variant="contained"
-        size="medium"
-      >
-        <span>Search</span>
-      </LoadingButton>
-    </Box>
-  );
-}
+import SearchForm from '@/components/SearchForm';
 
 export default function ThamizhlDictionary({ data }) {
   const [state, setState] = useState({
@@ -54,12 +15,10 @@ export default function ThamizhlDictionary({ data }) {
   });
 
   const handleSearch = async (values) => {
-    console.log(values);
     setState((s) => ({ ...s, searching: true }));
     const res = await APIClient.get(
       '/api/thamizhl-dictionary?q=' + values.searchText
     );
-    console.log(res);
     setState((s) => ({
       ...s,
       search: true,
@@ -74,7 +33,13 @@ export default function ThamizhlDictionary({ data }) {
         <Typography variant="h5">அகராதி - Thamizhl Dictionary</Typography>
       </Box>
       <Paper sx={{ p: 2 }}>
-        <SearchForm isLoading={state.searching} onSubmit={handleSearch} />
+        <SearchForm
+          isLoading={state.searching}
+          onSubmit={handleSearch}
+          onClear={() =>
+            setState({ search: false, searching: false, searchList: [] })
+          }
+        />
         {state.search && (
           <Box sx={{ mb: 2 }}>
             <HeadingWithDivider title="Search result" />

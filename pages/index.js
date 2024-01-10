@@ -6,7 +6,7 @@ import Events from '@/components/Events';
 import { connect } from '@/utils/db';
 
 import styles from './index.module.css';
-import SearchForm from '@/components/SearchForm';
+import SearchForm from '@/components/home/SearchForm';
 import Tools from '@/components/home/tools';
 import Resources from '@/components/home/Resources';
 import FeaturedVisualizations from '@/components/home/FeaturedVisualizations';

@@ -7,9 +7,16 @@ import Sidebar from '@/components/admin/Sidebar';
 import DialogWindow from '@/components/DialogWindow';
 import New from '@/components/admin/eventCategories/New';
 import List from '@/components/admin/eventCategories/List';
+import SearchForm from '@/components/SearchForm';
+import APIClient from '@/utils/APIClient';
 
 export default function EventCategories() {
   const [open, setOpen] = useState(false);
+  const [state, setState] = useState({
+    search: false,
+    isSearching: false,
+    searchData: [],
+  });
   const {
     data: eventCategories,
     error,
@@ -20,6 +27,14 @@ export default function EventCategories() {
   const handleClose = () => {
     setOpen(false);
     mutate();
+  };
+
+  const handleSearch = async (values) => {
+    setState({ isSearching: true, search: true });
+    const res = await APIClient.get(
+      '/api/event-categories?q=' + values.searchText
+    );
+    setState({ isSearching: false, search: true, searchData: res.data });
   };
 
   return (
@@ -36,7 +51,17 @@ export default function EventCategories() {
             </Button>
           </Box>
           <Paper sx={{ mt: 2 }}>
-            <List data={eventCategories?.data} />
+            <SearchForm
+              isLoading={state.isSearching}
+              onSubmit={handleSearch}
+              onClear={() =>
+                setState({ search: false, isSearching: false, searchData: [] })
+              }
+            />
+            <List
+              loading={isLoading}
+              data={state.search ? state.searchData : eventCategories?.data}
+            />
           </Paper>
 
           <DialogWindow

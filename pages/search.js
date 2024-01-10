@@ -3,7 +3,7 @@ import { Box, Paper, Typography, Alert, Tabs, Tab } from '@mui/material';
 import { useRouter } from 'next/router';
 
 import Layout from '@/components/layouts/DefaultLayout';
-import SearchForm from '@/components/SearchForm';
+import SearchForm from '@/components/home/SearchForm';
 import APIClient from '@/utils/APIClient';
 import Link from 'next/link';
 import { format } from 'date-fns';
