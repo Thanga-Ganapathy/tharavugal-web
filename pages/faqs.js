@@ -4,6 +4,7 @@ import {
   AccordionDetails,
   AccordionSummary,
   Box,
+  Chip,
   Typography,
 } from '@mui/material';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
@@ -46,6 +47,29 @@ export default function FAQs() {
               The public can become members only through the recommendation of
               the <strong>CORE MEMBERS</strong> of the organization based on
               their ethical work.
+            </Box>
+          }
+        />
+        <QA
+          q="What are ALPHA and BETA tags?"
+          a={
+            <Box>
+              <Typography variant="body1">
+                The tags or markers on the page indicate that the content is not
+                completely ready for public usage.
+              </Typography>
+              <Box sx={{ mt: 2 }}>
+                <Box mt={2}>
+                  <Chip size="small" color="secondary" label="ALPHA" /> {' - '}{' '}
+                  The Alpha tag is used to indicate that the content may be
+                  experimental, partially released, or might have issues.
+                </Box>
+                <Box mt={2}>
+                  <Chip size="small" color="warning" label="BETA" /> {' - '} The
+                  Beta tag is used to indicate that the content has not been
+                  verified or validated by the respective members.
+                </Box>
+              </Box>
             </Box>
           }
         />

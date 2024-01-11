@@ -37,7 +37,11 @@ export default function SearchForm({
           placeholder={placeholder}
         />
         <IconButton type="submit">
-          {isLoading ? <CircularProgress size={25} /> : <SearchIcon />}
+          {isLoading ? (
+            <CircularProgress size={25} />
+          ) : (
+            <SearchIcon sx={{ color: (t) => t.palette.primary.main }} />
+          )}
         </IconButton>
       </Box>
     </Box>
