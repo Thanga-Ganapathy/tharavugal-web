@@ -7,9 +7,16 @@ import Sidebar from '@/components/admin/Sidebar';
 import DialogWindow from '@/components/DialogWindow';
 import New from '@/components/admin/eventLocations/New';
 import List from '@/components/admin/eventLocations/List';
+import SearchForm from '@/components/SearchForm';
+import APIClient from '@/utils/APIClient';
 
 export default function EventLocations() {
   const [open, setOpen] = useState(false);
+  const [state, setState] = useState({
+    search: false,
+    isSearching: false,
+    searchData: [],
+  });
   const {
     data: eventLocations,
     error,
@@ -20,6 +27,14 @@ export default function EventLocations() {
   const handleClose = () => {
     setOpen(false);
     mutate();
+  };
+
+  const handleSearch = async (values) => {
+    setState({ isSearching: true, search: true });
+    const res = await APIClient.get(
+      '/api/event-locations?q=' + values.searchText
+    );
+    setState({ isSearching: false, search: true, searchData: res.data });
   };
 
   return (
@@ -36,7 +51,16 @@ export default function EventLocations() {
             </Button>
           </Box>
           <Paper sx={{ mt: 2 }}>
-            <List data={eventLocations?.data} />
+            <SearchForm
+              isLoading={state.isSearching}
+              onSubmit={handleSearch}
+              onClear={() =>
+                setState({ search: false, isSearching: false, searchData: [] })
+              }
+            />
+            <List
+              data={state.search ? state.searchData : eventLocations?.data}
+            />
           </Paper>
 
           <DialogWindow
