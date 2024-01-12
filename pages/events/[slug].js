@@ -26,6 +26,7 @@ const DynamicReactJson = dynamic(() => import('@microlink/react-json-view'), {
 import Layout from '@/components/layouts/DefaultLayout';
 import { setAppState, useAppState } from '@/store';
 import APIClient from '@/utils/APIClient';
+import { utcToZonedTime } from 'date-fns-tz';
 
 export default function EventView() {
   const isLoading = useAppState((s) => s.loading);
@@ -113,7 +114,10 @@ export default function EventView() {
                         icon={<EventIcon />}
                         color="primary"
                         label={format(
-                          new Date(state.event.startedAt),
+                          utcToZonedTime(
+                            state.event.startedAt,
+                            state.event.startTz
+                          ),
                           'yyyy-MM-dd'
                         )}
                       />
@@ -122,7 +126,10 @@ export default function EventView() {
                         icon={<AccessTimeIcon />}
                         color="primary"
                         label={format(
-                          new Date(state.event.startedAt),
+                          utcToZonedTime(
+                            state.event.startedAt,
+                            state.event.startTz
+                          ),
                           'hh:mm:ss aa'
                         )}
                       />
@@ -149,7 +156,10 @@ export default function EventView() {
                         icon={<EventIcon />}
                         color="primary"
                         label={format(
-                          new Date(state.event.endedAt),
+                          utcToZonedTime(
+                            state.event.endedAt,
+                            state.event.endTz
+                          ),
                           'yyyy-MM-dd'
                         )}
                       />
@@ -158,7 +168,10 @@ export default function EventView() {
                         icon={<AccessTimeIcon />}
                         color="primary"
                         label={format(
-                          new Date(state.event.endedAt),
+                          utcToZonedTime(
+                            state.event.endedAt,
+                            state.event.endTz
+                          ),
                           'hh:mm:ss aa'
                         )}
                       />
