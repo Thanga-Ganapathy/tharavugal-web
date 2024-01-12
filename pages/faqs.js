@@ -29,7 +29,7 @@ export default function FAQs() {
       <Box textAlign="center">
         <Typography variant="h4">FAQs</Typography>
       </Box>
-      <Box sx={{ p: 5, mt: 2 }}>
+      <Box sx={{ p: { xs: 3, sm: 3, md: 5 }, mt: 2 }}>
         <QA
           q="What is the meaning of `Tharavugal`?"
           a={

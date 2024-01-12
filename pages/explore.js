@@ -8,6 +8,7 @@ import useAlert from '@/hooks/useAlert';
 import { produce } from 'immer';
 import { format } from 'date-fns';
 import { setAutoFreeze } from 'immer';
+import HeadingWithDivider from '@/components/HeadingWithDivider';
 
 export default function Explore() {
   const [state, setState] = useState({
@@ -52,22 +53,24 @@ export default function Explore() {
       <Box
         sx={{
           p: { xs: 1, sm: 1, md: 2 },
-          mt: 2,
           display: { xs: 'flex', sm: 'flex', md: 'grid' },
           flexDirection: { xs: 'column', sm: 'column' },
           gridTemplateColumns: '25fr 75fr',
-          columnGap: 5,
+          columnGap: 3,
         }}
       >
         <Paper sx={{ p: { xs: 1, sm: 1, md: 2 } }}>
           <ExploreForm initialValues={initialValues} onSubmit={handleSubmit} />
         </Paper>
-        <Box>
+        <Paper sx={{ mt: { xs: 1, sm: 2, md: 0 }, p: { xs: 1, sm: 1, md: 2 } }}>
+          <HeadingWithDivider title="Real-Time Events" />
           {state.events.length === 0 && !state.loading && (
-            <Alert severity="info">No result...</Alert>
+            <Alert severity="info" sx={{ mt: 2 }}>
+              No result...
+            </Alert>
           )}
           {state.loading && (
-            <Typography variant="body1" sx={{ textAlign: 'center' }}>
+            <Typography variant="body1" sx={{ textAlign: 'center', mt: 2 }}>
               <CircularProgress />
             </Typography>
           )}
@@ -76,7 +79,7 @@ export default function Explore() {
             Due to our current infrastructure limitations, we can only show a
             limited set of results here.
           </Alert>
-        </Box>
+        </Paper>
       </Box>
     </Layout>
   );
