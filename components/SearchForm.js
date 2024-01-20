@@ -6,8 +6,14 @@ import LoadingButton from '@mui/lab/LoadingButton';
 import SearchOffIcon from '@mui/icons-material/SearchOff';
 import { useFormActions } from '@opentf/react-form';
 import { useFormContext } from '@opentf/react-form';
+import TaInputField from './forms/mui/TaInputField';
 
-export default function SearchForm({ isLoading, onSubmit, onClear }) {
+export default function SearchForm({
+  isLoading,
+  onSubmit,
+  onClear,
+  lang = 'system',
+}) {
   function ClearBtn() {
     const { values } = useFormContext();
     const { reset } = useFormActions();
@@ -39,19 +45,13 @@ export default function SearchForm({ isLoading, onSubmit, onClear }) {
       sx={{ width: '100%', display: 'flex', justifyContent: 'center', mb: 1 }}
       onSubmit={onSubmit}
     >
-      <Box
+      <TaInputField
         name="searchText"
+        lang={lang}
         type="search"
-        component={Field}
-        sx={(theme) => ({
-          width: { xs: '75%', md: '40%' },
-          padding: '15px',
-          borderRadius: '15px',
-          border: '1px solid gray',
-          outlineColor: theme.palette.primary.light,
-        })}
-        placeholder="Type here..."
+        placeholder="Type here to search..."
       />
+
       <LoadingButton
         sx={{ ml: 2 }}
         type="submit"
@@ -59,7 +59,7 @@ export default function SearchForm({ isLoading, onSubmit, onClear }) {
         loadingPosition="start"
         startIcon={<SearchIcon />}
         variant="contained"
-        size="medium"
+        size="small"
       ></LoadingButton>
       <ClearBtn />
     </Box>

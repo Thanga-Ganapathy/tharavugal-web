@@ -34,6 +34,7 @@ export default function ThamizhlDictionary({ data }) {
       </Box>
       <Paper sx={{ p: 2 }}>
         <SearchForm
+          lang="ta"
           isLoading={state.searching}
           onSubmit={handleSearch}
           onClear={() =>
