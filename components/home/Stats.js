@@ -1,14 +1,17 @@
 import { Box, Divider, Typography } from '@mui/material';
-import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import Link from 'next/link';
 import KeyboardDoubleArrowRightIcon from '@mui/icons-material/KeyboardDoubleArrowRight';
 import StatsBox from '../stats/StatsBox';
+import { FcStatistics } from 'react-icons/fc';
 
 export default function Stats({ data }) {
   return (
     <Box p={1}>
       <Typography variant="h6" sx={{ display: 'flex', alignItems: 'center' }}>
-        <ChevronRightIcon /> Stats
+        <FcStatistics
+          style={{ width: '35px', height: '35px', marginRight: '10px' }}
+        />{' '}
+        Stats
       </Typography>
       <Divider sx={{ borderColor: 'darkgray' }} />
 

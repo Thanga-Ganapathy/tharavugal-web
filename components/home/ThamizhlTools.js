@@ -1,10 +1,11 @@
 import { Box, Divider, Typography } from '@mui/material';
-import ImportContactsIcon from '@mui/icons-material/ImportContacts';
 import BookOutlinedIcon from '@mui/icons-material/BookOutlined';
-import CalendarMonthOutlinedIcon from '@mui/icons-material/CalendarMonthOutlined';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 
 import ToolBox from './tools/ToolBox';
+import { FcCalendar } from 'react-icons/fc';
+import OpenBook from '../icons/OpenBook';
+import NoteBook from '../icons/NoteBook';
 
 export default function ThamizhlTools() {
   return (
@@ -20,13 +21,13 @@ export default function ThamizhlTools() {
       >
         <ToolBox
           active
-          icon={ImportContactsIcon}
+          icon={OpenBook}
           label="Thamizhl Dictionary"
           path="/thamizhl-dictionary"
         />
         <ToolBox
           active
-          icon={BookOutlinedIcon}
+          icon={NoteBook}
           label="Thirukkural"
           path="/thirukkural"
         />
@@ -37,7 +38,7 @@ export default function ThamizhlTools() {
           path="/aathichoodi"
         />
         <ToolBox
-          icon={CalendarMonthOutlinedIcon}
+          icon={FcCalendar}
           label="Thamizhl Calendar"
           path="/thamizhl-calendar"
         />

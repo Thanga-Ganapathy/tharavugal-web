@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
-import { Box, CircularProgress, IconButton } from '@mui/material';
-import SearchIcon from '@mui/icons-material/Search';
+import { Box, CircularProgress, IconButton, Tooltip } from '@mui/material';
 import { Form, Field } from '@opentf/react-form';
+import { FcSearch } from 'react-icons/fc';
 
 export default function SearchForm({
   isLoading,
@@ -36,13 +36,11 @@ export default function SearchForm({
           })}
           placeholder={placeholder}
         />
-        <IconButton type="submit">
-          {isLoading ? (
-            <CircularProgress size={25} />
-          ) : (
-            <SearchIcon sx={{ color: (t) => t.palette.primary.main }} />
-          )}
-        </IconButton>
+        <Tooltip title="Search" sx={{ ml: 2 }}>
+          <IconButton type="submit">
+            {isLoading ? <CircularProgress size={25} /> : <FcSearch />}
+          </IconButton>
+        </Tooltip>
       </Box>
     </Box>
   );

@@ -24,7 +24,10 @@ export default function ToolBox({ icon: Icon, label, path, active }) {
         },
       }}
     >
-      <Icon sx={{ fontSize: '35px', mt: '10px' }} />
+      <Box
+        component={Icon}
+        sx={{ width: '50px', height: '50px', mt: '10px' }}
+      />
       <Typography
         textAlign="center"
         mt={1}

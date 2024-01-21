@@ -1,12 +1,12 @@
 import { Box, Divider, Typography } from '@mui/material';
-import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import Link from 'next/link';
+import { FcLink } from 'react-icons/fc';
 
 export default function Links() {
   return (
     <Box p={1}>
       <Typography variant="h6" sx={{ display: 'flex', alignItems: 'center' }}>
-        <ChevronRightIcon /> Links
+        <Box component={FcLink} sx={{ fontSize: '35px', mr: 2 }} /> Links
       </Typography>
       <Divider sx={{ borderColor: 'darkgray' }} />
       <Box>

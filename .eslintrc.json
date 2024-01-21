@@ -1,12 +1,13 @@
 {
   "extends": "next/core-web-vitals",
   "rules": {
+    "react/display-name": 0,
     "@next/next/no-img-element": 0,
     "import/no-anonymous-default-export": [
       "error",
       {
         "allowArray": true,
-        "allowArrowFunction": false,
+        "allowArrowFunction": true,
         "allowAnonymousClass": false,
         "allowAnonymousFunction": false,
         "allowCallExpression": true, // The true value here is for backward compatibility

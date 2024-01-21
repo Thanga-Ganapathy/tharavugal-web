@@ -1,11 +1,9 @@
 import { Box, Card, Divider, Typography } from '@mui/material';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
-import ImageOutlinedIcon from '@mui/icons-material/ImageOutlined';
-import VideoCameraBackOutlinedIcon from '@mui/icons-material/VideoCameraBackOutlined';
-import ArticleOutlinedIcon from '@mui/icons-material/ArticleOutlined';
-import LibraryBooksOutlinedIcon from '@mui/icons-material/LibraryBooksOutlined';
 import AudioFileOutlinedIcon from '@mui/icons-material/AudioFileOutlined';
 import { useRouter } from 'next/router';
+import { FcDocument, FcPicture, FcStart } from 'react-icons/fc';
+import Books from '../icons/Books';
 
 function Resource({ name, icon: Icon, path }) {
   const router = useRouter();
@@ -29,10 +27,7 @@ function Resource({ name, icon: Icon, path }) {
       onClick={() => router.push(path)}
     >
       <Box sx={{ display: 'flex', justifyContent: 'center' }}>
-        <Box
-          component={Icon}
-          sx={{ fontSize: 50, color: (t) => t.palette.secondary.main }}
-        />
+        <Box component={Icon} sx={{ width: '50px', height: '50px' }} />
       </Box>
       <Typography
         textAlign="center"
@@ -56,16 +51,8 @@ export default function Resources() {
       </Typography>
       <Divider sx={{ borderColor: 'darkgray' }} />
       <Box mt={1} sx={{ mt: 1, display: 'flex', flexWrap: 'wrap' }}>
-        <Resource
-          name="IMAGES"
-          icon={ImageOutlinedIcon}
-          path="/resources/images"
-        />
-        <Resource
-          name="VIDEOS"
-          icon={VideoCameraBackOutlinedIcon}
-          path="/resources/videos"
-        />
+        <Resource name="IMAGES" icon={FcPicture} path="/resources/images" />
+        <Resource name="VIDEOS" icon={FcStart} path="/resources/videos" />
         <Resource
           name="AUDIOS"
           icon={AudioFileOutlinedIcon}
@@ -73,14 +60,10 @@ export default function Resources() {
         />
         <Resource
           name="DOCUMENTS"
-          icon={ArticleOutlinedIcon}
+          icon={FcDocument}
           path="/resources/documents"
         />
-        <Resource
-          name="BOOKS"
-          icon={LibraryBooksOutlinedIcon}
-          path="/resources/books"
-        />
+        <Resource name="BOOKS" icon={Books} path="/resources/books" />
       </Box>
     </Box>
   );

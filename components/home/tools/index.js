@@ -1,22 +1,22 @@
 import { Box, Divider, Typography } from '@mui/material';
-import InsertChartOutlinedTwoToneIcon from '@mui/icons-material/InsertChartOutlinedTwoTone';
-import ExploreOutlinedIcon from '@mui/icons-material/ExploreOutlined';
 import ScienceOutlinedIcon from '@mui/icons-material/ScienceOutlined';
 import PushPinOutlinedIcon from '@mui/icons-material/PushPinOutlined';
-import ChevronRightIcon from '@mui/icons-material/ChevronRight';
-import FastfoodIcon from '@mui/icons-material/Fastfood';
 import WaterDropOutlinedIcon from '@mui/icons-material/WaterDropOutlined';
-import MedicationLiquidOutlinedIcon from '@mui/icons-material/MedicationLiquidOutlined';
 import TravelExploreOutlinedIcon from '@mui/icons-material/TravelExploreOutlined';
 import TempleHinduOutlinedIcon from '@mui/icons-material/TempleHinduOutlined';
+import { FcBarChart, FcBinoculars, FcBiomass, FcServices } from 'react-icons/fc';
 
 import ToolBox from './ToolBox';
+import Hamburger from '@/components/icons/Hamburger';
 
 export default function Tools() {
   return (
     <Box p={1}>
       <Typography variant="h6" sx={{ display: 'flex', alignItems: 'center' }}>
-        <ChevronRightIcon /> Tools
+        <FcServices
+          style={{ width: '35px', height: '35px', marginRight: '10px' }}
+        />{' '}
+        Tools
       </Typography>
       <Divider sx={{ borderColor: 'darkgray' }} />
 
@@ -26,13 +26,13 @@ export default function Tools() {
         sx={{ display: 'flex', justifyContent: 'flex-start', flexWrap: 'wrap' }}
       >
         <ToolBox
-          icon={ExploreOutlinedIcon}
+          icon={FcBinoculars}
           label="Explore"
           path="/explore"
           active
         />
         <ToolBox
-          icon={InsertChartOutlinedTwoToneIcon}
+          icon={FcBarChart}
           label="Visualizer"
           path="/visualizer"
           active
@@ -47,12 +47,12 @@ export default function Tools() {
       >
         <ToolBox
           active
-          icon={FastfoodIcon}
+          icon={Hamburger}
           label="Food Ingredients"
           path="/food-ingredients"
         />
         <ToolBox
-          icon={MedicationLiquidOutlinedIcon}
+          icon={FcBiomass}
           label="Sitha Medicines"
           path="/sitha-medicines"
         />

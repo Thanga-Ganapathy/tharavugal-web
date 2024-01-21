@@ -1,9 +1,9 @@
 import { Box, Card, Divider, Typography } from '@mui/material';
-import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import { useRouter } from 'next/router';
 import useAlert from '@/hooks/useAlert';
 import { format } from 'date-fns-tz';
 import { endOfMonth, startOfMonth } from 'date-fns';
+import { FcDoughnutChart } from 'react-icons/fc';
 
 function FeaturedBox({ data }) {
   const router = useRouter();
@@ -123,7 +123,8 @@ export default function FeaturedVisualizations() {
   return (
     <Box p={1}>
       <Typography variant="h6" sx={{ display: 'flex', alignItems: 'center' }}>
-        <ChevronRightIcon /> Visualizations (Featured)
+        <FcDoughnutChart style={{ fontSize: '35px', marginRight: '10px' }} />{' '}
+        Visualizations (Featured)
       </Typography>
       <Divider sx={{ borderColor: 'darkgray' }} />
       <Box p={2}>
