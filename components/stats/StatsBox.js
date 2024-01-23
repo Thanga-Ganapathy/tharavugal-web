@@ -17,7 +17,10 @@ export default function StatsBox({ name, count = 0, href }) {
         cursor: href ? 'pointer' : 'initial',
         borderRadius: '5px',
         p: 1,
-        backgroundColor: '#39CCCC',
+        border: '1px solid darkgray',
+        '&:hover': {
+          backgroundColor: href ? 'rgba(1, 255, 112, 0.5)' : 'initial',
+        },
       }}
       onClick={() => {
         if (href) {
@@ -30,7 +33,7 @@ export default function StatsBox({ name, count = 0, href }) {
         variant="subtitle1"
         sx={{
           textTransform: 'uppercase',
-          color: 'white',
+          color: '#85144b',
           fontSize: '14px',
           fontWeight: 'bold',
         }}
