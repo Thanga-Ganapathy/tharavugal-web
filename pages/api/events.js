@@ -9,10 +9,11 @@ export default async function handler(req, res) {
 
   switch (req.method) {
     case 'GET':
+      const query = req.query.q ? { title: { $regex: req.query.q, $options: 'i' } } : {};
       const perPage = req.query.per || 10;
       const page = req.query.page || 0;
       const cursor = await collection
-        .find({}, { projection: { _id: 0 } })
+        .find(query, { projection: { _id: 0 } })
         .sort({ updatedAt: -1 })
         .skip(perPage * page)
         .limit(10);

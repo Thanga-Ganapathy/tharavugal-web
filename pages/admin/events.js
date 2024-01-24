@@ -7,8 +7,15 @@ import Sidebar from '@/components/admin/Sidebar';
 import DialogWindow from '@/components/DialogWindow';
 import New from '@/components/admin/events/New';
 import List from '@/components/admin/events/List';
+import SearchForm from '@/components/SearchForm';
+import APIClient from '@/utils/APIClient';
 
 export default function Events() {
+  const [state, setState] = useState({
+    search: false,
+    isSearching: false,
+    searchData: [],
+  });
   const [open, setOpen] = useState(false);
   const [page, setPage] = useState(0);
   const { data, error, isLoading, mutate } = useSWR('/api/events?page=' + page);
@@ -16,6 +23,12 @@ export default function Events() {
   const handleClose = () => {
     setOpen(false);
     mutate();
+  };
+
+  const handleSearch = async (values) => {
+    setState({ isSearching: true, search: true });
+    const res = await APIClient.get('/api/events?q=' + values.searchText);
+    setState({ isSearching: false, search: true, searchData: res.data.events });
   };
 
   return (
@@ -32,8 +45,15 @@ export default function Events() {
             </Button>
           </Box>
           <Paper sx={{ mt: 2 }}>
+            <SearchForm
+              isLoading={state.isSearching}
+              onSubmit={handleSearch}
+              onClear={() =>
+                setState({ search: false, isSearching: false, searchData: [] })
+              }
+            />
             <List
-              data={data?.data.events}
+              data={state.search ? state.searchData : data?.data.events}
               page={page}
               setPage={setPage}
               isLoading={isLoading}
