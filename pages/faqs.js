@@ -34,12 +34,12 @@ export default function FAQs() {
           q="What is the meaning of `Tharavugal`?"
           a={
             <Box>
-              <strong>Tharavugal</strong> is a Thamizhl (தமிழ்) language word,
-              and in simple terms, it means data.
+              Tharavugal is a Thamizhl (தமிழ்) language word, and in simple
+              terms, it means data.
             </Box>
           }
         />
-        <QA q="Is this a NEWS site?" a={<Box>No.</Box>} />
+        <QA q="Is this a news site?" a={<Box>No.</Box>} />
         <QA
           q="How do I become a member of this organization?"
           a={

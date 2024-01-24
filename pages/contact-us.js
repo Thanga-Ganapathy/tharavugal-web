@@ -37,7 +37,7 @@ export default function ContactUs() {
           </Box>
           <Box>
             <Typography variant="body1" sx={{ textDecoration: 'underline' }}>
-              Address
+              Location
             </Typography>
             <Box component="address" mt={2}>
               Chennai

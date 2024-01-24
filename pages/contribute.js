@@ -1,13 +1,22 @@
 import Layout from '@/components/layouts/DefaultLayout';
-import { Paper, Typography, Card, CardContent, Chip, Box } from '@mui/material';
+import {
+  Paper,
+  Typography,
+  Card,
+  CardContent,
+  Chip,
+  Box,
+  Alert,
+} from '@mui/material';
 import Link from 'next/link';
 import InfoIcon from '@mui/icons-material/Info';
+import HeadingWithDivider from '@/components/HeadingWithDivider';
 
 export default function Contribute() {
   return (
     <Layout title="Contribute">
       <Typography variant="h5" textAlign="center">
-        Contribute
+        🙏 Contribute
       </Typography>
       <Paper sx={{ mt: 2, p: { xs: 1, sm: 1, md: 2 } }}>
         <Card sx={{ mt: 2 }}>
@@ -248,6 +257,26 @@ export default function Contribute() {
             </Typography>
           </CardContent>
         </Card>
+
+        <HeadingWithDivider title="Other Works" sx={{ mt: 3 }} />
+        <Box>
+          <ul>
+            <li>
+              We need people to record press releases information from both
+              private & government bodies.
+            </li>
+            <li>
+              We need graphics designers to make the organization logo after
+              design aproval from the core-members.
+            </li>
+          </ul>
+        </Box>
+
+        <Alert severity="info">
+          Please visit the{' '}
+          <Link href="/contribution-logs">Contribution Logs</Link> for any
+          contributions made to the organization.
+        </Alert>
       </Paper>
     </Layout>
   );

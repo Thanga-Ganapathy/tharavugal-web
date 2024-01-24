@@ -62,7 +62,7 @@ export default function App({ Component, pageProps }) {
         '/statistics/locations',
         '/events/.+',
         '/contribution-logs',
-        '/knowledge-base',
+        '/kb',
         '/contact-us',
         '/about-us',
         '/faqs',

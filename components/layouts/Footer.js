@@ -3,6 +3,24 @@ import { format } from 'date-fns';
 import OpenInNewOutlinedIcon from '@mui/icons-material/OpenInNewOutlined';
 import Link from 'next/link';
 
+function LI({ title, href, children }) {
+  return (
+    <Box component="li">
+      <Box
+        component={Link}
+        href={href}
+        sx={{
+          color: 'white',
+          textDecoration: 'none',
+          '&:hover': { textDecoration: 'underline' },
+        }}
+      >
+        {title ?? children}
+      </Box>
+    </Box>
+  );
+}
+
 export default function Footer() {
   return (
     <Box
@@ -29,32 +47,8 @@ export default function Footer() {
             ORGANIZATION
           </Typography>
           <Box mt={2} component="ul">
-            <Box component="li">
-              <Box
-                component={Link}
-                href="/about-us"
-                sx={{
-                  color: 'white',
-                  textDecoration: 'none',
-                  '&:hover': { textDecoration: 'underline' },
-                }}
-              >
-                About Us
-              </Box>
-            </Box>
-            <Box component="li">
-              <Box
-                component={Link}
-                href="/contact-us"
-                sx={{
-                  color: 'white',
-                  textDecoration: 'none',
-                  '&:hover': { textDecoration: 'underline' },
-                }}
-              >
-                Contact Us
-              </Box>
-            </Box>
+            <LI href="/about-us" title="About Us" />
+            <LI href="/contact-us" title="Contact Us" />
           </Box>
         </Grid>
         <Grid item xs={12} sx={{ mt: { xs: 2, sm: 0 } }} sm={6} md={3}>
@@ -72,33 +66,9 @@ export default function Footer() {
             USEFUL LINKS
           </Typography>
           <Box mt={2} component="ul">
-            <Box component="li">
-              <Box
-                component={Link}
-                href="/faqs"
-                sx={{
-                  color: 'white',
-                  textDecoration: 'none',
-                  '&:hover': { textDecoration: 'underline' },
-                }}
-              >
-                FAQs
-              </Box>
-            </Box>
-            <Box component="li">
-              <Box
-                component={Link}
-                href="https://github.com/Tharavugal/web"
-                sx={{
-                  color: 'white',
-                  textDecoration: 'none',
-                  '&:hover': { textDecoration: 'underline' },
-                }}
-              >
-                Code Repository - Github{' '}
-                <OpenInNewOutlinedIcon sx={{ fontSize: '12px' }} />
-              </Box>
-            </Box>
+            <LI href="/work-pipeline" title="Work Pipeline" />
+            <LI href="/faqs" title="FAQs" />
+            <LI href="/kb" title="Knowledge Base" />
           </Box>
         </Grid>
         <Grid item xs={12} sx={{ mt: { xs: 2, sm: 0 } }} sm={6} md={3}>
@@ -116,32 +86,8 @@ export default function Footer() {
             LEGAL
           </Typography>
           <Box mt={2} component="ul">
-            <Box component="li">
-              <Box
-                component={Link}
-                href="/terms-conditions"
-                sx={{
-                  color: 'white',
-                  textDecoration: 'none',
-                  '&:hover': { textDecoration: 'underline' },
-                }}
-              >
-                Terms & Conditions
-              </Box>
-            </Box>
-            <Box component="li">
-              <Box
-                component={Link}
-                href="/privacy-policy"
-                sx={{
-                  color: 'white',
-                  textDecoration: 'none',
-                  '&:hover': { textDecoration: 'underline' },
-                }}
-              >
-                Privacy Policy
-              </Box>
-            </Box>
+            <LI href="/terms-conditions" title="Terms & Conditions" />
+            <LI href="/privacy-policy" title="Privacy Policy" />
           </Box>
         </Grid>
 
@@ -160,19 +106,11 @@ export default function Footer() {
             Others
           </Typography>
           <Box mt={2} component="ul">
-            <Box component="li">
-              <Box
-                component={Link}
-                href="/credits"
-                sx={{
-                  color: 'white',
-                  textDecoration: 'none',
-                  '&:hover': { textDecoration: 'underline' },
-                }}
-              >
-                Credits
-              </Box>
-            </Box>
+            <LI href="/credits" title="Credits" />
+            <LI href="https://github.com/Tharavugal/web">
+              Code Repository - Github
+              <OpenInNewOutlinedIcon sx={{ fontSize: '12px' }} />
+            </LI>
           </Box>
         </Grid>
       </Grid>

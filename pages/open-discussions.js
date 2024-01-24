@@ -1,6 +1,5 @@
 import Layout from '@/components/layouts/DefaultLayout';
-import { Masonry } from '@mui/lab';
-import { Alert, Box, Icon, Paper, Tooltip, Typography } from '@mui/material';
+import { Alert, Box, Paper, Tooltip, Typography } from '@mui/material';
 import Link from 'next/link';
 import ChatOutlinedIcon from '@mui/icons-material/ChatOutlined';
 
@@ -45,24 +44,22 @@ export default function OpenDiscussions() {
     'Sexual abuse of girl children.',
     'Untouchability between people.',
     'Malnutrition among children.',
-    'What is Dravidian?'
+    'What is Dravidian?',
   ];
 
   return (
     <Layout title="Open Discussions">
       <Box textAlign="center">
-        <Typography variant="h4">Open Discussions</Typography>
+        <Typography variant="h5">Open Discussions</Typography>
       </Box>
       <Alert severity="warning">
         Work in Pipeline, please follow the{' '}
         <Link href="/work-pipeline">Work Pipeline</Link> for updates.
       </Alert>
-      <Box mt={2}>
-        <Masonry columns={{ xs: 1, sm: 2, md: 3 }} spacing={2}>
-          {data.map((d, i) => (
-            <DiscussionBox key={i} title={d} />
-          ))}
-        </Masonry>
+      <Box sx={{ mt: 2 }}>
+        {data.map((d, i) => (
+          <DiscussionBox key={i} title={d} />
+        ))}
       </Box>
     </Layout>
   );

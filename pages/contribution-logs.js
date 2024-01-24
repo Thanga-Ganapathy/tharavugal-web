@@ -71,12 +71,13 @@ export default function ContributionLogs({ logs, R2_DOMAIN }) {
   return (
     <Layout title="Contribution Logs">
       <Box textAlign="center">
-        <Typography variant="h4">Contribution Logs</Typography>
+        <Typography variant="h5">Contribution Logs</Typography>
       </Box>
       <Box mt={2}>
         <Alert severity="info">
-          Contributions made by people to the platform are logged in the system,
-          so you can view all types (except a few) of contributions here.
+          Contributions made by people to the organization are logged in the
+          system, so you can view all types (except a few) of contributions
+          here.
         </Alert>
       </Box>
       <Box mt={2} sx={{ p: { xs: 1, sm: 1, md: 2 } }}>

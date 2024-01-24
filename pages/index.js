@@ -12,7 +12,7 @@ import Resources from '@/components/home/Resources';
 import FeaturedVisualizations from '@/components/home/FeaturedVisualizations';
 import RecentDiscussions from '@/components/home/RecentDiscussions';
 import RecentEntities from '@/components/home/RecentEntities';
-import Links from '@/components/home/Links';
+import Sections from '@/components/home/Sections';
 import Stats from '@/components/home/Stats';
 import ThamizhlTools from '@/components/home/ThamizhlTools';
 import RecentOpenIssues from '@/components/home/RecentOpenIssues';
@@ -40,6 +40,9 @@ export default function Home({ data }) {
           <Events data={data.events} styles={styles} />
           <Paper sx={{ mt: 2 }}>
             <Resources />
+          </Paper>
+          <Paper sx={{ mt: 2 }}>
+            <Sections />
           </Paper>
         </Box>
         <Box>
@@ -69,9 +72,6 @@ export default function Home({ data }) {
           </Paper>
           <Paper sx={{ mt: 2 }}>
             <RecentEntities />
-          </Paper>
-          <Paper sx={{ mt: 2 }}>
-            <Links />
           </Paper>
         </Box>
       </Box>
