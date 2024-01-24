@@ -32,8 +32,8 @@ export default function Visualizer() {
       const parsedQuery = JSON.parse(atob(router.query.q));
       const filter = {
         category: parsedQuery.category,
-        from: new Date(parsedQuery.from),
-        to: new Date(parsedQuery.to),
+        from: parsedQuery.from ? new Date(parsedQuery.from) : null,
+        to: parsedQuery.to ? new Date(parsedQuery.to) : null,
         locations: parsedQuery.locations,
         view: parsedQuery.view,
       };
@@ -45,8 +45,12 @@ export default function Visualizer() {
         },
       }));
       const data = produce(parsedQuery, (draft) => {
-        draft.from = format(new Date(draft.from), 'yyyy-MM-dd');
-        draft.to = format(new Date(draft.to), 'yyyy-MM-dd');
+        if (draft.from) {
+          draft.from = format(new Date(draft.from), 'yyyy-MM-dd');
+        }
+        if (draft.to) {
+          draft.to = format(new Date(draft.to), 'yyyy-MM-dd');
+        }
         draft.timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
       });
       fetchData(data);

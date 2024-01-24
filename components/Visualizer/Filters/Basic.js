@@ -23,8 +23,8 @@ export default function Basic({ onChange }) {
   const formRef = useRef();
 
   useEffect(() => {
-    formRef.current.actions.reset(filter)
-  }, [filter])
+    formRef.current.actions.reset(filter);
+  }, [filter]);
 
   return (
     <Form
@@ -32,8 +32,12 @@ export default function Basic({ onChange }) {
       initialValues={initialValues}
       onSubmit={(values) => {
         const data = produce(values, (draft) => {
-          draft.from = format(draft.from, 'yyyy-MM-dd');
-          draft.to = format(draft.to, 'yyyy-MM-dd');
+          if (draft.from) {
+            draft.from = format(draft.from, 'yyyy-MM-dd');
+          }
+          if (draft.to) {
+            draft.to = format(draft.to, 'yyyy-MM-dd');
+          }
           draft.timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
         });
         onChange(data);

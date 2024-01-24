@@ -2,7 +2,7 @@ import { connect } from '@/utils/db';
 
 export default async function handler(req, res) {
   const db = await connect();
-  
+
   const collection = db.collection('events');
   let output;
 
@@ -23,6 +23,7 @@ export default async function handler(req, res) {
 
   switch (req.method) {
     case 'POST':
+      const pipelines = [];
       const matchQuery = {
         status: 'Published',
         categories: req.body.category,
@@ -32,11 +33,12 @@ export default async function handler(req, res) {
         matchQuery.locations = { $in: req.body.locations };
       }
 
-      const cursor = await collection.aggregate([
-        {
-          $match: matchQuery,
-        },
-        {
+      pipelines.push({
+        $match: matchQuery,
+      });
+
+      if (req.body.from && req.body.to) {
+        const dateMatchQuery = {
           $match: {
             $expr: {
               $and: [
@@ -67,7 +69,12 @@ export default async function handler(req, res) {
               ],
             },
           },
-        },
+        };
+        pipelines.push(dateMatchQuery);
+      }
+
+      const cursor = await collection.aggregate([
+        ...pipelines,
         {
           $group: {
             _id: {

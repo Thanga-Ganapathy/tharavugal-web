@@ -1,9 +1,13 @@
-import { Box, Card, Divider, Typography } from '@mui/material';
+import { Box, Card, CardContent, Divider, Typography } from '@mui/material';
 import { useRouter } from 'next/router';
 import useAlert from '@/hooks/useAlert';
 import { format } from 'date-fns-tz';
 import { endOfMonth, startOfMonth } from 'date-fns';
 import { FcDoughnutChart } from 'react-icons/fc';
+import Elephant from '../icons/Elephant';
+import Ambulance from '../icons/Ambulance';
+import Fire from '../icons/Fire';
+import Warning from '../icons/Warning';
 
 function FeaturedBox({ data }) {
   const router = useRouter();
@@ -24,7 +28,6 @@ function FeaturedBox({ data }) {
       <Card
         variant="outlined"
         sx={{
-          p: 3,
           userSelect: 'none',
           cursor: 'pointer',
           borderColor: (t) => t.palette.primary.light,
@@ -34,19 +37,34 @@ function FeaturedBox({ data }) {
           },
         }}
       >
-        <Typography
-          variant="h5"
-          textAlign="center"
-          sx={{ color: data.severity }}
+        <CardContent
+          sx={{
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+          }}
         >
-          {data.title}
-        </Typography>
-        <Typography
-          variant="subtitle2"
-          sx={{ textAlign: 'center', color: 'text.secondary' }}
-        >
-          {data.subtitle}
-        </Typography>
+          <Box>
+            {data.icon && (
+              <Box
+                component={data.icon}
+                sx={{ width: '50px', height: '50px', mr: 3 }}
+              />
+            )}
+          </Box>
+          <Box>
+            <Typography variant="h5" textAlign="center">
+              {data.title}
+            </Typography>
+
+            <Typography
+              variant="subtitle2"
+              sx={{ textAlign: 'center', color: 'text.secondary' }}
+            >
+              {data.subtitle}
+            </Typography>
+          </Box>
+        </CardContent>
       </Card>
     </Box>
   );
@@ -61,9 +79,9 @@ export default function FeaturedVisualizations() {
   });
   const list = [
     {
-      title: '🐘 Elephant Deaths',
+      title: 'Elephant Deaths',
+      icon: Elephant,
       subtitle: `(${format(new Date(), 'yyyy')})`,
-      severity: 'error.main',
       filters: {
         category: 'Elephant Death',
         from: new Date(`${currentYear}-01-01`),
@@ -74,35 +92,9 @@ export default function FeaturedVisualizations() {
       },
     },
     {
-      title: '🛣️ Road Accidents',
-      subtitle: `(${format(new Date(), 'MMMM')} - Week Day View)`,
-      severity: 'error.main',
-      filters: {
-        category: 'Road Accident',
-        from: startOfMonth(new Date()),
-        to: endOfMonth(new Date()),
-        locations: [],
-        view: 'Week',
-        chartType: 'Doughnut Chart',
-      },
-    },
-    {
-      title: '🌎 Natural Disasters',
-      subtitle: `(${format(new Date(), 'yyyy')}) - Months view`,
-      severity: 'error.main',
-      filters: {
-        category: 'Natural Disaster',
-        from: new Date(`${currentYear}-01-01`),
-        to: new Date(),
-        locations: [],
-        view: 'Month',
-        chartType: 'Bar Chart',
-      },
-    },
-    {
-      title: '🔥 Fire Accidents',
+      title: 'Fire Accidents',
+      icon: Fire,
       subtitle: `(${format(new Date(), 'yyyy')} - Months View)`,
-      severity: 'warning.main',
       filters: {
         category: 'Fire Accident',
         from: new Date(`01-01-${currentYear}`),
@@ -113,8 +105,33 @@ export default function FeaturedVisualizations() {
       },
     },
     {
+      title: 'Road Accidents',
+      icon: Ambulance,
+      subtitle: `(${format(new Date(), 'MMMM')} - Week Day View)`,
+      filters: {
+        category: 'Road Accident',
+        from: startOfMonth(new Date()),
+        to: endOfMonth(new Date()),
+        locations: [],
+        view: 'Week',
+        chartType: 'Doughnut Chart',
+      },
+    },
+    {
+      title: 'Natural Disasters',
+      icon: Warning,
+      subtitle: `(Year view)`,
+      filters: {
+        category: 'Natural Disaster',
+        from: '',
+        to: '',
+        locations: [],
+        view: 'Year',
+        chartType: 'Bar Chart',
+      },
+    },
+    {
       title: '🧒 Children Sexual Abuses',
-      severity: 'primary.main',
       filters: {},
       disabled: true,
     },
