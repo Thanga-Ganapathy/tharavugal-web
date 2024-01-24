@@ -25,12 +25,10 @@ export default function Stats({ data }) {
         />
       </Box>
 
-      <Box
-        component={Link}
-        href="/statistics"
-        sx={{ display: 'flex', justifyContent: 'right' }}
-      >
-        View All <KeyboardDoubleArrowRightIcon />{' '}
+      <Box sx={{ display: 'flex', justifyContent: 'right', mt: 2 }}>
+        <Box component={Link} href="/statistics" sx={{ display: 'flex' }}>
+          View All <KeyboardDoubleArrowRightIcon />
+        </Box>
       </Box>
     </Box>
   );

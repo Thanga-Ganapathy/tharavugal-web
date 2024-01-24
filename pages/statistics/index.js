@@ -1,3 +1,4 @@
+import HeadingWithDivider from '@/components/HeadingWithDivider';
 import Layout from '@/components/layouts/DefaultLayout';
 import StatsBox from '@/components/stats/StatsBox';
 import { connect } from '@/utils/db';
@@ -29,6 +30,14 @@ export default function Statistics({ data }) {
         <Typography variant="h5">Statistics</Typography>
       </Box>
       <Paper variant="outlined" sx={{ p: { xs: 1, sm: 1, md: 2 } }}>
+        <HeadingWithDivider title="Organization" />
+        <Box mt={2} sx={{ display: 'flex', flexWrap: 'wrap' }}>
+          <StatsBox name="Core Members" count={0} />
+          <StatsBox name="General Members" count={0} />
+          <StatsBox name="APP Admin" count={1} />
+          <StatsBox name="Regsitered Users" count={0} />
+        </Box>
+        <HeadingWithDivider title="Real-Time Events" sx={{ mt: 2 }} />
         <Box mt={2} sx={{ display: 'flex', flexWrap: 'wrap' }}>
           <StatsBox name="Real-Time Events" count={data.totalEvents} />
           <StatsBox
@@ -41,18 +50,22 @@ export default function Statistics({ data }) {
             count={data.totalLocations}
             href="/statistics/locations"
           />
-          <StatsBox name="Contributions" count={data.totalContLogs} />
+        </Box>
+        <HeadingWithDivider title="Resources" sx={{ mt: 2 }} />
+        <Box mt={2} sx={{ display: 'flex', flexWrap: 'wrap' }}>
           <StatsBox name="Images" count={imagesCount} />
           <StatsBox name="Videos" count={videosCount} />
           <StatsBox name="Audios" count={audiosCount} />
           <StatsBox name="Documents" count={docsCount} />
           <StatsBox name="Books" count={booksCount} />
+        </Box>
+        <HeadingWithDivider title="Others" sx={{ mt: 2 }} />
+        <Box mt={2} sx={{ display: 'flex', flexWrap: 'wrap' }}>
+          <StatsBox name="Contributions" count={data.totalContLogs} />
           <StatsBox name="Entities" count={0} />
           <StatsBox name="Open Issues" count={0} />
-          <StatsBox
-            name="Thamizhl Dictionary"
-            count={thamizhlDictCount}
-          />
+          <StatsBox name="Open Discussions" count={0} />
+          <StatsBox name="Thamizhl Dictionary" count={thamizhlDictCount} />
         </Box>
       </Paper>
     </Layout>
