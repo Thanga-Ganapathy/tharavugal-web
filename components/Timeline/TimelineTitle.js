@@ -1,6 +1,6 @@
-import { Box, Chip } from '@mui/material';
+import { Box, Chip, Tooltip } from '@mui/material';
 
-export default function TimelineTitle({ title }) {
+export default function TimelineTitle({ title, toolTip }) {
   return (
     <Box>
       <Box
@@ -14,18 +14,20 @@ export default function TimelineTitle({ title }) {
         }}
       />
       <Box component="span" sx={{ marginLeft: '10px' }}>
-        <Chip
-          size="small"
-          variant="outlined"
-          label={title}
-          sx={{
-            fontWeight: 'bold',
-            background: '#FF851B',
-            color: 'white',
-            borderColor: '#FF851B',
-            letterSpacing: '1px',
-          }}
-        />
+        <Tooltip title={toolTip} placement='right' arrow>
+          <Chip
+            size="small"
+            variant="outlined"
+            label={title}
+            sx={{
+              fontWeight: 'bold',
+              background: '#FF851B',
+              color: 'white',
+              borderColor: '#FF851B',
+              letterSpacing: '1px',
+            }}
+          />
+        </Tooltip>
       </Box>
     </Box>
   );

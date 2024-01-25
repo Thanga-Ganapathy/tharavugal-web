@@ -5,7 +5,6 @@ import TimelineTitle from '../Timeline/TimelineTitle';
 import TimelineContent from '../Timeline/TimelineContent';
 import { format } from 'date-fns';
 import { groupBy } from '@opentf/utils';
-import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import { utcToZonedTime } from 'date-fns-tz';
 
 export default function Events({ data, styles }) {
@@ -20,7 +19,7 @@ export default function Events({ data, styles }) {
       .reverse()
       .map((g, i) => (
         <div key={i}>
-          <TimelineTitle title={g} />
+          <TimelineTitle title={g} toolTip={format(new Date(g), 'EEEE')} />
           <TimelineContent>
             {groups[g].map((e, i) => (
               <Event key={i} data={e} />

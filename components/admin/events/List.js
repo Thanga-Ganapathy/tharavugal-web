@@ -18,7 +18,7 @@ export default function List({
     {
       field: 'title',
       headerName: 'Title',
-      width: 150,
+      width: 250,
     },
     {
       field: 'status',
