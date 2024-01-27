@@ -1,5 +1,3 @@
-import { useEffect, useState } from 'react';
-import { useRouter } from 'next/router';
 import {
   Alert,
   Box,
@@ -24,72 +22,31 @@ const DynamicReactJson = dynamic(() => import('@microlink/react-json-view'), {
 });
 
 import Layout from '@/components/layouts/DefaultLayout';
-import { setAppState, useAppState } from '@/store';
-import APIClient from '@/utils/APIClient';
 import { utcToZonedTime } from 'date-fns-tz';
+import { connect } from '@/utils/db';
+import { useRouter } from 'next/router';
 
-export default function EventView() {
-  const isLoading = useAppState((s) => s.loading);
-  const [state, setState] = useState({
-    event: null,
-    error: false,
-  });
+export default function EventView({ data }) {
   const router = useRouter();
+
   const handleExplore = (name, val) => {
     router.push(`/explore?${name}=${val}`);
   };
 
-  useEffect(() => {
-    async function fetchData(slug) {
-      if (!slug) {
-        return;
-      }
-
-      setAppState((s) => ({ ...s, loading: true }));
-
-      try {
-        const response = await APIClient.get(
-          '/api/events/' + router.query.slug
-        );
-        if (response.data.event) {
-          setState({
-            event: response.data.event,
-            error: false,
-          });
-        } else {
-          setState({
-            ...state,
-            error: 'The requested event could not be found.',
-          });
-        }
-        setAppState((s) => ({ ...s, loading: false }));
-      } catch (error) {
-        setState({ error: error.message });
-        setAppState((s) => ({ ...s, loading: false }));
-      }
-    }
-    fetchData(router.query.slug);
-  }, [router.query]);
-
-  if (state.error) {
-    return (
-      <Layout>
-        <Alert severity="error">{state.error}</Alert>
-      </Layout>
-    );
-  }
-
   return (
-    <Layout title={state.event?.title}>
-      {state.event && (
+    <Layout
+      title={data.event?.title}
+      meta={{ urlPath: 'events/' + data.event?.slug }}
+    >
+      {data.event && (
         <Box>
           <Paper sx={{ mt: 2, p: { xs: 1, sm: 1, md: 2 } }}>
-            <Typography variant="h3">{state.event.title}</Typography>
+            <Typography variant="h3">{data.event.title}</Typography>
             <Typography
               variant="subtitle2"
               sx={{ color: 'text.secondary', textAlign: 'right' }}
             >
-              Updated At: {state.event.updatedAt}
+              Updated At: {data.event.updatedAt}
             </Typography>
             <Box sx={{ display: 'flex', flexWrap: 'wrap', mt: 2 }}>
               <Card variant="outlined" sx={{ m: 1 }}>
@@ -115,8 +72,8 @@ export default function EventView() {
                         color="primary"
                         label={format(
                           utcToZonedTime(
-                            state.event.startedAt,
-                            state.event.startTz
+                            data.event.startedAt,
+                            data.event.startTz
                           ),
                           'yyyy-MM-dd'
                         )}
@@ -127,8 +84,8 @@ export default function EventView() {
                         color="primary"
                         label={format(
                           utcToZonedTime(
-                            state.event.startedAt,
-                            state.event.startTz
+                            data.event.startedAt,
+                            data.event.startTz
                           ),
                           'hh:mm:ss aa'
                         )}
@@ -137,7 +94,7 @@ export default function EventView() {
                         sx={{ mb: 1, ml: 2, fontWeight: 'bold' }}
                         icon={<LanguageIcon />}
                         color="primary"
-                        label={state.event.startTz}
+                        label={data.event.startTz}
                         size="small"
                       />
                     </Box>
@@ -156,10 +113,7 @@ export default function EventView() {
                         icon={<EventIcon />}
                         color="primary"
                         label={format(
-                          utcToZonedTime(
-                            state.event.endedAt,
-                            state.event.endTz
-                          ),
+                          utcToZonedTime(data.event.endedAt, data.event.endTz),
                           'yyyy-MM-dd'
                         )}
                       />
@@ -168,10 +122,7 @@ export default function EventView() {
                         icon={<AccessTimeIcon />}
                         color="primary"
                         label={format(
-                          utcToZonedTime(
-                            state.event.endedAt,
-                            state.event.endTz
-                          ),
+                          utcToZonedTime(data.event.endedAt, data.event.endTz),
                           'hh:mm:ss aa'
                         )}
                       />
@@ -179,7 +130,7 @@ export default function EventView() {
                         sx={{ mb: 1, ml: 2, fontWeight: 'bold' }}
                         icon={<LanguageIcon />}
                         color="primary"
-                        label={state.event.endTz}
+                        label={data.event.endTz}
                         size="small"
                       />
                     </Box>
@@ -194,7 +145,7 @@ export default function EventView() {
                   >
                     GEO
                   </Typography>
-                  {state.event.locations.map((l, i) => (
+                  {data.event.locations.map((l, i) => (
                     <Chip
                       color="info"
                       variant="outlined"
@@ -227,7 +178,7 @@ export default function EventView() {
                   >
                     <Box>Status:</Box>
                     <Box>
-                      {state.event.verified ? (
+                      {data.event.verified ? (
                         <Chip
                           icon={<CheckCircleOutlinedIcon />}
                           label="Verified"
@@ -262,7 +213,7 @@ export default function EventView() {
                   >
                     TAGS
                   </Typography>
-                  {state.event.categories.map((c, i) => (
+                  {data.event.categories.map((c, i) => (
                     <Chip
                       variant="outlined"
                       color="default"
@@ -291,7 +242,7 @@ export default function EventView() {
                 iconStyle="square"
                 displayObjectSize={false}
                 displayDataTypes={false}
-                src={state.event.data?.public || {}}
+                src={data.event.data?.public || {}}
               />
             </Box>
             <Box mt={2}>
@@ -319,4 +270,25 @@ export default function EventView() {
       )}
     </Layout>
   );
+}
+
+export async function getServerSideProps(context) {
+  const db = await connect();
+  const coll = db.collection('events');
+  const event = await coll.findOne(
+    { slug: context.query.slug },
+    { projection: { _id: 0 } }
+  );
+
+  if (event === null) {
+    return {
+      notFound: true,
+    };
+  }
+
+  return {
+    props: {
+      data: { event: JSON.parse(JSON.stringify(event)) },
+    },
+  };
 }

@@ -13,22 +13,21 @@ const metaInfo = {
   url: 'https://tharavugal.org/',
 };
 
-export default function DefaultLayout({
-  children,
-  title = '',
-  meta = {},
-}) {
+export default function DefaultLayout({ children, title = '', meta = {} }) {
   const [agreement, setAgreement] = useState(localStorage.getItem('agreement'));
   const isLoading = useAppState((s) => s.loading);
-  const curTitle = title + ' - ' + metaInfo.title
-  
+  const curTitle = title + ' - ' + metaInfo.title;
+
   const renderMetaInfo = () => {
     return (
       <>
         <meta name="title" content={curTitle} />
         <meta name="description" content={meta.desc ?? metaInfo.desc} />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content={metaInfo.url} />
+        <meta
+          property="og:url"
+          content={metaInfo.url + (meta.urlPath ? meta.urlPath : '')}
+        />
         <meta property="og:title" content={curTitle} />
         <meta property="og:description" content={meta.desc ?? metaInfo.desc} />
         <meta property="og:image" content="" />
