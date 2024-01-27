@@ -75,6 +75,7 @@ export default function App({ Component, pageProps }) {
         '/aathichoodi',
         '/resources/.+',
         '/credits',
+        '/thamizhl-typing',
       ];
       const path = url.split('?')[0];
       const user = window.localStorage.getItem('user');
