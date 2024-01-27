@@ -5,7 +5,7 @@ import Link from 'next/link';
 
 function LI({ title, href, children }) {
   return (
-    <Box component="li">
+    <Box component="li" sx={{mt: 2}}>
       <Box
         component={Link}
         href={href}

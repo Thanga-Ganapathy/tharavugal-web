@@ -7,14 +7,40 @@ import Link from 'next/link';
 import { useState } from 'react';
 import Footer from './Footer';
 
-export default function DefaultLayout({ children, title = 'Loading' }) {
+const metaInfo = {
+  title: 'தரவுகள் | Tharavugal',
+  desc: 'Tharavugal is a non-profit data platform that structures data contributed by its members. The contents are freely accessible to the public.',
+  url: 'https://tharavugal.org/',
+};
+
+export default function DefaultLayout({
+  children,
+  title = '',
+  meta = {},
+}) {
   const [agreement, setAgreement] = useState(localStorage.getItem('agreement'));
   const isLoading = useAppState((s) => s.loading);
+  const curTitle = title + ' - ' + metaInfo.title
+  
+  const renderMetaInfo = () => {
+    return (
+      <>
+        <meta name="title" content={curTitle} />
+        <meta name="description" content={meta.desc ?? metaInfo.desc} />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content={metaInfo.url} />
+        <meta property="og:title" content={curTitle} />
+        <meta property="og:description" content={meta.desc ?? metaInfo.desc} />
+        <meta property="og:image" content="" />
+      </>
+    );
+  };
 
   return (
     <Box sx={{ height: '100%' }}>
       <Head>
-        <title>{title + ' - தரவுகள் | Tharavugal'}</title>
+        <title>{curTitle}</title>
+        {renderMetaInfo()}
       </Head>
       <AppHeader />
       <Toolbar variant="dense" />

@@ -39,6 +39,26 @@ export default function FAQs() {
             </Box>
           }
         />
+        <QA
+          q="What kind of data is available on Tharavugal.org?"
+          a={
+            <Box>
+              <Typography variant="body1">
+                Many kinds of data are available here; some of them are:
+              </Typography>
+              <Box sx={{ mt: 2 }}>
+                <ul>
+                  <li>Real-Time Events</li>
+                  <li>Facts</li>
+                  <li>Health</li>
+                  <li>Environment</li>
+                  <li>Cultural</li>
+                </ul>
+              </Box>
+              <Typography variant="subtitle2">And much more to come...</Typography>
+            </Box>
+          }
+        />
         <QA q="Is this a news site?" a={<Box>No.</Box>} />
         <QA
           q="How do I become a member of this organization?"

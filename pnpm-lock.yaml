@@ -48,8 +48,8 @@ dependencies:
     specifier: ^0.13.1
     version: 0.13.1(react-dom@18.2.0)(react@18.2.0)
   '@opentf/react-ta-input':
-    specifier: ^0.8.0
-    version: 0.8.0(react-dom@18.2.0)(react@18.2.0)
+    specifier: ^0.9.1
+    version: 0.9.1(react-dom@18.2.0)(react@18.2.0)
   '@opentf/utils':
     specifier: ^0.21.0
     version: 0.21.0
@@ -1789,8 +1789,8 @@ packages:
       use-sync-external-store: 1.2.0(react@18.2.0)
     dev: false
 
-  /@opentf/react-ta-input@0.8.0(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-JLp6JadMtx4QNG6IaClYXdCxzVCDIVKzjRnLqbws5GUgjnUH40lgA7Y7KovD6RzmD0SjhjjYm24mllAFyHCrxQ==}
+  /@opentf/react-ta-input@0.9.1(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-DVH1SH7nDdg1jnYepYbJUvwU2ig0UgJ1y/6NPMSeeBOcXAp6JAo8o2hBF2izqxepmRlXs/WmJGXvA/bsbJWXUw==}
     peerDependencies:
       react: ^18.2.0
       react-dom: ^18.2.0

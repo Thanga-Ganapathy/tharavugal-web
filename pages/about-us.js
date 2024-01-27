@@ -10,9 +10,9 @@ export default function AboutUs() {
       </Box>
       <Paper sx={{ p: 5, mt: 2 }}>
         <Typography variant="body1">
-          Tharavugal.org is a non-profit data platform, with the members of the
-          organization providing data of any kind, which can be further
-          structured and consumed by the public.
+          Tharavugal is a non-profit data platform that structures data
+          contributed by its members. The contents are freely accessible to the
+          public.
         </Typography>
         <Typography variant="body1" mt={1}>
           It also provides tools for data exploration, visualization, research,
@@ -24,11 +24,11 @@ export default function AboutUs() {
         </Typography>
 
         <ul>
-          <li>Open source</li>
-          <li>Ad free (Always)</li>
+          <li>Open Source</li>
+          <li>Ad Free (Always)</li>
           <li>Research-Oriented</li>
           <li>
-            Privacy focused (
+            No User Tracking (
             <Link href="/privacy-policy">Click here to learn more</Link>)
           </li>
         </ul>
