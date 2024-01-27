@@ -16,6 +16,7 @@ export default function Videos() {
       title="தமிழ் தட்டச்சு - Thamizhl Typing"
       meta={{
         desc: 'தமிழ் தட்டச்சு - திரை விசைப்பலகை; Online thamizhl typing tool with on-screen keyboard.',
+        urlPath: 'thamizhl-typing',
       }}
     >
       <Box textAlign="center">

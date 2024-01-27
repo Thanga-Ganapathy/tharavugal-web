@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
  <url>
   <loc>https://tharavugal.org/</loc>
-  <lastmod>2024-01-25</lastmod>
+  <lastmod>2024-01-28</lastmod>
  </url>
  <url>
   <loc>https://tharavugal.org/food-ingredients</loc>
@@ -42,7 +42,11 @@
  </url>
  <url>
   <loc>https://tharavugal.org/faqs</loc>
-  <lastmod>2023-10-11</lastmod>
+  <lastmod>2024-01-28</lastmod>
+ </url>
+ <url>
+  <loc>https://tharavugal.org/thamizhl-typing</loc>
+  <lastmod>2024-01-28</lastmod>
  </url>
  <url>
   <loc>https://tharavugal.org/food-ingredients/maggi-nestle-india-noodles-with-seasoning</loc>
@@ -770,11 +774,11 @@
  </url>
  <url>
   <loc>https://tharavugal.org/events/the-earthquake-occurred-nepal-515eaa39</loc>
-  <lastmod>2023-11-04</lastmod>
+  <lastmod>2024-01-25</lastmod>
  </url>
  <url>
   <loc>https://tharavugal.org/events/the-earthquake-occurred-nepal-4a32cb53</loc>
-  <lastmod>2023-11-04</lastmod>
+  <lastmod>2024-01-25</lastmod>
  </url>
  <url>
   <loc>https://tharavugal.org/events/an-army-man-died-of-a-lightning-strike-devipattanam-sivagiri-tenkasi-thamizhl-naadu-republic-of-india-7ae00107</loc>
@@ -798,7 +802,7 @@
  </url>
  <url>
   <loc>https://tharavugal.org/events/the-earthquake-occurred-islamic-emirate-of-afghanistan-1b8d81ea</loc>
-  <lastmod>2023-11-07</lastmod>
+  <lastmod>2024-01-25</lastmod>
  </url>
  <url>
   <loc>https://tharavugal.org/events/seven-college-students-were-arrested-for-harassing-a-junior-student-peelamedu-coimbatore-thamizhl-naadu-republic-of-india-2513d997</loc>
@@ -926,7 +930,7 @@
  </url>
  <url>
   <loc>https://tharavugal.org/events/a-volcano-erupted-at-marapi-mountain-sumatra-republic-of-indonesia-a36c2f03</loc>
-  <lastmod>2023-12-05</lastmod>
+  <lastmod>2024-01-25</lastmod>
  </url>
  <url>
   <loc>https://tharavugal.org/events/two-air-force-pilots-were-killed-in-an-aircraft-crash-dundigal-gandimaisamma-medchal−malkajgiri-telangana-republic-of-india-bb8566d8</loc>
