@@ -6,7 +6,6 @@ import { FcCalendar } from 'react-icons/fc';
 
 import ToolBox from './tools/ToolBox';
 import OpenBook from '../icons/OpenBook';
-import NoteBook from '../icons/NoteBook';
 
 export default function ThamizhlTools() {
   return (
@@ -28,7 +27,7 @@ export default function ThamizhlTools() {
         />
         <ToolBox
           active
-          icon={NoteBook}
+          icon={BookOutlinedIcon}
           label="Thirukkural"
           path="/thirukkural"
         />

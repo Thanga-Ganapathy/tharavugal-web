@@ -40,7 +40,7 @@ export default function Feedback() {
           component={Field}
           type="textarea"
           name="msg"
-          placeholder="Type your feedback here..."
+          placeholder="Please type your feedback here..."
           rows={3}
           sx={{ p: 1, width: '300px' }}
         />

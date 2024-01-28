@@ -1,17 +1,10 @@
 import Layout from '@/components/layouts/DefaultLayout';
-import {
-  Box,
-  Chip,
-  Paper,
-  Typography,
-  Alert,
-  AlertTitle,
-  Badge,
-} from '@mui/material';
+import { Box, Paper, Typography, Alert, Badge } from '@mui/material';
 import Info from '@/components/thirukkural/Info';
 import Chapters from '@/components/thirukkural/Chapters';
 import { thirukkural } from '@/data/thirukkural';
 import Kural from '@/components/thirukkural/Kural';
+import HeadingWithDivider from '@/components/HeadingWithDivider';
 
 export default function Thirukkural() {
   const randomKural = thirukkural.chapters.find(
@@ -40,7 +33,10 @@ export default function Thirukkural() {
           </Paper>
           <Box sx={{ mt: 2 }}>
             <Kural data={randomKural} />
-            <Info />
+            <Paper sx={{ p: { xs: 1, sm: 2 } }}>
+              <HeadingWithDivider title="Facts" sx={{ mb: 2 }} />
+              <Info />
+            </Paper>
           </Box>
         </Box>
       </Box>
