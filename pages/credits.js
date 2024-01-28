@@ -18,6 +18,13 @@ export default function Credits() {
             <Link href="https://vercel.com">Vercel</Link> - Free web hosting.
           </Box>
         </Box>
+        
+        <Box sx={{ mt: 2 }}>
+          <Typography variant="h5">CDN</Typography>
+          <Box mt={2}>
+            <Link href="https://cloudflare.com">Cloudflare</Link> - Free CDN services.
+          </Box>
+        </Box>
 
         <Box sx={{ mt: 2 }}>
           <Typography variant="h5">Database</Typography>
@@ -37,7 +44,7 @@ export default function Credits() {
           </Box>
           <Box mt={2}>
             <Link href="https://icons8.com/">Flat Color Icons by Icons8</Link> -
-            Free icons.
+            Free color icons.
           </Box>
         </Box>
       </Paper>
