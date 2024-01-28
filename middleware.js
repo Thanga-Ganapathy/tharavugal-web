@@ -14,6 +14,7 @@ const routesConfig = {
     { path: '/api/statistics/tags/.+'},
     { path: '/api/statistics/locations/.+'},
     { path: '/api/thamizhl-dictionary'},
+    { path: '/api/feedback'},
   ],
   protected: [
     { path: '/api/admin', roles: [USER_ROLES.ADMIN] },

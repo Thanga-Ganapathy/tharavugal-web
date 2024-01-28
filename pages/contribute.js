@@ -11,6 +11,7 @@ import {
 import Link from 'next/link';
 import InfoIcon from '@mui/icons-material/Info';
 import HeadingWithDivider from '@/components/HeadingWithDivider';
+import Feedback from '@/components/app/Feedback';
 
 export default function Contribute() {
   return (
@@ -170,31 +171,6 @@ export default function Contribute() {
         <Card sx={{ mt: 2 }}>
           <CardContent>
             <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
-              <Typography variant="h6">Infrastructure upgrade</Typography>
-            </Box>
-
-            <Typography variant="body1" sx={{ mt: 2 }}>
-              Currently, our system runs on low resources, and due to this, we
-              are limiting user access to these web app features.
-              <br />
-              <br />
-              Our web app is currently running on the free tier of{' '}
-              <Link href="https://vercel.com/">Vercel.com</Link>
-              <br />
-              <br />
-              Thanks to <Link href="https://vercel.com/">Vercel.com</Link> for
-              the free web hosting.
-              <br />
-              <br />
-              Please <Link href="/contact-us">contact us</Link> for more
-              details.
-            </Typography>
-          </CardContent>
-        </Card>
-
-        <Card sx={{ mt: 2 }}>
-          <CardContent>
-            <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
               <Typography variant="h6">Health Care</Typography>
               <Chip
                 color="info"
@@ -246,15 +222,41 @@ export default function Contribute() {
         <Card sx={{ mt: 2 }}>
           <CardContent>
             <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
-              <Typography variant="h6">Your feedback matters</Typography>
+              <Typography variant="h6">Infrastructure upgrade</Typography>
             </Box>
 
             <Typography variant="body1" sx={{ mt: 2 }}>
+              Currently, our system runs on low resources, and due to this, we
+              are limiting user access to these web app features.
+              <br />
+              <br />
+              Please <Link href="/contact-us">contact us</Link> for more
+              details.
+            </Typography>
+          </CardContent>
+        </Card>
+
+        <Card sx={{ mt: 2 }}>
+          <CardContent>
+            <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
+              <Typography variant="h6">Your feedback matters</Typography>
+            </Box>
+
+            <Box variant="body1" sx={{ mt: 2 }}>
               Your suggestions are always welcome, which will help us improve.
               <br />
               <br />
-              Feel free to send us your feedback via email.
-            </Typography>
+              Feel free to send us your feedback via email to{' '}
+              <Link href="mailto:admin@tharavugal.org">
+                admin@tharavugal.org
+              </Link>
+              <Box sx={{ mt: 2 }}>
+                (Or else send it anonymously via the feedback form below.)
+              </Box>
+              <Box sx={{ mt: 2 }}>
+                <Feedback />
+              </Box>
+            </Box>
           </CardContent>
         </Card>
 

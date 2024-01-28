@@ -1,11 +1,18 @@
-import { Box, Grid, Typography } from '@mui/material';
+import {
+  Box,
+  Grid,
+  ThemeProvider,
+  Typography,
+  createTheme,
+} from '@mui/material';
 import { format } from 'date-fns';
 import OpenInNewOutlinedIcon from '@mui/icons-material/OpenInNewOutlined';
 import Link from 'next/link';
+import Feedback from '../app/Feedback';
 
 function LI({ title, href, children }) {
   return (
-    <Box component="li" sx={{mt: 2}}>
+    <Box component="li" sx={{ mt: 2 }}>
       <Box
         component={Link}
         href={href}
@@ -22,6 +29,12 @@ function LI({ title, href, children }) {
 }
 
 export default function Footer() {
+  const darkTheme = createTheme({
+    palette: {
+      mode: 'dark',
+    },
+  });
+
   return (
     <Box
       component="footer"
@@ -103,7 +116,7 @@ export default function Footer() {
               fontWeight: 'bold',
             }}
           >
-            Others
+            OTHERS
           </Typography>
           <Box mt={2} component="ul">
             <LI href="/credits" title="Credits" />
@@ -114,6 +127,12 @@ export default function Footer() {
           </Box>
         </Grid>
       </Grid>
+
+      <Box sx={{ mt: 2, display: 'flex', justifyContent: 'center' }}>
+        <ThemeProvider theme={darkTheme}>
+          <Feedback />
+        </ThemeProvider>
+      </Box>
 
       <Box sx={{ mt: 3 }} textAlign="center">
         © 2023 - {format(new Date(), 'yyyy')} Tharavugal.org
