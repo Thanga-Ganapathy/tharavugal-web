@@ -68,7 +68,7 @@ export default function DefaultLayout({ children, title = '', meta = {} }) {
             bottom: '15px',
             borderRadius: '8px',
             zIndex: 1000,
-            background: (theme) => theme.palette.warning.dark,
+            background: '#85144b',
             p: 2,
             color: 'white',
             textAlign: 'center',
@@ -76,8 +76,21 @@ export default function DefaultLayout({ children, title = '', meta = {} }) {
         >
           <Typography variant="h6">
             Please read our{' '}
-            <Link href="/terms-conditions">Terms & Conditions</Link> and{' '}
-            <Link href="/privacy-policy">Privacy Policy</Link>
+            <Box
+              component={Link}
+              sx={{ color: 'white' }}
+              href="/terms-conditions"
+            >
+              Terms & Conditions
+            </Box>{' '}
+            and{' '}
+            <Box
+              component={Link}
+              sx={{ color: 'white' }}
+              href="/privacy-policy"
+            >
+              Privacy Policy
+            </Box>
           </Typography>
           <Button
             variant="outlined"
