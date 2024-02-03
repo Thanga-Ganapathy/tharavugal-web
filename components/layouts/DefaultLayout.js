@@ -58,25 +58,26 @@ export default function DefaultLayout({ children, title = '', meta = {} }) {
       </Backdrop>
       <Footer />
 
-      {!agreement && (
+      {agreement === null && (
         <Box
           sx={{
-            position: 'sticky',
-            bottom: 0,
-            left: 0,
+            position: 'fixed',
+            left: { md: '50%' },
+            transform: { md: 'translateX(-50%)' },
+            m: { xs: 2, sm: 2, md: 0 },
+            bottom: '15px',
+            borderRadius: '8px',
             zIndex: 1000,
-            width: '100%',
-            background: (theme) => theme.palette.warning.light,
+            background: (theme) => theme.palette.warning.dark,
             p: 2,
             color: 'white',
             textAlign: 'center',
           }}
         >
-          <Typography variant="h5">
-            Please read and accept these{' '}
+          <Typography variant="h6">
+            Please read our{' '}
             <Link href="/terms-conditions">Terms & Conditions</Link> and{' '}
-            <Link href="/privacy-policy">Privacy Policy</Link> before continuing
-            to the web app.
+            <Link href="/privacy-policy">Privacy Policy</Link>
           </Typography>
           <Button
             variant="outlined"
@@ -86,7 +87,17 @@ export default function DefaultLayout({ children, title = '', meta = {} }) {
               setAgreement(true);
             }}
           >
-            I have read & accept
+            Accept
+          </Button>
+          <Button
+            variant="outlined"
+            sx={{ mt: 1, background: 'white', color: 'black', ml: 2 }}
+            onClick={() => {
+              localStorage.setItem('agreement', false);
+              setAgreement(true);
+            }}
+          >
+            Dismiss
           </Button>
         </Box>
       )}
