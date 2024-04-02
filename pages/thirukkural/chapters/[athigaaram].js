@@ -1,11 +1,13 @@
 import Layout from '@/components/layouts/DefaultLayout';
 import { Box, Typography } from '@mui/material';
 import { useRouter } from 'next/router';
+import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 
 import { thirukkural } from '@/data/thirukkural';
 import Kural from '@/components/thirukkural/Kural';
 import { useEffect } from 'react';
 import { useState } from 'react';
+import Link from 'next/link';
 
 export default function Athigaaram() {
   const [chapter, setChapter] = useState(null);
@@ -42,7 +44,14 @@ export default function Athigaaram() {
 
   return (
     <Layout title={`${chapter.name} - திருக்குறள்`}>
-      <Box textAlign="center">
+      <Box
+        component={Link}
+        href="/thirukkural"
+        sx={{ display: 'flex', alignItems: 'center' }}
+      >
+        <ChevronLeftIcon /> அதிகாரங்கள் (Chapters)
+      </Box>
+      <Box textAlign="center" sx={{ mt: 2 }}>
         <Typography variant="h5">{chapter.name} - திருக்குறள்</Typography>
         <Typography variant="body1">
           ({chapter.translations.find((t) => t.id === 'en').text})
