@@ -4,7 +4,7 @@ import Timeline from '../Timeline';
 import TimelineTitle from '../Timeline/TimelineTitle';
 import TimelineContent from '../Timeline/TimelineContent';
 import { format } from 'date-fns';
-import { groupBy } from '@opentf/utils';
+import { groupBy } from '@opentf/std';
 import { utcToZonedTime } from 'date-fns-tz';
 
 export default function Events({ data, styles }) {

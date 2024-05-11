@@ -4,7 +4,7 @@ import { useField } from '@opentf/react-form';
 import { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import { filesize } from 'filesize';
-import { percentage } from '@opentf/utils';
+import { percentage } from '@opentf/std';
 
 const FIVE_MB = 1024 ** 2 * 5;
 

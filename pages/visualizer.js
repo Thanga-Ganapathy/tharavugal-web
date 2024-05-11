@@ -9,7 +9,7 @@ import Layout from '@/components/layouts/DefaultLayout';
 import APIClient from '@/utils/APIClient';
 import HeadingWithDivider from '@/components/HeadingWithDivider';
 import { setAppState } from '@/store';
-import { sleep } from '@opentf/utils';
+import { sleep } from '@opentf/std';
 
 export default function Visualizer() {
   const router = useRouter();

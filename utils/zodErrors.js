@@ -1,11 +1,11 @@
-import { setInObj } from '@opentf/utils';
+import { set } from '@opentf/std';
 
 export default function zodErrors(schema, values) {
   const errors = {};
   const result = schema.safeParse(values);
   if (!result.success) {
     result.error.issues.forEach((i) =>
-      setInObj(errors, i.path.join('.'), i.message)
+      set(errors, i.path.join('.'), i.message)
     );
   }
   return errors;
