@@ -4,7 +4,13 @@ import PushPinOutlinedIcon from '@mui/icons-material/PushPinOutlined';
 import WaterDropOutlinedIcon from '@mui/icons-material/WaterDropOutlined';
 import TravelExploreOutlinedIcon from '@mui/icons-material/TravelExploreOutlined';
 import TempleHinduOutlinedIcon from '@mui/icons-material/TempleHinduOutlined';
-import { FcBarChart, FcBinoculars, FcBiomass, FcServices } from 'react-icons/fc';
+import {
+  FcBarChart,
+  FcBinoculars,
+  FcBiomass,
+  FcServices,
+  FcGlobe,
+} from 'react-icons/fc';
 
 import ToolBox from './ToolBox';
 import Hamburger from '@/components/icons/Hamburger';
@@ -25,12 +31,7 @@ export default function Tools() {
         py={2}
         sx={{ display: 'flex', justifyContent: 'flex-start', flexWrap: 'wrap' }}
       >
-        <ToolBox
-          icon={FcBinoculars}
-          label="Explore"
-          path="/explore"
-          active
-        />
+        <ToolBox icon={FcBinoculars} label="Explore" path="/explore" active />
         <ToolBox
           icon={FcBarChart}
           label="Visualizer"
@@ -75,6 +76,12 @@ export default function Tools() {
         py={2}
         sx={{ display: 'flex', justifyContent: 'flex-start', flexWrap: 'wrap' }}
       >
+        <ToolBox
+          icon={FcGlobe}
+          label="Global Maps"
+          path="/global-maps"
+          active
+        />
         <ToolBox
           icon={TravelExploreOutlinedIcon}
           label="Geo Name Finder"

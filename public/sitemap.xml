@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
  <url>
   <loc>https://tharavugal.org/</loc>
-  <lastmod>2024-01-28</lastmod>
+  <lastmod>2024-05-11</lastmod>
  </url>
  <url>
   <loc>https://tharavugal.org/food-ingredients</loc>
@@ -47,6 +47,10 @@
  <url>
   <loc>https://tharavugal.org/thamizhl-typing</loc>
   <lastmod>2024-01-28</lastmod>
+ </url>
+ <url>
+  <loc>https://tharavugal.org/global-maps</loc>
+  <lastmod>2024-05-11</lastmod>
  </url>
  <url>
   <loc>https://tharavugal.org/food-ingredients/maggi-nestle-india-noodles-with-seasoning</loc>

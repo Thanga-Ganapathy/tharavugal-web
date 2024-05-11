@@ -76,6 +76,7 @@ export default function App({ Component, pageProps }) {
         '/resources/.+',
         '/credits',
         '/thamizhl-typing',
+        '/global-maps',
       ];
       const path = url.split('?')[0];
       const user = window.localStorage.getItem('user');
