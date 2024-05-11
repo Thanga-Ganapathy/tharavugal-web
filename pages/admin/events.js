@@ -62,7 +62,7 @@ export default function Events() {
             />
           </Paper>
 
-          <DialogWindow open={open} onClose={handleClose} title="New Event">
+          <DialogWindow open={open} onClose={handleClose} title="New Event" variant='medium'>
             <New onClose={handleClose} />
           </DialogWindow>
         </Box>

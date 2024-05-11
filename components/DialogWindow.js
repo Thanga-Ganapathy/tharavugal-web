@@ -6,10 +6,23 @@ export default function DialogWindow({
   open,
   onClose,
   children,
-  maxWidth = 'sm',
+  variant = 'default',
 }) {
+  const variants = {
+    default: 'xs',
+    small: 'sm',
+    medium: 'md',
+    large: 'lg',
+    full: false,
+  };
+
   return (
-    <Dialog open={open} onClose={onClose} fullWidth maxWidth={maxWidth}>
+    <Dialog
+      open={open}
+      onClose={onClose}
+      fullWidth
+      maxWidth={variants[variant]}
+    >
       <DialogTitle variant="h6" color="primary" align="center">
         {title}
         <IconButton
