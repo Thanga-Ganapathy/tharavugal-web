@@ -65,7 +65,7 @@ export default function GlobalMaps() {
           <Typography variant="body1">
             {' '}
             It is made by dividing a spherical surface into 96 triangles. And
-            then transferring it to a tetrahedron while keeping the area's
+            then transferring it to a tetrahedron while keeping the area&apos;s
             proportions. Finally unfolding it to a rectangle.
           </Typography>
 
