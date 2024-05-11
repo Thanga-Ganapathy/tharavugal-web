@@ -30,6 +30,8 @@ const routesConfig = {
     { path: '/api/admin/resources/.+', roles: [USER_ROLES.ADMIN] },
     { path: '/api/admin/thamizhl-dictionary', roles: [USER_ROLES.ADMIN] },
     { path: '/api/admin/thamizhl-dictionary/.+', roles: [USER_ROLES.ADMIN] },
+    { path: '/api/admin/facts', roles: [USER_ROLES.ADMIN] },
+    { path: '/api/admin/facts/.+', roles: [USER_ROLES.ADMIN] },
   ],
 };
 

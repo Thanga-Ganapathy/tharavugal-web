@@ -111,3 +111,12 @@ export const thamizhlDictionarySchema = z.object({
     )
     .nonempty(),
 });
+
+export const factsSchema = z.object({
+  id: z.string().uuid(),
+  title: z.string().min(1, '*Required'),
+  ui: z.object({
+    code: z.object().passthrough(),
+    data: z.string().min(1, '*Required'),
+  }),
+});

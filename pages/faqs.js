@@ -3,6 +3,7 @@ import {
   Accordion,
   AccordionDetails,
   AccordionSummary,
+  Alert,
   Box,
   Chip,
   Typography,
@@ -55,7 +56,9 @@ export default function FAQs() {
                   <li>Cultural</li>
                 </ul>
               </Box>
-              <Typography variant="subtitle2">And much more to come...</Typography>
+              <Typography variant="subtitle2">
+                And much more to come...
+              </Typography>
             </Box>
           }
         />
@@ -66,7 +69,7 @@ export default function FAQs() {
             <Box>
               The public can become members only through the recommendation of
               the <strong>CORE MEMBERS</strong> of the organization based on
-              their ethical work.
+              their ethical (அறம்) works.
             </Box>
           }
         />
@@ -93,6 +96,10 @@ export default function FAQs() {
             </Box>
           }
         />
+        <Alert severity="info">
+          Learn more about various topics on the{' '}
+          <Link href="/kb">Knowledge Base</Link> page.
+        </Alert>
       </Box>
     </Layout>
   );

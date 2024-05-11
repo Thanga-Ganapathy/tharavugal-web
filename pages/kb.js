@@ -1,17 +1,44 @@
+import SearchForm from '@/components/SearchForm';
 import Layout from '@/components/layouts/DefaultLayout';
-import { Alert, Box, Typography } from '@mui/material';
+import kbData from '@/data/kb';
+import { Alert, Box, Card, CardContent, Typography } from '@mui/material';
 import Link from 'next/link';
 
 export default function KB() {
+  const renderKBs = () => {
+    return kbData.map((kb, i) => (
+      <Card key={i} sx={{ m: 1 }}>
+        <CardContent>
+          <Typography variant="h6">{kb.title}</Typography>
+          <Box
+            component="div"
+            sx={{ mt: 2, maxWidth: '300px' }}
+            dangerouslySetInnerHTML={{ __html: kb.content }}
+          />
+        </CardContent>
+      </Card>
+    ));
+  };
+
   return (
-    <Layout title="KnowledgeBase">
+    <Layout title="Knowledge Base">
       <Box textAlign="center">
-        <Typography variant="h4">Knowledge Base</Typography>
+        <Typography variant="h5">Knowledge Base</Typography>
       </Box>
-      <Alert severity="warning">
-        Work in Pipeline, please follow the{' '}
-        <Link href="/work-pipeline">Work Pipeline</Link> for updates.
-      </Alert>
+      <Box>
+        <SearchForm />
+        <Box
+          sx={{
+            p: 2,
+            mt: 2,
+            display: 'flex',
+            flexWrap: 'wrap',
+            justifyContent: 'center',
+          }}
+        >
+          {renderKBs()}
+        </Box>
+      </Box>
     </Layout>
   );
 }
