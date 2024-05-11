@@ -25,7 +25,6 @@
     "@opentf/react-state": "^0.14.1",
     "@opentf/react-ta-input": "^0.10.0",
     "@opentf/std": "^0.12.0",
-    "@tharavugal/ui-builder": "^0.2.0",
     "bcrypt": "^5.1.0",
     "chart.js": "^4.4.0",
     "date-fns": "^2.30.0",
