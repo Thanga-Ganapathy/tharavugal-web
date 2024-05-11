@@ -71,7 +71,7 @@ export default function GlobalMaps() {
 
           <Box sx={{ display: 'flex', justifyContent: 'center', mt: 2 }}>
             <img
-              src="http://www.authagraph.com/data/wp-content/uploads/2010/04/AG_01.gif"
+              src="/images/AuthaGraph.gif"
               alt="authagraph map"
               height={500}
             />
