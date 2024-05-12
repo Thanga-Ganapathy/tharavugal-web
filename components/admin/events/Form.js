@@ -20,6 +20,7 @@ function slugify(str, locations, id) {
     id.split('-')[0];
   out = out.replaceAll(' ', '-');
   out = out.replaceAll('"', '');
+  out = out.replaceAll("'", '');
   return out.toLowerCase();
 }
 
