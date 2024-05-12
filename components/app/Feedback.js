@@ -11,6 +11,7 @@ export default function Feedback() {
 
   const handleSubmit = async (values, { reset }) => {
     setSending(true);
+    values.url = window.location.pathname;
     await APIClient.post('/api/feedback', values);
     setSending(false);
     showAlert('success', '🙏 Thanks for your valuable feedback.');
