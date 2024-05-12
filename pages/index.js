@@ -16,6 +16,7 @@ import Sections from '@/components/home/Sections';
 import Stats from '@/components/home/Stats';
 import ThamizhlTools from '@/components/home/ThamizhlTools';
 import RecentOpenIssues from '@/components/home/RecentOpenIssues';
+import RecentAnnouncements from '@/components/home/RecentAnnouncements';
 
 export default function Home({ data }) {
   const router = useRouter();
@@ -72,6 +73,9 @@ export default function Home({ data }) {
           </Paper>
           <Paper sx={{ mt: 2 }}>
             <RecentEntities />
+          </Paper>
+          <Paper sx={{ mt: 2 }}>
+            <RecentAnnouncements />
           </Paper>
         </Box>
       </Box>

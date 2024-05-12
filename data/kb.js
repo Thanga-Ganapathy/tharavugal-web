@@ -34,7 +34,7 @@ const kbData = [
   {
     title: 'Who can be a core member?',
     content: `<ul>
-    <li>Anyone with ethical (அறம்).</li>
+    <li>Anyone with ethical (அறம்) life.</li>
     <li>Must be an expert in any one field</li>
     <li>Invited only through the recommendation of the existing core members.</li>
     </ul>`,

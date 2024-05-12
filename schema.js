@@ -120,3 +120,10 @@ export const factsSchema = z.object({
     data: z.string().min(1, '*Required'),
   }),
 });
+
+export const announcementsSchema = z.object({
+  id: z.string().uuid(),
+  title: z.string().min(1, '*Required'),
+  desc: z.string().min(1, '*Required'),
+  link: z.object({ text: z.string().optional(), url: z.string().optional() }),
+});

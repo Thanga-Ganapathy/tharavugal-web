@@ -28,6 +28,7 @@ export default function Sidebar() {
     { menu: 'Contribution Logs', path: '/admin/contribution-logs' },
     { menu: 'Resources', path: '/admin/resources' },
     { menu: 'Thamizhl Dictionary', path: '/admin/thamizhl-dictionary' },
+    { menu: 'Announcements', path: '/admin/announcements' },
   ];
 
   return (
