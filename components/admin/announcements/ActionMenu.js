@@ -82,7 +82,7 @@ export default function ActionMenu({ row }) {
         </MenuItem>
       </Menu>
       <DialogWindow
-        title="Update Event Category"
+        title="Update Announcement"
         open={editOpen}
         onClose={() => setEditOpen(false)}
       >

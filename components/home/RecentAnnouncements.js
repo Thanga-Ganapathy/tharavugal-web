@@ -11,7 +11,22 @@ function AnnounceBox({ data }) {
         {data.title}
       </Typography>
       <Typography variant="subtitle1">{data.desc}</Typography>
-      {data.link.text && <Link href={data.link.url}>{data.link.text}</Link>}
+      {data.link.text && (
+        <>
+          <Box sx={{ mt: 1 }} component={Link} href={data.link.url}>
+            {data.link.text}
+          </Box>
+        </>
+      )}
+      {data.link2?.text && (
+        <>
+          <br />
+          <Box component={Link} href={data.link2.url}>
+            {data.link2.text}
+          </Box>
+          <br />
+        </>
+      )}
       <Box sx={{ textAlign: 'right' }}>
         <Typography variant="body2">
           {format(new Date(data.createdAt), 'MMM dd, yyyy')}

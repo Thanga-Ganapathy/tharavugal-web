@@ -119,7 +119,8 @@ export default function Visualizer() {
         </Badge>
       </Box>
       <Alert severity="warning">
-        Currently, a limited number of visualizations can be made.
+        Due to our current infrastructure limitations, a limited number of
+        visualizations can be made.
       </Alert>
       <Box
         sx={{

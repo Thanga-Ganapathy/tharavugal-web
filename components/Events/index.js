@@ -42,7 +42,7 @@ export default function Events({ data, styles }) {
         <Timeline>{renderEvents()}</Timeline>
       </Box>
       <Alert severity="warning">
-        Currently, only members can view unlimited events.
+        Due to our current infrastructure limitations, only members can view unlimited events.
       </Alert>
     </Paper>
   );

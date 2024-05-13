@@ -96,6 +96,7 @@ export default function ActionMenu({ row, url, Edit, actions = [], mutate }) {
         title="Update"
         open={editOpen}
         onClose={() => setEditOpen(false)}
+        variant="md"
       >
         <Edit record={row} mutate={mutate} />
       </DialogWindow>

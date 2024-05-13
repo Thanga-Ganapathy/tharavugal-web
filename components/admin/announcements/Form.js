@@ -30,6 +30,12 @@ export default function eventLocationsForm({
           <MUITextField name="link.url" label="Url" />
         </Box>
         <Box mt={2}>
+          <MUITextField name="link2.text" label="Link 2 Text" />
+        </Box>
+        <Box mt={2}>
+          <MUITextField name="link2.url" label="Url" />
+        </Box>
+        <Box mt={2}>
           <Button variant="contained" size="small" type="submit">
             {update ? 'Update' : 'Add'}
           </Button>
