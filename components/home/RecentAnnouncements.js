@@ -7,10 +7,12 @@ import { format } from 'date-fns';
 function AnnounceBox({ data }) {
   return (
     <Card sx={{ p: 2, mt: 2 }} variant="outlined">
-      <Typography variant="h5" sx={{ color: (t) => t.palette.success.dark }}>
+      <Typography variant="h5" sx={{ color: (t) => t.palette.info.dark }}>
         {data.title}
       </Typography>
-      <Typography variant="subtitle1">{data.desc}</Typography>
+      <Typography variant="subtitle1" sx={{ mt: 1 }}>
+        {data.desc}
+      </Typography>
       {data.link.text && (
         <>
           <Box sx={{ mt: 1 }} component={Link} href={data.link.url}>
