@@ -14,6 +14,7 @@ import LineChart from './charts/Line';
 import PieChart from './charts/Pie';
 import DoughnutChart from './charts/DoughnutChart';
 import { setAppState, useAppState } from '@/store';
+import HorizontalBar from './charts/HorizontalBar';
 
 export default function Charts() {
   const { chartType, title, data, isLoading } = useAppState((s) => ({
@@ -61,6 +62,8 @@ export default function Charts() {
         return <AreaChart title={title} data={data} />;
       case 'Bar Chart':
         return <BarChart title={title} data={data} />;
+      case 'HorizontalBar Chart':
+        return <HorizontalBar title={title} data={data} />;
       case 'Line Chart':
         return <LineChart title={title} data={data} />;
       case 'Pie Chart':
@@ -89,6 +92,7 @@ export default function Charts() {
           >
             <MenuItem value="Area Chart">Area Chart</MenuItem>
             <MenuItem value="Bar Chart">Bar Chart</MenuItem>
+            <MenuItem value="HorizontalBar Chart">H-Bar Chart</MenuItem>
             <MenuItem value="Doughnut Chart">Doughnut Chart</MenuItem>
             <MenuItem value="Line Chart">Line Chart</MenuItem>
             <MenuItem value="Pie Chart">Pie Chart</MenuItem>

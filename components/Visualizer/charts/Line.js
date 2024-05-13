@@ -7,6 +7,7 @@ import {
   Title,
   Tooltip,
   Legend,
+  Colors,
 } from 'chart.js';
 import { Line } from 'react-chartjs-2';
 
@@ -17,7 +18,8 @@ ChartJS.register(
   LineElement,
   Title,
   Tooltip,
-  Legend
+  Legend,
+  Colors
 );
 
 export default function LineChart({ title, data }) {
@@ -29,6 +31,9 @@ export default function LineChart({ title, data }) {
         display: true,
         text: title,
       },
+      colors: {
+        forceOverride: true
+      }
     },
   };
 
@@ -38,8 +43,8 @@ export default function LineChart({ title, data }) {
       {
         label: title,
         data: data.map((i) => i.total),
-        borderColor: 'rgb(53, 162, 235)',
-        backgroundColor: 'rgba(53, 162, 235, 0.5)',
+        // borderColor: 'rgb(53, 162, 235)',
+        // backgroundColor: 'rgba(53, 162, 235, 0.5)',
       },
     ],
   };

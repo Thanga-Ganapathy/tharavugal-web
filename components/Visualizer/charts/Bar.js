@@ -6,6 +6,7 @@ import {
   Title,
   Tooltip,
   Legend,
+  Colors,
 } from 'chart.js';
 import { Bar } from 'react-chartjs-2';
 
@@ -15,7 +16,8 @@ ChartJS.register(
   BarElement,
   Title,
   Tooltip,
-  Legend
+  Legend,
+  Colors
 );
 
 export default function BarChart({ title, data }) {
@@ -27,6 +29,9 @@ export default function BarChart({ title, data }) {
         display: true,
         text: title,
       },
+      colors: {
+        forceOverride: true
+      }
     },
   };
 
@@ -36,7 +41,7 @@ export default function BarChart({ title, data }) {
       {
         label: title,
         data: data.map((i) => i.total),
-        backgroundColor: 'rgba(255, 99, 132, 0.5)',
+        // backgroundColor: 'rgba(255, 99, 132, 0.5)',
       },
     ],
   };

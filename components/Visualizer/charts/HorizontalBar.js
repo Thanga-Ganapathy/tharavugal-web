@@ -2,30 +2,32 @@ import {
   Chart as ChartJS,
   CategoryScale,
   LinearScale,
-  PointElement,
-  LineElement,
+  BarElement,
   Title,
   Tooltip,
-  Filler,
   Legend,
   Colors
 } from 'chart.js';
-import { Line } from 'react-chartjs-2';
+import { Bar } from 'react-chartjs-2';
 
 ChartJS.register(
   CategoryScale,
   LinearScale,
-  PointElement,
-  LineElement,
+  BarElement,
   Title,
   Tooltip,
-  Filler,
   Legend,
   Colors
 );
 
-export default function AreaChart({ title, data }) {
+export default function HorizontalBar({ title, data }) {
   const options = {
+    indexAxis: 'y',
+    elements: {
+      bar: {
+        borderWidth: 2,
+      },
+    },
     responsive: true,
     plugins: {
       legend: false,
@@ -43,14 +45,12 @@ export default function AreaChart({ title, data }) {
     labels: data.map((i) => i.label),
     datasets: [
       {
-        fill: true,
         label: title,
         data: data.map((i) => i.total),
-        // borderColor: 'rgb(53, 162, 235)',
-        // backgroundColor: 'rgba(53, 162, 235, 0.5)',
+        // backgroundColor: 'rgba(255, 99, 132, 0.5)',
       },
     ],
   };
 
-  return <Line options={options} data={chartData} />;
+  return <Bar options={options} data={chartData} />;
 }

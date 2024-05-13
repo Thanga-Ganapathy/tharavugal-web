@@ -8,14 +8,16 @@ import Elephant from '../icons/Elephant';
 import Ambulance from '../icons/Ambulance';
 import Fire from '../icons/Fire';
 import Warning from '../icons/Warning';
+import randomGradientColor from '@/utils/randomGradientColor';
 
-function FeaturedBox({ data }) {
+function FeaturedBox({ data, bgColor }) {
   const router = useRouter();
   const showAlert = useAlert();
   const queryStr = btoa(JSON.stringify(data.filters));
 
   return (
     <Box
+      sx={{}}
       mt={2}
       onClick={() => {
         if (data.disabled) {
@@ -30,11 +32,8 @@ function FeaturedBox({ data }) {
         sx={{
           userSelect: 'none',
           cursor: 'pointer',
-          borderColor: (t) => t.palette.primary.light,
-          '&:hover': {
-            background: '#01ff709e',
-            borderColor: '#01ff709e',
-          },
+          background: bgColor,
+          border: 0,
         }}
       >
         <CardContent
@@ -131,11 +130,19 @@ export default function FeaturedVisualizations() {
       },
     },
     {
-      title: '🧒 Children Sexual Abuses',
-      filters: {},
-      disabled: true,
+      title: '🧒👧 Children Sexual Abuses',
+      subtitle: `(Months view)`,
+      filters: {
+        category: 'Children Sexual Abuse',
+        from: new Date(`01-01-${currentYear}`),
+        to: new Date(),
+        locations: [],
+        view: 'Month',
+        chartType: 'HorizontalBar Chart',
+      },
     },
   ];
+  const randomGradients = randomGradientColor();
 
   return (
     <Box p={1}>
@@ -146,7 +153,7 @@ export default function FeaturedVisualizations() {
       <Divider sx={{ borderColor: 'darkgray' }} />
       <Box p={2}>
         {list.map((l, i) => (
-          <FeaturedBox key={i} data={l} />
+          <FeaturedBox key={i} data={l} bgColor={randomGradients[i]} />
         ))}
       </Box>
     </Box>
