@@ -17,6 +17,7 @@ import Stats from '@/components/home/Stats';
 import ThamizhlTools from '@/components/home/ThamizhlTools';
 import RecentOpenIssues from '@/components/home/RecentOpenIssues';
 import RecentAnnouncements from '@/components/home/RecentAnnouncements';
+import TagsSuggestion from '@/components/home/TagsSuggestion';
 
 export default function Home({ data }) {
   const router = useRouter();
@@ -56,24 +57,35 @@ export default function Home({ data }) {
               }}
             />
           </Paper>
+
+          <Paper sx={{ mt: 2 }}>
+            <TagsSuggestion />
+          </Paper>
+          
           <Paper sx={{ mt: 2 }}>
             <Tools />
           </Paper>
+          
           <Paper sx={{ mt: 2 }}>
             <ThamizhlTools />
           </Paper>
+          
           <Paper sx={{ mt: 2 }}>
             <FeaturedVisualizations />
           </Paper>
+          
           <Paper sx={{ mt: 2 }}>
             <RecentDiscussions />
           </Paper>
+          
           <Paper sx={{ mt: 2 }}>
             <RecentOpenIssues />
           </Paper>
+          
           <Paper sx={{ mt: 2 }}>
             <RecentEntities />
           </Paper>
+          
           <Paper sx={{ mt: 2 }}>
             <RecentAnnouncements />
           </Paper>

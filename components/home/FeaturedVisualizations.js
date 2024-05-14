@@ -119,7 +119,7 @@ export default function FeaturedVisualizations() {
     {
       title: 'Natural Disasters',
       icon: Warning,
-      subtitle: `(Year view)`,
+      subtitle: `(Year View)`,
       filters: {
         category: 'Natural Disaster',
         from: '',
@@ -131,7 +131,7 @@ export default function FeaturedVisualizations() {
     },
     {
       title: '🧒👧 Children Sexual Abuses',
-      subtitle: `(Months view)`,
+      subtitle: `(Months View)`,
       filters: {
         category: 'Children Sexual Abuse',
         from: new Date(`01-01-${currentYear}`),
