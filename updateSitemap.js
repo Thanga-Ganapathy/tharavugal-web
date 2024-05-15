@@ -6,7 +6,7 @@ import { thirukkural } from '@/data/thirukkural/index';
 
 const baseUrl = {
   loc: 'https://tharavugal.org/',
-  lastmod: '2024-05-11',
+  lastmod: '2024-05-15',
 };
 
 const staticUrls = [
