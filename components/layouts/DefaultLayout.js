@@ -100,7 +100,7 @@ export default function DefaultLayout({ children, title = '', meta = {} }) {
               setAgreement(true);
             }}
           >
-            Accept
+            ✔️ Accept
           </Button>
           <Button
             variant="outlined"
@@ -110,7 +110,7 @@ export default function DefaultLayout({ children, title = '', meta = {} }) {
               setAgreement(true);
             }}
           >
-            Dismiss
+            ❌ Dismiss
           </Button>
         </Box>
       )}
