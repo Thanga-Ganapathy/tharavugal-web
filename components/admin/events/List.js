@@ -32,7 +32,7 @@ export default function List({
       renderCell(params) {
         return (
           <ModelActionMenu
-            url="/api/events"
+            url="/api/admin/events"
             row={params.row}
             Edit={Edit}
             actions={[
@@ -40,7 +40,7 @@ export default function List({
                 label: 'Publish',
                 handler: async () => {
                   await APIClient.post(
-                    '/api/events',
+                    '/api/admin/events',
                     { id: params.row.id, status: EVENTS_STATUS.PUBLISHED },
                     true
                   );

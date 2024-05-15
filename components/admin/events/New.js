@@ -30,7 +30,7 @@ export default function New({ onClose }) {
       delete draft.endDate;
       delete draft.endTime;
     });
-    const result = await APIClient.post('/api/events', data);
+    const result = await APIClient.post('/api/admin/events', data);
     if (result.ok) {
       showAlert('success', result.data.message);
       onClose();

@@ -43,7 +43,7 @@ export default function Edit({ record, mutate }) {
       delete draft.endTime;
       delete draft.endUTCOffset;
     });
-    const result = await APIClient.post('/api/events', data, true);
+    const result = await APIClient.post('/api/admin/events', data, true);
     if (result.ok) {
       showAlert('success', result.data.message);
       mutate();

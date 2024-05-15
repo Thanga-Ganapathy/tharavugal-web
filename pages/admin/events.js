@@ -18,7 +18,7 @@ export default function Events() {
   });
   const [open, setOpen] = useState(false);
   const [page, setPage] = useState(0);
-  const { data, error, isLoading, mutate } = useSWR('/api/events?page=' + page);
+  const { data, error, isLoading, mutate } = useSWR('/api/admin/events?page=' + page);
 
   const handleClose = () => {
     setOpen(false);
@@ -27,7 +27,7 @@ export default function Events() {
 
   const handleSearch = async (values) => {
     setState({ isSearching: true, search: true });
-    const res = await APIClient.get('/api/events?q=' + values.searchText);
+    const res = await APIClient.get('/api/admin/events?q=' + values.searchText);
     setState({ isSearching: false, search: true, searchData: res.data.events });
   };
 

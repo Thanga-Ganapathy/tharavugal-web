@@ -1,9 +1,8 @@
 import { useRouter } from 'next/router';
-import { Box, Paper, Alert } from '@mui/material';
+import { Box, Paper } from '@mui/material';
 
 import Layout from '@/components/layouts/DefaultLayout';
 import Events from '@/components/Events';
-import { connect } from '@/utils/db';
 
 import styles from './index.module.css';
 import SearchForm from '@/components/home/SearchForm';
@@ -18,9 +17,11 @@ import ThamizhlTools from '@/components/home/ThamizhlTools';
 import RecentOpenIssues from '@/components/home/RecentOpenIssues';
 import RecentAnnouncements from '@/components/home/RecentAnnouncements';
 import TagsSuggestion from '@/components/home/TagsSuggestion';
+import useSWR from 'swr';
 
-export default function Home({ data }) {
+export default function Home() {
   const router = useRouter();
+  const { data: events, error, isLoading } = useSWR('/api/events');
 
   return (
     <Layout title="Home">
@@ -39,7 +40,12 @@ export default function Home({ data }) {
         }}
       >
         <Box>
-          <Events data={data.events} styles={styles} />
+          <Events
+            data={events?.data}
+            error={error}
+            isLoading={isLoading}
+            styles={styles}
+          />
           <Paper sx={{ mt: 2 }}>
             <Resources />
           </Paper>
@@ -49,43 +55,37 @@ export default function Home({ data }) {
         </Box>
         <Box>
           <Paper sx={{ mt: { xs: 2, sm: 0 } }}>
-            <Stats
-              data={{
-                totalEvents: data.totalEvents,
-                totalTags: data.totalTags,
-                totalLocations: data.totalLocations,
-              }}
-            />
+            <Stats />
           </Paper>
 
           <Paper sx={{ mt: 2 }}>
             <TagsSuggestion />
           </Paper>
-          
+
           <Paper sx={{ mt: 2 }}>
             <Tools />
           </Paper>
-          
+
           <Paper sx={{ mt: 2 }}>
             <ThamizhlTools />
           </Paper>
-          
+
           <Paper sx={{ mt: 2 }}>
             <FeaturedVisualizations />
           </Paper>
-          
+
           <Paper sx={{ mt: 2 }}>
             <RecentDiscussions />
           </Paper>
-          
+
           <Paper sx={{ mt: 2 }}>
             <RecentOpenIssues />
           </Paper>
-          
+
           <Paper sx={{ mt: 2 }}>
             <RecentEntities />
           </Paper>
-          
+
           <Paper sx={{ mt: 2 }}>
             <RecentAnnouncements />
           </Paper>
@@ -93,51 +93,4 @@ export default function Home({ data }) {
       </Box>
     </Layout>
   );
-}
-
-export async function getServerSideProps(context) {
-  const db = await connect();
-  const eventsCol = db.collection('events');
-  const cursor = eventsCol.aggregate([
-    {
-      $match: {
-        status: 'Published',
-      },
-    },
-    {
-      $sort: {
-        startedAt: -1,
-      },
-    },
-    {
-      $limit: 10,
-    },
-    {
-      $project: {
-        title: 1,
-        slug: 1,
-        locations: 1,
-        startedAt: 1,
-        startTz: 1,
-        categories: 1,
-      },
-    },
-  ]);
-
-  const events = JSON.parse(JSON.stringify(await cursor.toArray()));
-  const totalEvents = await eventsCol.estimatedDocumentCount();
-  const tagsCol = db.collection('event-categories');
-  const totalTags = await tagsCol.estimatedDocumentCount();
-  const loctaionsCol = db.collection('event-locations');
-  const totalLocations = await loctaionsCol.estimatedDocumentCount();
-  return {
-    props: {
-      data: {
-        events,
-        totalEvents,
-        totalTags,
-        totalLocations,
-      },
-    },
-  };
 }
