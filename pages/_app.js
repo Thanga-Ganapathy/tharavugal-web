@@ -129,12 +129,6 @@ export default function App({ Component, pageProps }) {
             <Typography variant="h5" sx={{ mt: 2 }}>
               Please wait..
             </Typography>
-            <Typography
-              variant="subtitle2"
-              sx={{ mt: 2, color: 'text.secondary' }}
-            >
-              It may take upto 10 Sec to load.
-            </Typography>
           </Box>
         </Box>
       </>
