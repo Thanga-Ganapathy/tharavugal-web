@@ -25,6 +25,9 @@ import Layout from '@/components/layouts/DefaultLayout';
 import { utcToZonedTime } from 'date-fns-tz';
 import { connect } from '@/utils/db';
 import { useRouter } from 'next/router';
+import Link from 'next/link';
+import { isEmpty } from '@opentf/std';
+import HeadingWithDivider from '@/components/HeadingWithDivider';
 
 export default function EventView({ data }) {
   const router = useRouter();
@@ -41,7 +44,7 @@ export default function EventView({ data }) {
       {data.event && (
         <Box>
           <Paper sx={{ mt: 2, p: { xs: 1, sm: 1, md: 2 } }}>
-            <Typography variant="h3">{data.event.title}</Typography>
+            <Typography variant="h4">{data.event.title}</Typography>
             <Typography
               variant="subtitle2"
               sx={{ color: 'text.secondary', textAlign: 'right' }}
@@ -51,17 +54,14 @@ export default function EventView({ data }) {
             <Box sx={{ display: 'flex', flexWrap: 'wrap', mt: 2 }}>
               <Card variant="outlined" sx={{ m: 1 }}>
                 <CardContent>
-                  <Typography
-                    variant="h6"
-                    sx={{ textDecoration: 'underline', mb: 1 }}
-                  >
-                    PERIOD
-                  </Typography>
+                  <HeadingWithDivider title="Period" />
+
                   <Box
                     sx={{
                       display: 'flex',
                       flexWrap: 'wrap',
                       alignItems: 'center',
+                      mt: 2,
                     }}
                   >
                     <Box sx={{ minWidth: '50px' }}>Start:</Box>
@@ -69,7 +69,8 @@ export default function EventView({ data }) {
                       <Chip
                         sx={{ mb: 1, ml: 2, fontWeight: 'bold' }}
                         icon={<EventIcon />}
-                        color="primary"
+                        color="secondary"
+                        variant="outlined"
                         label={format(
                           utcToZonedTime(
                             data.event.startedAt,
@@ -81,7 +82,8 @@ export default function EventView({ data }) {
                       <Chip
                         sx={{ mb: 1, ml: 2, fontWeight: 'bold' }}
                         icon={<AccessTimeIcon />}
-                        color="primary"
+                        color="secondary"
+                        variant="outlined"
                         label={format(
                           utcToZonedTime(
                             data.event.startedAt,
@@ -93,7 +95,8 @@ export default function EventView({ data }) {
                       <Chip
                         sx={{ mb: 1, ml: 2, fontWeight: 'bold' }}
                         icon={<LanguageIcon />}
-                        color="primary"
+                        color="secondary"
+                        variant="outlined"
                         label={data.event.startTz}
                         size="small"
                       />
@@ -111,7 +114,8 @@ export default function EventView({ data }) {
                       <Chip
                         sx={{ mb: 1, ml: 2, fontWeight: 'bold' }}
                         icon={<EventIcon />}
-                        color="primary"
+                        color="secondary"
+                        variant="outlined"
                         label={format(
                           utcToZonedTime(data.event.endedAt, data.event.endTz),
                           'yyyy-MM-dd'
@@ -120,7 +124,8 @@ export default function EventView({ data }) {
                       <Chip
                         sx={{ mb: 1, ml: 2, fontWeight: 'bold' }}
                         icon={<AccessTimeIcon />}
-                        color="primary"
+                        color="secondary"
+                        variant="outlined"
                         label={format(
                           utcToZonedTime(data.event.endedAt, data.event.endTz),
                           'hh:mm:ss aa'
@@ -129,7 +134,8 @@ export default function EventView({ data }) {
                       <Chip
                         sx={{ mb: 1, ml: 2, fontWeight: 'bold' }}
                         icon={<LanguageIcon />}
-                        color="primary"
+                        color="secondary"
+                        variant="outlined"
                         label={data.event.endTz}
                         size="small"
                       />
@@ -139,23 +145,20 @@ export default function EventView({ data }) {
               </Card>
               <Card variant="outlined" sx={{ m: 1 }}>
                 <CardContent>
-                  <Typography
-                    variant="h6"
-                    sx={{ textDecoration: 'underline', mb: 1 }}
-                  >
-                    GEO
-                  </Typography>
-                  {data.event.locations.map((l, i) => (
-                    <Chip
-                      color="info"
-                      variant="outlined"
-                      key={i}
-                      label={l}
-                      sx={{ mt: { xs: 1 }, mr: 1 }}
-                      size="small"
-                      onClick={() => handleExplore('location', l)}
-                    />
-                  ))}
+                  <HeadingWithDivider title="Location" />
+                  <Box sx={{ mt: 2 }}>
+                    {data.event.locations.map((l, i) => (
+                      <Chip
+                        color="info"
+                        variant="outlined"
+                        key={i}
+                        label={l}
+                        sx={{ mt: { xs: 1 }, mr: 1 }}
+                        size="small"
+                        onClick={() => handleExplore('location', l)}
+                      />
+                    ))}
+                  </Box>
                 </CardContent>
               </Card>
             </Box>
@@ -163,17 +166,13 @@ export default function EventView({ data }) {
             <Box sx={{ display: 'flex', flexWrap: 'wrap' }}>
               <Card variant="outlined" sx={{ m: 1 }}>
                 <CardContent>
-                  <Typography
-                    variant="h6"
-                    sx={{ textDecoration: 'underline', mb: 1 }}
-                  >
-                    VERIFICATION / VALIDATION
-                  </Typography>
+                  <HeadingWithDivider title="Verification / Validation" />
                   <Box
                     sx={{
                       display: 'grid',
                       gridTemplateColumns: 'auto 1fr',
                       gridGap: '15px 10px',
+                      mt: 2,
                     }}
                   >
                     <Box>Status:</Box>
@@ -191,13 +190,14 @@ export default function EventView({ data }) {
                           label="Not Verified"
                           color="error"
                           size="small"
+                          variant="outlined"
                         />
                       )}
                     </Box>
                     <Box>Drafted By:</Box>
-                    <Box>Admin (Roles: Admin, Core Member)</Box>
+                    <Box>Admin</Box>
                     <Box>Published By:</Box>
-                    <Box>Admin (Roles: Admin, Core Member)</Box>
+                    <Box>Admin</Box>
                     <Box>Cross-checked By:</Box>
                     <Box>None</Box>
                   </Box>
@@ -207,63 +207,66 @@ export default function EventView({ data }) {
             <Box sx={{ display: 'flex', my: 2, flexWrap: 'wrap' }}>
               <Card variant="outlined" sx={{ m: 1 }}>
                 <CardContent>
-                  <Typography
-                    variant="h6"
-                    sx={{ textDecoration: 'underline', mb: 1 }}
-                  >
-                    TAGS
-                  </Typography>
-                  {data.event.categories.map((c, i) => (
-                    <Chip
-                      variant="outlined"
-                      color="default"
-                      key={i}
-                      label={c}
-                      sx={{ mt: { xs: 1 }, mr: 1 }}
-                      size="small"
-                      onClick={() => handleExplore('tag', c)}
-                    />
-                  ))}
+                  <HeadingWithDivider title="Tags" />
+                  <Box sx={{ mt: 2 }}>
+                    {data.event.categories.map((c, i) => (
+                      <Chip
+                        variant="outlined"
+                        color="default"
+                        key={i}
+                        label={c}
+                        sx={{ mt: { xs: 1 }, mr: 1 }}
+                        size="small"
+                        onClick={() => handleExplore('tag', c)}
+                      />
+                    ))}
+                  </Box>
                 </CardContent>
               </Card>
             </Box>
             <Box mt={2}>
-              <Typography
-                variant="h6"
-                sx={{ display: 'flex', alignItems: 'center' }}
-              >
-                <ChevronRightIcon /> Data
-              </Typography>
-              <Divider />
-              <DynamicReactJson
-                name={false}
-                theme="google"
-                collapsed={false}
-                iconStyle="square"
-                displayObjectSize={false}
-                displayDataTypes={false}
-                src={data.event.data?.public || {}}
-              />
+              <HeadingWithDivider title="Data" />
+              <Box sx={{ mt: 2, p: 2 }}>
+                <DynamicReactJson
+                  name={false}
+                  theme="google"
+                  collapsed={false}
+                  iconStyle="square"
+                  displayObjectSize={false}
+                  displayDataTypes={false}
+                  src={data.event.data?.public || {}}
+                />
+              </Box>
             </Box>
+
             <Box mt={2}>
-              <Typography
-                variant="h6"
-                sx={{ display: 'flex', alignItems: 'center' }}
-              >
-                <ChevronRightIcon /> Linked Events
-              </Typography>
-              <Divider />
-              <Alert severity="info">No data</Alert>
+              <HeadingWithDivider title="References" />
+              <Box sx={{ mt: 2, p: 2 }}>
+                {(data.event.data?.references || []).map((r, i) => (
+                  <Box key={i} component={Link} href={r}>
+                    {r}
+                  </Box>
+                ))}
+                {isEmpty(data.event.data?.references || []) && (
+                  <Alert severity="info">No data</Alert>
+                )}
+              </Box>
             </Box>
+
             <Box mt={2}>
-              <Typography
-                variant="h6"
-                sx={{ display: 'flex', alignItems: 'center' }}
-              >
-                <ChevronRightIcon /> Event Entities
-              </Typography>
+              <HeadingWithDivider title="Linked Events" />
               <Divider />
-              <Alert severity="info">No data</Alert>
+              <Box sx={{ mt: 2, p: 2 }}>
+                <Alert severity="info">No data</Alert>
+              </Box>
+            </Box>
+
+            <Box mt={2}>
+              <HeadingWithDivider title="Event Entities" />
+              <Divider />
+              <Box sx={{ mt: 2, p: 2 }}>
+                <Alert severity="info">No data</Alert>
+              </Box>
             </Box>
           </Paper>
         </Box>
