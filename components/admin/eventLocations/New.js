@@ -9,7 +9,7 @@ export default function New({ onClose }) {
 
   const handleSubmit = async (values) => {
     const result = await APIClient.post(
-      '/api/event-locations',
+      '/api/admin/event-locations',
       eventLocationsSchema.safeParse(values).data
     );
     if (result.ok) {

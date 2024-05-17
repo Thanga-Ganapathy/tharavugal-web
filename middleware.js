@@ -37,6 +37,8 @@ const routesConfig = {
     { path: '/api/admin/facts/.+', roles: [USER_ROLES.ADMIN] },
     { path: '/api/admin/announcements', roles: [USER_ROLES.ADMIN] },
     { path: '/api/admin/announcements/.+', roles: [USER_ROLES.ADMIN] },
+    { path: '/api/admin/event-categories', roles: [USER_ROLES.ADMIN] },
+    { path: '/api/admin/event-locations', roles: [USER_ROLES.ADMIN] },
   ],
 };
 

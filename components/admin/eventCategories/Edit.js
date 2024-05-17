@@ -11,7 +11,7 @@ export default function Edit({ record }) {
 
   const handleSubmit = async (values) => {
     const result = await APIClient.post(
-      "/api/event-categories",
+      "/api/admin/event-categories",
       eventCategoriesSchema.safeParse(values).data,
       true
     );

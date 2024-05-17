@@ -9,7 +9,7 @@ export default function New({ onClose }) {
 
   const handleSubmit = async (values) => {
     const result = await APIClient.post(
-      '/api/event-categories',
+      '/api/admin/event-categories',
       eventCategoriesSchema.safeParse(values).data
     );
     if (result.ok) {

@@ -27,7 +27,7 @@ export default function ActionMenu({ row }) {
   const handleDelete = async () => {
     handleClose();
     if (window.confirm('Delete?')) {
-      const result = await APIClient.delete('/api/event-locations', {
+      const result = await APIClient.delete('/api/admin/event-locations', {
         id: row.id,
       });
       if (result.ok) {
