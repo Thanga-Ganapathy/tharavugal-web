@@ -11,7 +11,7 @@ const routesConfig = {
     { path: '/api/visualize' },
     { path: '/api/events' },
     { path: '/api/events/.+' },
-    { path: '/api/explore' },
+    { path: '/api/events/search' },
     { path: '/api/statistics/tags/.+' },
     { path: '/api/statistics/locations/.+' },
     { path: '/api/thamizhl-dictionary' },

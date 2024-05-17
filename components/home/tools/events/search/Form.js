@@ -1,13 +1,13 @@
 import { useEffect, useRef } from 'react';
 import { Form as OTFForm } from '@opentf/react-form';
-import MUITextField from '../forms/MUITextField';
+import MUITextField from '@/components/forms/MUITextField';
 import { Box, Button } from '@mui/material';
-import MUIAsyncSelectField from '../forms/MUIAsyncSelect';
+import MUIAsyncSelectField from '@/components/forms/MUIAsyncSelect';
 import { useRouter } from 'next/router';
-import MUIDateField from '../forms/MUIDateField';
-import MUISelectField from '../forms/MUISelectField';
+import MUIDateField from '@/components/forms/MUIDateField';
+import MUISelectField from '@/components/forms/MUISelectField';
 
-export default function ExploreForm({ initialValues, onSubmit }) {
+export default function Form({ initialValues, onSubmit }) {
   const router = useRouter();
   const formRef = useRef(null);
 

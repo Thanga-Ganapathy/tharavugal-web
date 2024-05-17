@@ -4,7 +4,7 @@ import SearchOffIcon from '@mui/icons-material/SearchOff';
 import { useFormActions } from '@opentf/react-form';
 import { useFormContext } from '@opentf/react-form';
 import TaInputField from './forms/mui/TaInputField';
-import { FcSearch } from 'react-icons/fc';
+import SearchIcon from '@mui/icons-material/Search';
 
 export default function SearchForm({
   isLoading,
@@ -57,7 +57,7 @@ export default function SearchForm({
           {isLoading ? (
             <CircularProgress size={25} />
           ) : (
-            <FcSearch style={{ height: '35px' }} />
+            <SearchIcon style={{ height: '35px' }} />
           )}
         </IconButton>
       </Tooltip>

@@ -11,7 +11,7 @@ export default function ThamizhlTools() {
   return (
     <Box p={1}>
       <Typography variant="h6" sx={{ display: 'flex', alignItems: 'center' }}>
-        <ChevronRightIcon /> Thamizhl
+        <ChevronRightIcon /> Thamizhl (தமிழ்)
       </Typography>
       <Divider sx={{ borderColor: 'darkgray' }} />
 

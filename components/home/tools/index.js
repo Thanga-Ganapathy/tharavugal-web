@@ -6,10 +6,10 @@ import TravelExploreOutlinedIcon from '@mui/icons-material/TravelExploreOutlined
 import TempleHinduOutlinedIcon from '@mui/icons-material/TempleHinduOutlined';
 import {
   FcBarChart,
-  FcBinoculars,
   FcBiomass,
   FcServices,
   FcGlobe,
+  FcSearch,
 } from 'react-icons/fc';
 
 import ToolBox from './ToolBox';
@@ -31,7 +31,7 @@ export default function Tools() {
         py={2}
         sx={{ display: 'flex', justifyContent: 'flex-start', flexWrap: 'wrap' }}
       >
-        <ToolBox icon={FcBinoculars} label="Explore" path="/explore" active />
+        <ToolBox icon={FcSearch} label="Search" path="/events/search" active />
         <ToolBox
           icon={FcBarChart}
           label="Visualizer"

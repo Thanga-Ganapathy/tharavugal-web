@@ -6,7 +6,7 @@ export default function TagsSuggestion() {
   const router = useRouter();
 
   const handleExplore = (val) => {
-    router.push(`/explore?tag=${val}`);
+    router.push(`/events/search?tag=${val}`);
   };
 
   const tags = [
@@ -19,7 +19,7 @@ export default function TagsSuggestion() {
     'Sallikkattu',
     'Zika',
     'Cancer',
-    'Conservancy'
+    'ICJ'
   ];
 
   return (

@@ -1,5 +1,5 @@
 import { Box } from '@mui/material';
-import Event from '../Events/Event';
+import Event from '@/components/Events/Event';
 
 export default function List({ events }) {
   return (

@@ -41,7 +41,7 @@ export default function App({ Component, pageProps }) {
         '/visualizer',
         '/work-pipeline',
         '/thamizhl-dictionary',
-        '/explore',
+        '/events/search',
         '/research',
         '/thirukkural',
         '/thirukkural/chapters/.+',

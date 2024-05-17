@@ -96,7 +96,7 @@ export default function Locations({ data }) {
                 key={i}
                 count={t.count}
                 name={t.location}
-                href={`/explore?location=${t.location}`}
+                href={`/events/search?location=${t.location}`}
               />
             ))}
           </Box>

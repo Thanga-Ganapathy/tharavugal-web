@@ -1,8 +1,16 @@
-import ExploreForm from '@/components/explore/Form';
-import List from '@/components/explore/List';
+import Form from '@/components/home/tools/events/search/Form';
+import List from '@/components/home/tools/events/search/List';
 import Layout from '@/components/layouts/DefaultLayout';
 import APIClient from '@/utils/APIClient';
-import { Alert, Box, CircularProgress, Paper, Typography } from '@mui/material';
+import {
+  Alert,
+  Box,
+  CircularProgress,
+  Paper,
+  Typography,
+  Pagination,
+  Chip,
+} from '@mui/material';
 import { useState } from 'react';
 import useAlert from '@/hooks/useAlert';
 import { produce } from 'immer';
@@ -10,7 +18,7 @@ import { format } from 'date-fns';
 import { setAutoFreeze } from 'immer';
 import HeadingWithDivider from '@/components/HeadingWithDivider';
 
-export default function Explore() {
+export default function Search() {
   const [state, setState] = useState({
     events: [],
     loading: false,
@@ -37,8 +45,14 @@ export default function Explore() {
       }
     });
     try {
-      const response = await APIClient.post('/api/explore', data);
-      setState({ ...state, events: response.data.events, loading: false });
+      const response = await APIClient.post('/api/events/search', data);
+      console.log(response);
+      setState({
+        ...state,
+        events: response.data.events,
+        meta: response.data.meta[0],
+        loading: false,
+      });
     } catch (error) {
       setState({ ...state, loading: false });
       showAlert('error', 'Server Error, please try again later...');
@@ -46,9 +60,9 @@ export default function Explore() {
   };
 
   return (
-    <Layout title="Explore">
+    <Layout title="Real-Time Events Search">
       <Box textAlign="center">
-        <Typography variant="h5">Explore</Typography>
+        <Typography variant="h6">Search - Real-Time Events</Typography>
       </Box>
       <Box
         sx={{
@@ -60,13 +74,24 @@ export default function Explore() {
         }}
       >
         <Paper sx={{ p: { xs: 1, sm: 1, md: 2 } }}>
-          <ExploreForm initialValues={initialValues} onSubmit={handleSubmit} />
+          <HeadingWithDivider title="Filter" />
+          <Form initialValues={initialValues} onSubmit={handleSubmit} />
         </Paper>
         <Paper sx={{ mt: { xs: 1, sm: 2, md: 0 }, p: { xs: 1, sm: 1, md: 2 } }}>
-          <HeadingWithDivider title="Real-Time Events" />
+          <HeadingWithDivider title="Results" />
+          {state.events.length > 0 && !state.loading && (
+            <Box sx={{ mt: 1, display: 'flex', justifyContent: 'flex-end' }}>
+              <Chip
+                variant="outlined"
+                color="success"
+                label={`Showing: 1 of ${state.events.length} / ${state.meta.total}`}
+                size="small"
+              />
+            </Box>
+          )}
           {state.events.length === 0 && !state.loading && (
             <Alert severity="info" sx={{ mt: 2 }}>
-              No result...
+              No result.
             </Alert>
           )}
           {state.loading && (
@@ -74,11 +99,20 @@ export default function Explore() {
               <CircularProgress />
             </Typography>
           )}
-          <Box>{!state.loading && <List events={state.events} />}</Box>
-          <Alert severity="warning">
-            Due to our current infrastructure limitations, we can only show a
-            limited set of results here.
-          </Alert>
+          <Box sx={{ mt: 2 }}>
+            {!state.loading && <List events={state.events} />}
+          </Box>
+          {state.events.length > 0 && !state.loading && (
+            <>
+              <Box sx={{ display: 'flex', justifyContent: 'center', mt: 3 }}>
+                <Pagination count={1} disabled />
+              </Box>
+              <Alert severity="warning" sx={{ mt: 5 }}>
+                Due to our current infrastructure limitations, we can only show
+                a limited set of results here.
+              </Alert>
+            </>
+          )}
         </Paper>
       </Box>
     </Layout>

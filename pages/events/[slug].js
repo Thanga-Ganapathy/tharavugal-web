@@ -33,7 +33,7 @@ export default function EventView({ data }) {
   const router = useRouter();
 
   const handleExplore = (name, val) => {
-    router.push(`/explore?${name}=${val}`);
+    router.push(`/events/search?${name}=${val}`);
   };
 
   return (
@@ -47,7 +47,7 @@ export default function EventView({ data }) {
             <Typography variant="h4">{data.event.title}</Typography>
             <Typography
               variant="subtitle2"
-              sx={{ color: 'text.secondary', textAlign: 'right' }}
+              sx={{ color: 'text.secondary', textAlign: 'right', mt: 1 }}
             >
               Updated At: {data.event.updatedAt}
             </Typography>

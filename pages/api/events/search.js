@@ -1,15 +1,16 @@
 import { connect } from '@/utils/db';
-import { endOfDay, startOfDay } from 'date-fns';
-import { zonedTimeToUtc } from 'date-fns-tz';
 
 export default async function handler(req, res) {
   const db = await connect();
-  
+
   const eventsCol = db.collection('events');
   let output;
 
   switch (req.method) {
     case 'POST':
+      const page = 1;
+      const per = 10;
+      const skip = page * per - per;
       let query = {
         status: 'Published',
       };
@@ -59,7 +60,6 @@ export default async function handler(req, res) {
         {
           $match: query,
         },
-        { $limit: 10 },
         {
           $project: {
             _id: 0,
@@ -69,6 +69,12 @@ export default async function handler(req, res) {
             startedAt: 1,
             startTz: 1,
             categories: 1,
+          },
+        },
+        {
+          $facet: {
+            meta: [{ $count: 'total' }, { $addFields: { page: page } }],
+            events: [{ $skip: skip }, { $limit: per }], // add projection here wish you re-shape the docs
           },
         },
       ];
@@ -83,8 +89,8 @@ export default async function handler(req, res) {
         maxTimeMS: 60000,
         allowDiskUse: true,
       });
-      const events = await cursor.toArray();
-      output = res.status(200).json({ events });
+      const result = await cursor.toArray();
+      output = res.status(200).json(result[0]);
       break;
     default:
       output = res.status(401);

@@ -15,7 +15,7 @@ export default function Event({ data }) {
   const router = useRouter();
 
   const handleExplore = (name, val) => {
-    router.push(`/explore?${name}=${val}`);
+    router.push(`/events/search?${name}=${val}`);
   };
 
   return (
