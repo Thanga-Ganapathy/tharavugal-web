@@ -126,6 +126,10 @@ export const announcementsSchema = z.object({
   id: z.string().uuid(),
   title: z.string().min(1, '*Required'),
   desc: z.string().min(1, '*Required'),
-  link: z.object({ text: z.string().optional(), url: z.string().optional() }),
-  link2: z.object({ text: z.string().optional(), url: z.string().optional() }),
+  link: z
+    .object({ text: z.string().optional(), url: z.string().optional() })
+    .optional(),
+  link2: z
+    .object({ text: z.string().optional(), url: z.string().optional() })
+    .optional(),
 });
