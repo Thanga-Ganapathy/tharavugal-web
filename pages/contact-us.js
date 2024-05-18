@@ -1,8 +1,8 @@
 import Layout from '@/components/layouts/DefaultLayout';
 import { Box, Paper, Typography } from '@mui/material';
-import Link from 'next/link';
 import EmailOutlinedIcon from '@mui/icons-material/EmailOutlined';
 import LocationOnOutlinedIcon from '@mui/icons-material/LocationOnOutlined';
+import Link from '@/components/app/Link';
 
 export default function ContactUs() {
   return (

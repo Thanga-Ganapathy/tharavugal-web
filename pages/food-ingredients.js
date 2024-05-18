@@ -11,6 +11,7 @@ import {
 } from '@mui/material';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import ProgressiveImg from '@/components/ProgressiveImg';
+import Link from '@/components/app/Link';
 
 const CATEGORY_COLORS = {
   Vegetables: '#2ECC40',
@@ -42,14 +43,9 @@ function FICard({ food, R2_DOMAIN }) {
             />
           </Box>
           <Box sx={{ px: 2 }}>
-            <Typography
-              variant="h6"
-              component="a"
-              href={`/food-ingredients/${food.slug}`}
-              rel="canonical"
-            >
-              {food.name}
-            </Typography>
+            <Link href={`/food-ingredients/${food.slug}`} rel="canonical">
+              <Typography variant="h6">{food.name}</Typography>
+            </Link>
             <Typography sx={{ mt: 2 }} color="text.secondary">
               {food.foodType}
             </Typography>

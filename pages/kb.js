@@ -1,8 +1,7 @@
 import SearchForm from '@/components/SearchForm';
 import Layout from '@/components/layouts/DefaultLayout';
 import kbData from '@/data/kb';
-import { Alert, Box, Card, CardContent, Typography } from '@mui/material';
-import Link from 'next/link';
+import { Box, Card, CardContent, Typography } from '@mui/material';
 
 export default function KB() {
   const renderKBs = () => {

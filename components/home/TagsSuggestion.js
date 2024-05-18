@@ -1,6 +1,7 @@
-import { Box, Chip, Divider, Typography } from '@mui/material';
+import { Box, Divider, Typography } from '@mui/material';
 import TagIcon from '@mui/icons-material/Tag';
 import { useRouter } from 'next/router';
+import Tag from '../app/Tag';
 
 export default function TagsSuggestion() {
   const router = useRouter();
@@ -10,16 +11,19 @@ export default function TagsSuggestion() {
   };
 
   const tags = [
-    'Lese-Majesty',
-    'War Crime',
-    'Charred',
-    'Drone Art',
-    'Electrocution',
-    'Insurgency',
-    'Sallikkattu',
-    'Zika',
-    'Cancer',
-    'ICJ'
+    {
+      label: 'Lese-Majesty',
+      info: 'An offence or defamation against the dignity of a ruling head of state',
+    },
+    { label: 'War Crime', info: '' },
+    { label: 'Charred', info: '' },
+    { label: 'Drone Art', info: '' },
+    { label: 'WCK', info: 'World Central Kitchen' },
+    { label: 'Insurgency', info: '' },
+    { label: 'Sallikkattu', info: 'Traditional Bull Sport' },
+    { label: 'Zika', info: 'A Virus' },
+    { label: 'Cancer', info: '' },
+    { label: 'ICJ', info: 'International Court of Justice' },
   ];
 
   return (
@@ -30,14 +34,12 @@ export default function TagsSuggestion() {
       <Divider sx={{ borderColor: 'darkgray' }} />
       <Box mt={2} p={1}>
         {tags.map((t, i) => (
-          <Chip
-            variant="outlined"
-            color="default"
+          <Tag
             key={i}
-            label={t}
+            label={t.label}
             sx={{ m: 1 }}
-            size="small"
-            onClick={() => handleExplore(t)}
+            onClick={() => handleExplore(t.label)}
+            info={t.info}
           />
         ))}
       </Box>

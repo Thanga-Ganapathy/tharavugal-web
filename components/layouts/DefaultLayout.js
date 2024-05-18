@@ -1,11 +1,18 @@
 import Head from 'next/head';
-import { Backdrop, Box, Toolbar, Typography, Button } from '@mui/material';
+import {
+  Backdrop,
+  Box,
+  Toolbar,
+  Typography,
+  Button,
+  Paper,
+} from '@mui/material';
 import AppHeader from './AppHeader';
 import { InfinitySpin } from 'react-loader-spinner';
 import { useAppState } from '@/store';
-import Link from 'next/link';
 import { useState } from 'react';
 import Footer from './Footer';
+import Link from '../app/Link';
 
 const metaInfo = {
   title: 'தரவுகள் | Tharavugal',
@@ -41,12 +48,12 @@ export default function DefaultLayout({ children, title = '', meta = {} }) {
         <title>{curTitle}</title>
         {renderMetaInfo()}
       </Head>
-      <AppHeader />
+      <AppHeader themeMode="light" />
       <Toolbar variant="dense" />
       <Box
         pb={15}
         sx={{ minHeight: 'calc(100% - 50px)', p: { xs: 1, sm: 1, md: 2 } }}
-        bgcolor="#E7EBF0"
+        // bgcolor="#E7EBF0"
       >
         {children}
       </Box>
@@ -76,21 +83,21 @@ export default function DefaultLayout({ children, title = '', meta = {} }) {
         >
           <Typography variant="h6">
             Please read our{' '}
-            <Box
-              component={Link}
-              sx={{ color: 'white' }}
+            <Link
+              sx={{ color: 'white', textDecorationColor: 'white' }}
+              underline="always"
               href="/terms-conditions"
             >
               Terms & Conditions
-            </Box>{' '}
+            </Link>{' '}
             and{' '}
-            <Box
-              component={Link}
-              sx={{ color: 'white' }}
+            <Link
+              sx={{ color: 'white', textDecorationColor: 'white' }}
               href="/privacy-policy"
+              underline="always"
             >
               Privacy Policy
-            </Box>
+            </Link>
           </Typography>
           <Button
             variant="outlined"

@@ -2,7 +2,7 @@ import { Box, Card, Divider, Typography } from '@mui/material';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import AudioFileOutlinedIcon from '@mui/icons-material/AudioFileOutlined';
 import { useRouter } from 'next/router';
-import { FcDocument, FcPicture, FcStart } from 'react-icons/fc';
+import { FcDocument, FcLandscape, FcStart } from 'react-icons/fc';
 import Books from '../icons/Books';
 
 function Resource({ name, icon: Icon, path }) {
@@ -35,7 +35,6 @@ function Resource({ name, icon: Icon, path }) {
         variant="body1"
         sx={{ userSelect: 'none' }}
         fontSize={14}
-        color="#111111"
       >
         {name}
       </Typography>
@@ -51,7 +50,7 @@ export default function Resources() {
       </Typography>
       <Divider sx={{ borderColor: 'darkgray' }} />
       <Box mt={1} sx={{ mt: 1, display: 'flex', flexWrap: 'wrap' }}>
-        <Resource name="IMAGES" icon={FcPicture} path="/resources/images" />
+        <Resource name="IMAGES" icon={FcLandscape} path="/resources/images" />
         <Resource name="VIDEOS" icon={FcStart} path="/resources/videos" />
         <Resource
           name="AUDIOS"

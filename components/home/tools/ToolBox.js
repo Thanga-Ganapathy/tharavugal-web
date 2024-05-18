@@ -34,7 +34,6 @@ export default function ToolBox({ icon: Icon, label, path, active }) {
         variant="body1"
         sx={{ userSelect: 'none' }}
         fontSize={14}
-        color="#111111"
       >
         {label}
       </Typography>

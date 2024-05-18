@@ -33,9 +33,10 @@ export default function StatsBox({ name, count = 0, href }) {
         variant="subtitle1"
         sx={{
           textTransform: 'uppercase',
-          color: '#85144b',
+          // color: (t) => (t.palette.mode === 'dark' ? '#85144b' : '#85144b'),
           fontSize: '14px',
           fontWeight: 'bold',
+          color: t => t.palette.secondary.main
         }}
       >
         {name}

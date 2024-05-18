@@ -21,6 +21,9 @@ export default function New({ onClose }) {
   };
 
   return (
-    <Form initialValues={{ id: uuid(), name: '' }} onSubmit={handleSubmit} />
+    <Form
+      initialValues={{ id: uuid(), name: '', info: '' }}
+      onSubmit={handleSubmit}
+    />
   );
 }

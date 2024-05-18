@@ -1,6 +1,6 @@
+import Link from '@/components/app/Link';
 import Layout from '@/components/layouts/DefaultLayout';
 import { Alert, Box, Paper, Typography } from '@mui/material';
-import Link from 'next/link';
 
 export default function PrivacyPolicy() {
   return (

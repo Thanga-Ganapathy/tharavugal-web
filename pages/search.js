@@ -5,9 +5,9 @@ import { useRouter } from 'next/router';
 import Layout from '@/components/layouts/DefaultLayout';
 import SearchForm from '@/components/home/SearchForm';
 import APIClient from '@/utils/APIClient';
-import Link from 'next/link';
 import { format } from 'date-fns';
 import Resource from '@/components/Resource';
+import Link from '@/components/app/Link';
 
 function CustomTabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -68,9 +68,9 @@ export default function Search({ data }) {
         <Box sx={{ ml: 2 }}>
           {searchData.events.map((ev, i) => (
             <Box key={i} sx={{ p: 1, mt: 1, border: '1px solid lightgray' }}>
-              <Box component={Link} href={'/events/' + ev.slug}>
+              <Link href={'/events/' + ev.slug}>
                 {ev.title}
-              </Box>
+              </Link>
               <Typography
                 variant="subtitle2"
                 color="text.secondary"

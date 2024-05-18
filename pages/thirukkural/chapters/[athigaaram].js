@@ -7,7 +7,7 @@ import { thirukkural } from '@/data/thirukkural';
 import Kural from '@/components/thirukkural/Kural';
 import { useEffect } from 'react';
 import { useState } from 'react';
-import Link from 'next/link';
+import Link from '@/components/app/Link';
 
 export default function Athigaaram() {
   const [chapter, setChapter] = useState(null);
@@ -44,13 +44,12 @@ export default function Athigaaram() {
 
   return (
     <Layout title={`${chapter.name} - திருக்குறள்`}>
-      <Box
-        component={Link}
+      <Link
         href="/thirukkural"
         sx={{ display: 'flex', alignItems: 'center' }}
       >
         <ChevronLeftIcon /> அதிகாரங்கள் (Chapters)
-      </Box>
+      </Link>
       <Box textAlign="center" sx={{ mt: 2 }}>
         <Typography variant="h5">{chapter.name} - திருக்குறள்</Typography>
         <Typography variant="body1">

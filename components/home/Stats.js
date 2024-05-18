@@ -1,10 +1,10 @@
 import { Box, Divider, Typography } from '@mui/material';
-import Link from 'next/link';
 import KeyboardDoubleArrowRightIcon from '@mui/icons-material/KeyboardDoubleArrowRight';
 import StatsBox from '../stats/StatsBox';
 import { FcStatistics } from 'react-icons/fc';
 import { ThreeDots } from 'react-loader-spinner';
 import useSWR from 'swr';
+import Link from '../app/Link';
 
 export default function Stats() {
   const { data: stats, error, isLoading } = useSWR('/api/quick-stats');
@@ -14,7 +14,11 @@ export default function Stats() {
       return (
         <>
           <StatsBox name="Real-Time Events" count={stats.data.events} />
-          <StatsBox name="Tags" count={stats.data.tags} href="/statistics/tags" />
+          <StatsBox
+            name="Tags"
+            count={stats.data.tags}
+            href="/statistics/tags"
+          />
           <StatsBox
             name="Locations"
             count={stats.data.locations}
@@ -67,13 +71,12 @@ export default function Stats() {
           mt: 2,
         }}
       >
-        <Box
-          component={Link}
+        <Link
           href="/statistics"
           sx={{ display: 'flex', fontSize: '14px', alignItems: 'center' }}
         >
-          View All <KeyboardDoubleArrowRightIcon sx={{ fontSize: '14px' }} />
-        </Box>
+          View All <KeyboardDoubleArrowRightIcon fontSize="small" />
+        </Link>
       </Box>
     </Box>
   );

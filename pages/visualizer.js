@@ -114,8 +114,8 @@ export default function Visualizer() {
   return (
     <Layout title="Visualizer">
       <Box textAlign="center">
-        <Badge badgeContent="ALPHA" color="secondary">
-          <Typography variant="h4">Visualizer</Typography>
+        <Badge badgeContent="ALPHA" color="secondary" sx={{ fontSize: '10px' }}>
+          <Typography variant="h6">Visualizer</Typography>
         </Badge>
       </Box>
       <Alert severity="warning">

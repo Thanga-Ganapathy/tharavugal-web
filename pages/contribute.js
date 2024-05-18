@@ -8,10 +8,10 @@ import {
   Box,
   Alert,
 } from '@mui/material';
-import Link from 'next/link';
 import InfoIcon from '@mui/icons-material/Info';
 import HeadingWithDivider from '@/components/HeadingWithDivider';
 import Feedback from '@/components/app/Feedback';
+import Link from '@/components/app/Link';
 
 export default function Contribute() {
   return (

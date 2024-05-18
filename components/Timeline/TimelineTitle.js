@@ -14,7 +14,7 @@ export default function TimelineTitle({ title, toolTip }) {
         }}
       />
       <Box component="span" sx={{ marginLeft: '10px' }}>
-        <Tooltip title={toolTip} placement='right' arrow>
+        <Tooltip title={toolTip} placement="right" arrow>
           <Chip
             size="small"
             variant="outlined"
@@ -22,7 +22,7 @@ export default function TimelineTitle({ title, toolTip }) {
             sx={{
               fontWeight: 'bold',
               background: '#FF851B',
-              color: 'white',
+              color: (t) => (t.palette.mode === 'dark' ? 'black' : 'white'),
               borderColor: '#FF851B',
               letterSpacing: '1px',
             }}

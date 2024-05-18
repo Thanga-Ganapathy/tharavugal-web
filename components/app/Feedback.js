@@ -43,7 +43,18 @@ export default function Feedback() {
           name="msg"
           placeholder="Please type your feedback here..."
           rows={3}
-          sx={{ p: 1, width: '300px' }}
+          sx={(theme) => ({
+            p: 1,
+            width: '300px',
+            borderColor: theme.palette.mode === 'light' ? '#E0E3E7' : '#2D3843',
+            backgroundColor:
+              theme.palette.mode === 'light' ? '#F3F6F9' : '#1A2027',
+            fontSize: '14px',
+            color: theme.palette.mode === 'light' ? 'black' : 'white',
+            '&:focus': {
+              borderColor: theme.palette.primary.main,
+            },
+          })}
         />
         <Button
           type="submit"

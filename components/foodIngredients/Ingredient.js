@@ -6,8 +6,8 @@ import {
   Chip,
   Typography,
 } from '@mui/material';
-import Link from 'next/link';
 import OpenInNewOutlinedIcon from '@mui/icons-material/OpenInNewOutlined';
+import Link from '../app/Link';
 
 export default function Ingredient({ data }) {
   return (

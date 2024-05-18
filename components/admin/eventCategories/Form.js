@@ -20,6 +20,9 @@ export default function EventCategoriesForm({
           <MUITextField name="name" label="Name" />
         </Box>
         <Box mt={2}>
+          <MUITextField name="info" label="Info" />
+        </Box>
+        <Box mt={2}>
           <Button variant="contained" size="small" type="submit">
             {update ? 'Update' : 'Add'}
           </Button>

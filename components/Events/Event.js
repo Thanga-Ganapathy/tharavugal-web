@@ -10,6 +10,7 @@ import { format } from 'date-fns';
 import ActionMenu from './ActionMenu';
 import { useRouter } from 'next/router';
 import { utcToZonedTime } from 'date-fns-tz';
+import Link from '../app/Link';
 
 export default function Event({ data }) {
   const router = useRouter();
@@ -22,11 +23,7 @@ export default function Event({ data }) {
     <Card variant="outlined" sx={{ mb: 1 }}>
       <CardHeader
         action={<ActionMenu />}
-        title={
-          <Typography component="a" fontSize={18} href={'/events/' + data.slug}>
-            {data.title}
-          </Typography>
-        }
+        title={<Link href={'/events/' + data.slug}>{data.title}</Link>}
       />
       <CardContent>
         <Box>

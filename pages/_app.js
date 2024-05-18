@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { ThemeProvider, createTheme } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import { SnackbarProvider } from 'notistack';
 import { LocalizationProvider } from '@mui/x-date-pickers';
@@ -10,9 +11,48 @@ import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
 import { Box, CircularProgress, Typography } from '@mui/material';
 import { useRouter } from 'next/router';
-import { setAppState } from '@/store';
+import { setAppState, useAppState } from '@/store';
 import { SWRConfig } from 'swr';
 import APIClient from '@/utils/APIClient';
+import { useMemo } from 'react';
+import AppHeader from '@/components/layouts/AppHeader';
+import { isStr } from '@opentf/std';
+import Loading from '@/components/app/Loading';
+import DefaultLayout from '@/components/layouts/DefaultLayout';
+
+const getDesignTokens = (mode) => ({
+  components: {
+    MuiTooltip: {
+      styleOverrides: {
+        // Name of the slot
+        tooltip: ({ theme }) => ({
+          backgroundColor:
+            theme.palette.mode === 'light'
+              ? theme.palette.info.light
+              : theme.palette.info.dark,
+          fontSize: '14px',
+          color: theme.palette.mode === 'light' ? 'white' : 'black',
+        }),
+      },
+    },
+  },
+  palette: {
+    mode,
+    ...(mode === 'light'
+      ? {
+          // palette values for light mode
+          background: {
+            default: '#E7EBF0',
+          },
+        }
+      : {
+          // palette values for dark mode
+          background: {
+            default: '#000000',
+          },
+        }),
+  },
+});
 
 function matchRoute(path, arr) {
   return arr.find((p) => {
@@ -24,6 +64,12 @@ function matchRoute(path, arr) {
 export default function App({ Component, pageProps }) {
   const router = useRouter();
   const [authorized, setAuthorized] = useState(false);
+  const themeMode = useAppState((s) => s.themeMode);
+  // Update the theme only if the mode changes
+  const theme = useMemo(
+    () => createTheme(getDesignTokens(themeMode)),
+    [themeMode]
+  );
 
   useEffect(() => {
     const user = JSON.parse(window.localStorage.getItem('user'));
@@ -104,39 +150,33 @@ export default function App({ Component, pageProps }) {
     };
   }, []);
 
-  if (!authorized) {
-    return (
-      <>
-        <CssBaseline />
-        <Box
-          sx={{
-            width: '100%',
-            height: '100vh',
-          }}
-        >
-          <Box
-            sx={{
-              display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'center',
-              justifyContent: 'center',
-              height: '100%',
-            }}
-          >
-            <Box sx={{ color: '#FF851B' }}>
-              <CircularProgress color="success" />
-            </Box>
-            <Typography variant="h5" sx={{ mt: 2 }}>
-              Please wait..
-            </Typography>
-          </Box>
-        </Box>
-      </>
-    );
-  }
+  // For theme mode
+  useEffect(() => {
+    const local = window.localStorage.getItem('themeMode');
+    const currentMode = isStr(local)
+      ? local === 'dark'
+        ? 'dark'
+        : 'light'
+      : 'light';
+    setAppState((s) => ({ themeMode: currentMode }));
+  }, []);
+
+  // if (!authorized) {
+  //   return (
+  //     <AppHeader>
+  //       <CssBaseline />
+  //       <Box
+  //         sx={{
+  //           width: '100%',
+  //           height: '100vh',
+  //         }}
+  //       ></Box>
+  //     </AppHeader>
+  //   );
+  // }
 
   return (
-    <>
+    <ThemeProvider theme={theme}>
       <CssBaseline />
       <main>
         <LocalizationProvider dateAdapter={AdapterDateFns}>
@@ -152,7 +192,7 @@ export default function App({ Component, pageProps }) {
                 },
               }}
             >
-              <Component {...pageProps} />
+              {authorized ? <Component {...pageProps} /> : <Loading />}
             </SWRConfig>
           </SnackbarProvider>
         </LocalizationProvider>
@@ -168,6 +208,6 @@ export default function App({ Component, pageProps }) {
           }
         `}
       </style>
-    </>
+    </ThemeProvider>
   );
 }

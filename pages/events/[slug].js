@@ -10,7 +10,6 @@ import {
 } from '@mui/material';
 import CancelOutlinedIcon from '@mui/icons-material/CancelOutlined';
 import CheckCircleOutlinedIcon from '@mui/icons-material/CheckCircleOutlined';
-import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
 import EventIcon from '@mui/icons-material/Event';
 import LanguageIcon from '@mui/icons-material/Language';
@@ -25,9 +24,9 @@ import Layout from '@/components/layouts/DefaultLayout';
 import { utcToZonedTime } from 'date-fns-tz';
 import { connect } from '@/utils/db';
 import { useRouter } from 'next/router';
-import Link from 'next/link';
 import { isEmpty } from '@opentf/std';
 import HeadingWithDivider from '@/components/HeadingWithDivider';
+import Link from '@/components/app/Link';
 
 export default function EventView({ data }) {
   const router = useRouter();
@@ -243,9 +242,9 @@ export default function EventView({ data }) {
               <HeadingWithDivider title="References" />
               <Box sx={{ mt: 2, p: 2 }}>
                 {(data.event.data?.references || []).map((r, i) => (
-                  <Box key={i} component={Link} href={r}>
+                  <Link key={i} href={r}>
                     {r}
-                  </Box>
+                  </Link>
                 ))}
                 {isEmpty(data.event.data?.references || []) && (
                   <Alert severity="info">No data</Alert>

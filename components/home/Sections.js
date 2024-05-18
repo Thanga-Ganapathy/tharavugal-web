@@ -1,6 +1,6 @@
 import { Box } from '@mui/material';
-import Link from 'next/link';
 import HeadingWithDivider from '../HeadingWithDivider';
+import Link from '../app/Link';
 
 export default function Sections() {
   return (

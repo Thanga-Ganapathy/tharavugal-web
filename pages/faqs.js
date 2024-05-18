@@ -9,7 +9,7 @@ import {
   Typography,
 } from '@mui/material';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import Link from 'next/link';
+import Link from '@/components/app/Link';
 
 function QA({ q, a }) {
   return (

@@ -57,7 +57,7 @@ export default function SearchForm({
           {isLoading ? (
             <CircularProgress size={25} />
           ) : (
-            <SearchIcon style={{ height: '35px' }} />
+            <SearchIcon color="black" style={{ height: '35px', color: 'black' }} />
           )}
         </IconButton>
       </Tooltip>

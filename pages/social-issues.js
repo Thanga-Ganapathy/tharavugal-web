@@ -9,7 +9,7 @@ import {
 } from '@mui/material';
 import ArrowUpwardOutlinedIcon from '@mui/icons-material/ArrowUpwardOutlined';
 import useAlert from '@/hooks/useAlert';
-import Link from 'next/link';
+import Link from '@/components/app/Link';
 
 function IssueBox({ title }) {
   const showAlert = useAlert();

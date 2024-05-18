@@ -7,9 +7,9 @@ import {
   TableRow,
   Typography,
 } from '@mui/material';
-import Link from 'next/link';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import { thirukkural } from '@/data/thirukkural';
+import Link from '../app/Link';
 
 export default function Chapters() {
   const chapters = thirukkural.chapters.sort((a, b) => {

@@ -1,6 +1,5 @@
 import { Alert, Box, Divider, Typography } from '@mui/material';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
-import Link from 'next/link';
 
 export default function RecentOpenIssues() {
   return (

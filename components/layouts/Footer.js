@@ -1,20 +1,13 @@
-import {
-  Box,
-  Grid,
-  ThemeProvider,
-  Typography,
-  createTheme,
-} from '@mui/material';
+import { Box, Grid, Paper, Typography } from '@mui/material';
 import { format } from 'date-fns';
 import OpenInNewOutlinedIcon from '@mui/icons-material/OpenInNewOutlined';
-import Link from 'next/link';
 import Feedback from '../app/Feedback';
+import Link from '../app/Link';
 
 function LI({ title, href, children }) {
   return (
-    <Box component="li" sx={{ mt: 2 }}>
-      <Box
-        component={Link}
+    <Box component="li" sx={{ mt: 2, color: 'white' }}>
+      <Link
         href={href}
         sx={{
           color: 'white',
@@ -23,61 +16,49 @@ function LI({ title, href, children }) {
         }}
       >
         {title ?? children}
-      </Box>
+      </Link>
     </Box>
   );
 }
 
-export default function Footer() {
-  const darkTheme = createTheme({
-    palette: {
-      mode: 'dark',
-    },
-  });
-
+function Heading({ title }) {
   return (
-    <Box
+    <Typography
+      variant="body1"
+      sx={{
+        color: 'white',
+        textDecoration: 'none',
+        borderBottom: '3px solid #FF851B',
+        display: 'inline',
+        fontWeight: 'bold',
+      }}
+    >
+      {title}
+    </Typography>
+  );
+}
+
+export default function Footer() {
+  return (
+    <Paper
       component="footer"
       sx={{
-        bgcolor: 'text.primary',
-        color: 'white',
+        mt: 5,
         p: 3,
+        backgroundColor: (t) =>
+          t.palette.mode === 'light' ? 'black' : undefined,
       }}
     >
       <Grid container px={3}>
         <Grid item xs={12} sm={6} md={3}>
-          <Typography
-            variant="body2"
-            sx={{
-              background: 'white',
-              color: 'black',
-              textDecoration: 'none',
-              display: 'inline',
-              padding: '3px 10px',
-              fontWeight: 'bold',
-            }}
-          >
-            ORGANIZATION
-          </Typography>
+          <Heading title="Organization" />
           <Box mt={2} component="ul">
             <LI href="/about-us" title="About Us" />
             <LI href="/contact-us" title="Contact Us" />
           </Box>
         </Grid>
         <Grid item xs={12} sx={{ mt: { xs: 2, sm: 0 } }} sm={6} md={3}>
-          <Typography
-            variant="body2"
-            sx={{
-              background: 'white',
-              color: 'black',
-              textDecoration: 'none',
-              display: 'inline',
-              padding: '3px 10px',
-              fontWeight: 'bold',
-            }}
-          >
-            USEFUL LINKS
-          </Typography>
+          <Heading title="Useful Links" />
           <Box mt={2} component="ul">
             <LI href="/work-pipeline" title="Work Pipeline" />
             <LI href="/faqs" title="FAQs" />
@@ -85,19 +66,7 @@ export default function Footer() {
           </Box>
         </Grid>
         <Grid item xs={12} sx={{ mt: { xs: 2, sm: 0 } }} sm={6} md={3}>
-          <Typography
-            variant="body2"
-            sx={{
-              background: 'white',
-              color: 'black',
-              textDecoration: 'none',
-              display: 'inline',
-              padding: '3px 10px',
-              fontWeight: 'bold',
-            }}
-          >
-            LEGAL
-          </Typography>
+          <Heading title="Legal" />
           <Box mt={2} component="ul">
             <LI href="/terms-conditions" title="Terms & Conditions" />
             <LI href="/privacy-policy" title="Privacy Policy" />
@@ -105,19 +74,7 @@ export default function Footer() {
         </Grid>
 
         <Grid item xs={12} sx={{ mt: { xs: 2, sm: 0 } }} sm={6} md={3}>
-          <Typography
-            variant="body2"
-            sx={{
-              background: 'white',
-              color: 'black',
-              textDecoration: 'none',
-              display: 'inline',
-              padding: '3px 10px',
-              fontWeight: 'bold',
-            }}
-          >
-            OTHERS
-          </Typography>
+          <Heading title="Others" />
           <Box mt={2} component="ul">
             <LI href="/credits" title="Credits" />
             <LI href="https://github.com/Tharavugal/web">
@@ -129,14 +86,12 @@ export default function Footer() {
       </Grid>
 
       <Box sx={{ mt: 2, display: 'flex', justifyContent: 'center' }}>
-        <ThemeProvider theme={darkTheme}>
-          <Feedback />
-        </ThemeProvider>
+        <Feedback />
       </Box>
 
-      <Box sx={{ mt: 3 }} textAlign="center">
+      <Box sx={{ mt: 3, color: 'white' }} textAlign="center">
         © 2023 - {format(new Date(), 'yyyy')} Tharavugal.org
       </Box>
-    </Box>
+    </Paper>
   );
 }

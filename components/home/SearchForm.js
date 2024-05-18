@@ -1,5 +1,11 @@
 import { useEffect, useState } from 'react';
-import { Box, CircularProgress, IconButton, Tooltip } from '@mui/material';
+import {
+  Box,
+  Button,
+  CircularProgress,
+  IconButton,
+  Tooltip,
+} from '@mui/material';
 import { Form, Field } from '@opentf/react-form';
 import SearchIcon from '@mui/icons-material/Search';
 
@@ -20,7 +26,12 @@ export default function SearchForm({
       <Box
         component={Form}
         initialValues={values}
-        sx={{ width: '100%', display: 'flex', justifyContent: 'center' }}
+        sx={{
+          width: '100%',
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+        }}
         onSubmit={onSubmit}
       >
         <Box
@@ -31,15 +42,34 @@ export default function SearchForm({
             width: { xs: '75%', md: '40%' },
             padding: '15px',
             borderRadius: '20px',
-            border: 'none',
-            outlineColor: theme.palette.primary.light,
+            // border: 'none',
+            // outlineColor: theme.palette.primary.light,
+            outline: 'none',
+            border: '1px solid',
+            borderColor: theme.palette.mode === 'light' ? '#E0E3E7' : '#2D3843',
+            backgroundColor:
+              theme.palette.mode === 'light' ? '#F3F6F9' : '#1A2027',
+            fontSize: '16px',
+            color: theme.palette.mode === 'light' ? 'black' : 'white',
+            '&:focus': {
+              borderColor: theme.palette.primary.main,
+            },
           })}
           placeholder={placeholder}
         />
         <Tooltip title="Search" sx={{ ml: 2 }}>
-          <IconButton type="submit">
-            {isLoading ? <CircularProgress size={25} /> : <SearchIcon />}
-          </IconButton>
+          <Button
+            color="primary"
+            variant="contained"
+            size="medium"
+            type="submit"
+          >
+            {isLoading ? (
+              <CircularProgress sx={{ color: 'white' }} size={25} />
+            ) : (
+              <SearchIcon />
+            )}
+          </Button>
         </Tooltip>
       </Box>
     </Box>

@@ -1,4 +1,3 @@
-import Link from 'next/link';
 import {
   Avatar,
   Box,
@@ -21,13 +20,18 @@ import Layout from '@/components/layouts/DefaultLayout';
 import { setAppState } from '@/store';
 import { useRouter } from 'next/router';
 import { USER_ROLES } from '@/constants';
+import Link from '@/components/app/Link';
+import { LoadingButton } from '@mui/lab';
+import { useState } from 'react';
 
 export default function Signin() {
+  const [loading, setLoading] = useState(false);
   const router = useRouter();
   const showAlert = useAlert();
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+    setLoading(true);
     const data = new FormData(event.currentTarget);
     try {
       const result = await APIClient.post(
@@ -47,7 +51,7 @@ export default function Signin() {
         showAlert('error', result.data.message);
       }
     } catch (error) {
-      showAlert('error', "Server Error");
+      showAlert('error', 'Server Error');
     }
   };
 
@@ -100,14 +104,16 @@ export default function Signin() {
               control={<Checkbox value="remember" color="primary" />}
               label="Remember me"
             />
-            <Button
+            <LoadingButton
+              loading={loading}
+              sx={{ mt: 3, mb: 2 }}
+              loadingIndicator="Signing..."
+              variant="contained"
               type="submit"
               fullWidth
-              variant="contained"
-              sx={{ mt: 3, mb: 2 }}
             >
               Sign In
-            </Button>
+            </LoadingButton>
             <Grid container>
               <Grid item xs>
                 <Link href="#" variant="body2">

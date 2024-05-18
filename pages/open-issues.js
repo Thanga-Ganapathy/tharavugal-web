@@ -1,8 +1,8 @@
+import Link from '@/components/app/Link';
 import SearchForm from '@/components/home/SearchForm';
 import Layout from '@/components/layouts/DefaultLayout';
 import { Masonry } from '@mui/lab';
 import { Alert, Box, Card, Chip, Paper, Typography } from '@mui/material';
-import Link from 'next/link';
 
 function IssueBox({ title }) {
   return (

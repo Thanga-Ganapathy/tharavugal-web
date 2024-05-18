@@ -9,7 +9,6 @@ import {
   Divider,
   Paper,
   Typography,
-  Link as MUILink,
 } from '@mui/material';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import RecyclingIcon from '@mui/icons-material/Recycling';
@@ -17,7 +16,7 @@ import Ingredient from '@/components/foodIngredients/Ingredient';
 import ProgressiveImg from '@/components/ProgressiveImg';
 import Breadcrumbs from '@mui/material/Breadcrumbs';
 import NavigateNextIcon from '@mui/icons-material/NavigateNext';
-import Link from 'next/link';
+import Link from '@/components/app/Link';
 
 const CATEGORY_COLORS = {
   Vegetables: '#2ECC40',
@@ -82,15 +81,9 @@ export default function Page({ data }) {
   };
 
   const breadcrumbs = [
-    <MUILink
-      component={Link}
-      underline="hover"
-      key="1"
-      color="inherit"
-      href="/food-ingredients"
-    >
+    <Link underline="hover" key="1" href="/food-ingredients">
       Food Ingredients
-    </MUILink>,
+    </Link>,
     <Typography key="3" color="text.primary">
       {data.record.name}
     </Typography>,

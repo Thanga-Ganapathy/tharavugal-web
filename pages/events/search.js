@@ -46,7 +46,6 @@ export default function Search() {
     });
     try {
       const response = await APIClient.post('/api/events/search', data);
-      console.log(response);
       setState({
         ...state,
         events: response.data.events,

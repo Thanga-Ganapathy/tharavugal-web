@@ -1,8 +1,8 @@
 import { Box, Card, Divider, Typography } from '@mui/material';
 import { FcAdvertising } from 'react-icons/fc';
-import Link from 'next/link';
 import useSWR from 'swr';
 import { format } from 'date-fns';
+import Link from '../app/Link';
 
 function AnnounceBox({ data }) {
   return (
@@ -15,22 +15,20 @@ function AnnounceBox({ data }) {
       </Typography>
       {data.link.text && (
         <>
-          <Box sx={{ mt: 1 }} component={Link} href={data.link.url}>
+          <Link sx={{ mt: 1 }} href={data.link.url}>
             {data.link.text}
-          </Box>
+          </Link>
         </>
       )}
       {data.link2?.text && (
         <>
           <br />
-          <Box component={Link} href={data.link2.url}>
-            {data.link2.text}
-          </Box>
+          <Link href={data.link2.url}>{data.link2.text}</Link>
           <br />
         </>
       )}
       <Box sx={{ textAlign: 'right' }}>
-        <Typography variant="body2">
+        <Typography variant="subtitle2">
           {format(new Date(data.createdAt), 'MMM dd, yyyy')}
         </Typography>
       </Box>
@@ -60,8 +58,8 @@ export default function RecentAnnouncements() {
         Announcements
       </Typography>
       <Divider sx={{ borderColor: 'darkgray' }} />
-      <Box mt={1}>
-        {error && <Box>Failed to load</Box>}
+      <Box mt={1} p={1}>
+        {error && <Box>❗Failed to load.</Box>}
         {isLoading && <Box>Loading...</Box>}
         {renderAnnouncements()}
       </Box>
