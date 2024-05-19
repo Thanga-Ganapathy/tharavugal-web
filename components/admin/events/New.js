@@ -53,7 +53,11 @@ export default function New({ onClose }) {
         endTz: defaultTz,
         categories: [],
         locations: [],
-        data: JSON.stringify({ references: [], linkedEvents: [] }, null, 2),
+        data: JSON.stringify(
+          { public: {}, references: [], linkedEvents: [] },
+          null,
+          2
+        ),
       }}
       onSubmit={handleSubmit}
     />

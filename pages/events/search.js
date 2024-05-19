@@ -83,7 +83,7 @@ export default function Search() {
               <Chip
                 variant="outlined"
                 color="success"
-                label={`Showing: 1 of ${state.events.length} / ${state.meta.total}`}
+                label={`Showing: 1 - ${state.events.length} of ${state.meta.total}`}
                 size="small"
               />
             </Box>
