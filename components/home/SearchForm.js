@@ -48,7 +48,7 @@ export default function SearchForm({
             border: '1px solid',
             borderColor: theme.palette.mode === 'light' ? '#E0E3E7' : '#2D3843',
             backgroundColor:
-              theme.palette.mode === 'light' ? '#F3F6F9' : '#1A2027',
+              theme.palette.mode === 'light' ? 'white' : '#1A2027',
             fontSize: '16px',
             color: theme.palette.mode === 'light' ? 'black' : 'white',
             '&:focus': {
