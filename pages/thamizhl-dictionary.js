@@ -15,7 +15,7 @@ export default function ThamizhlDictionary({ data }) {
   });
 
   const handleSearch = async (values) => {
-    setState((s) => ({ ...s, searching: true }));
+    setState((s) => ({ ...s, search: true, searching: true }));
     const res = await APIClient.get(
       '/api/thamizhl-dictionary?q=' + values.searchText
     );
@@ -30,12 +30,12 @@ export default function ThamizhlDictionary({ data }) {
   return (
     <Layout title="அகராதி - Thamizhl Dictionary">
       <Box textAlign="center">
-        <Typography variant="h5">அகராதி - Thamizhl Dictionary</Typography>
+        <Typography variant="h6">அகராதி - Thamizhl Dictionary</Typography>
       </Box>
-      <Paper sx={{ p: 2 }}>
+
+      <Box sx={{ my: 2 }}>
         <SearchForm
           lang="ta"
-          isLoading={state.searching}
           onSubmit={handleSearch}
           onClear={() =>
             setState({ search: false, searching: false, searchList: [] })
@@ -45,17 +45,25 @@ export default function ThamizhlDictionary({ data }) {
           <Box sx={{ mb: 2 }}>
             <HeadingWithDivider title="Search result" />
             <Box sx={{ display: 'flex', flexWrap: 'wrap' }}>
-              {state.searchList.length === 0 && (
+              {state.searching && (
+                <Box sx={{ display: 'flex', justifyContent: 'center' }}>
+                  Searching...
+                </Box>
+              )}
+              {!state.searching && state.searchList.length === 0 && (
                 <Alert sx={{ mt: 2 }} severity="warning">
                   No data found...
                 </Alert>
               )}
-              {state.searchList.map((w, i) => (
-                <ThamizhlWord data={w} key={i} />
-              ))}
+              {!state.searching &&
+                state.searchList.map((w, i) => (
+                  <ThamizhlWord data={w} key={i} />
+                ))}
             </Box>
           </Box>
         )}
+      </Box>
+      <Paper sx={{ p: 2 }}>
         <HeadingWithDivider title="Recent" />
         <Box sx={{ display: 'flex', flexWrap: 'wrap' }}>
           {data.words.map((w, i) => (

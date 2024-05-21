@@ -3,7 +3,6 @@ import {
   Box,
   Button,
   CircularProgress,
-  IconButton,
   Tooltip,
 } from '@mui/material';
 import { Form, Field } from '@opentf/react-form';
@@ -42,8 +41,6 @@ export default function SearchForm({
             width: { xs: '75%', md: '40%' },
             padding: '15px',
             borderRadius: '20px',
-            // border: 'none',
-            // outlineColor: theme.palette.primary.light,
             outline: 'none',
             border: '1px solid',
             borderColor: theme.palette.mode === 'light' ? '#E0E3E7' : '#2D3843',

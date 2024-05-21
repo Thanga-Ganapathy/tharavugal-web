@@ -1,17 +1,11 @@
-import { Box, CircularProgress, IconButton, Tooltip } from '@mui/material';
+import { Box, Button, Tooltip } from '@mui/material';
 import { Form } from '@opentf/react-form';
-import SearchOffIcon from '@mui/icons-material/SearchOff';
 import { useFormActions } from '@opentf/react-form';
 import { useFormContext } from '@opentf/react-form';
 import TaInputField from './forms/mui/TaInputField';
 import SearchIcon from '@mui/icons-material/Search';
 
-export default function SearchForm({
-  isLoading,
-  onSubmit,
-  onClear,
-  lang = 'system',
-}) {
+export default function SearchForm({ onSubmit, onClear, lang = 'system' }) {
   function ClearBtn() {
     const { values } = useFormContext();
     const { reset } = useFormActions();
@@ -21,18 +15,18 @@ export default function SearchForm({
     }
 
     return (
-      <Tooltip title="Clear Search">
-        <IconButton
-          onClick={() => {
-            reset();
-            if (onClear) {
-              onClear();
-            }
-          }}
-        >
-          <SearchOffIcon sx={{ color: (t) => t.palette.error.main, mx: 2 }} />
-        </IconButton>
-      </Tooltip>
+      <Button
+        color="secondary"
+        onClick={() => {
+          reset();
+          if (onClear) {
+            onClear();
+          }
+        }}
+        type="button"
+      >
+        Clear Search
+      </Button>
     );
   }
 
@@ -40,7 +34,13 @@ export default function SearchForm({
     <Box
       component={Form}
       initialValues={{ searchText: '' }}
-      sx={{ width: '100%', display: 'flex', justifyContent: 'center', mb: 1 }}
+      sx={{
+        width: '100%',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        mb: 1,
+      }}
       onSubmit={onSubmit}
     >
       <TaInputField
@@ -53,13 +53,9 @@ export default function SearchForm({
       />
 
       <Tooltip title="Search">
-        <IconButton type="submit" sx={{ ml: 2 }}>
-          {isLoading ? (
-            <CircularProgress size={25} />
-          ) : (
-            <SearchIcon color="black" style={{ height: '35px', color: 'black' }} />
-          )}
-        </IconButton>
+        <Button variant="contained" size="medium" type="submit" sx={{ ml: 2 }}>
+          <SearchIcon />
+        </Button>
       </Tooltip>
       <ClearBtn />
     </Box>

@@ -52,14 +52,13 @@ export default function EventCategories() {
           </Box>
           <Paper sx={{ mt: 2 }}>
             <SearchForm
-              isLoading={state.isSearching}
               onSubmit={handleSearch}
               onClear={() =>
                 setState({ search: false, isSearching: false, searchData: [] })
               }
             />
             <List
-              loading={isLoading}
+              loading={isLoading || state.isSearching}
               data={state.search ? state.searchData : eventCategories?.data}
             />
           </Paper>
