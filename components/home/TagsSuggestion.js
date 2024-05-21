@@ -16,7 +16,7 @@ export default function TagsSuggestion() {
       info: 'An offence or defamation against the dignity of a ruling head of state',
     },
     { label: 'War Crime', info: '' },
-    { label: 'Charred', info: '' },
+    { label: 'MSF', info: 'Médecins Sans Frontières (Doctors Without Borders)' },
     { label: 'Drone Art', info: '' },
     { label: 'WCK', info: 'World Central Kitchen' },
     { label: 'Insurgency', info: '' },

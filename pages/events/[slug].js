@@ -256,7 +256,14 @@ export default function EventView({ data }) {
               <HeadingWithDivider title="Linked Events" />
               <Divider />
               <Box sx={{ mt: 2, p: 2 }}>
-                <Alert severity="info">No data</Alert>
+                {(data.event.data?.linkedEvents || []).map((r, i) => (
+                  <Link key={i} href={r}>
+                    {r}
+                  </Link>
+                ))}
+                {isEmpty(data.event.data?.linkedEvents || []) && (
+                  <Alert severity="info">No data</Alert>
+                )}
               </Box>
             </Box>
 
