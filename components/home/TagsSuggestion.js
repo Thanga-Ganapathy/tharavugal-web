@@ -21,9 +21,10 @@ export default function TagsSuggestion() {
     { label: 'WCK', info: 'World Central Kitchen' },
     { label: 'Insurgency', info: '' },
     { label: 'Sallikkattu', info: 'Traditional Bull Sport' },
-    { label: 'Zika', info: 'A Virus' },
+    { label: 'Hepatitis', info: 'Virus which causes inflammation in the liver tissue.' },
     { label: 'Cancer', info: '' },
     { label: 'ICJ', info: 'International Court of Justice' },
+    { label: 'RSF', info: 'Reporters Without Borders' },
   ];
 
   return (
