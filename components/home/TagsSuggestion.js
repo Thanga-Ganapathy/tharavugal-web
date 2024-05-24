@@ -25,6 +25,7 @@ export default function TagsSuggestion() {
     { label: 'Cancer', info: '' },
     { label: 'ICJ', info: 'International Court of Justice' },
     { label: 'RSF', info: 'Reporters Without Borders' },
+    { label: 'OHCHR', info: 'Office of the High Commissioner for Human Rights' },
   ];
 
   return (
