@@ -9,16 +9,13 @@ import '@fontsource/roboto/300.css';
 import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
-import { Box, CircularProgress, Typography } from '@mui/material';
 import { useRouter } from 'next/router';
 import { setAppState, useAppState } from '@/store';
 import { SWRConfig } from 'swr';
 import APIClient from '@/utils/APIClient';
 import { useMemo } from 'react';
-import AppHeader from '@/components/layouts/AppHeader';
 import { isStr } from '@opentf/std';
 import Loading from '@/components/app/Loading';
-import DefaultLayout from '@/components/layouts/DefaultLayout';
 
 const getDesignTokens = (mode) => ({
   components: {
@@ -31,7 +28,7 @@ const getDesignTokens = (mode) => ({
               ? theme.palette.info.light
               : theme.palette.info.dark,
           fontSize: '14px',
-          color: theme.palette.mode === 'light' ? 'white' : 'black',
+          color: 'white',
         }),
       },
     },

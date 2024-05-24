@@ -29,6 +29,7 @@ export default function Sidebar() {
     { menu: 'Resources', path: '/admin/resources' },
     { menu: 'Thamizhl Dictionary', path: '/admin/thamizhl-dictionary' },
     { menu: 'Announcements', path: '/admin/announcements' },
+    { menu: 'Feedbacks', path: '/admin/feedbacks' },
   ];
 
   return (
