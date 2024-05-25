@@ -21,18 +21,16 @@ export default function Athigaaram() {
 
   useEffect(() => {
     if (router.isReady) {
-      console.log(router.query.athigaaram);
       const chap = thirukkural.chapters.find(
         (c) => c.slug === router.query.athigaaram[0]
       );
+
       setChapter(chap);
-      console.log(chap.kurals);
 
       if (router.query.athigaaram[1]) {
         const kObj = chap.kurals.find(
           (k) => k.id === parseInt(router.query.athigaaram[1])
         );
-        console.log(kObj);
         setKural(kObj);
       } else {
         setKurals(sortBy(chap.kurals, [(o) => o.kural.l1, 'asc']));

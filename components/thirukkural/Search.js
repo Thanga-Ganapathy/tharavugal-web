@@ -42,7 +42,6 @@ function SearchInputField({ name, lang }) {
   const id = useId();
 
   const handleClose = () => {
-    console.log('closing');
     setAnchorEl(null);
   };
 
@@ -54,7 +53,6 @@ function SearchInputField({ name, lang }) {
     if (field.value) {
       const term = field.value.split(' ').at(-1);
       const list = miniSearch.autoSuggest(term);
-      // console.log(list);
       let opts = new Set();
       for (const obj of list) {
         for (const term of obj.terms) {
@@ -68,7 +66,6 @@ function SearchInputField({ name, lang }) {
         }
       }
       opts = sort([...opts].slice(0, 5), 'asc');
-      // console.log(opts);
       setOptions(opts);
     } else {
       setOptions([]);
@@ -139,7 +136,6 @@ function SearchInputField({ name, lang }) {
         placement="bottom-start"
         sx={{ p: 0 }}
         disablePortal={true}
-        onBlur={() => console.log('blured')}
       >
         <Paper sx={{ p: 0 }}>
           <MenuList>
@@ -198,9 +194,7 @@ export default function Search() {
   const [result, setResult] = useState([]);
 
   const handleSubmit = (values) => {
-    console.log(values);
     const list = miniSearch.search(values.searchText);
-    console.log('list', list);
     setResult(list);
   };
 
