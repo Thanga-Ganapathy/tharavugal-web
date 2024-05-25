@@ -13,6 +13,7 @@ export default function DialogWindow({
     small: 'sm',
     medium: 'md',
     large: 'lg',
+    xlarge: 'xl',
     full: false,
   };
 
@@ -37,10 +38,10 @@ export default function DialogWindow({
             color: (theme) => theme.palette.grey[500],
           }}
         >
-          <CloseIcon />
+          <CloseIcon color='warning' />
         </IconButton>
       </DialogTitle>
-      <DialogContent sx={{ minHeight: '500px' }}>{children}</DialogContent>
+      <DialogContent dividers sx={{ minHeight: '500px' }}>{children}</DialogContent>
     </Dialog>
   );
 }

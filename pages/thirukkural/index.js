@@ -5,6 +5,7 @@ import Chapters from '@/components/thirukkural/Chapters';
 import { thirukkural } from '@/data/thirukkural';
 import Kural from '@/components/thirukkural/Kural';
 import HeadingWithDivider from '@/components/HeadingWithDivider';
+import Search from '@/components/thirukkural/Search';
 
 export default function Thirukkural() {
   const randomKural = thirukkural.chapters.find(
@@ -15,9 +16,12 @@ export default function Thirukkural() {
     <Layout title="Thirukkural">
       <Box textAlign="center">
         <Badge badgeContent="BETA" color="warning">
-          <Typography variant="h5">திருக்குறள் (Thirukkural)</Typography>
+          <Typography variant="h6">திருக்குறள் (Thirukkural)</Typography>
         </Badge>
       </Box>
+
+      <Search />
+      
       <Box mt={1}>
         <Box
           sx={{

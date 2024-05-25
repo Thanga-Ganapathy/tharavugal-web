@@ -10,21 +10,10 @@ import {
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import { thirukkural } from '@/data/thirukkural';
 import Link from '../app/Link';
+import { sortBy } from '@opentf/std';
 
 export default function Chapters() {
-  const chapters = thirukkural.chapters.sort((a, b) => {
-    const nameA = a.name;
-    const nameB = b.name;
-    if (nameA < nameB) {
-      return -1;
-    }
-    if (nameA > nameB) {
-      return 1;
-    }
-
-    // names must be equal
-    return 0;
-  });
+  const chapters = sortBy(thirukkural.chapters, ['name', 'asc']);
 
   return (
     <>

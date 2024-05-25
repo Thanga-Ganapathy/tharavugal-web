@@ -33,6 +33,7 @@
     "immer": "^10.1.1",
     "jose": "^5.3.0",
     "jstoxml": "^3.2.8",
+    "minisearch": "^6.3.0",
     "mongodb": "^6.6.1",
     "next": "14.2.3",
     "notistack": "^3.0.1",

@@ -93,7 +93,9 @@ export default function Kural({ data, index }) {
             p: 1,
           }}
         >
-          {!isNaN(index) && <Typography>{index + 1}.</Typography>}
+          {!isNaN(index) && (
+            <Typography sx={{ color: 'white' }}>{index + 1}.</Typography>
+          )}
           <Box
             sx={{
               display: 'flex',

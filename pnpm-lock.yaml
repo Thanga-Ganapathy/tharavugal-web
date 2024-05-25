@@ -80,6 +80,9 @@ importers:
       jstoxml:
         specifier: ^3.2.8
         version: 3.2.8
+      minisearch:
+        specifier: ^6.3.0
+        version: 6.3.0
       mongodb:
         specifier: ^6.6.1
         version: 6.6.1
@@ -2010,6 +2013,9 @@ packages:
   minipass@7.0.4:
     resolution: {integrity: sha512-jYofLM5Dam9279rdkWzqHozUo4ybjdZmCsDHePy5V/PbBcVMiSZR97gmAy45aqi8CK1lG2ECd356FU86avfwUQ==}
     engines: {node: '>=16 || 14 >=14.17'}
+
+  minisearch@6.3.0:
+    resolution: {integrity: sha512-ihFnidEeU8iXzcVHy74dhkxh/dn8Dc08ERl0xwoMMGqp4+LvRSCgicb+zGqWthVokQKvCSxITlh3P08OzdTYCQ==}
 
   minizlib@2.1.2:
     resolution: {integrity: sha512-bAxsR8BVfj60DWXHE3u30oHzfl4G7khkSuPW+qvpd7jFRHm7dLxOjUk1EHACJ/hxLY8phGJ0YhYHZo7jil7Qdg==}
@@ -5264,6 +5270,8 @@ snapshots:
   minipass@4.2.5: {}
 
   minipass@7.0.4: {}
+
+  minisearch@6.3.0: {}
 
   minizlib@2.1.2:
     dependencies:
