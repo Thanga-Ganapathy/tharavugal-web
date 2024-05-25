@@ -11,6 +11,7 @@ import Link from '@/components/app/Link';
 import { sortBy } from '@opentf/std';
 import { isEmpty } from '@opentf/std';
 import { isNull } from '@opentf/std';
+import Search from '@/components/thirukkural/Search';
 
 export default function Athigaaram() {
   const [chapter, setChapter] = useState(null);
@@ -71,6 +72,9 @@ export default function Athigaaram() {
         <Typography variant="h5">{chapter.name} - திருக்குறள்</Typography>
         <Typography variant="body1">({chanpterEnName})</Typography>
       </Box>
+
+      <Search />
+
       <Box sx={{ mt: 2 }}>
         {!isEmpty(kurals) &&
           kurals.map((k, i) => (
