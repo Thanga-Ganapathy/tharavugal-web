@@ -12,8 +12,9 @@ import {
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import ThamizhlWord from '../thamizhlDictionary/ThamizhlWord';
+import Link from '../app/Link';
 
-export default function Kural({ data, index }) {
+export default function Kural({ data, chapter, index }) {
   const renderExplanations = (lang, langID) => {
     const explns = data.translations.find((t) => t.id === langID);
     const explnsArr = explns.explanations.map((exp, i) => (
@@ -104,22 +105,27 @@ export default function Kural({ data, index }) {
               px: { xs: 1, sm: 1, md: 2 },
             }}
           >
-            <Typography
-              variant="body1"
-              sx={{
-                fontSize: { xs: '16px', sm: '24px', md: '26px' },
-              }}
+            <Link
+              href={`/thirukkural/chapters/${chapter}/${data.id}`}
+              sx={{ color: 'gold' }}
             >
-              {data.kural.l1}
-            </Typography>
-            <Typography
-              variant="body1"
-              sx={{
-                fontSize: { xs: '16px', sm: '24px', md: '26px' },
-              }}
-            >
-              {data.kural.l2}
-            </Typography>
+              <Typography
+                variant="body1"
+                sx={{
+                  fontSize: { xs: '16px', sm: '24px', md: '26px' },
+                }}
+              >
+                {data.kural.l1}
+              </Typography>
+              <Typography
+                variant="body1"
+                sx={{
+                  fontSize: { xs: '16px', sm: '24px', md: '26px' },
+                }}
+              >
+                {data.kural.l2}
+              </Typography>
+            </Link>
           </Box>
         </Box>
         <Box>{renderExplanations('தமிழ்', 'ta')}</Box>

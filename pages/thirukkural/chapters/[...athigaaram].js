@@ -73,8 +73,10 @@ export default function Athigaaram() {
       </Box>
       <Box sx={{ mt: 2 }}>
         {!isEmpty(kurals) &&
-          kurals.map((k, i) => <Kural key={i} data={k} index={i} />)}
-        {!isNull(kural) && <Kural data={kural} />}
+          kurals.map((k, i) => (
+            <Kural key={i} chapter={chapter.slug} data={k} index={i} />
+          ))}
+        {!isNull(kural) && <Kural data={kural} chapter={chapter.slug} />}
       </Box>
     </Layout>
   );
