@@ -10,6 +10,7 @@ import {
   Popper,
   Tooltip,
   Chip,
+  AlertTitle,
 } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
 import { Form } from '@opentf/react-form';
@@ -204,7 +205,7 @@ export default function Search() {
         <Box
           onClick={() => setOpen(true)}
           sx={{
-            width: '50%',
+            width: { xs: '80%', md: '50%' },
             position: 'relative',
             visibility: open ? 'hidden' : 'visible',
           }}
@@ -277,7 +278,7 @@ export default function Search() {
           </Box>
           <Box
             sx={{
-              my: 2,
+              mt: 4,
               display: 'flex',
               justifyContent: 'center',
               alignItems: 'center',
@@ -312,7 +313,17 @@ export default function Search() {
           {result.map((r, i) => (
             <ResultBox key={i} id={r.id} />
           ))}
-          {isEmpty(result) && <Alert severity="info">No result.</Alert>}
+          {isEmpty(result) && (
+            <Alert severity="info">
+              <AlertTitle>No result.</AlertTitle>
+              You can use the Virtual Keyboard by clicking the icon below the
+              search bar.
+              <br />
+              <br />
+              You can also change the default Thamizhl (தமிழ்) input to System
+              input.
+            </Alert>
+          )}
         </Box>
       </DialogWindow>
     </Box>
