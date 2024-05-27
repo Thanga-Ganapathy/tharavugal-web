@@ -289,18 +289,21 @@ export default function Search() {
             </Box>{' '}
             <Chip
               sx={{ mx: 1 }}
+              size='small'
               color="secondary"
               variant="outlined"
               label="கல்வி"
             />
             <Chip
               sx={{ mx: 1 }}
+              size='small'
               color="secondary"
               variant="outlined"
               label="Elephant"
             />
             <Chip
               sx={{ mx: 1 }}
+              size='small'
               color="secondary"
               variant="outlined"
               label="காதல்"

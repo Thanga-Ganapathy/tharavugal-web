@@ -38,7 +38,7 @@ export default function Thirukkural() {
           <Box sx={{ mt: 2 }}>
             <Kural data={randomKural} chapter="அறன்-வலியுறுத்தல்" />
             <Paper sx={{ p: { xs: 1, sm: 2 } }}>
-              <HeadingWithDivider title="Facts" sx={{ mb: 2 }} />
+              <HeadingWithDivider title="Facts (WIP)" sx={{ mb: 2 }} />
               <Info />
             </Paper>
           </Box>

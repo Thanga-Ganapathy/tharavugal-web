@@ -38,7 +38,7 @@ export default function DialogWindow({
             color: (theme) => theme.palette.grey[500],
           }}
         >
-          <CloseIcon color='warning' />
+          <CloseIcon color='error' />
         </IconButton>
       </DialogTitle>
       <DialogContent dividers sx={{ minHeight: '500px' }}>{children}</DialogContent>

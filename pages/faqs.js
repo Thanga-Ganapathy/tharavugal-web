@@ -54,6 +54,7 @@ export default function FAQs() {
                   <li>Health</li>
                   <li>Environment</li>
                   <li>Cultural</li>
+                  <li>Literatures</li>
                 </ul>
               </Box>
               <Typography variant="subtitle2">
@@ -70,6 +71,11 @@ export default function FAQs() {
               The public can become members only through the recommendation of
               the <strong>CORE MEMBERS</strong> of the organization based on
               their ethical (அறம்) works.
+              <br />
+              <br />
+              But you can promote yourself or someone else by sending us an
+              email with details. There is no guarantee of approval, but it will
+              definitely be evaluated by the core members.
             </Box>
           }
         />
@@ -93,6 +99,42 @@ export default function FAQs() {
                   verified or validated by the respective members.
                 </Box>
               </Box>
+            </Box>
+          }
+        />
+        <QA
+          q="Why the word `தமிழ்` is written as `Thamizhl` instead of standard `Tamil` here?"
+          a={
+            <Box>
+              <Typography variant="body1">
+                The current standard English spelling for the word{' '}
+                <strong>தமிழ்</strong> is <strong>Tamil</strong>, which does not
+                sound correct.
+                <br />
+                <br />
+                Eventhough we cannot directly map every alphabet in the language
+                to the English language but we can get more closer with the
+                available alphabets and their sounds.
+                <br />
+                <br />
+                You might also have seen words usage like{' '}
+                <strong>Thamizh</strong> and <strong>Thamizhan</strong>. Which
+                sounds more close than existing.
+                <br />
+                <br />
+                The word <strong>Thamizhl</strong> is used for non-native
+                language speakers to pronounce the word without any bizarre
+                sounding.
+                <br />
+                <br />
+                The letter <strong>z</strong> is used to indicate or hint to
+                non-native readers that the word contains a different sound.
+                <br />
+                <br />
+                Finally, this is not a strict suggestion; everyone is welcome to
+                discuss this in our{' '}
+                <Link href="/open-discussions">open-discussions</Link> section.
+              </Typography>
             </Box>
           }
         />
