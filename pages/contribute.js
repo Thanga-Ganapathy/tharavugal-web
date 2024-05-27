@@ -99,12 +99,6 @@ export default function Contribute() {
               <Typography variant="h6">
                 Participate in open-discussions
               </Typography>
-              <Chip
-                color="info"
-                size="small"
-                icon={<InfoIcon />}
-                label="Members Only"
-              ></Chip>
             </Box>
 
             <Typography variant="body1" sx={{ mt: 2 }}>
@@ -224,7 +218,27 @@ export default function Contribute() {
         <Card sx={{ mt: 2 }}>
           <CardContent>
             <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
-              <Typography variant="h6">Infrastructure upgrade</Typography>
+              <Typography variant="h6">Mobile Apps</Typography>
+            </Box>
+
+            <Typography variant="body1" sx={{ mt: 2 }}>
+              Daily, the number of users accessing the app is increasing, and
+              most of them are accessing it through their mobile devices.
+              <br />
+              <br />
+              Though our app is made responsive for various screen sizes from
+              the start, we need dedicated mobile apps to simplify their usage
+              instead of opening a browser to access the website.
+            </Typography>
+          </CardContent>
+        </Card>
+
+        <Card sx={{ mt: 2 }}>
+          <CardContent>
+            <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
+              <Typography variant="h6">
+                Application Infrastructure upgrade
+              </Typography>
             </Box>
 
             <Typography variant="body1" sx={{ mt: 2 }}>
@@ -271,7 +285,7 @@ export default function Contribute() {
             </li>
             <li>
               We need graphics designers to make the organization logo after
-              design aproval from the core-members.
+              design aproval from the Core-Members.
             </li>
           </ul>
         </Box>
