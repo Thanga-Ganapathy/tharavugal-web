@@ -10,6 +10,7 @@ import {
 } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import LockIcon from '@mui/icons-material/Lock';
+import HomeIcon from '@mui/icons-material/Home';
 import { useState } from 'react';
 import { useRouter } from 'next/router';
 
@@ -32,7 +33,15 @@ export default function AppDrawer() {
       <Drawer anchor="left" open={open} onClose={() => setOpen(false)}>
         <Box sx={{ width: '250px' }} role="presentation">
           <List>
-            <ListItem disablePadding onClick={() => router.push('/sign-in')}>
+            <ListItem disablePadding onClick={() => router.push('/')}>
+              <ListItemButton>
+                <ListItemIcon>
+                  <HomeIcon />
+                </ListItemIcon>
+                <ListItemText primary="Home" />
+              </ListItemButton>
+            </ListItem>
+            <ListItem disablePadding onClick={() => router.push('/signin')}>
               <ListItemButton>
                 <ListItemIcon>
                   <LockIcon />

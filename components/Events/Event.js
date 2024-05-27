@@ -4,6 +4,7 @@ import {
   CardContent,
   CardHeader,
   Chip,
+  Tooltip,
   Typography,
 } from '@mui/material';
 import { format } from 'date-fns';
@@ -11,6 +12,10 @@ import ActionMenu from './ActionMenu';
 import { useRouter } from 'next/router';
 import { utcToZonedTime } from 'date-fns-tz';
 import Link from '../app/Link';
+import ImageIcon from '@mui/icons-material/Image';
+import PlayCircleFilledIcon from '@mui/icons-material/PlayCircleFilled';
+import AnchorIcon from '@mui/icons-material/Anchor';
+import LinkIcon from '@mui/icons-material/Link';
 
 export default function Event({ data }) {
   const router = useRouter();
@@ -54,14 +59,38 @@ export default function Event({ data }) {
             ))}
           </Box>
         )}
-        <Box mt={1} sx={{ textAlign: 'right' }}>
-          <Typography variant="span" fontSize={12} color="text.secondary">
-            {format(
-              utcToZonedTime(data.startedAt, data.startTz),
-              'yyyy-MM-dd hh:mm:ss aa'
-            )}{' '}
-            {data.startTz}
-          </Typography>
+
+        <Box
+          sx={{
+            mt: 2,
+            display: 'flex',
+            justifyContent: 'space-between',
+            alignItems: 'center',
+          }}
+        >
+          <Box>
+            <Tooltip sx={{ mr: 2 }} title="Images (0)">
+              <ImageIcon fontSize="small" color="disabled" />
+            </Tooltip>
+            <Tooltip sx={{ mr: 2 }} title="Videos (0)">
+              <PlayCircleFilledIcon fontSize="small" color="disabled" />
+            </Tooltip>
+            <Tooltip sx={{ mr: 2 }} title="References (0)">
+              <AnchorIcon fontSize="small" color="disabled" />
+            </Tooltip>
+            <Tooltip sx={{ mr: 2 }} title="Links (0)">
+              <LinkIcon fontSize="small" color="disabled" />
+            </Tooltip>
+          </Box>
+          <Box>
+            <Typography variant="span" fontSize={12} color="text.secondary">
+              {format(
+                utcToZonedTime(data.startedAt, data.startTz),
+                'yyyy-MM-dd hh:mm:ss aa'
+              )}{' '}
+              {data.startTz}
+            </Typography>
+          </Box>
         </Box>
       </CardContent>
     </Card>

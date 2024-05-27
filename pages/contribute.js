@@ -65,8 +65,10 @@ export default function Contribute() {
 
             <Typography variant="body1" sx={{ mt: 2 }}>
               We want our data to be reliable, so if you find any event data
-              that needs to be reported or corrected, please help us. Every
-              event in the system needs to be cross-verified by multiple
+              that needs to be reported or corrected, please help us.
+              <br />
+              <br />
+              Every event in the system needs to be cross-verified by multiple
               members, so you can verify it according to your knowledge.
             </Typography>
           </CardContent>

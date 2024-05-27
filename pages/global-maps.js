@@ -18,12 +18,12 @@ export default function GlobalMaps() {
       <Box sx={{ display: 'flex', justifyContent: 'center' }}>
         <Alert severity="warning">This is an experimental project.</Alert>
       </Box>
-      <Alert severity="info" variant="filled" sx={{ mt: 2 }}>
-        We are looking for <strong>Sponsers</strong> for this project, please{' '}
-        <Link href="/contact-us">contact us</Link> for more info.
-      </Alert>
       <Card sx={{ mt: 2 }}>
         <CardContent>
+          <Alert severity="info" variant="standard" sx={{ my: 2 }}>
+            We are looking for sponsors for this project; please{' '}
+            <Link href="/contact-us">contact us</Link> for more information.
+          </Alert>
           <Typography variant="h5">
             Already, many maps exist on the internet. Why another?
           </Typography>
@@ -120,8 +120,8 @@ export default function GlobalMaps() {
           <Typography variant="h5">Our proposal</Typography>
           <Typography variant="body1" sx={{ mt: 2 }}>
             Considering with all the constraints, we want all the land mass
-            regions to be equally respected based on their sizes, and fair projections
-            should be made.
+            regions to be equally respected based on their sizes, and fair
+            projections should be made.
           </Typography>
           <Typography variant="body1" sx={{ mt: 2 }}>
             Tasks:
