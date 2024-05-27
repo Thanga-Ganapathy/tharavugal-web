@@ -54,6 +54,14 @@ export default function List({
                   }
                 },
               },
+              {
+                label: 'Copy URL',
+                handler: () => {
+                  navigator.clipboard.writeText(
+                    `https://tharavugal.org/events/${params.row.slug}`
+                  );
+                },
+              },
             ]}
             mutate={mutate}
           />

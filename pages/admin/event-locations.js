@@ -60,6 +60,7 @@ export default function EventLocations() {
             />
             <List
               data={state.search ? state.searchData : eventLocations?.data}
+              loading={isLoading || state.isSearching}
             />
           </Paper>
 
