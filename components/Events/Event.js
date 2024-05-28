@@ -62,7 +62,7 @@ export default function Event({ data }) {
 
         <Box
           sx={{
-            mt: 2,
+            mt: 3,
             display: 'flex',
             justifyContent: 'space-between',
             alignItems: 'center',

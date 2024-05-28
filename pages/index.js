@@ -1,11 +1,9 @@
-import { useRouter } from 'next/router';
 import { Box, Paper } from '@mui/material';
 
 import Layout from '@/components/layouts/DefaultLayout';
 import Events from '@/components/Events';
 
 import styles from './index.module.css';
-import SearchForm from '@/components/home/SearchForm';
 import Tools from '@/components/home/tools';
 import Resources from '@/components/home/Resources';
 import FeaturedVisualizations from '@/components/home/FeaturedVisualizations';
@@ -18,19 +16,15 @@ import RecentOpenIssues from '@/components/home/RecentOpenIssues';
 import RecentAnnouncements from '@/components/home/RecentAnnouncements';
 import TagsSuggestion from '@/components/home/TagsSuggestion';
 import useSWR from 'swr';
+import GlobalSearch from '@/components/home/GlobalSearch';
 
 export default function Home() {
-  const router = useRouter();
   const { data: events, error, isLoading } = useSWR('/api/events');
 
   return (
     <Layout title="Home">
       <Box sx={{ mt: { xs: 2, sm: 1, md: 0 } }}>
-        <SearchForm
-          onSubmit={(values) => {
-            router.push('/search?q=' + values.searchText);
-          }}
-        />
+        <GlobalSearch />
       </Box>
       <Box
         sx={{

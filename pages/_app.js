@@ -80,7 +80,6 @@ export default function App({ Component, pageProps }) {
       const publicPaths = [
         '/',
         '/signin',
-        '/search',
         '/visualizer',
         '/work-pipeline',
         '/thamizhl-dictionary',
