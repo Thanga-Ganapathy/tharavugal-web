@@ -114,6 +114,10 @@ export default function Search() {
           )}
         </Paper>
       </Box>
+
+      <Alert severity="warning">
+        Note: The data shown here is based on recorded Real-Time events.
+      </Alert>
     </Layout>
   );
 }

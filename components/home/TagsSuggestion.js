@@ -26,6 +26,7 @@ export default function TagsSuggestion() {
     { label: 'ICJ', info: 'International Court of Justice' },
     { label: 'RSF', info: 'Reporters Without Borders' },
     { label: 'OHCHR', info: 'Office of the High Commissioner for Human Rights' },
+    { label: 'Yazh', info: 'A Harp-like instrument that is mentioned in Thamizhl literature.' },
   ];
 
   return (

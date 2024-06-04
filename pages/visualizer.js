@@ -118,10 +118,7 @@ export default function Visualizer() {
           <Typography variant="h6">Visualizer</Typography>
         </Badge>
       </Box>
-      <Alert severity="warning">
-        Due to our current infrastructure limitations, a limited number of
-        visualizations can be made.
-      </Alert>
+
       <Box
         sx={{
           display: { md: 'grid' },
@@ -138,6 +135,15 @@ export default function Visualizer() {
           <Charts />
         </Paper>
       </Box>
+
+      <Alert severity="warning">
+        Note: The data shown here is based on recorded Real-Time events.
+      </Alert>
+
+      <Alert severity="warning" sx={{ mt: 2 }}>
+        Due to our current infrastructure limitations, a limited number of
+        visualizations can be made.
+      </Alert>
     </Layout>
   );
 }
