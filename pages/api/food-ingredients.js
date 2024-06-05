@@ -1,20 +1,20 @@
-import { connect } from "@/utils/db";
+import { getDB } from '@/lib/db';
 
 export default async function handler(req, res) {
   const db = await getDB();
-  
-  const collection = db.collection("food-ingredients");
+
+  const collection = db.collection('food-ingredients');
   let output;
 
   switch (req.method) {
-    case "GET":
+    case 'GET':
       const data = await collection
         .find({}, { projection: { _id: 0, id: 1, name: 1 } })
         .sort({ updatedAt: -1 });
       output = res.status(200).json({ data: await data.toArray() });
       break;
 
-    case "POST":
+    case 'POST':
       const result = await collection.insertOne({
         ...req.body,
         createdAt: new Date(),
@@ -22,33 +22,33 @@ export default async function handler(req, res) {
       });
 
       if (result.insertedId) {
-        output = res.status(200).json({ message: "Create Success!" });
+        output = res.status(200).json({ message: 'Create Success!' });
         break;
       }
-      output = res.status(422).json({ message: "Create Failed!" });
+      output = res.status(422).json({ message: 'Create Failed!' });
       break;
 
-    case "PATCH":
+    case 'PATCH':
       const updateResult = await collection.updateOne(
         { id: req.body.id },
         { $set: { ...req.body, updatedAt: new Date() } }
       );
 
       if (updateResult.modifiedCount) {
-        output = res.status(200).json({ message: "Update Success!" });
+        output = res.status(200).json({ message: 'Update Success!' });
         break;
       }
-      output = res.status(422).json({ message: "Update Failed!" });
+      output = res.status(422).json({ message: 'Update Failed!' });
       break;
 
-    case "DELETE":
+    case 'DELETE':
       const delResult = await collection.deleteOne({ id: req.query.id });
 
       if (delResult.deletedCount) {
-        output = res.status(200).json({ message: "Deleted!" });
+        output = res.status(200).json({ message: 'Deleted!' });
         break;
       }
-      output = res.status(422).json({ message: "Delete Failed!" });
+      output = res.status(422).json({ message: 'Delete Failed!' });
       break;
 
     default:
