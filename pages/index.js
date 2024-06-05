@@ -17,6 +17,7 @@ import RecentAnnouncements from '@/components/home/RecentAnnouncements';
 import TagsSuggestion from '@/components/home/TagsSuggestion';
 import useSWR from 'swr';
 import GlobalSearch from '@/components/home/GlobalSearch';
+import DidYouKnow from '@/components/home/DidYouKnow';
 
 export default function Home() {
   const { data: events, error, isLoading } = useSWR('/api/events');
@@ -50,6 +51,10 @@ export default function Home() {
         <Box>
           <Paper sx={{ mt: { xs: 2, sm: 0 } }}>
             <Stats />
+          </Paper>
+
+          <Paper sx={{ mt: 2 }}>
+            <DidYouKnow />
           </Paper>
 
           <Paper sx={{ mt: 2 }}>

@@ -1,6 +1,6 @@
 import { Box, Card, Divider, Typography } from '@mui/material';
 import { FcAdvertising } from 'react-icons/fc';
-import useSWR from 'swr';
+import useSWRImmutable from 'swr/immutable';
 import { format } from 'date-fns';
 import Link from '../app/Link';
 
@@ -41,7 +41,7 @@ export default function RecentAnnouncements() {
     data: announcements,
     error,
     isLoading,
-  } = useSWR('/api/announcements');
+  } = useSWRImmutable('/api/announcements');
 
   const renderAnnouncements = () => {
     if (!announcements) {

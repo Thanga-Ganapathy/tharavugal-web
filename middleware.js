@@ -18,6 +18,7 @@ const routesConfig = {
     { path: '/api/feedback' },
     { path: '/api/announcements' },
     { path: '/api/quick-stats' },
+    { path: '/api/did-you-know' },
   ],
   protected: [
     { path: '/api/admin', roles: [USER_ROLES.ADMIN] },
