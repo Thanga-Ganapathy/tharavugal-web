@@ -1,9 +1,9 @@
 import Credential from '@/utils/Credential';
-import { connect } from '@/utils/db';
+import { getDB } from '@/lib/db';
 import Auth from '@/utils/Auth';
 
 export default async function handler(req, res) {
-  const db = await connect();
+  const db = await getDB();
   const user = await db.collection('users').findOne({ email: req.body.email });
 
   if (user) {

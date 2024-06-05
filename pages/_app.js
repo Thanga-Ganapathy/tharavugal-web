@@ -16,6 +16,8 @@ import APIClient from '@/utils/APIClient';
 import { useMemo } from 'react';
 import { isStr } from '@opentf/std';
 import Loading from '@/components/app/Loading';
+import Head from 'next/head';
+import { META_INFO } from '@/constants';
 
 const getDesignTokens = (mode) => ({
   components: {
@@ -157,53 +159,58 @@ export default function App({ Component, pageProps }) {
     setAppState((s) => ({ themeMode: currentMode }));
   }, []);
 
-  // if (!authorized) {
-  //   return (
-  //     <AppHeader>
-  //       <CssBaseline />
-  //       <Box
-  //         sx={{
-  //           width: '100%',
-  //           height: '100vh',
-  //         }}
-  //       ></Box>
-  //     </AppHeader>
-  //   );
-  // }
-
   return (
-    <ThemeProvider theme={theme}>
-      <CssBaseline />
-      <main>
-        <LocalizationProvider dateAdapter={AdapterDateFns}>
-          <SnackbarProvider maxSnack={3}>
-            <SWRConfig
-              value={{
-                fetcher: APIClient.get,
-                onError(err, key, config) {
-                  console.log(err);
-                  console.log(err.status);
-                  console.log(key);
-                  console.log(config);
-                },
-              }}
-            >
-              {authorized ? <Component {...pageProps} /> : <Loading />}
-            </SWRConfig>
-          </SnackbarProvider>
-        </LocalizationProvider>
-      </main>
-      <style global jsx>
-        {`
-          html,
-          body,
-          body > div:first-child,
-          div#__next,
-          div#__next > main {
-            height: 100%;
-          }
-        `}
-      </style>
-    </ThemeProvider>
+    <>
+      <Head>
+        <meta key="__meta_title" name="title" content={META_INFO.title} />
+        <meta key="__meta_desc" name="description" content={META_INFO.desc} />
+        <meta
+          key="__meta_og_title"
+          property="og:title"
+          content={META_INFO.title}
+        />
+        <meta property="og:type" content="website" />
+        <meta
+          key="__meta_og_desc"
+          property="og:description"
+          content={META_INFO.desc}
+        />
+        <meta key="__meta_og_img" property="og:image" content="" />
+        <meta key="__meta_og_url" property="og:url" content={META_INFO.url} />
+      </Head>
+      <ThemeProvider theme={theme}>
+        <CssBaseline />
+        <main>
+          <LocalizationProvider dateAdapter={AdapterDateFns}>
+            <SnackbarProvider maxSnack={3}>
+              <SWRConfig
+                value={{
+                  fetcher: APIClient.get,
+                  onError(err, key, config) {
+                    console.log(err);
+                    console.log(err.status);
+                    console.log(key);
+                    console.log(config);
+                  },
+                }}
+              >
+                {authorized ? <Component {...pageProps} /> : <Loading />}
+              </SWRConfig>
+            </SnackbarProvider>
+          </LocalizationProvider>
+        </main>
+        <style global jsx>
+          {`
+            html,
+            body,
+            body > div:first-child,
+            div#__next,
+            div#__next > main {
+              height: 100%;
+            }
+          `}
+        </style>
+      </ThemeProvider>
+    </>
   );
 }

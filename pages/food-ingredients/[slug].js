@@ -1,5 +1,5 @@
 import Layout from '@/components/layouts/DefaultLayout';
-import { connect } from '@/utils/db';
+import { getDB } from '@/lib/db';
 import {
   Alert,
   Box,
@@ -237,7 +237,7 @@ export default function Page({ data }) {
 
 export async function getServerSideProps(context) {
   const { slug } = context.query;
-  const db = await connect();
+  const db = await getDB();
   const col = db.collection('food-ingredients');
   const cursor = col.find({ slug }, { projection: { _id: 0 } });
 

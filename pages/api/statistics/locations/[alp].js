@@ -1,11 +1,11 @@
-import { connect } from '@/utils/db';
+import { getDB } from '@/lib/db';
 
 export default async function handler(req, res) {
   let output;
 
   switch (req.method) {
     case 'GET':
-      const db = await connect();
+      const db = await getDB();
       const eventsCol = db.collection('events');
       const aggrData = eventsCol.aggregate([
         {

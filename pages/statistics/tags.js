@@ -1,7 +1,7 @@
 import Layout from '@/components/layouts/DefaultLayout';
 import StatsBox from '@/components/stats/StatsBox';
 import APIClient from '@/utils/APIClient';
-import { connect } from '@/utils/db';
+import { getDB } from '@/lib/db';
 import {
   Alert,
   Box,
@@ -100,7 +100,7 @@ export default function Tags({ data }) {
 }
 
 export async function getServerSideProps() {
-  const db = await connect();
+  const db = await getDB();
   const eventsCol = db.collection('events');
   const aggrData = eventsCol.aggregate([
     {

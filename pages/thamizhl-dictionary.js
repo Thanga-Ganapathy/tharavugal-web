@@ -1,6 +1,6 @@
 import Layout from '@/components/layouts/DefaultLayout';
 import { Box, Paper, Typography, Alert } from '@mui/material';
-import { connect } from '@/utils/db';
+import { getDB } from '@/lib/db';
 import HeadingWithDivider from '@/components/HeadingWithDivider';
 import { useState } from 'react';
 import APIClient from '@/utils/APIClient';
@@ -76,7 +76,7 @@ export default function ThamizhlDictionary({ data }) {
 }
 
 export async function getServerSideProps(context) {
-  const db = await connect();
+  const db = await getDB();
   const col = db.collection('thamizhl-dictionary');
   const cursor = col
     .find(

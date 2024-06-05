@@ -1,12 +1,12 @@
 import fs from 'fs';
 import { toXML } from 'jstoxml';
 import { format } from 'date-fns';
-import { connect } from '../utils/db';
+import { getDB } from '../lib/db';
 import { thirukkural } from '@/data/thirukkural/index';
 
 const baseUrl = {
   loc: 'https://tharavugal.org/',
-  lastmod: '2024-05-15',
+  lastmod: '2024-06-05',
 };
 
 const staticUrls = [
@@ -95,7 +95,7 @@ const urlset = {
 async function run() {
   console.log('Updating sitemap...');
   const DB_NAME = 'tharavugal';
-  const db = await connect(DB_NAME);
+  const db = await getDB(DB_NAME);
 
   // Events
   const collection = db.collection('events');

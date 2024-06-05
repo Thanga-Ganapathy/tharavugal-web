@@ -22,7 +22,7 @@ const DynamicReactJson = dynamic(() => import('@microlink/react-json-view'), {
 
 import Layout from '@/components/layouts/DefaultLayout';
 import { utcToZonedTime } from 'date-fns-tz';
-import { connect } from '@/utils/db';
+import { getDB } from '@/lib/db';
 import { useRouter } from 'next/router';
 import { isEmpty } from '@opentf/std';
 import HeadingWithDivider from '@/components/HeadingWithDivider';
@@ -282,7 +282,7 @@ export default function EventView({ data }) {
 }
 
 export async function getServerSideProps(context) {
-  const db = await connect();
+  const db = await getDB();
   const coll = db.collection('events');
   const event = await coll.findOne(
     { slug: context.query.slug },

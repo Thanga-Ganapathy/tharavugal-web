@@ -1,7 +1,7 @@
 import Layout from '@/components/layouts/DefaultLayout';
 import { Box, Paper, Typography } from '@mui/material';
 import ImageOutlinedIcon from '@mui/icons-material/ImageOutlined';
-import { connect } from '@/utils/db';
+import { getDB } from '@/lib/db';
 import HeadingWithDivider from '@/components/HeadingWithDivider';
 import Resource from '@/components/Resource';
 
@@ -44,7 +44,7 @@ export default function Images({ data }) {
 }
 
 export async function getServerSideProps(context) {
-  const db = await connect();
+  const db = await getDB();
   const col = db.collection('resources');
   const cursor = col
     .find(

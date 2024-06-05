@@ -1,7 +1,7 @@
 import { connect } from "@/utils/db";
 
 export default async function handler(req, res) {
-  const db = await connect();
+  const db = await getDB();
   
   const collection = db.collection("entity-types");
   let output;

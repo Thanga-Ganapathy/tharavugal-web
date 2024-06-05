@@ -17,3 +17,9 @@ export const RESOUCE_TYPES = {
   5: 'Book',
   6: 'Other',
 };
+
+export const META_INFO = {
+  title: 'தரவுகள் | Tharavugal',
+  desc: 'Tharavugal is a non-profit data platform that structures data contributed by its members. The contents are freely accessible to the public.',
+  url: 'https://tharavugal.org/',
+};

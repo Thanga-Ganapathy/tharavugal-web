@@ -1,7 +1,7 @@
 import DialogWindow from '@/components/DialogWindow';
 import ProgressiveImg from '@/components/ProgressiveImg';
 import Layout from '@/components/layouts/DefaultLayout';
-import { connect } from '@/utils/db';
+import { getDB } from '@/lib/db';
 import {
   Alert,
   Box,
@@ -104,7 +104,7 @@ export default function ContributionLogs({ logs, R2_DOMAIN }) {
 }
 
 export async function getServerSideProps(context) {
-  const db = await connect();
+  const db = await getDB();
   const col = db.collection('contribution-logs');
   const cursor = col.find(
     {},

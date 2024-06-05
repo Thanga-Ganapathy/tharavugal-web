@@ -1,43 +1,40 @@
 import Head from 'next/head';
-import {
-  Backdrop,
-  Box,
-  Toolbar,
-  Typography,
-  Button,
-  Paper,
-} from '@mui/material';
+import { Backdrop, Box, Toolbar, Typography, Button } from '@mui/material';
 import AppHeader from './AppHeader';
 import { InfinitySpin } from 'react-loader-spinner';
 import { useAppState } from '@/store';
 import { useState } from 'react';
 import Footer from './Footer';
 import Link from '../app/Link';
-
-const metaInfo = {
-  title: 'தரவுகள் | Tharavugal',
-  desc: 'Tharavugal is a non-profit data platform that structures data contributed by its members. The contents are freely accessible to the public.',
-  url: 'https://tharavugal.org/',
-};
+import { META_INFO } from '@/constants';
 
 export default function DefaultLayout({ children, title = '', meta = {} }) {
   const [agreement, setAgreement] = useState(localStorage.getItem('agreement'));
   const isLoading = useAppState((s) => s.loading);
-  const curTitle = title + ' - ' + metaInfo.title;
+  const curTitle = title + ' - ' + META_INFO.title;
 
   const renderMetaInfo = () => {
     return (
       <>
-        <meta name="title" content={curTitle} />
-        <meta name="description" content={meta.desc ?? metaInfo.desc} />
-        <meta property="og:type" content="website" />
+        <meta key="__meta_title" name="title" content={curTitle} />
         <meta
-          property="og:url"
-          content={metaInfo.url + (meta.urlPath ? meta.urlPath : '')}
+          key="__meta_desc"
+          name="description"
+          content={meta.desc ?? META_INFO.desc}
         />
-        <meta property="og:title" content={curTitle} />
-        <meta property="og:description" content={meta.desc ?? metaInfo.desc} />
-        <meta property="og:image" content="" />
+        <meta property="og:type" content="website" />
+        <meta key="__meta_og_title" property="og:title" content={curTitle} />
+        <meta
+          key="__meta_og_desc"
+          property="og:description"
+          content={meta.desc ?? META_INFO.desc}
+        />
+        <meta key="__meta_og_img" property="og:image" content="" />
+        <meta
+          key="__meta_og_url"
+          property="og:url"
+          content={META_INFO.url + (meta.urlPath ? meta.urlPath : '')}
+        />
       </>
     );
   };

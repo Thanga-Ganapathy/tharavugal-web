@@ -1,7 +1,7 @@
 import HeadingWithDivider from '@/components/HeadingWithDivider';
 import Layout from '@/components/layouts/DefaultLayout';
 import StatsBox from '@/components/stats/StatsBox';
-import { connect } from '@/utils/db';
+import { getDB } from '@/lib/db';
 import { Box, Paper, Typography } from '@mui/material';
 
 export default function Statistics({ data }) {
@@ -73,7 +73,7 @@ export default function Statistics({ data }) {
 }
 
 export async function getServerSideProps(context) {
-  const db = await connect();
+  const db = await getDB();
   const eventsCol = db.collection('events');
   const totalEvents = await eventsCol.estimatedDocumentCount();
   const tagsCol = db.collection('event-categories');
