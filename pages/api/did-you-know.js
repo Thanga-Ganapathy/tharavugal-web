@@ -38,9 +38,7 @@ export default async function handler(req, res) {
       const result = await cursor.toArray();
       const count = {
         killed: result.reduce((prev, cur) => {
-          const c = cur.data.public.death
-            ? cur.data.public.death.count
-            : cur.data.public.kill.count;
+          const c = cur.data.public.death?.count || cur.data.public.kill?.count;
 
           return prev + (c || 0);
         }, 0),
