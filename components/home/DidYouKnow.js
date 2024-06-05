@@ -26,11 +26,11 @@ export default function DidYouKnow() {
               <Box component="span" sx={{ color: (t) => t.palette.error.main }}>
                 {data.count.killed}
               </Box>{' '}
-              People were KILLED and{' '}
+              People were Killed and{' '}
               <Box component="span" sx={{ color: (t) => t.palette.error.main }}>
                 {data.count.injury}
               </Box>{' '}
-              People were INJURED by Lightning Strikes.
+              People were Injured by Lightning Strikes.
             </Typography>
 
             <Alert severity="info" sx={{ mt: 2 }}>
