@@ -43,9 +43,9 @@ export default function DidYouKnow() {
               <Pagination count={1} disabled size="small" />
             </Box>
 
-            <Typography variant="subtitle2" sx={{ mt: 3, fontSize: '10px' }}>
-              *Note: The data shown here is based on recorded Real-Time Events.
-            </Typography>
+            <Alert severity="warning" sx={{ mt: 3, fontSize: '11px' }}>
+              The data shown here is based on recorded Real-Time Events.
+            </Alert>
           </>
         )}
       </Box>

@@ -23,7 +23,7 @@ function Menu({ obj, selected, onSelect }) {
         selected={selected}
         onClick={() => {
           onSelect(obj.menu);
-          const element = document.getElementById(`KB_${obj.menu}`);
+          const element = document.getElementById(`KB_${obj.id}`);
           element.scrollIntoView({
             behavior: 'smooth',
             block: 'center',
@@ -40,9 +40,10 @@ function Menu({ obj, selected, onSelect }) {
 function Sidebar() {
   const [selected, setSelected] = useState('General');
   const menus = [
-    { menu: 'General' },
-    { menu: 'Members' },
-    { menu: 'Organization' },
+    { menu: 'General', id: 'General' },
+    { menu: 'Members', id: 'Members' },
+    { menu: 'Organization', id: 'Organization' },
+    { menu: 'Real-Time Events', id: 'Real_Time_Events' },
   ];
 
   return (
@@ -91,7 +92,7 @@ export default function KB() {
   return (
     <Layout title="Knowledge Base">
       <Box textAlign="center">
-        <Typography variant="h5">Knowledge Base</Typography>
+        <Typography variant="h6">Knowledge Base</Typography>
       </Box>
       <Box
         sx={{
@@ -112,6 +113,12 @@ export default function KB() {
             sx={{ mt: 2 }}
           />
           {renderKBs(groups['Organization'])}
+          <HeadingWithDivider
+            id="KB_Real_Time_Events"
+            title="Real-Time Events"
+            sx={{ mt: 2 }}
+          />
+          {renderKBs(groups['Real-Time Events'])}
         </Box>
       </Box>
     </Layout>

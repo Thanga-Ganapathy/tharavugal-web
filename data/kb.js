@@ -105,7 +105,7 @@ const kbData = [
   {
     heading: 'Organization',
     title: 'Is the organization registered?',
-    content: `<p>Currently not registered.</p>`,
+    content: `<p>Currently not registered to any jurisdiction.</p>`,
   },
   {
     heading: 'Members',
@@ -120,6 +120,50 @@ const kbData = [
     email with details. There is no guarantee of approval, but it will
     definitely be evaluated by the core members.
   </div>`,
+  },
+  {
+    heading: 'Real-Time Events',
+    title: 'What is a Real-Time event?',
+    content: `<p>An event occurred anywhere in real time.</p>`,
+  },
+  {
+    heading: 'Real-Time Events',
+    title: 'Why are Real-Time events recorded?',
+    content: `<div>
+    <p>The Real-Time Events are recorded primarily for research purposes.</p>
+    </div>
+    `,
+  },
+  {
+    heading: 'Real-Time Events',
+    title: 'What are all the benefits of recording real-time events?',
+    content: `<div>
+    <p>Here are some benefits:</p>
+    <ul>
+      <li>Watch trends in incidents.</li>
+      <li>List or navigate historical events in chronological order.</li>
+      <li>Prevention of diseases by alerting people.</li>
+      <li>Providing safety guidelines in a timely manner.</li>
+      <li>Controlling social issues.</li>
+    </ul>
+    </div>
+    `,
+  },
+  {
+    heading: 'Real-Time Events',
+    title: 'Who can create real-time events?',
+    content: `<div>
+    <p>Any member of this organization can draft events, and only core members have publishing rights.</p>
+    </div>
+    `,
+  },
+  {
+    heading: 'Real-Time Events',
+    title: 'How reliable are real-time events?',
+    content: `<div>
+    <p>Every event will be verified and validated by multiple members.</p>
+    </div>
+    `,
   },
 ];
 
