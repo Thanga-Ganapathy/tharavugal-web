@@ -38,7 +38,15 @@ export default function Event({ data }) {
               variant="outlined"
               key={i}
               label={l}
-              sx={{ mt: { xs: 1 }, mr: 1 }}
+              sx={{
+                mt: { xs: 1 },
+                mr: 1,
+                height: 'auto',
+                '& .MuiChip-label': {
+                  display: 'block',
+                  whiteSpace: 'normal',
+                },
+              }}
               size="small"
               onClick={() => handleExplore('location', l)}
             />
