@@ -31,6 +31,7 @@ export default function AboutUs() {
             No User Tracking (
             <Link href="/privacy-policy">Click here to learn more</Link>)
           </li>
+          <li>Inclusiveness</li>
         </ul>
 
         <Typography variant="body1" mt={2}>
