@@ -171,7 +171,7 @@ export default function GlobalSearch() {
         setSearchData(response.data);
       } catch (error) {
         console.log(error);
-        showAlert('error', error.message);
+        showAlert('error', 'Error: Please try after sometime');
       }
       setLoading(false);
     }
