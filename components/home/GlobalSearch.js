@@ -17,6 +17,7 @@ import APIClient from '@/utils/APIClient';
 import { useField } from '@opentf/react-form';
 import Link from '../app/Link';
 import { format } from 'date-fns';
+import useAlert from '@/hooks/useAlert';
 
 function SearchTextField({ name, ...otherProps }) {
   const inputRef = useRef(null);
@@ -158,14 +159,20 @@ export default function GlobalSearch() {
     resources: [],
     foodIngredients: [],
   });
+  const showAlert = useAlert();
 
   const handleSubmit = async (values) => {
     if (values.searchText) {
       setLoading(true);
-      const response = await APIClient.get(
-        '/api/search?q=' + values.searchText
-      );
-      setSearchData(response.data);
+      try {
+        const response = await APIClient.get(
+          '/api/search?q=' + values.searchText
+        );
+        setSearchData(response.data);
+      } catch (error) {
+        console.log(error);
+        showAlert('error', error.message);
+      }
       setLoading(false);
     }
   };
