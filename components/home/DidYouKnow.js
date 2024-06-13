@@ -5,6 +5,8 @@ import useSWRImmutable from 'swr/immutable';
 import Link from '../app/Link';
 import { useState } from 'react';
 import { ThreeDots } from 'react-loader-spinner';
+import MaleIcon from '@mui/icons-material/Male';
+import FemaleIcon from '@mui/icons-material/Female';
 
 export default function DidYouKnow() {
   const [page, setPage] = useState(1);
@@ -58,8 +60,11 @@ export default function DidYouKnow() {
           <Box component="span" sx={{ color: (t) => t.palette.error.main }}>
             {data.suddenDeaths.count}
           </Box>{' '}
-          Sudden Death Cases among People under the Age of 45 in the Republic of
-          India.
+          Sudden Death Cases among People under the Age of{' '}
+          <Box component="span" sx={{ color: (t) => t.palette.primary.main }}>
+            45
+          </Box>{' '}
+          in the 🇮🇳 Republic of India .
         </Typography>
 
         <Alert severity="info" sx={{ mt: 2 }}>
@@ -86,9 +91,79 @@ export default function DidYouKnow() {
     );
   };
 
+  const renderSuicideCases = () => {
+    return (
+      <Box>
+        <Typography
+          variant="h6"
+          sx={{
+            mt: 2,
+            wordBreak: 'break-word',
+          }}
+        >
+          😟 This Year,{' '}
+          <Box component="span" sx={{ color: (t) => t.palette.error.main }}>
+            {data.suicideCases.count}
+          </Box>{' '}
+          people committed suicide.
+        </Typography>
+
+        <Box sx={{ display: 'flex', justifyContent: 'center' }}>
+          <table>
+            <tr>
+              <td align="right">
+                <Box sx={{ display: 'flex', alignItems: 'center' }}>
+                  <MaleIcon sx={{ mr: 1 }} />
+                  <Typography>Male:</Typography>
+                </Box>
+              </td>
+              <td>
+                <Typography sx={{ ml: 1 }}>{data.suicideCases.male}</Typography>
+              </td>
+            </tr>
+            <tr>
+              <td align="right">
+                <Box sx={{ display: 'flex', alignItems: 'center' }}>
+                  <FemaleIcon sx={{ mr: 1 }} />
+                  <Typography>Female:</Typography>
+                </Box>
+              </td>
+              <td>
+                <Typography sx={{ ml: 1 }}>
+                  {data.suicideCases.female}
+                </Typography>
+              </td>
+            </tr>
+          </table>
+        </Box>
+
+        <Alert severity="info" sx={{ mt: 2 }}>
+          Related Articles:
+          <ul>
+            <li>
+              <Link href="https://www.cdc.gov/suicide/prevention/index.html">
+                Preventing Suicide
+              </Link>
+            </li>
+            <li>
+              <Link href="https://www.nimh.nih.gov/health/topics/suicide-prevention">
+                National Institute of Mental Health
+              </Link>
+            </li>
+            <li>
+              <Link href="https://www.who.int/publications/i/item/9789241564779">
+                Preventing suicide: A global imperative (WHO Book)
+              </Link>
+            </li>
+          </ul>
+        </Alert>
+      </Box>
+    );
+  };
+
   return (
     <Box sx={{ p: 1 }}>
-      <HeadingWithDivider title="Did you know?" icon={FcIdea} sx={{ px: 1 }} />
+      <HeadingWithDivider title="Did You Know?" icon={FcIdea} sx={{ px: 1 }} />
       <Box sx={{ p: 2 }}>
         {isLoading && (
           <Box
@@ -108,10 +183,11 @@ export default function DidYouKnow() {
         {!isLoading && !error && (
           <>
             {page === 1 && rendeSuddenDeaths()}
-            {page === 2 && renderLigtning()}
+            {page === 2 && renderSuicideCases()}
+            {page === 3 && renderLigtning()}
             <Box sx={{ mt: 5, display: 'flex', justifyContent: 'center' }}>
               <Pagination
-                count={2}
+                count={3}
                 size="small"
                 page={page}
                 onChange={handleChange}
