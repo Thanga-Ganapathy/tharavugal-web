@@ -8,10 +8,7 @@ export default async function handler(req, res) {
 
   switch (req.method) {
     case 'GET':
-      // const data = await collection
-      //   .find({}, { projection: { _id: 0 } })
-      //   .sort({ updatedAt: -1 });
-      const aggArr = [
+      let aggArr = [
         {
           $match: {
             status: 'Published',
@@ -31,12 +28,12 @@ export default async function handler(req, res) {
           },
         },
       ];
-      const cursor = collection.aggregate(aggArr, {
+      let cursor = collection.aggregate(aggArr, {
         maxTimeMS: 60000,
         allowDiskUse: true,
       });
-      const result = await cursor.toArray();
-      const count = {
+      let result = await cursor.toArray();
+      const lightningCount = {
         killed: result.reduce((prev, cur) => {
           const c = cur.data.public.death?.count || cur.data.public.kill?.count;
 
@@ -49,7 +46,52 @@ export default async function handler(req, res) {
         }, 0),
       };
 
-      output = res.status(200).json({ count });
+      aggArr = [
+        {
+          $match: {
+            status: 'Published',
+            $and: [
+              {
+                categories: {
+                  $in: ['Death'],
+                },
+              },
+              {
+                categories: {
+                  $in: ['Sudden'],
+                },
+              },
+            ],
+            locations: {
+              $in: ['Republic of India'],
+            },
+            startedAt: {
+              $gte: new Date('2024-01-01'),
+              $lte: new Date(),
+            },
+          },
+        },
+        {
+          $project: {
+            data: 1,
+            _id: 0,
+          },
+        },
+      ];
+      cursor = collection.aggregate(aggArr, {
+        maxTimeMS: 60000,
+        allowDiskUse: true,
+      });
+      result = await cursor.toArray();
+      const suddenDeathsCount = result.filter((r) => {
+        const p = r.data.public.death.people[0];
+        return p.age < 45 || p.ageGroup === 'Middle Adult';
+      });
+
+      output = res.status(200).json({
+        lightning: { count: lightningCount },
+        suddenDeaths: { count: suddenDeathsCount.length },
+      });
       break;
     default:
       output = res.status(401);
