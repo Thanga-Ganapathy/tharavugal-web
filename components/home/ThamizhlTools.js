@@ -22,30 +22,30 @@ export default function ThamizhlTools() {
         <ToolBox
           active
           icon={OpenBook}
-          label="Thamizhl Dictionary"
+          label="Thamizhl Dictionary (அகராதி)"
           path="/thamizhl-dictionary"
         />
         <ToolBox
           active
           icon={BookOutlinedIcon}
-          label="Thirukkural"
+          label="Thirukkural (திருக்குறள்)"
           path="/thirukkural"
         />
         <ToolBox
           active
           icon={BookOutlinedIcon}
-          label="Aathichoodi"
+          label="Aathichoodi (ஆத்திசூடி)"
           path="/aathichoodi"
         />
         <ToolBox
           icon={FcCalendar}
-          label="Thamizhl Calendar"
+          label="Thamizhl Calendar (தமிழ் நாட்காட்டி)"
           path="/thamizhl-calendar"
         />
         <ToolBox
           active
           icon={KeyboardIcon}
-          label="Thamizhl Typing"
+          label="Thamizhl Typing (தமிழ் தட்டச்சு)"
           path="/thamizhl-typing"
         />
       </Box>
