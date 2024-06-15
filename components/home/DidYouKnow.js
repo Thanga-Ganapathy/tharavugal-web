@@ -27,14 +27,30 @@ export default function DidYouKnow() {
           }}
         >
           ⚡ This Year,{' '}
-          <Box component="span" sx={{ color: (t) => t.palette.error.main }}>
+          <Box
+            component="span"
+            sx={{ color: (t) => t.palette.error.main, fontWeight: 'bold' }}
+          >
             {data.lightning.count.killed}
           </Box>{' '}
           People were Killed and{' '}
-          <Box component="span" sx={{ color: (t) => t.palette.error.main }}>
+          <Box
+            component="span"
+            sx={{ color: (t) => t.palette.error.main, fontWeight: 'bold' }}
+          >
             {data.lightning.count.injury}
           </Box>{' '}
-          People were Injured by Lightning Strikes.
+          others Injured by{' '}
+          <Box
+            component="span"
+            sx={{
+              textDecoration: 'underline',
+              textDecorationColor: (t) => t.palette.error.main,
+            }}
+          >
+            Lightning Strikes
+          </Box>
+          .
         </Typography>
 
         <Alert severity="info" sx={{ mt: 2 }}>
@@ -56,15 +72,27 @@ export default function DidYouKnow() {
             wordBreak: 'break-word',
           }}
         >
-          😱 This Year, there were{' '}
-          <Box component="span" sx={{ color: (t) => t.palette.error.main }}>
+          😱 This Year,{' '}
+          <Box
+            component="span"
+            sx={{ color: (t) => t.palette.error.main, fontWeight: 'bold' }}
+          >
             {data.suddenDeaths.count}
           </Box>{' '}
-          Sudden Death Cases among People under the Age of{' '}
+          <Box
+            component="span"
+            sx={{
+              textDecoration: 'underline',
+              textDecorationColor: (t) => t.palette.error.main,
+            }}
+          >
+            Sudden Death
+          </Box>{' '}
+          Case among People under the Age of{' '}
           <Box component="span" sx={{ color: (t) => t.palette.primary.main }}>
             45
           </Box>{' '}
-          in the 🇮🇳 Republic of India .
+          in the 🇮🇳 Republic of India.
         </Typography>
 
         <Alert severity="info" sx={{ mt: 2 }}>
@@ -102,10 +130,23 @@ export default function DidYouKnow() {
           }}
         >
           😟 This Year,{' '}
-          <Box component="span" sx={{ color: (t) => t.palette.error.main }}>
+          <Box
+            component="span"
+            sx={{ color: (t) => t.palette.error.main, fontWeight: 'bold' }}
+          >
             {data.suicideCases.count}
           </Box>{' '}
-          people committed suicide.
+          People Committed{' '}
+          <Box
+            component="span"
+            sx={{
+              textDecoration: 'underline',
+              textDecorationColor: (t) => t.palette.error.main,
+            }}
+          >
+            Suicide
+          </Box>
+          .
         </Typography>
 
         <Box sx={{ display: 'flex', justifyContent: 'center' }}>
@@ -114,22 +155,40 @@ export default function DidYouKnow() {
               <td align="right">
                 <Box sx={{ display: 'flex', alignItems: 'center' }}>
                   <MaleIcon sx={{ mr: 1 }} />
-                  <Typography>Male:</Typography>
+                  <Typography sx={{ color: (t) => t.palette.info.main }}>
+                    Male:
+                  </Typography>
                 </Box>
               </td>
               <td>
-                <Typography sx={{ ml: 1 }}>{data.suicideCases.male}</Typography>
+                <Typography
+                  sx={{
+                    ml: 1,
+                    color: (t) => t.palette.error.main,
+                    fontWeight: 'bold',
+                  }}
+                >
+                  {data.suicideCases.male}
+                </Typography>
               </td>
             </tr>
             <tr>
               <td align="right">
                 <Box sx={{ display: 'flex', alignItems: 'center' }}>
                   <FemaleIcon sx={{ mr: 1 }} />
-                  <Typography>Female:</Typography>
+                  <Typography sx={{ color: (t) => t.palette.info.main }}>
+                    Female:
+                  </Typography>
                 </Box>
               </td>
               <td>
-                <Typography sx={{ ml: 1 }}>
+                <Typography
+                  sx={{
+                    ml: 1,
+                    color: (t) => t.palette.error.main,
+                    fontWeight: 'bold',
+                  }}
+                >
                   {data.suicideCases.female}
                 </Typography>
               </td>
