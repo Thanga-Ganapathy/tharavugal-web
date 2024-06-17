@@ -44,13 +44,35 @@ export default function EventView({ data }) {
         <Box>
           <Paper sx={{ mt: 2, p: { xs: 1, sm: 1, md: 2 } }}>
             <Typography variant="h4">{data.event.title}</Typography>
-            <Typography
-              variant="subtitle2"
-              sx={{ color: 'text.secondary', textAlign: 'right', mt: 1 }}
+            <Box sx={{ display: 'flex', justifyContent: 'flex-end', mt: 1 }}>
+              <Typography
+                variant="subtitle2"
+                sx={{
+                  bgcolor: 'gold',
+                  color: 'black',
+                  px: 1,
+                  borderRadius: '15px',
+                  fontSize: '11px',
+                }}
+              >
+                Updated At:{' '}
+                {format(
+                  utcToZonedTime(
+                    data.event.updatedAt,
+                    Intl.DateTimeFormat().resolvedOptions().timeZone
+                  ),
+                  'yyyy-MM-dd hh:mm:ss aa'
+                )}
+              </Typography>
+            </Box>
+            <Box
+              sx={{
+                display: 'flex',
+                justifyContent: 'space-between',
+                flexWrap: 'wrap',
+                mt: 2,
+              }}
             >
-              Updated At: {data.event.updatedAt}
-            </Typography>
-            <Box sx={{ display: 'flex', flexWrap: 'wrap', mt: 2 }}>
               <Card variant="outlined" sx={{ m: 1 }}>
                 <CardContent>
                   <HeadingWithDivider title="Period" />
@@ -142,6 +164,16 @@ export default function EventView({ data }) {
                   </Box>
                 </CardContent>
               </Card>
+            </Box>
+
+            <Box
+              sx={{
+                display: 'flex',
+                justifyContent: 'space-between',
+                flexWrap: 'wrap',
+                mt: 2,
+              }}
+            >
               <Card variant="outlined" sx={{ m: 1 }}>
                 <CardContent>
                   <HeadingWithDivider title="Location" />
@@ -162,67 +194,8 @@ export default function EventView({ data }) {
               </Card>
             </Box>
 
-            <Box sx={{ display: 'flex', flexWrap: 'wrap' }}>
-              <Card variant="outlined" sx={{ m: 1 }}>
-                <CardContent>
-                  <HeadingWithDivider title="Verification / Validation" />
-                  <Box
-                    sx={{
-                      display: 'grid',
-                      gridTemplateColumns: 'auto 1fr',
-                      gridGap: '15px 10px',
-                      mt: 2,
-                    }}
-                  >
-                    <Box>Status:</Box>
-                    <Box>
-                      {data.event.verified ? (
-                        <Chip
-                          icon={<CheckCircleOutlinedIcon />}
-                          label="Verified"
-                          color="success"
-                          size="small"
-                        />
-                      ) : (
-                        <Chip
-                          icon={<CancelOutlinedIcon />}
-                          label="Not Verified"
-                          color="error"
-                          size="small"
-                          variant="outlined"
-                        />
-                      )}
-                    </Box>
-                    <Box>Drafted By:</Box>
-                    <Box>Admin</Box>
-                    <Box>Published By:</Box>
-                    <Box>Admin</Box>
-                    <Box>Cross-checked By:</Box>
-                    <Box>None</Box>
-                  </Box>
-                </CardContent>
-              </Card>
-            </Box>
-            <Box sx={{ display: 'flex', my: 2, flexWrap: 'wrap' }}>
-              <Card variant="outlined" sx={{ m: 1 }}>
-                <CardContent>
-                  <HeadingWithDivider title="Tags" />
-                  <Box sx={{ mt: 2 }}>
-                    {data.event.categories.map((c, i) => (
-                      <Chip
-                        variant="outlined"
-                        color="default"
-                        key={i}
-                        label={c}
-                        sx={{ mt: { xs: 1 }, mr: 1 }}
-                        size="small"
-                        onClick={() => handleExplore('tag', c)}
-                      />
-                    ))}
-                  </Box>
-                </CardContent>
-              </Card>
-            </Box>
+            <Box sx={{ display: 'flex', flexWrap: 'wrap' }}></Box>
+            <Box sx={{ display: 'flex', my: 2, flexWrap: 'wrap' }}></Box>
             <Box mt={2}>
               <HeadingWithDivider title="Data" />
               <Box sx={{ mt: 2, p: 2 }}>
@@ -273,6 +246,68 @@ export default function EventView({ data }) {
               <Box sx={{ mt: 2, p: 2 }}>
                 <Alert severity="info">No data</Alert>
               </Box>
+            </Box>
+
+            <Box sx={{ mt: 2, display: 'flex', flexWrap: 'wrap' }}>
+              <Card variant="outlined" sx={{ m: 1 }}>
+                <CardContent>
+                  <HeadingWithDivider title="Verification / Validation" />
+                  <Box
+                    sx={{
+                      display: 'grid',
+                      gridTemplateColumns: 'auto 1fr',
+                      gridGap: '15px 10px',
+                      mt: 2,
+                    }}
+                  >
+                    <Box>Status:</Box>
+                    <Box>
+                      {data.event.verified ? (
+                        <Chip
+                          icon={<CheckCircleOutlinedIcon />}
+                          label="Verified"
+                          color="success"
+                          size="small"
+                        />
+                      ) : (
+                        <Chip
+                          icon={<CancelOutlinedIcon />}
+                          label="Not Verified"
+                          color="error"
+                          size="small"
+                          variant="outlined"
+                        />
+                      )}
+                    </Box>
+                    <Box>Drafted By:</Box>
+                    <Box>Admin</Box>
+                    <Box>Published By:</Box>
+                    <Box>Admin</Box>
+                    <Box>Cross-checked By:</Box>
+                    <Box>None</Box>
+                  </Box>
+                </CardContent>
+              </Card>
+            </Box>
+            <Box sx={{ mt: 2, display: 'flex', flexWrap: 'wrap' }}>
+              <Card variant="outlined" sx={{ m: 1 }}>
+                <CardContent>
+                  <HeadingWithDivider title="Tags" />
+                  <Box sx={{ mt: 2 }}>
+                    {data.event.categories.map((c, i) => (
+                      <Chip
+                        variant="outlined"
+                        color="default"
+                        key={i}
+                        label={c}
+                        sx={{ mt: { xs: 1 }, mr: 1 }}
+                        size="small"
+                        onClick={() => handleExplore('tag', c)}
+                      />
+                    ))}
+                  </Box>
+                </CardContent>
+              </Card>
             </Box>
           </Paper>
         </Box>
