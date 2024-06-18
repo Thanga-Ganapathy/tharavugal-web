@@ -121,6 +121,7 @@ export default function App({ Component, pageProps }) {
         '/credits',
         '/thamizhl-typing',
         '/global-maps',
+        '/donation',
       ];
       const path = url.split('?')[0];
       const user = window.localStorage.getItem('user');

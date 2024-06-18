@@ -7,6 +7,7 @@ import { useState } from 'react';
 import Footer from './Footer';
 import Link from '../app/Link';
 import { META_INFO } from '@/constants';
+import DonationBanner from './DonationBanner';
 
 export default function DefaultLayout({ children, title = '', meta = {} }) {
   const [agreement, setAgreement] = useState(localStorage.getItem('agreement'));
@@ -52,6 +53,7 @@ export default function DefaultLayout({ children, title = '', meta = {} }) {
         sx={{ minHeight: 'calc(100% - 50px)', p: { xs: 1, sm: 1, md: 2 } }}
         // bgcolor="#E7EBF0"
       >
+        <DonationBanner />
         {children}
       </Box>
       <Backdrop
