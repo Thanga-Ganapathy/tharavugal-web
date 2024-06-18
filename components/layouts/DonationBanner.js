@@ -13,8 +13,6 @@ import { useRouter } from 'next/router';
 export default function DonationBanner() {
   const router = useRouter();
 
-  console.log(router.asPath);
-
   return (
     <Box
       sx={{

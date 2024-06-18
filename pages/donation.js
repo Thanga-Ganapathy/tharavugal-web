@@ -95,7 +95,7 @@ export default function Donation() {
 
         <Alert severity="success" sx={{ mt: 5 }}>
           If possible, please share your Transaction ID after donating via email
-          to get your Name, Amount and details to be listed in the{' '}
+          to get your Name, amount and other details to be listed in the{' '}
           <Link href="/contribution-logs">Contribution Logs</Link>
         </Alert>
 

@@ -213,7 +213,7 @@ export default function EventView({ data }) {
 
             <Box mt={2}>
               <HeadingWithDivider title="References" />
-              <Box sx={{ mt: 2, p: 2 }}>
+              <Box sx={{ mt: 2, p: 2, overflowWrap: 'break-word' }}>
                 {(data.event.data?.references || []).map((r, i) => (
                   <Link key={i} href={r}>
                     {r}
@@ -228,7 +228,7 @@ export default function EventView({ data }) {
             <Box mt={2}>
               <HeadingWithDivider title="Linked Events" />
               <Divider />
-              <Box sx={{ mt: 2, p: 2 }}>
+              <Box sx={{ mt: 2, p: 2, overflowWrap: 'break-word' }}>
                 {(data.event.data?.linkedEvents || []).map((r, i) => (
                   <Link key={i} href={r}>
                     {r}

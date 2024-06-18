@@ -2,6 +2,7 @@ import { Box, Divider, Typography } from '@mui/material';
 import TagIcon from '@mui/icons-material/Tag';
 import { useRouter } from 'next/router';
 import Tag from '../app/Tag';
+import { sortBy } from '@opentf/std';
 
 export default function TagsSuggestion() {
   const router = useRouter();
@@ -16,17 +17,31 @@ export default function TagsSuggestion() {
       info: 'An offence or defamation against the dignity of a ruling head of state',
     },
     { label: 'War Crime', info: '' },
-    { label: 'MSF', info: 'Médecins Sans Frontières (Doctors Without Borders)' },
+    { label: 'Drown', info: '' },
+    {
+      label: 'MSF',
+      info: 'Médecins Sans Frontières (Doctors Without Borders)',
+    },
     { label: 'Drone Art', info: '' },
     { label: 'WCK', info: 'World Central Kitchen' },
     { label: 'Insurgency', info: '' },
     { label: 'Sallikkattu', info: 'Traditional Bull Sport' },
-    { label: 'Hepatitis', info: 'Virus which causes inflammation in the liver tissue.' },
+    {
+      label: 'Hepatitis',
+      info: 'Virus which causes inflammation in the liver tissue.',
+    },
     { label: 'Cancer', info: '' },
     { label: 'ICJ', info: 'International Court of Justice' },
     { label: 'RSF', info: 'Reporters Without Borders' },
-    { label: 'OHCHR', info: 'Office of the High Commissioner for Human Rights' },
+    {
+      label: 'OHCHR',
+      info: 'Office of the High Commissioner for Human Rights',
+    },
     { label: 'Yazh', info: 'A Harp-like instrument.' },
+    {
+      label: 'Ambergris',
+      info: 'It is a solid, waxy, produced in the digestive system of sperm whales.',
+    },
   ];
 
   return (
@@ -36,7 +51,7 @@ export default function TagsSuggestion() {
       </Typography>
       <Divider sx={{ borderColor: 'darkgray' }} />
       <Box mt={2} p={1}>
-        {tags.map((t, i) => (
+        {sortBy(tags, ['label', 'asc']).map((t, i) => (
           <Tag
             key={i}
             label={t.label}
