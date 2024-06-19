@@ -15,13 +15,10 @@ import ThamizhlTools from '@/components/home/ThamizhlTools';
 import RecentOpenIssues from '@/components/home/RecentOpenIssues';
 import RecentAnnouncements from '@/components/home/RecentAnnouncements';
 import TagsSuggestion from '@/components/home/TagsSuggestion';
-import useSWR from 'swr';
 import GlobalSearch from '@/components/home/GlobalSearch';
 import DidYouKnow from '@/components/home/DidYouKnow';
 
 export default function Home() {
-  const { data: events, error, isLoading } = useSWR('/api/events');
-
   return (
     <Layout title="Home">
       <Box sx={{ mt: { xs: 2, sm: 1, md: 0 } }}>
@@ -35,15 +32,12 @@ export default function Home() {
         }}
       >
         <Box>
-          <Events
-            data={events?.data}
-            error={error}
-            isLoading={isLoading}
-            styles={styles}
-          />
+          <Events styles={styles} />
+
           <Paper sx={{ mt: 2 }}>
             <Resources />
           </Paper>
+
           <Paper sx={{ mt: 2 }}>
             <Sections />
           </Paper>

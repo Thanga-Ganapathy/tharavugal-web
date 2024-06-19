@@ -7,6 +7,9 @@ export default async function handler(req, res) {
 
   switch (req.method) {
     case 'GET':
+      const page = req.query.page;
+      const per = 10;
+      const skip = page * per - per;
       const eventsCol = db.collection('events');
       const cursor = eventsCol.aggregate([
         {
@@ -19,8 +22,9 @@ export default async function handler(req, res) {
             startedAt: -1,
           },
         },
+        { $skip: skip },
         {
-          $limit: 10,
+          $limit: per,
         },
         {
           $project: {

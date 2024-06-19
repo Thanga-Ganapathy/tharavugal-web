@@ -1,5 +1,6 @@
 import {
   Paper,
+  Pagination,
   Typography,
   Divider,
   Box,
@@ -14,10 +15,23 @@ import { format } from 'date-fns';
 import { groupBy } from '@opentf/std';
 import { utcToZonedTime } from 'date-fns-tz';
 import { Hourglass } from 'react-loader-spinner';
+import useSWR from 'swr';
+import { useState } from 'react';
+import { useEffect } from 'react';
 
-export default function Events({ data, styles, isLoading, error }) {
+export default function Events({ styles }) {
+  const [page, setPage] = useState(1);
+  const { data: events, error, isLoading } = useSWR('/api/events?page=' + page);
+
+  useEffect(() => {
+    window.scrollTo({
+      top: 10,
+      behavior: 'smooth',
+    });
+  }, [events]);
+
   const renderEvents = () => {
-    const eventsWithDate = data.map((e) => ({
+    const eventsWithDate = events?.data.map((e) => ({
       ...e,
       date: format(utcToZonedTime(e.startedAt, e.startTz), 'yyyy-MM-dd'),
     }));
@@ -82,8 +96,18 @@ export default function Events({ data, styles, isLoading, error }) {
                 sx={{ mt: 2 }}
               />
             ))}
-        {data && <Timeline>{renderEvents()}</Timeline>}
+        {events?.data && <Timeline>{renderEvents()}</Timeline>}
       </Box>
+
+      <Box sx={{ my: 2, display: 'flex', justifyContent: 'center' }}>
+        <Pagination
+          size="large"
+          count={10}
+          color="primary"
+          onChange={(_e, v) => setPage(v)}
+        />
+      </Box>
+
       <Alert severity="warning">
         Due to our current infrastructure limitations, only members can view
         unlimited events.
