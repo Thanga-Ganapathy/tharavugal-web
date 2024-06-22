@@ -5,6 +5,7 @@ export default function HeadingWithDivider({
   title,
   icon: Icon,
   sx,
+  iconSX,
   ...otherProps
 }) {
   return (
@@ -12,7 +13,12 @@ export default function HeadingWithDivider({
       <Typography variant="h6" sx={{ display: 'flex', alignItems: 'center' }}>
         {Icon ? (
           <Icon
-            style={{ width: '35px', height: '35px', marginRight: '10px' }}
+            style={{
+              width: '35px',
+              height: '35px',
+              marginRight: '10px',
+              ...iconSX,
+            }}
           />
         ) : (
           <ChevronRightIcon />

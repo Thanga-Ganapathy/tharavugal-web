@@ -17,6 +17,7 @@ import RecentAnnouncements from '@/components/home/RecentAnnouncements';
 import TagsSuggestion from '@/components/home/TagsSuggestion';
 import GlobalSearch from '@/components/home/GlobalSearch';
 import DidYouKnow from '@/components/home/DidYouKnow';
+import PinnedReport from '@/components/home/PinnedReport';
 
 export default function Home() {
   return (
@@ -44,41 +45,37 @@ export default function Home() {
         </Box>
         <Box>
           <Paper sx={{ mt: { xs: 2, sm: 0 } }}>
+            <PinnedReport />
+          </Paper>
+
+          <Paper sx={{ mt: 2 }}>
             <Stats />
           </Paper>
 
           <Paper sx={{ mt: 2 }}>
             <DidYouKnow />
           </Paper>
-
           <Paper sx={{ mt: 2 }}>
             <TagsSuggestion />
           </Paper>
-
           <Paper sx={{ mt: 2 }}>
             <Tools />
           </Paper>
-
           <Paper sx={{ mt: 2 }}>
             <ThamizhlTools />
           </Paper>
-
           <Paper sx={{ mt: 2 }}>
             <FeaturedVisualizations />
           </Paper>
-
           <Paper sx={{ mt: 2 }}>
             <RecentDiscussions />
           </Paper>
-
           <Paper sx={{ mt: 2 }}>
             <RecentOpenIssues />
           </Paper>
-
           <Paper sx={{ mt: 2 }}>
             <RecentEntities />
           </Paper>
-
           <Paper sx={{ mt: 2 }}>
             <RecentAnnouncements />
           </Paper>

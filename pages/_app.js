@@ -122,6 +122,7 @@ export default function App({ Component, pageProps }) {
         '/thamizhl-typing',
         '/global-maps',
         '/donation',
+        '/reports/republic-of-india-general-election-parliamentary-constituencies-2024',
       ];
       const path = url.split('?')[0];
       const user = window.localStorage.getItem('user');
