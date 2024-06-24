@@ -18,6 +18,7 @@ export default function TagsSuggestion() {
     },
     { label: 'War Crime', info: '' },
     { label: 'Drown', info: '' },
+    { label: 'Archaeology', info: '' },
     {
       label: 'MSF',
       info: 'Médecins Sans Frontières (Doctors Without Borders)',

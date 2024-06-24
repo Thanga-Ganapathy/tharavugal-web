@@ -42,7 +42,7 @@ export default function Report() {
           }
         }}
       >
-        <CardContent>
+        <CardContent sx={{ pb: 0}}>
           <Typography variant="h6">
             {s.name} {s.enabled ? `(${s.pc.length})` : ''}
           </Typography>
@@ -222,7 +222,7 @@ export default function Report() {
               </Link>
             </li>
             <li>
-              <Link href="https://results.eci.gov.in/">
+              <Link href="https://results.eci.gov.in/PcResultGenJune2024/index.htm">
                 General Election to Parliamentary Constituencies: Trends &
                 Results June-2024
               </Link>

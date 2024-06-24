@@ -123,6 +123,7 @@ export default function App({ Component, pageProps }) {
         '/global-maps',
         '/donation',
         '/reports/republic-of-india-general-election-parliamentary-constituencies-2024',
+        '/research-projects/thamizhl-grammar-engine',
       ];
       const path = url.split('?')[0];
       const user = window.localStorage.getItem('user');

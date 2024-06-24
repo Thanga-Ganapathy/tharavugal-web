@@ -18,6 +18,7 @@ import TagsSuggestion from '@/components/home/TagsSuggestion';
 import GlobalSearch from '@/components/home/GlobalSearch';
 import DidYouKnow from '@/components/home/DidYouKnow';
 import PinnedReport from '@/components/home/PinnedReport';
+import ResearchProjects from '@/components/home/ResearchProjects';
 
 export default function Home() {
   return (
@@ -41,6 +42,10 @@ export default function Home() {
 
           <Paper sx={{ mt: 2 }}>
             <Sections />
+          </Paper>
+
+          <Paper sx={{ mt: 2 }}>
+            <ResearchProjects />
           </Paper>
         </Box>
         <Box>
