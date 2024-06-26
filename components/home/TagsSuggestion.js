@@ -19,11 +19,11 @@ export default function TagsSuggestion() {
     { label: 'War Crime', info: '' },
     { label: 'Drown', info: '' },
     { label: 'Archaeology', info: '' },
+    { label: 'Outbreak', info: '' },
     {
       label: 'MSF',
       info: 'Médecins Sans Frontières (Doctors Without Borders)',
     },
-    { label: 'Drone Art', info: '' },
     { label: 'WCK', info: 'World Central Kitchen' },
     { label: 'Insurgency', info: '' },
     { label: 'Sallikkattu', info: 'Traditional Bull Sport' },
@@ -31,7 +31,6 @@ export default function TagsSuggestion() {
       label: 'Hepatitis',
       info: 'Virus which causes inflammation in the liver tissue.',
     },
-    { label: 'Cancer', info: '' },
     { label: 'ICJ', info: 'International Court of Justice' },
     { label: 'RSF', info: 'Reporters Without Borders' },
     {

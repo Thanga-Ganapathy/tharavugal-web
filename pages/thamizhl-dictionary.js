@@ -1,5 +1,5 @@
 import Layout from '@/components/layouts/DefaultLayout';
-import { Box, Paper, Typography, Alert } from '@mui/material';
+import { Box, Paper, Typography, Alert, Badge } from '@mui/material';
 import { getDB } from '@/lib/db';
 import HeadingWithDivider from '@/components/HeadingWithDivider';
 import { useState } from 'react';
@@ -30,7 +30,9 @@ export default function ThamizhlDictionary({ data }) {
   return (
     <Layout title="அகராதி - Thamizhl Dictionary">
       <Box textAlign="center">
-        <Typography variant="h6">அகராதி - Thamizhl Dictionary</Typography>
+        <Badge badgeContent="ALPHA" color="secondary">
+          <Typography variant="h6">அகராதி - Thamizhl Dictionary</Typography>
+        </Badge>
       </Box>
 
       <Box sx={{ my: 2 }}>
