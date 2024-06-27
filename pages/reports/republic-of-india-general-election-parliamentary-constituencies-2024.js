@@ -42,7 +42,7 @@ export default function Report() {
           }
         }}
       >
-        <CardContent sx={{ pb: 0}}>
+        <CardContent sx={{ pb: 0 }}>
           <Typography variant="h6">
             {s.name} {s.enabled ? `(${s.pc.length})` : ''}
           </Typography>
@@ -80,7 +80,7 @@ export default function Report() {
         field: 'id',
         headerName: 'S.No',
       },
-      { field: 'name', headerName: 'Constituency', width: 150 },
+      { field: 'name', headerName: 'Constituency', width: 200 },
       { field: 'electorCount', headerName: 'Electors', width: 150 },
       { field: 'evmCount', headerName: 'EVM Votes', width: 150 },
       { field: 'postalVotes', headerName: 'Postal Votes', width: 150 },
@@ -204,7 +204,7 @@ export default function Report() {
         </Box>
         <Box sx={{ display: 'flex', justifyContent: 'center' }}>
           <Alert severity="warning" sx={{ mt: 1 }}>
-            WIP: Currently, only two states have been done.
+            Work in Progress.
           </Alert>
         </Box>
         <HeadingWithDivider title="States" sx={{ mt: 2 }} />
