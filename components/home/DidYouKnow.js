@@ -1,4 +1,4 @@
-import { Box, Typography, Pagination, Alert } from '@mui/material';
+import { Box, Typography, Pagination, Alert, Button } from '@mui/material';
 import HeadingWithDivider from '../HeadingWithDivider';
 import { FcIdea } from 'react-icons/fc';
 import useSWRImmutable from 'swr/immutable';
@@ -94,6 +94,19 @@ export default function DidYouKnow() {
           </Box>{' '}
           in the 🇮🇳 Republic of India.
         </Typography>
+
+        <Box sx={{ display: 'flex', justifyContent: 'center', mt: 2 }}>
+          <Link href="/events/search?tag=Sudden&tag=Death">
+            <Button
+              variant="outlined"
+              color="error"
+              size="small"
+              sx={{ textTransform: 'inherit' }}
+            >
+              View All Sudden Death Cases
+            </Button>
+          </Link>
+        </Box>
 
         <Alert severity="info" sx={{ mt: 2 }}>
           Related Articles:
@@ -194,6 +207,14 @@ export default function DidYouKnow() {
               </td>
             </tr>
           </table>
+        </Box>
+
+        <Box sx={{ display: 'flex', justifyContent: 'center', mt: 2 }}>
+          <Link href="/events/search?tag=Suicide">
+            <Button variant="outlined" color="error" size="small">
+              View All Suicide Cases
+            </Button>
+          </Link>
         </Box>
 
         <Alert severity="info" sx={{ mt: 2 }}>

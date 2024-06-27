@@ -27,7 +27,9 @@ export default function Search() {
   const initialValues = {
     text: '',
     locations: [],
+    locationsMatch: 'Match All',
     tags: [],
+    tagsMatch: 'Match All',
     from: null,
     to: null,
     sort: 'Descending',

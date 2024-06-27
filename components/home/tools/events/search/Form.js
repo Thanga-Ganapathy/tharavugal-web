@@ -6,6 +6,7 @@ import MUIAsyncSelectField from '@/components/forms/MUIAsyncSelect';
 import { useRouter } from 'next/router';
 import MUIDateField from '@/components/forms/MUIDateField';
 import MUISelectField from '@/components/forms/MUISelectField';
+import { isArr } from '@opentf/std';
 
 export default function Form({ initialValues, onSubmit }) {
   const router = useRouter();
@@ -13,22 +14,19 @@ export default function Form({ initialValues, onSubmit }) {
 
   useEffect(() => {
     if (router.query) {
+      let values = { ...initialValues };
       if (router.query.location) {
-        const values = {
-          ...initialValues,
-          locations: [router.query.location],
-        };
-        formRef.current.actions.reset(values);
-        onSubmit(values);
+        values.locations = isArr(router.query.location)
+          ? router.query.location
+          : [router.query.location];
       }
       if (router.query.tag) {
-        const values = {
-          ...initialValues,
-          tags: [router.query.tag],
-        };
-        formRef.current.actions.reset(values);
-        onSubmit(values);
+        values.tags = isArr(router.query.tag)
+          ? router.query.tag
+          : [router.query.tag];
       }
+      formRef.current.actions.reset(values);
+      onSubmit(values);
     }
   }, [router.query]);
 
@@ -46,11 +44,27 @@ export default function Form({ initialValues, onSubmit }) {
       </Box>
 
       <Box mt={2}>
+        <MUISelectField
+          name="tagsMatch"
+          label="Tags Match"
+          options={['Match All', 'Match Any']}
+        />
+      </Box>
+
+      <Box mt={2}>
         <MUIAsyncSelectField
           name="locations"
           label="Locations"
           url="/api/event-locations"
           multiple
+        />
+      </Box>
+
+      <Box mt={2}>
+        <MUISelectField
+          name="locationsMatch"
+          label="Locations Match"
+          options={['Match All', 'Match Any']}
         />
       </Box>
 

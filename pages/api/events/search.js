@@ -16,11 +16,19 @@ export default async function handler(req, res) {
       };
 
       if (Array.isArray(req.body.locations) && req.body.locations.length > 0) {
-        query = { ...query, locations: { $in: req.body.locations } };
+        if (req.body.locationsMatch === 'Match All') {
+          query = { ...query, locations: { $all: req.body.locations } };
+        } else {
+          query = { ...query, locations: { $in: req.body.locations } };
+        }
       }
 
       if (Array.isArray(req.body.tags) && req.body.tags.length > 0) {
-        query = { ...query, categories: { $in: req.body.tags } };
+        if (req.body.tagsMatch === 'Match All') {
+          query = { ...query, categories: { $all: req.body.tags } };
+        } else {
+          query = { ...query, categories: { $in: req.body.tags } };
+        }
       }
 
       if (req.body.from && !req.body.to) {
