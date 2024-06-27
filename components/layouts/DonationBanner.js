@@ -23,7 +23,7 @@ export default function DonationBanner() {
       }}
     >
       <Paper>
-        <Alert severity="error" variant="filled">
+        <Alert severity="error" variant="standard">
           <AlertTitle>IMPORTANT</AlertTitle>
           <Typography>
             🙏 We Need your Financial Support to Continue to Run this Service.
