@@ -33,7 +33,7 @@ export default function Events({ styles }) {
   const renderEvents = () => {
     const eventsWithDate = events?.data.map((e) => ({
       ...e,
-      date: format(utcToZonedTime(e.startedAt, e.startTz), 'yyyy-MM-dd'),
+      date: format(utcToZonedTime(e.startedAt, e.startTz), 'dd, MMMM'),
     }));
     const groups = groupBy(eventsWithDate, 'date');
     return Object.keys(groups)

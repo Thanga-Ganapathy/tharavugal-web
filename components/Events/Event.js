@@ -90,7 +90,7 @@ export default function Event({ data }) {
               <LinkIcon fontSize="small" color="disabled" />
             </Tooltip>
           </Box>
-          <Box>
+          <Box sx={{ textAlign: 'right' }}>
             <Typography variant="span" fontSize={12} color="text.secondary">
               {format(
                 utcToZonedTime(data.startedAt, data.startTz),

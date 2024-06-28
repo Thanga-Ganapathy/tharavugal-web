@@ -29,14 +29,22 @@ export default function DidYouKnow() {
           ⚡ This Year,{' '}
           <Box
             component="span"
-            sx={{ color: (t) => t.palette.error.main, fontWeight: 'bold' }}
+            sx={{
+              color: (t) => t.palette.error.main,
+              fontWeight: 'bold',
+              fontSize: '36px',
+            }}
           >
             {data.lightning.count.killed}
           </Box>{' '}
           People were Killed and{' '}
           <Box
             component="span"
-            sx={{ color: (t) => t.palette.error.main, fontWeight: 'bold' }}
+            sx={{
+              color: (t) => t.palette.error.main,
+              fontWeight: 'bold',
+              fontSize: '36px',
+            }}
           >
             {data.lightning.count.injury}
           </Box>{' '}
@@ -75,7 +83,11 @@ export default function DidYouKnow() {
           😱 This Year,{' '}
           <Box
             component="span"
-            sx={{ color: (t) => t.palette.error.main, fontWeight: 'bold' }}
+            sx={{
+              color: (t) => t.palette.error.main,
+              fontWeight: 'bold',
+              fontSize: '36px',
+            }}
           >
             {data.suddenDeaths.count}
           </Box>{' '}
@@ -89,7 +101,10 @@ export default function DidYouKnow() {
             Sudden Death
           </Box>{' '}
           Case among People under the Age of{' '}
-          <Box component="span" sx={{ color: (t) => t.palette.primary.main }}>
+          <Box
+            component="span"
+            sx={{ color: (t) => t.palette.primary.main, fontSize: '36px' }}
+          >
             45
           </Box>{' '}
           in the 🇮🇳 Republic of India.
@@ -101,9 +116,9 @@ export default function DidYouKnow() {
               variant="outlined"
               color="error"
               size="small"
-              sx={{ textTransform: 'inherit' }}
+              // sx={{ textTransform: 'inherit' }}
             >
-              View All Sudden Death Cases
+              View All Cases
             </Button>
           </Link>
         </Box>
@@ -145,7 +160,11 @@ export default function DidYouKnow() {
           😟 This Year,{' '}
           <Box
             component="span"
-            sx={{ color: (t) => t.palette.error.main, fontWeight: 'bold' }}
+            sx={{
+              color: (t) => t.palette.error.main,
+              fontWeight: 'bold',
+              fontSize: '36px',
+            }}
           >
             {data.suicideCases.count}
           </Box>{' '}
@@ -212,7 +231,7 @@ export default function DidYouKnow() {
         <Box sx={{ display: 'flex', justifyContent: 'center', mt: 2 }}>
           <Link href="/events/search?tag=Suicide">
             <Button variant="outlined" color="error" size="small">
-              View All Suicide Cases
+              View All Cases
             </Button>
           </Link>
         </Box>

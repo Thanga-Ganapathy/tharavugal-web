@@ -13,7 +13,11 @@ export default function Stats() {
     if (stats) {
       return (
         <>
-          <StatsBox name="Real-Time Events" count={stats.data.events} />
+          <StatsBox
+            name="Real-Time Events"
+            count={stats.data.events}
+            href="/events/search"
+          />
           <StatsBox
             name="Tags"
             count={stats.data.tags}
