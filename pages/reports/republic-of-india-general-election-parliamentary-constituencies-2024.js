@@ -18,6 +18,10 @@ import { Download } from '@mui/icons-material';
 import { DataGrid } from '@mui/x-data-grid';
 import { sum } from '@opentf/std';
 
+function numFormat(n) {
+  return new Intl.NumberFormat('en-IN').format(n);
+}
+
 export default function Report() {
   const [open, setOpen] = useState(false);
   const [state, setState] = useState(null);
@@ -112,7 +116,7 @@ export default function Report() {
           <Card variant="outlined" sx={{ m: 1 }}>
             <CardContent sx={{ textAlign: 'center' }}>
               <Typography variant="h3">
-                {sum(state.pc, ({ electorCount }) => electorCount)}
+                {numFormat(sum(state.pc, ({ electorCount }) => electorCount))}
               </Typography>
               <Typography>ELECTORS</Typography>
             </CardContent>
@@ -121,7 +125,7 @@ export default function Report() {
           <Card variant="outlined" sx={{ m: 1 }}>
             <CardContent sx={{ textAlign: 'center' }}>
               <Typography variant="h3">
-                {sum(state.pc, ({ evmCount }) => evmCount)}
+                {numFormat(sum(state.pc, ({ evmCount }) => evmCount))}
               </Typography>
               <Typography>EVM VOTES</Typography>
             </CardContent>
@@ -130,7 +134,7 @@ export default function Report() {
           <Card variant="outlined" sx={{ m: 1 }}>
             <CardContent sx={{ textAlign: 'center' }}>
               <Typography variant="h3">
-                {sum(state.pc, ({ postalVotes }) => postalVotes)}
+                {numFormat(sum(state.pc, ({ postalVotes }) => postalVotes))}
               </Typography>
               <Typography>POSTEL VOTES</Typography>
             </CardContent>
@@ -139,7 +143,7 @@ export default function Report() {
           <Card variant="outlined" sx={{ m: 1 }}>
             <CardContent sx={{ textAlign: 'center' }}>
               <Typography variant="h3">
-                {sum(state.pc, ({ evmResult }) => evmResult)}
+                {numFormat(sum(state.pc, ({ evmResult }) => evmResult))}
               </Typography>
               <Typography>EVM RESULT</Typography>
             </CardContent>
@@ -148,7 +152,7 @@ export default function Report() {
           <Card variant="outlined" sx={{ m: 1 }}>
             <CardContent sx={{ textAlign: 'center' }}>
               <Typography variant="h3" sx={{ textAlign: 'center' }}>
-                {totalUnCountedVotes}
+                {numFormat(totalUnCountedVotes)}
               </Typography>
               <Typography sx={{ color: (t) => t.palette.primary.main }}>
                 UN-COUNTED EVM VOTES
@@ -159,7 +163,7 @@ export default function Report() {
           <Card variant="outlined" sx={{ m: 1 }}>
             <CardContent sx={{ textAlign: 'center' }}>
               <Typography variant="h3" sx={{ textAlign: 'center' }}>
-                {totalOverCountedVotes}
+                {numFormat(totalOverCountedVotes)}
               </Typography>
               <Typography sx={{ color: (t) => t.palette.error.main }}>
                 OVER-COUNTED EVM VOTES
