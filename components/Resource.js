@@ -54,7 +54,7 @@ export default function Resource({ domain, data }) {
             flexDirection: { xs: 'column', sm: 'column' },
           }}
         >
-          <Box sx={{ p: 1 }}>
+          <Box sx={{ p: 1, display: 'flex', justifyContent: 'center' }}>
             {data.publicAccess && (
               <ProgressiveImg
                 alt={data.name}
