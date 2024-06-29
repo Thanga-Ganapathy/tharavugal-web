@@ -52,7 +52,6 @@ export async function getServerSideProps(context) {
       {
         projection: {
           _id: 0,
-          file: 0,
         },
       }
     )
