@@ -43,7 +43,7 @@ export default function Resource({ domain, data }) {
         <Typography variant="subtitle1">{data.name}</Typography>
       </Paper>
       <DialogWindow
-        maxWidth="lg"
+        variant="lg"
         title="Preview"
         open={open}
         onClose={() => setOpen(false)}
@@ -51,7 +51,7 @@ export default function Resource({ domain, data }) {
         <Box
           sx={{
             display: { xs: 'flex', sm: 'flex', md: 'grid' },
-            gridTemplateColumns: { md: '75fr 10px 25fr' },
+            gridTemplateColumns: { md: '50fr 10px 50fr' },
             flexDirection: { xs: 'column', sm: 'column' },
           }}
         >
@@ -72,25 +72,13 @@ export default function Resource({ domain, data }) {
           </Box>
           <Divider orientation="vertical" />
           <Box sx={{ p: 1 }}>
-            <HeadingWithDivider title="Details" />
+            <Box sx={{ display: 'flex', justifyContent: 'center' }}>
+              <Typography variant="h6">{data.name}</Typography>
+            </Box>
+
+            <Alert severity="info">{data.desc}</Alert>
             <table>
               <tbody>
-                <tr>
-                  <Box component="td" sx={{ p: 1 }}>
-                    Name
-                  </Box>
-                  <Box component="td" sx={{ px: 2 }}>
-                    {data.name}
-                  </Box>
-                </tr>
-                <tr>
-                  <Box component="td" sx={{ p: 1 }}>
-                    Description
-                  </Box>
-                  <Box component="td" sx={{ px: 2 }}>
-                    {data.desc}
-                  </Box>
-                </tr>
                 <tr>
                   <Box component="td" sx={{ p: 1 }}>
                     Size
@@ -109,6 +97,9 @@ export default function Resource({ domain, data }) {
                 </tr>
               </tbody>
             </table>
+            <Alert severity="warning">
+              Currently, only members can view original content.
+            </Alert>
           </Box>
         </Box>
       </DialogWindow>
