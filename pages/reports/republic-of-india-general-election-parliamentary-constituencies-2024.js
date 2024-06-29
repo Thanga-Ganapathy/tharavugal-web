@@ -8,6 +8,11 @@ import {
   CardContent,
   Chip,
   Paper,
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableRow,
   Typography,
 } from '@mui/material';
 import ReportData from '@/data/reports/lok-saba-2024-evm-report';
@@ -22,12 +27,25 @@ function numFormat(n) {
   return new Intl.NumberFormat('en-IN').format(n);
 }
 
+function NumberBox({ value, text }) {
+  return (
+    <Card variant="outlined" sx={{ m: 1 }}>
+      <CardContent sx={{ textAlign: 'center' }}>
+        <Typography variant="h3" sx={{ textAlign: 'center' }}>
+          {numFormat(value)}
+        </Typography>
+        <Typography sx={{ textTransform: 'uppercase' }}>{text}</Typography>
+      </CardContent>
+    </Card>
+  );
+}
+
 export default function Report() {
   const [open, setOpen] = useState(false);
   const [state, setState] = useState(null);
 
   const renderStates = () => {
-    return ReportData.map((s, i) => (
+    return ReportData.states.map((s, i) => (
       <Card
         key={i}
         sx={{
@@ -85,17 +103,45 @@ export default function Report() {
         headerName: 'S.No',
       },
       { field: 'name', headerName: 'Constituency', width: 200 },
-      { field: 'electorCount', headerName: 'Electors', width: 150 },
-      { field: 'evmCount', headerName: 'EVM Votes', width: 150 },
-      { field: 'postalVotes', headerName: 'Postal Votes', width: 150 },
-      { field: 'evmResult', headerName: 'EVM Result', width: 150 },
+      {
+        field: 'electorCount',
+        headerName: 'Electors',
+        width: 150,
+        renderCell: (params) => {
+          return numFormat(params.value);
+        },
+      },
+      {
+        field: 'evmCount',
+        headerName: 'EVM Votes',
+        width: 150,
+        renderCell: (params) => {
+          return numFormat(params.value);
+        },
+      },
+      {
+        field: 'postalVotes',
+        headerName: 'Postal Votes',
+        width: 150,
+        renderCell: (params) => {
+          return numFormat(params.value);
+        },
+      },
+      {
+        field: 'evmResult',
+        headerName: 'EVM Result',
+        width: 150,
+        renderCell: (params) => {
+          return numFormat(params.value);
+        },
+      },
       {
         headerName: 'EVM Difference',
         width: 150,
         renderCell(params) {
           return renderDiff(params.row);
         },
-        valueGetter: (value, row) => {
+        valueGetter: (value) => {
           return value.row.evmResult - value.row.evmCount;
         },
       },
@@ -211,6 +257,40 @@ export default function Report() {
             Work in Progress.
           </Alert>
         </Box>
+        <Box sx={{ display: 'flex', flexWrap: 'wrap' }}>
+          <NumberBox value={ReportData.meta.phases} text="Phases" />
+          <NumberBox
+            value={ReportData.states.length}
+            text="States and Union Territories"
+          />
+          <NumberBox
+            value={ReportData.meta.constituencies}
+            text="Constituencies"
+          />
+        </Box>
+        <HeadingWithDivider title="Schedule" sx={{ mt: 2 }} />
+        <Box>
+          <Table size="small">
+            <TableHead>
+              <TableRow>
+                <TableCell>Phase</TableCell>
+                <TableCell>Date</TableCell>
+                <TableCell>Constituencies</TableCell>
+                <TableCell>States</TableCell>
+              </TableRow>
+            </TableHead>
+            <TableBody>
+              {ReportData.phases.map((ph, i) => (
+                <TableRow key={i}>
+                  <TableCell>{ph.name}</TableCell>
+                  <TableCell>{ph.date}</TableCell>
+                  <TableCell>{ph.constituencies}</TableCell>
+                  <TableCell>{ph.states}</TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+        </Box>
         <HeadingWithDivider title="States" sx={{ mt: 2 }} />
         <Box sx={{ display: 'flex', flexWrap: 'wrap' }}>{renderStates()}</Box>
         <HeadingWithDivider title="Charts" sx={{ my: 2 }} />
@@ -222,7 +302,17 @@ export default function Report() {
           <ul>
             <li>
               <Link href="https://web.archive.org/web/20240525141320/https://elections24.eci.gov.in/docs/WYKXFehhEH.pdf">
-                ELECTION COMMISSION OF INDIA - Voter turnout data
+                ELECTION COMMISSION OF INDIA - Voter turnout data (Phase 1 - 5)
+              </Link>
+            </li>
+            <li>
+              <Link href="https://web.archive.org/web/20240601033258/https://elections24.eci.gov.in/docs/OBRxLpiB0v.pdf">
+                ELECTION COMMISSION OF INDIA - Voter turnout data (Phase 6)
+              </Link>
+            </li>
+            <li>
+              <Link href="https://web.archive.org/web/20240610162556/https://elections24.eci.gov.in/docs/BnS4hhbvK9.pdf">
+                ELECTION COMMISSION OF INDIA - Voter turnout data (Phase 7)
               </Link>
             </li>
             <li>
