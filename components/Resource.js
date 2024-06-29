@@ -10,7 +10,6 @@ import ImageOutlinedIcon from '@mui/icons-material/ImageOutlined';
 import ProgressiveImg from './ProgressiveImg';
 import DialogWindow from './DialogWindow';
 import { useState } from 'react';
-import HeadingWithDivider from './HeadingWithDivider';
 import { filesize } from 'filesize';
 
 export default function Resource({ domain, data }) {
@@ -51,7 +50,7 @@ export default function Resource({ domain, data }) {
         <Box
           sx={{
             display: { xs: 'flex', sm: 'flex', md: 'grid' },
-            gridTemplateColumns: { md: '50fr 10px 50fr' },
+            gridTemplateColumns: { md: '25fr 10px 75fr' },
             flexDirection: { xs: 'column', sm: 'column' },
           }}
         >
@@ -59,7 +58,7 @@ export default function Resource({ domain, data }) {
             {data.publicAccess && (
               <ProgressiveImg
                 alt={data.name}
-                src={`${domain}/${data.file?.loc}`}
+                src={`${domain}/${data.thumb?.loc}`}
               />
             )}
             {!data.publicAccess && (
@@ -76,7 +75,9 @@ export default function Resource({ domain, data }) {
               <Typography variant="h6">{data.name}</Typography>
             </Box>
 
-            <Alert severity="info">{data.desc}</Alert>
+            <Alert severity="info" sx={{ mt: 2 }}>
+              {data.desc}
+            </Alert>
             <table>
               <tbody>
                 <tr>
