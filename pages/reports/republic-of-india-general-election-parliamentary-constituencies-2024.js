@@ -247,7 +247,7 @@ export default function Report() {
             Constituencies (2024) Report
           </Typography>
         </Box>
-        <Box sx={{ display: 'flex', justifyContent: 'flex-end' }}>
+        <Box sx={{ display: 'flex', justifyContent: 'flex-end', my: 1 }}>
           <Button variant="contained" disabled size="small">
             <Download /> Download Report
           </Button>
@@ -257,7 +257,9 @@ export default function Report() {
             Work in Progress.
           </Alert>
         </Box>
-        <Box sx={{ display: 'flex', flexWrap: 'wrap' }}>
+        <Box
+          sx={{ display: 'flex', justifyContent: 'center', flexWrap: 'wrap' }}
+        >
           <NumberBox value={ReportData.meta.phases} text="Phases" />
           <NumberBox
             value={ReportData.states.length}
@@ -269,7 +271,7 @@ export default function Report() {
           />
         </Box>
         <HeadingWithDivider title="Schedule" sx={{ mt: 2 }} />
-        <Box>
+        <Box sx={{ mt: 2 }}>
           <Table size="small">
             <TableHead>
               <TableRow>
@@ -284,15 +286,20 @@ export default function Report() {
                 <TableRow key={i}>
                   <TableCell>{ph.name}</TableCell>
                   <TableCell>{ph.date}</TableCell>
-                  <TableCell>{ph.constituencies}</TableCell>
-                  <TableCell>{ph.states}</TableCell>
+                  <TableCell align="left">{ph.constituencies}</TableCell>
+                  <TableCell align="left">{ph.states}</TableCell>
                 </TableRow>
               ))}
             </TableBody>
           </Table>
         </Box>
-        <HeadingWithDivider title="States" sx={{ mt: 2 }} />
-        <Box sx={{ display: 'flex', flexWrap: 'wrap' }}>{renderStates()}</Box>
+        <HeadingWithDivider
+          title="States and Union Territories"
+          sx={{ mt: 4 }}
+        />
+        <Box sx={{ display: 'flex', flexWrap: 'wrap', mt: 2 }}>
+          {renderStates()}
+        </Box>
         <HeadingWithDivider title="Charts" sx={{ my: 2 }} />
         <Alert severity="info">
           Available only after the complete data set.
