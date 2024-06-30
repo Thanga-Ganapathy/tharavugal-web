@@ -182,7 +182,7 @@ export default function Report() {
               <Typography variant="h3">
                 {numFormat(sum(state.pc, ({ postalVotes }) => postalVotes))}
               </Typography>
-              <Typography>POSTEL VOTES</Typography>
+              <Typography>POSTAL VOTES</Typography>
             </CardContent>
           </Card>
 
