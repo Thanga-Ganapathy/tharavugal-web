@@ -23,18 +23,44 @@ import { Download } from '@mui/icons-material';
 import { DataGrid } from '@mui/x-data-grid';
 import { sum } from '@opentf/std';
 
+const constituencies = ReportData.states.flatMap((s) => s.pc);
+const unopposedConst = constituencies.filter((c) => c.unopposed);
+const totalEvmVotes = sum(constituencies, (c) => c.evmCount);
+const totalPostalVotes = sum(constituencies, (c) => c.postalVotes);
+const totalUnCountedEVMVotes = sum(ReportData.states, (s) => {
+  const totalUnCountedVotes = s.pc.reduce((acc, cur) => {
+    const val = cur.evmResult - cur.evmCount;
+    return val < 0 ? acc + Math.abs(val) : acc;
+  }, 0);
+
+  return totalUnCountedVotes;
+});
+const totalOverCountedEVMVotes = sum(ReportData.states, (s) => {
+  const totalOverCountedVotes = s.pc.reduce((acc, cur) => {
+    const val = cur.evmResult - cur.evmCount;
+    return val > 0 ? acc + val : acc;
+  }, 0);
+
+  return totalOverCountedVotes;
+});
+
 function numFormat(n) {
   return new Intl.NumberFormat('en-IN').format(n);
 }
 
-function NumberBox({ value, text }) {
+function NumberBox({ value, text, variant }) {
   return (
-    <Card variant="outlined" sx={{ m: 1 }}>
+    <Card
+      variant="outlined"
+      sx={{ m: 1, border: variant ? '1px solid red' : 'initial' }}
+    >
       <CardContent sx={{ textAlign: 'center' }}>
         <Typography variant="h3" sx={{ textAlign: 'center' }}>
           {numFormat(value)}
         </Typography>
-        <Typography sx={{ textTransform: 'uppercase' }}>{text}</Typography>
+        <Typography sx={{ textTransform: 'uppercase', mt: 2 }}>
+          {text}
+        </Typography>
       </CardContent>
     </Card>
   );
@@ -195,7 +221,7 @@ export default function Report() {
             </CardContent>
           </Card>
 
-          <Card variant="outlined" sx={{ m: 1 }}>
+          <Card variant="outlined" sx={{ m: 1, border: '1px solid red' }}>
             <CardContent sx={{ textAlign: 'center' }}>
               <Typography variant="h3" sx={{ textAlign: 'center' }}>
                 {numFormat(totalUnCountedVotes)}
@@ -206,7 +232,7 @@ export default function Report() {
             </CardContent>
           </Card>
 
-          <Card variant="outlined" sx={{ m: 1 }}>
+          <Card variant="outlined" sx={{ m: 1, border: '1px solid red' }}>
             <CardContent sx={{ textAlign: 'center' }}>
               <Typography variant="h3" sx={{ textAlign: 'center' }}>
                 {numFormat(totalOverCountedVotes)}
@@ -269,7 +295,48 @@ export default function Report() {
             value={ReportData.meta.constituencies}
             text="Constituencies"
           />
+          <NumberBox
+            value={sum(constituencies, (c) => c.electorCount)}
+            text="Electors"
+          />
+          <NumberBox
+            value={unopposedConst.length}
+            text="Unopposed Constituencies"
+          />
         </Box>
+        <HeadingWithDivider title="Votes" sx={{ mt: 2 }} />
+        <Box
+          sx={{
+            display: 'flex',
+            justifyContent: 'center',
+            flexWrap: 'wrap',
+            mt: 2,
+          }}
+        >
+          <NumberBox value={totalEvmVotes} text="EVM Votes" />
+          <NumberBox value={totalPostalVotes} text="Postal Votes" />
+          <NumberBox
+            value={totalUnCountedEVMVotes}
+            text="Un-Counted EVM Votes"
+            variant="error"
+          />
+          <NumberBox
+            value={totalOverCountedEVMVotes}
+            text="Over-Counted EVM Votes"
+            variant="error"
+          />
+        </Box>
+        <HeadingWithDivider
+          title="States and Union Territories"
+          sx={{ mt: 4 }}
+        />
+        <Box sx={{ display: 'flex', flexWrap: 'wrap', mt: 2 }}>
+          {renderStates()}
+        </Box>
+        <HeadingWithDivider title="Charts" sx={{ my: 2 }} />
+        <Alert severity="info">
+          Available only after the complete data set.
+        </Alert>
         <HeadingWithDivider title="Schedule" sx={{ mt: 2 }} />
         <Box sx={{ mt: 2 }}>
           <Table size="small">
@@ -293,17 +360,6 @@ export default function Report() {
             </TableBody>
           </Table>
         </Box>
-        <HeadingWithDivider
-          title="States and Union Territories"
-          sx={{ mt: 4 }}
-        />
-        <Box sx={{ display: 'flex', flexWrap: 'wrap', mt: 2 }}>
-          {renderStates()}
-        </Box>
-        <HeadingWithDivider title="Charts" sx={{ my: 2 }} />
-        <Alert severity="info">
-          Available only after the complete data set.
-        </Alert>
         <HeadingWithDivider title="References" sx={{ mt: 2 }} />
         <Box>
           <ul>
