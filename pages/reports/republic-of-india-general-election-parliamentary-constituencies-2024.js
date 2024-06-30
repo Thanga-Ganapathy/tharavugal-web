@@ -52,7 +52,7 @@ function NumberBox({ value, text, variant }) {
   return (
     <Card
       variant="outlined"
-      sx={{ m: 1, border: variant ? '1px solid red' : 'initial' }}
+      sx={{ m: 1, border: variant ? '1px solid red' : undefined }}
     >
       <CardContent sx={{ textAlign: 'center' }}>
         <Typography variant="h3" sx={{ textAlign: 'center' }}>
