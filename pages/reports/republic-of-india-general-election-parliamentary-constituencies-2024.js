@@ -22,6 +22,7 @@ import HeadingWithDivider from '@/components/HeadingWithDivider';
 import { Download } from '@mui/icons-material';
 import { DataGrid } from '@mui/x-data-grid';
 import { sum } from '@opentf/std';
+import { sortBy } from '@opentf/std';
 
 const constituencies = ReportData.states.flatMap((s) => s.pc);
 const unopposedConst = constituencies.filter((c) => c.unopposed);
@@ -43,6 +44,15 @@ const totalOverCountedEVMVotes = sum(ReportData.states, (s) => {
 
   return totalOverCountedVotes;
 });
+let uncountedEVMVotesList = ReportData.states.flatMap((s) => {
+  return s.pc.map((c) => {
+    const val = c.evmResult - c.evmCount;
+    return { state: s.name, constituency: c.name, diff: val };
+  }, 0);
+});
+uncountedEVMVotesList = uncountedEVMVotesList.filter((o) => o.diff < 0);
+uncountedEVMVotesList = sortBy(uncountedEVMVotesList, ['diff', 'asc']);
+console.log(uncountedEVMVotesList);
 
 function numFormat(n) {
   return new Intl.NumberFormat('en-IN').format(n);

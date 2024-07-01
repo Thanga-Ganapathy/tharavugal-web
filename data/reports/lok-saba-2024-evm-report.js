@@ -1560,8 +1560,8 @@ const data = {
         {
           id: 21,
           name: 'Koppal',
-          electorCount: 1726914,
-          evmCount: 1351646,
+          electorCount: 1866397,
+          evmCount: 1324898,
           postalVotes: 3996,
           evmResult: 1324940,
         },
