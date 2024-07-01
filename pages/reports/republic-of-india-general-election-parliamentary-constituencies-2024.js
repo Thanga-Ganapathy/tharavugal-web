@@ -23,6 +23,7 @@ import { Download } from '@mui/icons-material';
 import { DataGrid } from '@mui/x-data-grid';
 import { sum } from '@opentf/std';
 import { sortBy } from '@opentf/std';
+import HorizontalBar from '@/components/Visualizer/charts/HorizontalBar';
 
 const constituencies = ReportData.states.flatMap((s) => s.pc);
 const unopposedConst = constituencies.filter((c) => c.unopposed);
@@ -44,15 +45,16 @@ const totalOverCountedEVMVotes = sum(ReportData.states, (s) => {
 
   return totalOverCountedVotes;
 });
-let uncountedEVMVotesList = ReportData.states.flatMap((s) => {
+const EVMVotesDiffList = ReportData.states.flatMap((s) => {
   return s.pc.map((c) => {
     const val = c.evmResult - c.evmCount;
     return { state: s.name, constituency: c.name, diff: val };
   }, 0);
 });
-uncountedEVMVotesList = uncountedEVMVotesList.filter((o) => o.diff < 0);
+let uncountedEVMVotesList = EVMVotesDiffList.filter((o) => o.diff < 0);
 uncountedEVMVotesList = sortBy(uncountedEVMVotesList, ['diff', 'asc']);
-console.log(uncountedEVMVotesList);
+let overCountedEVMVotesList = EVMVotesDiffList.filter((o) => o.diff > 0);
+overCountedEVMVotesList = sortBy(overCountedEVMVotesList, ['diff', 'desc']);
 
 function numFormat(n) {
   return new Intl.NumberFormat('en-IN').format(n);
@@ -288,11 +290,6 @@ export default function Report() {
             <Download /> Download Report
           </Button>
         </Box>
-        <Box sx={{ display: 'flex', justifyContent: 'center' }}>
-          <Alert severity="warning" sx={{ mt: 1 }}>
-            Work in Progress.
-          </Alert>
-        </Box>
         <Box
           sx={{ display: 'flex', justifyContent: 'center', flexWrap: 'wrap' }}
         >
@@ -344,9 +341,28 @@ export default function Report() {
           {renderStates()}
         </Box>
         <HeadingWithDivider title="Charts" sx={{ my: 2 }} />
-        <Alert severity="info">
-          Available only after the complete data set.
-        </Alert>
+        <Typography variant="h6" sx={{ textAlign: 'center' }}>
+          Top 10 Un-Counted EVM Votes Constituencies
+        </Typography>
+        <Box sx={{ mb: 2 }}>
+          <HorizontalBar
+            data={uncountedEVMVotesList.slice(0, 10).map((o) => ({
+              label: `${o.constituency} (${o.state})`,
+              total: Math.abs(o.diff),
+            }))}
+          />
+        </Box>
+        <Typography variant="h6" sx={{ textAlign: 'center', mt: 2 }}>
+          Top 10 Over-Counted EVM Votes Constituencies
+        </Typography>
+        <Box sx={{ mb: 2 }}>
+          <HorizontalBar
+            data={overCountedEVMVotesList.slice(0, 10).map((o) => ({
+              label: `${o.constituency} (${o.state})`,
+              total: o.diff,
+            }))}
+          />
+        </Box>
         <HeadingWithDivider title="Schedule" sx={{ mt: 2 }} />
         <Box sx={{ mt: 2 }}>
           <Table size="small">

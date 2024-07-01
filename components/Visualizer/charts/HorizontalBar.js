@@ -6,7 +6,7 @@ import {
   Title,
   Tooltip,
   Legend,
-  Colors
+  Colors,
 } from 'chart.js';
 import { Bar } from 'react-chartjs-2';
 
@@ -36,8 +36,8 @@ export default function HorizontalBar({ title, data }) {
         text: title,
       },
       colors: {
-        forceOverride: true
-      }
+        forceOverride: true,
+      },
     },
   };
 
@@ -47,7 +47,6 @@ export default function HorizontalBar({ title, data }) {
       {
         label: title,
         data: data.map((i) => i.total),
-        // backgroundColor: 'rgba(255, 99, 132, 0.5)',
       },
     ],
   };
