@@ -33,15 +33,19 @@ export default function Events({ styles }) {
   const renderEvents = () => {
     const eventsWithDate = events?.data.map((e) => ({
       ...e,
-      date: format(utcToZonedTime(e.startedAt, e.startTz), 'dd, MMMM'),
+      date: format(utcToZonedTime(e.startedAt, e.startTz), 'yyyy-MM-dd'),
     }));
     const groups = groupBy(eventsWithDate, 'date');
+    console.log(groups);
     return Object.keys(groups)
       .sort()
       .reverse()
       .map((g, i) => (
         <div key={i}>
-          <TimelineTitle title={g} toolTip={format(new Date(g), 'EEEE')} />
+          <TimelineTitle
+            title={format(new Date(g), 'dd, MMMM')}
+            toolTip={format(new Date(g), 'EEEE')}
+          />
           <TimelineContent>
             {groups[g].map((e, i) => (
               <Event key={i} data={e} />
