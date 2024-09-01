@@ -5,7 +5,6 @@ import { InfinitySpin } from 'react-loader-spinner';
 import { useAppState } from '@/store';
 import Footer from './Footer';
 import { META_INFO } from '@/constants';
-import DonationBanner from './DonationBanner';
 import UserAgreement from './UserAgreement';
 
 export default function DefaultLayout({ children, title = '', meta = {} }) {
@@ -50,7 +49,6 @@ export default function DefaultLayout({ children, title = '', meta = {} }) {
         pb={15}
         sx={{ minHeight: 'calc(100% - 50px)', p: { xs: 1, sm: 1, md: 2 } }}
       >
-        <DonationBanner />
         {children}
       </Box>
       <Backdrop

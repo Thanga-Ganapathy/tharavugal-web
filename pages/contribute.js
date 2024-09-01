@@ -12,6 +12,7 @@ import InfoIcon from '@mui/icons-material/Info';
 import HeadingWithDivider from '@/components/HeadingWithDivider';
 import Feedback from '@/components/app/Feedback';
 import Link from '@/components/app/Link';
+import DonationBanner from '@/components/layouts/DonationBanner';
 
 export default function Contribute() {
   return (
@@ -19,7 +20,12 @@ export default function Contribute() {
       <Typography variant="h5" textAlign="center">
         🙏 Contribute
       </Typography>
-      <Paper sx={{ mt: 2, p: { xs: 1, sm: 1, md: 2 } }}>
+
+      <Box sx={{ mt: 2 }}>
+        <DonationBanner />
+      </Box>
+
+      <Box sx={{ mt: 2, p: { xs: 1, sm: 1, md: 2 } }}>
         <Card sx={{ mt: 2 }}>
           <CardContent>
             <Typography variant="h6">Share</Typography>
@@ -276,26 +282,29 @@ export default function Contribute() {
           </CardContent>
         </Card>
 
-        <HeadingWithDivider title="Other Works" sx={{ mt: 3 }} />
-        <Box>
-          <ul>
-            <li>
-              We need people to record press releases information from both
-              private & government bodies.
-            </li>
-            <li>
-              We need graphics designers to make the organization logo after
-              design aproval from the Core-Members.
-            </li>
-          </ul>
-        </Box>
+        <Card sx={{ mt: 2, p: 2 }}>
+          <HeadingWithDivider title="Other Works" sx={{ mt: 3 }} />
+          <Box>
+            <ul>
+              <li>
+                We need people to record press releases information from both
+                private & government bodies.
+              </li>
+              <li>
+                We need graphics designers to make the organization logo after
+                design aproval from the Core-Members.
+              </li>
+            </ul>
+          </Box>
 
-        <Alert severity="info">
-          Please visit the{' '}
-          <Link href="/contribution-logs">Contribution Logs</Link> for any
-          contributions made to the organization.
-        </Alert>
-      </Paper>
+          <Alert severity="info">
+            Please visit the{' '}
+            <Link href="/contribution-logs">Contribution Logs</Link> for any
+            contributions made to the organization.
+          </Alert>
+          <CardContent></CardContent>
+        </Card>
+      </Box>
     </Layout>
   );
 }

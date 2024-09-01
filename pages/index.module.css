@@ -34,7 +34,7 @@
 .heart {
   display: inline-block;
   font-size: 25px;
-  animation: beat 0.5s infinite alternate;
+  animation: beat 1s infinite alternate;
   transform-origin: center;
 }
 
