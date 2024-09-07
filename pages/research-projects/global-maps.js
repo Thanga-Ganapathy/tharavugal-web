@@ -35,7 +35,7 @@ export default function GlobalMaps() {
             <strong>Common World Map</strong>:
           </Typography>
           <Typography variant="body1" sx={{ mt: 2 }}>
-            This is a globaly well known map, but here the continents are very
+            This is a globaly well known map, but here the Regions are very
             much distorted.
           </Typography>
           <Typography variant="body1" sx={{ mt: 2 }}>

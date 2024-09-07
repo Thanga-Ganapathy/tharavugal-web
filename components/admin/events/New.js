@@ -1,5 +1,4 @@
 import { set } from 'date-fns';
-import { v4 as uuid } from 'uuid';
 import { produce } from 'immer';
 
 import APIClient from '@/utils/APIClient';
@@ -42,7 +41,7 @@ export default function New({ onClose }) {
   return (
     <Form
       initialValues={{
-        id: uuid(),
+        id: crypto.randomUUID(),
         title: '',
         slug: '',
         startDate: new Date(),

@@ -1,6 +1,5 @@
 import APIClient from '@/utils/APIClient';
 import Form from './Form';
-import { v4 as uuid } from 'uuid';
 import useAlert from '@/hooks/useAlert';
 import { eventLocationsSchema } from '@/schema';
 
@@ -21,6 +20,6 @@ export default function New({ onClose }) {
   };
 
   return (
-    <Form initialValues={{ id: uuid(), name: '' }} onSubmit={handleSubmit} />
+    <Form initialValues={{ id: crypto.randomUUID(), name: '' }} onSubmit={handleSubmit} />
   );
 }

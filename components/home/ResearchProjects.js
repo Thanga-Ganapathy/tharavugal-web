@@ -7,10 +7,18 @@ export default function ResearchProjects() {
     <Box p={1}>
       <HeadingWithDivider title="Research Projects" sx={{ mb: 2 }} />
       <Box sx={{ mt: 2, display: 'flex', flexWrap: 'wrap' }}>
-        <Link href="/research-projects/thamizhl-grammar-engine">
+        <Link href="/research-projects/thamizhl-grammar-engine" sx={{m: 2}}>
           <Card variant="outlined">
             <CardContent>
               <Typography variant="h6">Thamizhl Grammar Engine</Typography>
+            </CardContent>
+          </Card>
+        </Link>
+
+        <Link href="/research-projects/global-maps" sx={{m: 2}}>
+          <Card variant="outlined">
+            <CardContent>
+              <Typography variant="h6">Global Maps</Typography>
             </CardContent>
           </Card>
         </Link>

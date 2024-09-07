@@ -6,6 +6,7 @@ import { useAppState } from '@/store';
 import Footer from './Footer';
 import { META_INFO } from '@/constants';
 import UserAgreement from './UserAgreement';
+import UnityBanner from '../banners/Unity';
 
 export default function DefaultLayout({ children, title = '', meta = {} }) {
   const isLoading = useAppState((s) => s.loading);
@@ -45,6 +46,7 @@ export default function DefaultLayout({ children, title = '', meta = {} }) {
       </Head>
       <AppHeader themeMode="light" />
       <Toolbar variant="dense" />
+      <UnityBanner />
       <Box
         pb={15}
         sx={{ minHeight: 'calc(100% - 50px)', p: { xs: 1, sm: 1, md: 2 } }}

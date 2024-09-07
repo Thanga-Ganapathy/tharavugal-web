@@ -1,6 +1,5 @@
 import APIClient from '@/utils/APIClient';
 import Form from './Form';
-import { v4 as uuid } from 'uuid';
 import useAlert from '@/hooks/useAlert';
 import { announcementsSchema } from '@/schema';
 
@@ -23,7 +22,7 @@ export default function New({ onClose }) {
   return (
     <Form
       initialValues={{
-        id: uuid(),
+        id: crypto.randomUUID(),
         title: '',
         desc: '',
         link: { text: '', url: '/' },

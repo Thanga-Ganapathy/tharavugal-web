@@ -3,7 +3,6 @@ import APIClient from '@/utils/APIClient';
 import { Box, Button } from '@mui/material';
 import { Form, Field } from '@opentf/react-form';
 import { useState } from 'react';
-import { v4 as uuid } from 'uuid';
 
 export default function Feedback() {
   const [sending, setSending] = useState(false);
@@ -20,7 +19,7 @@ export default function Feedback() {
 
   return (
     <Form
-      initialValues={{ id: uuid(), msg: '' }}
+      initialValues={{ id: crypto.randomUUID(), msg: '' }}
       onSubmit={handleSubmit}
       validate={(values) => {
         const errors = {};

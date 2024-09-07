@@ -120,10 +120,10 @@ export default function App({ Component, pageProps }) {
         '/resources/.+',
         '/credits',
         '/thamizhl-typing',
-        '/global-maps',
         '/donation',
         '/reports/republic-of-india-general-election-parliamentary-constituencies-2024',
         '/research-projects/thamizhl-grammar-engine',
+        '/research-projects/global-maps',
       ];
       const path = url.split('?')[0];
       const user = window.localStorage.getItem('user');
