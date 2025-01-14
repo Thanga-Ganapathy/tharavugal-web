@@ -5,6 +5,7 @@ import ModelActionMenu from '../../ModelActionMenu';
 import Edit from './Edit';
 import APIClient from '@/utils/APIClient';
 import { EVENTS_STATUS } from '@/constants';
+import Link from '@/components/app/Link';
 
 export default function List({
   data = [],
@@ -19,6 +20,11 @@ export default function List({
       field: 'title',
       headerName: 'Title',
       width: 250,
+      renderCell(params) {
+        return (
+          <Link href={'/events/' + params.row.slug}>{params.row.title}</Link>
+        );
+      },
     },
     {
       field: 'status',
@@ -71,17 +77,19 @@ export default function List({
   ];
 
   return (
-    <Box>
+    <Box sx={{ display: 'flex', flexDirection: 'column' }}>
       <DataGrid
+        loading={isLoading}
         rows={data}
         columns={columns}
-        autoHeight
         pageSizeOptions={[10]}
         rowCount={rowCount}
-        loading={isLoading}
-        paginationModel={{ page, pageSize: 10 }}
+        paginationModel={{ page: page, pageSize: 10 }}
         paginationMode="server"
-        onPaginationModelChange={(o) => setPage(o.page)}
+        onPaginationModelChange={(o) => {
+          console.log(o);
+          setPage(o.page);
+        }}
       />
     </Box>
   );

@@ -7,7 +7,6 @@ export default function New({ onClose }) {
   const showAlert = useAlert();
 
   const handleSubmit = async (values) => {
-    console.log(values);
     const result = await APIClient.post(
       '/api/food-ingredients',
       foodIngredientsSchema.safeParse(values).data
@@ -32,7 +31,7 @@ export default function New({ onClose }) {
         image: '',
         pkg: {
           materials: [],
-          bioDegradeable: false
+          bioDegradeable: false,
         },
         items: [{ name: '', ingredients: [] }],
         traces: [],

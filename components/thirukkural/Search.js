@@ -25,7 +25,7 @@ import { TaInput } from '@opentf/react-ta-input';
 import { useRef } from 'react';
 import { useEffect } from 'react';
 import { arrReplace } from '@opentf/std';
-import DialogWindow from '../DialogWindow';
+import DialogWindow from '../app/DialogWindow';
 import HeadingWithDivider from '../HeadingWithDivider';
 import { thirukkural } from '@/data/thirukkural/index';
 import Link from '../app/Link';

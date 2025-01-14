@@ -20,6 +20,7 @@ export default function Sidebar() {
   const menus = [
     { menu: 'Dashboard', path: '/admin' },
     { menu: 'Events', path: '/admin/events' },
+    { menu: 'Locations', path: '/admin/locations' },
     { menu: 'Event Categories', path: '/admin/event-categories' },
     { menu: 'Event Locations', path: '/admin/event-locations' },
     { menu: 'Entity Types', path: '/admin/entity-types' },

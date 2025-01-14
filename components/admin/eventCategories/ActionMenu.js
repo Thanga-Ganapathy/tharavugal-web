@@ -8,7 +8,7 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import APIClient from '@/utils/APIClient';
 import useAlert from '@/hooks/useAlert';
 import Edit from './Edit';
-import DialogWindow from '@/components/DialogWindow';
+import DialogWindow from '@/components/app/DialogWindow';
 
 export default function ActionMenu({ row }) {
   const [editOpen, setEditOpen] = useState(false);

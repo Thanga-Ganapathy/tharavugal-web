@@ -1,33 +1,28 @@
 import { useState } from 'react';
-import {
-  Box,
-  Button,
-  CircularProgress,
-  Paper,
-  Typography,
-} from '@mui/material';
+import { Box, Button, Paper, Typography } from '@mui/material';
 import useSWR from 'swr';
 
 import Layout from '@/components/layouts/AdminLayout';
 import Sidebar from '@/components/admin/Sidebar';
 import DialogWindow from '@/components/app/DialogWindow';
-import New from '@/components/admin/events/New';
-import List from '@/components/admin/events/List';
+import New from '@/components/admin/locations/New';
+import List from '@/components/admin/locations/List';
 import SearchForm from '@/components/SearchForm';
 import APIClient from '@/utils/APIClient';
 
-export default function Events() {
+export default function Locations() {
+  const [open, setOpen] = useState(false);
   const [state, setState] = useState({
     search: false,
     isSearching: false,
     searchData: [],
   });
-  const [open, setOpen] = useState(false);
-  const [page, setPage] = useState(0);
-
-  const { data, error, isLoading, mutate } = useSWR(
-    '/api/admin/events?page=' + (page + 1)
-  );
+  const {
+    data: locations,
+    error,
+    isLoading,
+    mutate,
+  } = useSWR('/api/admin/locations');
 
   const handleClose = () => {
     setOpen(false);
@@ -36,8 +31,10 @@ export default function Events() {
 
   const handleSearch = async (values) => {
     setState({ isSearching: true, search: true });
-    const res = await APIClient.get('/api/admin/events?q=' + values.searchText);
-    setState({ isSearching: false, search: true, searchData: res.data.events });
+    const res = await APIClient.get(
+      '/api/locations?q=' + values.searchText
+    );
+    setState({ isSearching: false, search: true, searchData: res.data });
   };
 
   return (
@@ -48,7 +45,7 @@ export default function Events() {
         </Box>
         <Box p={3}>
           <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
-            <Typography variant="h6">Events</Typography>
+            <Typography variant="h6">Locations</Typography>
             <Button variant="contained" onClick={() => setOpen(true)}>
               New
             </Button>
@@ -62,20 +59,15 @@ export default function Events() {
               }
             />
             <List
-              isLoading={isLoading}
-              data={state.search ? state.searchData : data?.data.events}
-              page={page}
-              setPage={setPage}
-              mutate={mutate}
-              rowCount={data?.data?.total}
+              data={state.search ? state.searchData : locations?.data}
+              loading={isLoading || state.isSearching}
             />
           </Paper>
 
           <DialogWindow
             open={open}
             onClose={handleClose}
-            title="New Event"
-            variant="medium"
+            title="New Location"
           >
             <New onClose={handleClose} />
           </DialogWindow>

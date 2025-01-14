@@ -13,11 +13,11 @@ import TimelineTitle from '../Timeline/TimelineTitle';
 import TimelineContent from '../Timeline/TimelineContent';
 import { format } from 'date-fns';
 import { groupBy } from '@opentf/std';
-import { utcToZonedTime } from 'date-fns-tz';
 import { Hourglass } from 'react-loader-spinner';
 import useSWR from 'swr';
 import { useState } from 'react';
 import { useEffect } from 'react';
+import { TZDate } from '@date-fns/tz';
 
 export default function Events({ styles }) {
   const [page, setPage] = useState(1);
@@ -33,10 +33,9 @@ export default function Events({ styles }) {
   const renderEvents = () => {
     const eventsWithDate = events?.data.map((e) => ({
       ...e,
-      date: format(utcToZonedTime(e.startedAt, e.startTz), 'yyyy-MM-dd'),
+      date: format(new TZDate(e.startedAt, e.startTz), 'yyyy-MM-dd'),
     }));
     const groups = groupBy(eventsWithDate, 'date');
-    console.log(groups);
     return Object.keys(groups)
       .sort()
       .reverse()

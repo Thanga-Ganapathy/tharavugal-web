@@ -19,6 +19,7 @@ export default function TaInputField({ name, lang, ...otherProps }) {
         component="input"
         ref={inputRef}
         value={field.value}
+        onChange={() => {}}
         placeholder={otherProps.placeholder}
         type={otherProps.type}
         sx={(theme) => ({

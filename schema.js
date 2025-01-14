@@ -11,6 +11,55 @@ export const eventLocationsSchema = z.object({
   name: z.string().min(1, '*Required'),
 });
 
+// Locations
+const LocationType = z.enum([
+  'Region',
+  'Country',
+  'State',
+  'District',
+  'City',
+  'Neighborhood',
+  'Village',
+  'Area',
+  'Street',
+]);
+
+export const locationsSchema = z
+  .object({
+    id: z.string().uuid(),
+    name: z.string().min(1, '*Required'),
+    type: LocationType, // The type of the location
+    parentId: z
+      .object({
+        id: z.string().uuid(),
+        type: LocationType,
+      })
+      .nullable()
+      .optional(),
+  })
+  .refine(
+    (data) => {
+      // Perform the comparison before transforming the parentId
+      if (data.parentId && data.parentId.type === data.type) {
+        return false;
+      }
+      return true;
+    },
+    {
+      message:
+        'Parent location type must not be the same as the current location type',
+      path: ['parentId'],
+    }
+  )
+  .transform((data) => {
+    // Now transform the parentId field
+    return {
+      ...data,
+      parentId: data.parentId ? data.parentId.id : null, // Transform parentId to only contain id
+    };
+  });
+
+// Entities
 export const entitiesSchema = z.object({
   id: z.string().uuid(),
   type: z.string().min(1, '*Required'),
@@ -35,8 +84,11 @@ export const eventsSchema = z.object({
   endDate: z.date(),
   endTime: z.date(),
   endTz: z.string().min(1, '*Required'),
-  categories: z.array(z.string()).min(1, '*Required'),
-  locations: z.array(z.string()).min(1, '*Required'),
+  categories: z.array(z.object({ id: z.string().uuid() })).min(1, '*Required').transform((data) => data.map(i => i.id)),
+  locations: z
+    .array(z.object({id: z.string().uuid()}))
+    .min(1, '*Required')
+    .transform((data) => data.map(i => i.id)),
   data: z
     .string()
     .min(1, '*Required')

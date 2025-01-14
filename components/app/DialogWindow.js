@@ -17,10 +17,16 @@ export default function DialogWindow({
     full: false,
   };
 
+  const handleClose = (_e, reason) => {
+    if (reason !== 'backdropClick') {
+      onClose()
+    }
+  }
+
   return (
     <Dialog
       open={open}
-      onClose={onClose}
+      onClose={handleClose}
       fullWidth
       maxWidth={variants[variant]}
     >

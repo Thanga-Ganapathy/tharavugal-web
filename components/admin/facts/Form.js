@@ -34,7 +34,6 @@ export default function Form({ initialValues, onSubmit, update = false }) {
         initialValues={initialValues}
         onSubmit={onSubmit}
         validate={(values) => {
-          console.log(values);
           return zodErrors(factsSchema, values);
         }}
       >

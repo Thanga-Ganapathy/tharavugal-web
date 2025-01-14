@@ -60,27 +60,35 @@ export default function Home() {
           <Paper sx={{ mt: 2 }}>
             <DidYouKnow />
           </Paper>
+
           <Paper sx={{ mt: 2 }}>
             <TagsSuggestion />
           </Paper>
+
           <Paper sx={{ mt: 2 }}>
             <Tools />
           </Paper>
+
           <Paper sx={{ mt: 2 }}>
             <ThamizhlTools />
           </Paper>
+
           <Paper sx={{ mt: 2 }}>
             <FeaturedVisualizations />
           </Paper>
+
           <Paper sx={{ mt: 2 }}>
             <RecentDiscussions />
           </Paper>
+
           <Paper sx={{ mt: 2 }}>
             <RecentOpenIssues />
           </Paper>
+
           <Paper sx={{ mt: 2 }}>
             <RecentEntities />
           </Paper>
+
           <Paper sx={{ mt: 2 }}>
             <RecentAnnouncements />
           </Paper>

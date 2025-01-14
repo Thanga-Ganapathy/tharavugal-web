@@ -27,7 +27,7 @@ export default function ActionMenu({ row }) {
   const handleDelete = async () => {
     handleClose();
     if (window.confirm('Delete?')) {
-      const result = await APIClient.delete('/api/admin/announcements', {
+      const result = await APIClient.delete('/api/admin/locations', {
         id: row.id,
       });
       if (result.ok) {
@@ -82,7 +82,7 @@ export default function ActionMenu({ row }) {
         </MenuItem>
       </Menu>
       <DialogWindow
-        title="Update Announcement"
+        title="Update Location"
         open={editOpen}
         onClose={() => setEditOpen(false)}
       >

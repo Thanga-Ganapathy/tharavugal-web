@@ -2,7 +2,6 @@ import APIClient from '@/utils/APIClient';
 import { Box, Button, LinearProgress } from '@mui/material';
 import { useField } from '@opentf/react-form';
 import { useState } from 'react';
-import { v4 as uuidv4 } from 'uuid';
 import { filesize } from 'filesize';
 import { percentage } from '@opentf/std';
 
@@ -106,7 +105,7 @@ export default function UploadField({
 
   const handleUpload = async () => {
     const key =
-      uploadPath + '/' + uuidv4() + '.' + state.file.name.split('.').pop();
+      uploadPath + '/' + crypto.randomUUID() + '.' + state.file.name.split('.').pop();
 
     if (state.file.size > FIVE_MB) {
       uploadParts(key);

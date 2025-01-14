@@ -16,7 +16,7 @@ import {
   Typography,
 } from '@mui/material';
 import ReportData from '@/data/reports/lok-saba-2024-evm-report';
-import DialogWindow from '@/components/DialogWindow';
+import DialogWindow from '@/components/app/DialogWindow';
 import { useState } from 'react';
 import HeadingWithDivider from '@/components/HeadingWithDivider';
 import { Download } from '@mui/icons-material';

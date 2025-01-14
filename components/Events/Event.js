@@ -10,7 +10,7 @@ import {
 import { format } from 'date-fns';
 import ActionMenu from './ActionMenu';
 import { useRouter } from 'next/router';
-import { utcToZonedTime } from 'date-fns-tz';
+import { TZDate } from "@date-fns/tz";
 import Link from '../app/Link';
 import ImageIcon from '@mui/icons-material/Image';
 import PlayCircleFilledIcon from '@mui/icons-material/PlayCircleFilled';
@@ -93,7 +93,7 @@ export default function Event({ data }) {
           <Box sx={{ textAlign: 'right' }}>
             <Typography variant="span" fontSize={12} color="text.secondary">
               {format(
-                utcToZonedTime(data.startedAt, data.startTz),
+                new TZDate(data.startedAt, data.startTz),
                 'yyyy-MM-dd hh:mm:ss aa'
               )}{' '}
               {data.startTz}

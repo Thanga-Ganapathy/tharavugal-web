@@ -10,12 +10,14 @@ import { EVENTS_STATUS } from '@/constants';
 
 export default function New({ onClose }) {
   const showAlert = useAlert();
+
   const defaultTime = set(new Date(), {
     hours: 0,
     minutes: 0,
     seconds: 0,
     milliseconds: 0,
   });
+
   const defaultTz = 'Asia/Kolkata';
 
   const handleSubmit = async (values) => {
@@ -29,7 +31,9 @@ export default function New({ onClose }) {
       delete draft.endDate;
       delete draft.endTime;
     });
+    
     const result = await APIClient.post('/api/admin/events', data);
+    
     if (result.ok) {
       showAlert('success', result.data.message);
       onClose();

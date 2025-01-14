@@ -1,16 +1,18 @@
-import { format, parseISO, set } from 'date-fns';
+import { format, set } from 'date-fns';
 import { produce } from 'immer';
-import { utcToZonedTime, zonedTimeToUtc } from 'date-fns-tz';
-
+import { TZDate } from '@date-fns/tz';
 import APIClient from '@/utils/APIClient';
 import Form from './Form';
 import useAlert from '@/hooks/useAlert';
 import { eventsSchema } from '@/schema';
 import createDate from '@/utils/createDate';
+import { Box, CircularProgress } from '@mui/material';
+import { useState } from 'react';
+import { useEffect } from 'react';
 
-export default function Edit({ record, mutate }) {
-  const startZonedDate = utcToZonedTime(record.startedAt, record.startTz);
-  const endZonedDate = utcToZonedTime(record.endedAt, record.endTz);
+const getInitialValue = () => {
+  const startZonedDate = new TZDate(record.startedAt, record.startTz);
+  const endZonedDate = new TZDate(record.endedAt, record.endTz);
   const initialValues = {
     ...record,
     startDate: new Date(format(startZonedDate, 'yyyy-MM-dd')),
@@ -29,7 +31,16 @@ export default function Edit({ record, mutate }) {
     }),
     data: JSON.stringify(record.data, null, 2),
   };
+};
+
+export default function Edit({ record, mutate }) {
+  const [loading, setLoading] = useState(true);
   const showAlert = useAlert();
+
+  useEffect(() => {
+    console.log(record);
+    
+  }, [])
 
   const handleSubmit = async (values) => {
     let data = eventsSchema.safeParse(values).data;
@@ -43,7 +54,9 @@ export default function Edit({ record, mutate }) {
       delete draft.endTime;
       delete draft.endUTCOffset;
     });
+
     const result = await APIClient.post('/api/admin/events', data, true);
+
     if (result.ok) {
       showAlert('success', result.data.message);
       mutate();
@@ -51,6 +64,14 @@ export default function Edit({ record, mutate }) {
       showAlert('error', result.data ? result.data.message : 'Failed!');
     }
   };
+
+  if (loading) {
+    return (
+      <Box sx={{ display: 'flex', justifyContent: 'center' }}>
+        <CircularProgress color="warning" />
+      </Box>
+    );
+  }
 
   return <Form initialValues={initialValues} onSubmit={handleSubmit} update />;
 }

@@ -7,7 +7,6 @@ export default function New({ onClose }) {
   const showAlert = useAlert();
 
   const handleSubmit = async (values) => {
-    console.log(values);
     // const result = await APIClient.post(
     //   '/api/admin/facts',
     //   factsSchema.safeParse(values).data

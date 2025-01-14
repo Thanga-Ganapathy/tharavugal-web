@@ -29,7 +29,9 @@ function SlugField({ name, label }) {
   const { values } = useFormContext();
 
   useEffect(() => {
-    field.onChange(slugify(values.title, values.locations, values.id));
+    console.log('values.locations', values.locations);
+    
+    field.onChange(slugify(values.title, values.locations.map(l => l.name), values.id));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [values.title, values.locations]);
 
@@ -70,26 +72,30 @@ export default function EventsForm({
         <Box>
           <SlugField name="slug" label="Slug" />
         </Box>
-        <Box mt={2}>
+        <Box
+          mt={2}
+          sx={{
+            display: 'flex',
+            gap: '10px',
+          }}
+        >
           <MUIDateField name="startDate" label="Start Date" />
-        </Box>
-        <Box mt={2}>
           <MUITimeField name="startTime" label="Start Time" />
-        </Box>
-        <Box mt={2}>
           <MUIAutoCompleteField
             name="startTz"
             label="Start Tz"
             options={tzOptions}
           />
         </Box>
-        <Box mt={2}>
+        <Box
+          mt={2}
+          sx={{
+            display: 'flex',
+            gap: '10px',
+          }}
+        >
           <MUIDateField name="endDate" label="End Date" />
-        </Box>
-        <Box mt={2}>
           <MUITimeField name="endTime" label="End Time" />
-        </Box>
-        <Box mt={2}>
           <MUIAutoCompleteField
             name="endTz"
             label="End Tz"
@@ -108,7 +114,7 @@ export default function EventsForm({
           <MUIAsyncSelectField
             name="locations"
             label="Locations"
-            url="/api/event-locations"
+            url="/api/admin/locations"
             multiple
           />
         </Box>

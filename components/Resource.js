@@ -8,7 +8,7 @@ import {
 } from '@mui/material';
 import ImageOutlinedIcon from '@mui/icons-material/ImageOutlined';
 import ProgressiveImg from './ProgressiveImg';
-import DialogWindow from './DialogWindow';
+import DialogWindow from './app/DialogWindow';
 import { useState } from 'react';
 import { filesize } from 'filesize';
 

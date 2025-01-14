@@ -10,7 +10,7 @@ import {
 import SearchIcon from '@mui/icons-material/Search';
 import CircularProgress from '@mui/material/CircularProgress';
 
-import DialogWindow from '../DialogWindow';
+import DialogWindow from '../app/DialogWindow';
 import HeadingWithDivider from '../HeadingWithDivider';
 import { Form } from '@opentf/react-form';
 import APIClient from '@/utils/APIClient';

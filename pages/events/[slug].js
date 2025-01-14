@@ -21,12 +21,12 @@ const DynamicReactJson = dynamic(() => import('@microlink/react-json-view'), {
 });
 
 import Layout from '@/components/layouts/DefaultLayout';
-import { utcToZonedTime } from 'date-fns-tz';
 import { getDB } from '@/lib/db';
 import { useRouter } from 'next/router';
 import { isEmpty } from '@opentf/std';
 import HeadingWithDivider from '@/components/HeadingWithDivider';
 import Link from '@/components/app/Link';
+import { TZDate } from '@date-fns/tz';
 
 export default function EventView({ data }) {
   const router = useRouter();
@@ -57,7 +57,7 @@ export default function EventView({ data }) {
               >
                 Updated At:{' '}
                 {format(
-                  utcToZonedTime(
+                  new TZDate(
                     data.event.updatedAt,
                     Intl.DateTimeFormat().resolvedOptions().timeZone
                   ),
@@ -93,7 +93,7 @@ export default function EventView({ data }) {
                         color="secondary"
                         variant="outlined"
                         label={format(
-                          utcToZonedTime(
+                          new TZDate(
                             data.event.startedAt,
                             data.event.startTz
                           ),
@@ -106,7 +106,7 @@ export default function EventView({ data }) {
                         color="secondary"
                         variant="outlined"
                         label={format(
-                          utcToZonedTime(
+                          new TZDate(
                             data.event.startedAt,
                             data.event.startTz
                           ),
@@ -138,7 +138,7 @@ export default function EventView({ data }) {
                         color="secondary"
                         variant="outlined"
                         label={format(
-                          utcToZonedTime(data.event.endedAt, data.event.endTz),
+                          new TZDate(data.event.endedAt, data.event.endTz),
                           'yyyy-MM-dd'
                         )}
                       />
@@ -148,7 +148,7 @@ export default function EventView({ data }) {
                         color="secondary"
                         variant="outlined"
                         label={format(
-                          utcToZonedTime(data.event.endedAt, data.event.endTz),
+                          new TZDate(data.event.endedAt, data.event.endTz),
                           'hh:mm:ss aa'
                         )}
                       />

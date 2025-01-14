@@ -1,4 +1,4 @@
-import DialogWindow from '@/components/DialogWindow';
+import DialogWindow from '@/components/app/DialogWindow';
 import ProgressiveImg from '@/components/ProgressiveImg';
 import Layout from '@/components/layouts/DefaultLayout';
 import { getDB } from '@/lib/db';

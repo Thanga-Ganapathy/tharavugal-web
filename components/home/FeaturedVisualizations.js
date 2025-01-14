@@ -1,14 +1,14 @@
 import { Box, Card, CardContent, Divider, Typography } from '@mui/material';
 import { useRouter } from 'next/router';
 import useAlert from '@/hooks/useAlert';
-import { format } from 'date-fns-tz';
-import { endOfMonth, startOfMonth } from 'date-fns';
+import { endOfMonth, format, startOfMonth } from 'date-fns';
 import { FcDoughnutChart } from 'react-icons/fc';
 import Elephant from '../icons/Elephant';
 import Ambulance from '../icons/Ambulance';
 import Fire from '../icons/Fire';
 import Warning from '../icons/Warning';
 import randomGradientColor from '@/utils/randomGradientColor';
+import { TZDate } from '@date-fns/tz';
 
 function FeaturedBox({ data, bgColor }) {
   const router = useRouter();
@@ -70,12 +70,11 @@ function FeaturedBox({ data, bgColor }) {
 }
 
 export default function FeaturedVisualizations() {
-  const currentMonth = format(new Date(), 'MM', {
-    timeZone: Intl.DateTimeFormat().resolvedOptions(),
-  });
-  const currentYear = format(new Date(), 'yyyy', {
-    timeZone: Intl.DateTimeFormat().resolvedOptions(),
-  });
+  const currentYear = format(
+    new TZDate(new Date(), Intl.DateTimeFormat().resolvedOptions()),
+    'yyyy'
+  );
+
   const list = [
     {
       title: 'Elephant Deaths',
