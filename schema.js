@@ -32,6 +32,7 @@ export const locationsSchema = z
     parentId: z
       .object({
         id: z.string().uuid(),
+        name: z.string(),
         type: LocationType,
       })
       .nullable()
@@ -40,7 +41,7 @@ export const locationsSchema = z
   .refine(
     (data) => {
       // Perform the comparison before transforming the parentId
-      if (data.parentId && data.parentId.type === data.type) {
+      if (data.parentId && data.parentId?.type === data.type) {
         return false;
       }
       return true;

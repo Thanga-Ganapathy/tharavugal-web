@@ -12,6 +12,12 @@ export default async function handler(req, res) {
             $match: { id: req.query.id },
           },
           {
+            $addFields: {
+              oldLocations: '$locations', // Copy the 'locations' array to 'oldLocations'
+              oldCategories: '$categories', // Copy the 'locations' array to 'oldLocations'
+            },
+          },
+          {
             $lookup: {
               from: 'locations', // The collection to join with
               let: { locations: '$locations' }, // Define 'locations' variable
@@ -57,6 +63,8 @@ export default async function handler(req, res) {
                 parentId: 1,
               },
               categories: { id: 1, name: 1 },
+              oldLocations: 1,
+              oldCategories: 1
             },
           },
         ])

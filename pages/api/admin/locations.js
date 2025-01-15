@@ -2,7 +2,7 @@ import { getDB } from '@/lib/db';
 
 export default async function handler(req, res) {
   const db = await getDB();
-  
+
   const collection = db.collection('locations');
   let output;
 
@@ -12,22 +12,22 @@ export default async function handler(req, res) {
         ? { name: { $regex: req.query.q, $options: 'i' } }
         : {};
       const data = await collection
-        .find(query, { projection: { _id: 0 } })
+        .find(query, { projection: { _id: 0, id: 1, name: 1, type: 1 } })
         .sort({ updatedAt: -1 })
         .limit(10);
-        // db.locations.aggregate([
-        //   { $match: { "name": "Villivakkam", "type": "Neighbourhood" } },
-        //   {
-        //     $graphLookup: {
-        //       from: "locations",
-        //       startWith: "$parentId",
-        //       connectFromField: "parentId",
-        //       connectToField: "_id",
-        //       as: "parents"
-        //     }
-        //   }
-        // ]);
-        
+      // db.locations.aggregate([
+      //   { $match: { "name": "Villivakkam", "type": "Neighbourhood" } },
+      //   {
+      //     $graphLookup: {
+      //       from: "locations",
+      //       startWith: "$parentId",
+      //       connectFromField: "parentId",
+      //       connectToField: "_id",
+      //       as: "parents"
+      //     }
+      //   }
+      // ]);
+
       output = res.status(200).json({ data: await data.toArray() });
       break;
 
@@ -59,6 +59,20 @@ export default async function handler(req, res) {
       break;
 
     case 'DELETE':
+      const referencesExist = await collection.findOne({
+        parentId: req.query.id,
+      });
+
+      if (referencesExist) {
+        output = res
+          .status(422)
+          .json({
+            message:
+              'This record is being referenced elsewhere, deletion is not allowed',
+          });
+        break;
+      }
+
       const delResult = await collection.deleteOne({ id: req.query.id });
 
       if (delResult.deletedCount) {

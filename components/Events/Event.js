@@ -32,12 +32,12 @@ export default function Event({ data }) {
       />
       <CardContent>
         <Box>
-          {data.locations.map((l, i) => (
+          {data.locations.map((l) => (
             <Chip
               color="info"
               variant="outlined"
-              key={i}
-              label={l}
+              key={l.id}
+              label={l.name}
               sx={{
                 mt: { xs: 1 },
                 mr: 1,
@@ -48,21 +48,21 @@ export default function Event({ data }) {
                 },
               }}
               size="small"
-              onClick={() => handleExplore('location', l)}
+              onClick={() => handleExplore('location', l.id)}
             />
           ))}
         </Box>
         {data.categories && (
           <Box sx={{ mt: 2 }}>
-            {data.categories.map((c, i) => (
+            {data.categories.map((c) => (
               <Chip
                 variant="outlined"
                 color="default"
-                key={i}
-                label={c}
+                key={c.id}
+                label={c.name}
                 sx={{ mt: { xs: 1 }, mr: 1 }}
                 size="small"
-                onClick={() => handleExplore('tag', c)}
+                onClick={() => handleExplore('tag', c.id)}
               />
             ))}
           </Box>

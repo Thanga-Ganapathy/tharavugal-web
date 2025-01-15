@@ -3,9 +3,9 @@ import Form from './Form';
 import useAlert from '@/hooks/useAlert';
 import { locationsSchema } from '@/schema';
 
-const iv = { id: crypto.randomUUID(), name: '', type: '', parentId: null }
 
 export default function New({ onClose }) {
+  const iv = { id: crypto.randomUUID(), name: '', type: '', parentId: null }
   const showAlert = useAlert();
 
   const handleSubmit = async (values) => {
