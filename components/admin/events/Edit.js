@@ -10,7 +10,7 @@ import { Box, CircularProgress } from '@mui/material';
 import { useState } from 'react';
 import { useEffect } from 'react';
 
-const getInitialValue = () => {
+const getInitialValue = (record) => {
   const startZonedDate = new TZDate(record.startedAt, record.startTz);
   const endZonedDate = new TZDate(record.endedAt, record.endTz);
   const initialValues = {
@@ -31,16 +31,26 @@ const getInitialValue = () => {
     }),
     data: JSON.stringify(record.data, null, 2),
   };
+
+  return initialValues;
 };
 
 export default function Edit({ record, mutate }) {
   const [loading, setLoading] = useState(true);
+  const [iv, setIv] = useState(null);
   const showAlert = useAlert();
 
   useEffect(() => {
     console.log(record);
-    
-  }, [])
+
+    const fetchData = async () => {
+      const res = await APIClient.get('/api/admin/events/' + record.id);
+      setIv(getInitialValue(res.data))
+      setLoading(false)
+    };
+
+    fetchData();
+  }, []);
 
   const handleSubmit = async (values) => {
     let data = eventsSchema.safeParse(values).data;
@@ -73,5 +83,5 @@ export default function Edit({ record, mutate }) {
     );
   }
 
-  return <Form initialValues={initialValues} onSubmit={handleSubmit} update />;
+  return <Form initialValues={iv} onSubmit={handleSubmit} update />;
 }

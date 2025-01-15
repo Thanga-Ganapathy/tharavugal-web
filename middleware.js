@@ -27,6 +27,7 @@ const routesConfig = {
     { path: '/api/entities', roles: [USER_ROLES.ADMIN] },
     { path: '/api/entity-types', roles: [USER_ROLES.ADMIN] },
     { path: '/api/admin/events', roles: [USER_ROLES.ADMIN] },
+    { path: '/api/admin/events/.+', roles: [USER_ROLES.ADMIN] },
     { path: '/api/food-ingredients', roles: [USER_ROLES.ADMIN] },
     { path: '/api/food-ingredients/.+', roles: [USER_ROLES.ADMIN] },
     { path: '/api/uploads', roles: [USER_ROLES.ADMIN] },
