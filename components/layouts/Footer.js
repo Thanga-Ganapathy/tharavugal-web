@@ -1,7 +1,7 @@
 import { Box, Grid, Paper, Typography } from '@mui/material';
 import { format } from 'date-fns';
 import OpenInNewOutlinedIcon from '@mui/icons-material/OpenInNewOutlined';
-import Feedback from '../app/Feedback';
+import Feedback from '../Feedback';
 import Link from '../app/Link';
 
 function LI({ title, href, children }) {
@@ -42,12 +42,14 @@ export default function Footer() {
   return (
     <Paper
       component="footer"
-      sx={{
-        mt: 5,
-        p: 3,
-        backgroundColor: (t) =>
-          t.palette.mode === 'light' ? 'black' : undefined,
-      }}
+      sx={[
+        {
+          mt: 5,
+          p: 3,
+          backgroundColor: 'black',
+        },
+        (theme) => theme.applyStyles('dark', { backgroundColor: null }),
+      ]}
     >
       <Grid container px={3}>
         <Grid item xs={12} sm={6} md={3}>
@@ -72,7 +74,6 @@ export default function Footer() {
             <LI href="/privacy-policy" title="Privacy Policy" />
           </Box>
         </Grid>
-
         <Grid item xs={12} sx={{ mt: { xs: 2, sm: 0 } }} sm={6} md={3}>
           <Heading title="Others" />
           <Box mt={2} component="ul">
@@ -84,11 +85,9 @@ export default function Footer() {
           </Box>
         </Grid>
       </Grid>
-
       <Box sx={{ mt: 2, display: 'flex', justifyContent: 'center' }}>
         <Feedback />
       </Box>
-
       <Box sx={{ mt: 3, color: 'white' }} textAlign="center">
         © 2023 - {format(new Date(), 'yyyy')} Tharavugal.org
       </Box>

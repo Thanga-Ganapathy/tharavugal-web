@@ -3,9 +3,9 @@ import Link from '../app/Link';
 
 export default function StatsBox({ name, count = 0, href }) {
   return (
-    <Link href={href || 'javascript:;'} sx={{ textDecoration: 'none' }}>
+    (<Link href={href || 'javascript:;'} sx={{ textDecoration: 'none' }}>
       <Box
-        sx={{
+        sx={[{
           display: 'flex',
           justifyContent: 'center',
           flexDirection: 'column',
@@ -13,14 +13,22 @@ export default function StatsBox({ name, count = 0, href }) {
           m: 1,
           minWidth: '100px',
           userSelect: 'none',
-          cursor: href ? 'pointer' : 'initial',
           borderRadius: '5px',
           p: 1,
-          border: '1px solid darkgray',
+          border: '1px solid darkgray'
+        }, href ? {
+          cursor: 'pointer'
+        } : {
+          cursor: 'initial'
+        }, href ? {
           '&:hover': {
-            backgroundColor: href ? 'rgba(1, 255, 112, 0.5)' : 'initial',
-          },
-        }}
+            backgroundColor: 'rgba(1, 255, 112, 0.5)'
+          }
+        } : {
+          '&:hover': {
+            backgroundColor: 'initial'
+          }
+        }]}
       >
         <Typography variant="h3" sx={{ color: (t) => t.palette.text.primary }}>
           {count}
@@ -37,6 +45,6 @@ export default function StatsBox({ name, count = 0, href }) {
           {name}
         </Typography>
       </Box>
-    </Link>
+    </Link>)
   );
 }

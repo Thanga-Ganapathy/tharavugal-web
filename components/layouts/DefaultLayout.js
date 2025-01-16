@@ -1,15 +1,15 @@
 import Head from 'next/head';
 import { Backdrop, Box, Toolbar } from '@mui/material';
 import AppHeader from './AppHeader';
-import { InfinitySpin } from 'react-loader-spinner';
-import { useAppState } from '@/store';
+// import { InfinitySpin } from 'react-loader-spinner';
+// import { useAppState } from '@/store';
 import Footer from './Footer';
 import { META_INFO } from '@/constants';
 import UserAgreement from './UserAgreement';
 import UnityBanner from '../banners/Unity';
 
 export default function DefaultLayout({ children, title = '', meta = {} }) {
-  const isLoading = useAppState((s) => s.loading);
+  // const isLoading = useAppState((s) => s.loading);
   const curTitle = title + ' - ' + META_INFO.title;
 
   const renderMetaInfo = () => {
@@ -53,12 +53,12 @@ export default function DefaultLayout({ children, title = '', meta = {} }) {
       >
         {children}
       </Box>
-      <Backdrop
+      {/* <Backdrop
         sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }}
         open={isLoading}
       >
         <InfinitySpin width="200" color="#FF851B" />
-      </Backdrop>
+      </Backdrop> */}
       <Footer />
       <UserAgreement />
     </Box>

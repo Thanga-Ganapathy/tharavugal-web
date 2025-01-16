@@ -5,24 +5,27 @@ export default function ToolBox({ icon: Icon, label, path, active }) {
   const router = useRouter();
 
   return (
-    <Box
+    (<Box
       onClick={() => router.push(path)}
-      sx={{
+      sx={[{
         width: '120px',
         minHeight: '100px',
         justifyContent: 'center',
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
-        border: active ? '2px dashed #01FF70' : '2px dashed gray',
         cursor: 'pointer',
         textTransform: 'uppercase',
         m: 1,
         p: 1,
         '&:hover': {
           backgroundColor: 'rgba(1, 255, 112, 0.5)',
-        },
-      }}
+        }
+      }, active ? {
+        border: '2px dashed #01FF70'
+      } : {
+        border: '2px dashed gray'
+      }]}
     >
       <Box
         component={Icon}
@@ -37,6 +40,6 @@ export default function ToolBox({ icon: Icon, label, path, active }) {
       >
         {label}
       </Typography>
-    </Box>
+    </Box>)
   );
 }

@@ -105,7 +105,11 @@ export default function UploadField({
 
   const handleUpload = async () => {
     const key =
-      uploadPath + '/' + crypto.randomUUID() + '.' + state.file.name.split('.').pop();
+      uploadPath +
+      '/' +
+      crypto.randomUUID() +
+      '.' +
+      state.file.name.split('.').pop();
 
     if (state.file.size > FIVE_MB) {
       uploadParts(key);
@@ -150,11 +154,13 @@ export default function UploadField({
   return (
     <Box
       component="fieldset"
-      sx={{
-        borderColor: Boolean(error)
-          ? (t) => t.palette.error.light
-          : 'lightgray',
-      }}
+      sx={[
+        (t) => ({
+          borderColor: Boolean(error)
+            ? (t) => t.palette.error.light
+            : 'lightgray',
+        }),
+      ]}
     >
       <legend>{label}</legend>
       <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>

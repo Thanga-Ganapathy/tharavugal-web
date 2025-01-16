@@ -8,7 +8,7 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import APIClient from '@/utils/APIClient';
 import useAlert from '@/hooks/useAlert';
 import Edit from './Edit';
-import DialogWindow from '@/components/app/DialogWindow';
+import DialogWindow from '@/components/DialogWindow';
 
 export default function ActionMenu({ row }) {
   const [editOpen, setEditOpen] = useState(false);
@@ -44,7 +44,7 @@ export default function ActionMenu({ row }) {
   };
 
   return (
-    <div>
+    (<div>
       <Button
         size="small"
         variant="outlined"
@@ -69,14 +69,20 @@ export default function ActionMenu({ row }) {
         <MenuItem onClick={handleEdit}>
           <EditIcon
             fontSize="18"
-            sx={{ mr: 1, color: (theme) => theme.palette.text.secondary }}
+            sx={theme => ({
+              mr: 1,
+              color: theme.palette.text.secondary
+            })}
           />{' '}
           Edit
         </MenuItem>
         <MenuItem onClick={handleDelete}>
           <DeleteIcon
             fontSize="18"
-            sx={{ mr: 1, color: (theme) => theme.palette.text.secondary }}
+            sx={theme => ({
+              mr: 1,
+              color: theme.palette.text.secondary
+            })}
           />{' '}
           Delete
         </MenuItem>
@@ -88,6 +94,6 @@ export default function ActionMenu({ row }) {
       >
         <Edit record={row} />
       </DialogWindow>
-    </div>
+    </div>)
   );
 }

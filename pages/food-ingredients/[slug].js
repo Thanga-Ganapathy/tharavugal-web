@@ -116,7 +116,6 @@ export default function Page({ data }) {
           </Box>
           <Box sx={{ p: { xs: 1, sm: 1, md: 2 } }}>
             <Typography variant="h4">{data.record.name}</Typography>
-
             <Box component="table" sx={{ mt: 2 }}>
               <tbody>
                 <tr>
@@ -234,13 +233,11 @@ export default function Page({ data }) {
     </Layout>
   );
 }
-
 export async function getServerSideProps(context) {
   const { slug } = context.query;
   const db = await getDB();
   const col = db.collection('food-ingredients');
   const cursor = col.find({ slug }, { projection: { _id: 0 } });
-
   const records = JSON.parse(JSON.stringify(await cursor.toArray()));
   return {
     props: {

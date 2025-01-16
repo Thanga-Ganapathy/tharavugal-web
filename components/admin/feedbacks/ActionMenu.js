@@ -36,7 +36,7 @@ export default function ActionMenu({ row }) {
   };
 
   return (
-    <div>
+    (<div>
       <Button
         size="small"
         variant="outlined"
@@ -61,11 +61,14 @@ export default function ActionMenu({ row }) {
         <MenuItem onClick={handleDelete}>
           <DeleteIcon
             fontSize="18"
-            sx={{ mr: 1, color: (theme) => theme.palette.text.secondary }}
+            sx={theme => ({
+              mr: 1,
+              color: theme.palette.text.secondary
+            })}
           />{' '}
           Delete
         </MenuItem>
       </Menu>
-    </div>
+    </div>)
   );
 }

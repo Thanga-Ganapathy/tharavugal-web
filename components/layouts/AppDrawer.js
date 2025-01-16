@@ -1,3 +1,4 @@
+'use client'
 import {
   Box,
   Drawer,
@@ -12,7 +13,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import LockIcon from '@mui/icons-material/Lock';
 import HomeIcon from '@mui/icons-material/Home';
 import { useState } from 'react';
-import { useRouter } from 'next/router';
+import { useRouter } from 'next/navigation'
 
 export default function AppDrawer() {
   const router = useRouter();

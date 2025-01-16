@@ -71,7 +71,6 @@ export default function Statistics({ data }) {
     </Layout>
   );
 }
-
 export async function getServerSideProps(context) {
   const db = await getDB();
   const eventsCol = db.collection('events');

@@ -16,7 +16,7 @@ import {
   Typography,
 } from '@mui/material';
 import ReportData from '@/data/reports/lok-saba-2024-evm-report';
-import DialogWindow from '@/components/app/DialogWindow';
+import DialogWindow from '@/components/DialogWindow';
 import { useState } from 'react';
 import HeadingWithDivider from '@/components/HeadingWithDivider';
 import { Download } from '@mui/icons-material';
@@ -62,9 +62,15 @@ function numFormat(n) {
 
 function NumberBox({ value, text, variant }) {
   return (
-    <Card
+    (<Card
       variant="outlined"
-      sx={{ m: 1, border: variant ? '1px solid red' : undefined }}
+      sx={[{
+        m: 1
+      }, variant ? {
+        border: '1px solid red'
+      } : {
+        border: null
+      }]}
     >
       <CardContent sx={{ textAlign: 'center' }}>
         <Typography variant="h3" sx={{ textAlign: 'center' }}>
@@ -74,7 +80,7 @@ function NumberBox({ value, text, variant }) {
           {text}
         </Typography>
       </CardContent>
-    </Card>
+    </Card>)
   );
 }
 

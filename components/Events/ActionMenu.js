@@ -27,39 +27,46 @@ export default function ActionMenu({ row, url, Edit, actions = [], mutate }) {
     showAlert('error', 'Please sign in to continue');
   };
 
-  return (
-    <>
-      <IconButton aria-label="settings" onClick={handleClick}>
-        <MoreVertIcon />
-      </IconButton>
-      <Menu
-        id="basic-menu"
-        anchorEl={anchorEl}
-        open={open}
-        onClose={handleClose}
-        MenuListProps={{
-          'aria-labelledby': 'basic-button',
-        }}
-      >
-        <MenuItem onClick={handleReport}>
-          <EditIcon
-            sx={{ mr: 1, color: (theme) => theme.palette.text.secondary }}
-          />{' '}
-          Update
-        </MenuItem>
-        <MenuItem onClick={handleReport}>
-          <TranslateOutlinedIcon
-            sx={{ mr: 1, color: (theme) => theme.palette.text.secondary }}
-          />{' '}
-          Translate
-        </MenuItem>
-        <MenuItem onClick={handleReport}>
-          <ReportIcon
-            sx={{ mr: 1, color: (theme) => theme.palette.text.secondary }}
-          />{' '}
-          Report
-        </MenuItem>
-      </Menu>
-    </>
-  );
+  return (<>
+    <IconButton aria-label="settings" onClick={handleClick}>
+      <MoreVertIcon />
+    </IconButton>
+    <Menu
+      id="basic-menu"
+      anchorEl={anchorEl}
+      open={open}
+      onClose={handleClose}
+      MenuListProps={{
+        'aria-labelledby': 'basic-button',
+      }}
+    >
+      <MenuItem onClick={handleReport}>
+        <EditIcon
+          sx={theme => ({
+            mr: 1,
+            color: theme.palette.text.secondary
+          })}
+        />{' '}
+        Update
+      </MenuItem>
+      <MenuItem onClick={handleReport}>
+        <TranslateOutlinedIcon
+          sx={theme => ({
+            mr: 1,
+            color: theme.palette.text.secondary
+          })}
+        />{' '}
+        Translate
+      </MenuItem>
+      <MenuItem onClick={handleReport}>
+        <ReportIcon
+          sx={theme => ({
+            mr: 1,
+            color: theme.palette.text.secondary
+          })}
+        />{' '}
+        Report
+      </MenuItem>
+    </Menu>
+  </>);
 }

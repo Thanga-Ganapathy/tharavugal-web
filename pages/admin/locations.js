@@ -4,7 +4,7 @@ import useSWR from 'swr';
 
 import Layout from '@/components/layouts/AdminLayout';
 import Sidebar from '@/components/admin/Sidebar';
-import DialogWindow from '@/components/app/DialogWindow';
+import DialogWindow from '@/components/DialogWindow';
 import New from '@/components/admin/locations/New';
 import List from '@/components/admin/locations/List';
 import SearchForm from '@/components/SearchForm';

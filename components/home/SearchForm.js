@@ -21,7 +21,7 @@ export default function SearchForm({
   }, [initialValues]);
 
   return (
-    <Box mb={2}>
+    (<Box mb={2}>
       <Box
         component={Form}
         initialValues={values}
@@ -43,14 +43,19 @@ export default function SearchForm({
             borderRadius: '20px',
             outline: 'none',
             border: '1px solid',
-            borderColor: theme.palette.mode === 'light' ? '#E0E3E7' : '#2D3843',
+            borderColor: '#2D3843',
             backgroundColor:
-              theme.palette.mode === 'light' ? 'white' : '#1A2027',
+              '#1A2027',
             fontSize: '16px',
-            color: theme.palette.mode === 'light' ? 'black' : 'white',
+            color: 'white',
             '&:focus': {
               borderColor: theme.palette.primary.main,
             },
+            ...theme.applyStyles("light", {
+              borderColor: '#E0E3E7',
+              backgroundColor: 'white',
+              color: 'black'
+            })
           })}
           placeholder={placeholder}
         />
@@ -69,6 +74,6 @@ export default function SearchForm({
           </Button>
         </Tooltip>
       </Box>
-    </Box>
+    </Box>)
   );
 }

@@ -14,13 +14,16 @@ export default function DonationBanner() {
   const router = useRouter();
 
   return (
-    <Box
-      sx={{
+    (<Box
+      sx={[{
         mt: { xs: 2, sm: 1, md: 0 },
         mb: 1,
-        display: router.asPath === '/donation' ? 'none' : 'flex',
-        justifyContent: 'center',
-      }}
+        justifyContent: 'center'
+      }, router.asPath === '/donation' ? {
+        display: 'none'
+      } : {
+        display: 'flex'
+      }]}
     >
       <Paper>
         <Alert severity="error" variant="standard">
@@ -49,6 +52,6 @@ export default function DonationBanner() {
           </Box>
         </Alert>
       </Paper>
-    </Box>
+    </Box>)
   );
 }

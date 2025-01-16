@@ -24,7 +24,7 @@ export default function DialogWindow({
   }
 
   return (
-    <Dialog
+    (<Dialog
       open={open}
       onClose={handleClose}
       fullWidth
@@ -37,17 +37,17 @@ export default function DialogWindow({
             e.stopPropagation();
             onClose();
           }}
-          sx={{
+          sx={theme => ({
             position: 'absolute',
             right: 8,
             top: 8,
-            color: (theme) => theme.palette.grey[500],
-          }}
+            color: theme.palette.grey[500]
+          })}
         >
           <CloseIcon color='error' />
         </IconButton>
       </DialogTitle>
       <DialogContent dividers sx={{ minHeight: '500px' }}>{children}</DialogContent>
-    </Dialog>
+    </Dialog>)
   );
 }

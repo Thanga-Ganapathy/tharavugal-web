@@ -26,11 +26,12 @@ const getDesignTokens = (mode) => ({
         // Name of the slot
         tooltip: ({ theme }) => ({
           backgroundColor:
-            theme.palette.mode === 'light'
-              ? theme.palette.info.light
-              : theme.palette.info.dark,
+            theme.palette.info.dark,
           fontSize: '14px',
           color: 'white',
+          ...theme.applyStyles("light", {
+            backgroundColor: theme.palette.info.light
+          })
         }),
       },
     },

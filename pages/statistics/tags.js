@@ -53,7 +53,7 @@ export default function Tags({ data }) {
   }
 
   return (
-    <Layout title="Tags - Statistics">
+    (<Layout title="Tags - Statistics">
       <Box textAlign="center">
         <Typography variant="h5">Tags - Statistics</Typography>
       </Box>
@@ -85,20 +85,29 @@ export default function Tags({ data }) {
           <Box sx={{ display: 'flex', justifyContent: 'center' }}>
             {loading && <CircularProgress />}
           </Box>
-          <Box sx={{ display: loading ? 'none' : 'initial' }}>
+          <Box sx={[loading ? {
+            display: 'none'
+          } : {
+            display: 'initial'
+          }]}>
             {tags.length === 0 && <Alert severity="info">No tags found.</Alert>}
           </Box>
-          <Box sx={{ display: loading ? 'none' : 'flex', flexWrap: 'wrap' }}>
+          <Box sx={[{
+            flexWrap: 'wrap'
+          }, loading ? {
+            display: 'none'
+          } : {
+            display: 'flex'
+          }]}>
             {tags.map((t, i) => (
               <StatsBox key={i} count={t.count} name={t.tag} href={`/events/search?tag=${t.tag}`} />
             ))}
           </Box>
         </Box>
       </Paper>
-    </Layout>
+    </Layout>)
   );
 }
-
 export async function getServerSideProps() {
   const db = await getDB();
   const eventsCol = db.collection('events');
@@ -140,7 +149,6 @@ export async function getServerSideProps() {
       },
     },
   ]);
-
   return {
     props: {
       data: {

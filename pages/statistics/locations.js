@@ -53,7 +53,7 @@ export default function Locations({ data }) {
   }
 
   return (
-    <Layout title="Locations - Statistics">
+    (<Layout title="Locations - Statistics">
       <Box textAlign="center">
         <Typography variant="h5">Locations - Statistics</Typography>
       </Box>
@@ -85,12 +85,22 @@ export default function Locations({ data }) {
           <Box sx={{ display: 'flex', justifyContent: 'center' }}>
             {loading && <CircularProgress />}
           </Box>
-          <Box sx={{ display: loading ? 'none' : 'initial' }}>
+          <Box sx={[loading ? {
+            display: 'none'
+          } : {
+            display: 'initial'
+          }]}>
             {locations.length === 0 && (
               <Alert severity="info">No locations found.</Alert>
             )}
           </Box>
-          <Box sx={{ display: loading ? 'none' : 'flex', flexWrap: 'wrap' }}>
+          <Box sx={[{
+            flexWrap: 'wrap'
+          }, loading ? {
+            display: 'none'
+          } : {
+            display: 'flex'
+          }]}>
             {locations.map((t, i) => (
               <StatsBox
                 key={i}
@@ -102,10 +112,9 @@ export default function Locations({ data }) {
           </Box>
         </Box>
       </Paper>
-    </Layout>
+    </Layout>)
   );
 }
-
 export async function getServerSideProps() {
   const db = await getDB();
   const eventsCol = db.collection('events');
@@ -147,7 +156,6 @@ export async function getServerSideProps() {
       },
     },
   ]);
-
   return {
     props: {
       data: {

@@ -1,3 +1,5 @@
+'use client';
+
 import useAlert from '@/hooks/useAlert';
 import APIClient from '@/utils/APIClient';
 import { Box, Button } from '@mui/material';
@@ -18,7 +20,7 @@ export default function Feedback() {
   };
 
   return (
-    <Form
+    (<Form
       initialValues={{ id: crypto.randomUUID(), msg: '' }}
       onSubmit={handleSubmit}
       validate={(values) => {
@@ -45,14 +47,19 @@ export default function Feedback() {
           sx={(theme) => ({
             p: 1,
             width: '300px',
-            borderColor: theme.palette.mode === 'light' ? '#E0E3E7' : '#2D3843',
+            borderColor: '#2D3843',
             backgroundColor:
-              theme.palette.mode === 'light' ? 'white' : '#1A2027',
+              '#1A2027',
             fontSize: '14px',
-            color: theme.palette.mode === 'light' ? 'black' : 'white',
+            color: 'white',
             '&:focus': {
               borderColor: theme.palette.primary.main,
             },
+            ...theme.applyStyles("light", {
+              borderColor: '#E0E3E7',
+              backgroundColor: 'white',
+              color: 'black'
+            })
           })}
         />
         <Button
@@ -64,6 +71,6 @@ export default function Feedback() {
           {sending ? 'Sending...' : 'Send'}
         </Button>
       </Box>
-    </Form>
+    </Form>)
   );
 }

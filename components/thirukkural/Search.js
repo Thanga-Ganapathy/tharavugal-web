@@ -25,7 +25,7 @@ import { TaInput } from '@opentf/react-ta-input';
 import { useRef } from 'react';
 import { useEffect } from 'react';
 import { arrReplace } from '@opentf/std';
-import DialogWindow from '../app/DialogWindow';
+import DialogWindow from '../DialogWindow';
 import HeadingWithDivider from '../HeadingWithDivider';
 import { thirukkural } from '@/data/thirukkural/index';
 import Link from '../app/Link';
@@ -74,7 +74,7 @@ function SearchInputField({ name, lang }) {
   }, [field.value]);
 
   return (
-    <Box
+    (<Box
       lang={lang}
       component={TaInput}
       inputRef={inputRef}
@@ -100,13 +100,18 @@ function SearchInputField({ name, lang }) {
           borderRadius: '20px',
           outline: 'none',
           border: '1px solid',
-          borderColor: theme.palette.mode === 'light' ? '#E0E3E7' : '#2D3843',
-          backgroundColor: theme.palette.mode === 'light' ? 'white' : '#1A2027',
+          borderColor: '#2D3843',
+          backgroundColor: '#1A2027',
           fontSize: '16px',
-          color: theme.palette.mode === 'light' ? 'black' : 'white',
+          color: 'white',
           '&:focus': {
             borderColor: theme.palette.primary.main,
           },
+          ...theme.applyStyles("light", {
+            borderColor: '#E0E3E7',
+            backgroundColor: 'white',
+            color: 'black'
+          })
         })}
       />
       {/* <Menu
@@ -157,7 +162,7 @@ function SearchInputField({ name, lang }) {
           </MenuList>
         </Paper>
       </Popper>
-    </Box>
+    </Box>)
   );
 }
 
@@ -200,15 +205,18 @@ export default function Search() {
   };
 
   return (
-    <Box sx={{ my: 2 }}>
+    (<Box sx={{ my: 2 }}>
       <Box sx={{ display: 'flex', justifyContent: 'center' }}>
         <Box
           onClick={() => setOpen(true)}
-          sx={{
+          sx={[{
             width: { xs: '80%', md: '50%' },
-            position: 'relative',
-            visibility: open ? 'hidden' : 'visible',
-          }}
+            position: 'relative'
+          }, open ? {
+            visibility: 'hidden'
+          } : {
+            visibility: 'visible'
+          }]}
         >
           <SearchIcon
             color="primary"
@@ -231,14 +239,19 @@ export default function Search() {
               outline: 'none',
               border: '1px solid',
               borderColor:
-                theme.palette.mode === 'light' ? '#E0E3E7' : '#2D3843',
+                '#2D3843',
               backgroundColor:
-                theme.palette.mode === 'light' ? 'white' : '#1A2027',
+                '#1A2027',
               fontSize: '16px',
-              color: theme.palette.mode === 'light' ? 'black' : 'white',
+              color: 'white',
               '&:focus': {
                 borderColor: theme.palette.primary.main,
               },
+              ...theme.applyStyles("light", {
+                borderColor: '#E0E3E7',
+                backgroundColor: 'white',
+                color: 'black'
+              })
             })}
           />
         </Box>
@@ -329,6 +342,6 @@ export default function Search() {
           )}
         </Box>
       </DialogWindow>
-    </Box>
+    </Box>)
   );
 }

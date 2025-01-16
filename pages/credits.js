@@ -25,7 +25,6 @@ export default function Credits() {
             <Link href="https://cloudflare.com">Cloudflare</Link> - Free CDN services.
           </Box>
         </Box>
-
         <Box sx={{ mt: 2 }}>
           <Typography variant="h5">Database</Typography>
           <Box mt={2}>
@@ -33,7 +32,6 @@ export default function Credits() {
             clusters.
           </Box>
         </Box>
-
         <Box sx={{ mt: 2 }}>
           <Typography variant="h5">Icons</Typography>
           <Box mt={2}>

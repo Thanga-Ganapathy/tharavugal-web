@@ -10,7 +10,7 @@ import {
 import SearchIcon from '@mui/icons-material/Search';
 import CircularProgress from '@mui/material/CircularProgress';
 
-import DialogWindow from '../app/DialogWindow';
+import DialogWindow from '../DialogWindow';
 import HeadingWithDivider from '../HeadingWithDivider';
 import { Form } from '@opentf/react-form';
 import APIClient from '@/utils/APIClient';
@@ -28,7 +28,7 @@ function SearchTextField({ name, ...otherProps }) {
 
   const { field } = useField(name);
   return (
-    <Box
+    (<Box
       ref={inputRef}
       value={field.value}
       onChange={(e) => field.onChange(e.target.value)}
@@ -41,16 +41,21 @@ function SearchTextField({ name, ...otherProps }) {
         borderRadius: '20px',
         outline: 'none',
         border: '1px solid',
-        borderColor: theme.palette.mode === 'light' ? '#E0E3E7' : '#2D3843',
-        backgroundColor: theme.palette.mode === 'light' ? 'white' : '#1A2027',
+        borderColor: '#2D3843',
+        backgroundColor: '#1A2027',
         fontSize: '16px',
-        color: theme.palette.mode === 'light' ? 'black' : 'white',
+        color: 'white',
         '&:focus': {
           borderColor: theme.palette.primary.main,
         },
+        ...theme.applyStyles("light", {
+          borderColor: '#E0E3E7',
+          backgroundColor: 'white',
+          color: 'black'
+        })
       })}
       {...otherProps}
-    />
+    />)
   );
 }
 
@@ -178,15 +183,18 @@ export default function GlobalSearch() {
   };
 
   return (
-    <Box sx={{ my: 2 }}>
+    (<Box sx={{ my: 2 }}>
       <Box sx={{ display: 'flex', justifyContent: 'center' }}>
         <Box
           onClick={() => setOpen(true)}
-          sx={{
+          sx={[{
             width: { xs: '80%', md: '50%' },
-            position: 'relative',
-            visibility: open ? 'hidden' : 'visible',
-          }}
+            position: 'relative'
+          }, open ? {
+            visibility: 'hidden'
+          } : {
+            visibility: 'visible'
+          }]}
         >
           <SearchIcon
             color="primary"
@@ -209,14 +217,19 @@ export default function GlobalSearch() {
               outline: 'none',
               border: '1px solid',
               borderColor:
-                theme.palette.mode === 'light' ? '#E0E3E7' : '#2D3843',
+                '#2D3843',
               backgroundColor:
-                theme.palette.mode === 'light' ? 'white' : '#1A2027',
+                '#1A2027',
               fontSize: '16px',
-              color: theme.palette.mode === 'light' ? 'black' : 'white',
+              color: 'white',
               '&:focus': {
                 borderColor: theme.palette.primary.main,
               },
+              ...theme.applyStyles("light", {
+                borderColor: '#E0E3E7',
+                backgroundColor: 'white',
+                color: 'black'
+              })
             })}
           />
         </Box>
@@ -236,6 +249,6 @@ export default function GlobalSearch() {
           <Result data={searchData} />
         </Box>
       </DialogWindow>
-    </Box>
+    </Box>)
   );
 }

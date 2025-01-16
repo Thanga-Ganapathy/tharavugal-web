@@ -1,3 +1,5 @@
+'use client';
+
 import { Box, Button, Typography } from '@mui/material';
 import Link from '../app/Link';
 import { useState } from 'react';

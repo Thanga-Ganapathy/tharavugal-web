@@ -35,6 +35,33 @@ export default function EventView({ data }) {
     router.push(`/events/search?${name}=${val}`);
   };
 
+  const renderLocations = (locations) =>
+    locations.map((loc) => {
+      const locs = [loc, ...loc.parentLocations];
+      return (
+        <Box key={loc.id} sx={{ display: 'block', mt: 1 }}>
+          {locs.map((l) => (
+            <Chip
+              color="info"
+              variant="outlined"
+              key={l.id}
+              label={l.name}
+              sx={{
+                mr: 1,
+                height: 'auto',
+                '& .MuiChip-label': {
+                  display: 'block',
+                  whiteSpace: 'normal',
+                },
+              }}
+              size="small"
+              onClick={() => handleExplore('location', l.id)}
+            />
+          ))}
+        </Box>
+      );
+    });
+
   return (
     <Layout
       title={data.event?.title}
@@ -93,10 +120,7 @@ export default function EventView({ data }) {
                         color="secondary"
                         variant="outlined"
                         label={format(
-                          new TZDate(
-                            data.event.startedAt,
-                            data.event.startTz
-                          ),
+                          new TZDate(data.event.startedAt, data.event.startTz),
                           'yyyy-MM-dd'
                         )}
                       />
@@ -106,10 +130,7 @@ export default function EventView({ data }) {
                         color="secondary"
                         variant="outlined"
                         label={format(
-                          new TZDate(
-                            data.event.startedAt,
-                            data.event.startTz
-                          ),
+                          new TZDate(data.event.startedAt, data.event.startTz),
                           'hh:mm:ss aa'
                         )}
                       />
@@ -178,17 +199,7 @@ export default function EventView({ data }) {
                 <CardContent>
                   <HeadingWithDivider title="Location" />
                   <Box sx={{ mt: 2 }}>
-                    {data.event.locations.map((l, i) => (
-                      <Chip
-                        color="info"
-                        variant="outlined"
-                        key={i}
-                        label={l}
-                        sx={{ mt: { xs: 1 }, mr: 1 }}
-                        size="small"
-                        onClick={() => handleExplore('location', l)}
-                      />
-                    ))}
+                    {renderLocations(data.event.locations)}
                   </Box>
                 </CardContent>
               </Card>
@@ -317,22 +328,39 @@ export default function EventView({ data }) {
 }
 
 export async function getServerSideProps(context) {
-  const db = await getDB();
-  const coll = db.collection('events');
-  const event = await coll.findOne(
-    { slug: context.query.slug },
-    { projection: { _id: 0 } }
-  );
+  try {
+    // Get the base URL (handle production vs development environments)
+    const baseUrl =
+      process.env.NODE_ENV === 'development'
+        ? 'http://localhost:3000'
+        : `https://${req.headers.host}`; // for production
 
-  if (event === null) {
+    const url = `${baseUrl}/api/events/${context.query.slug}`;
+    console.log('url', url);
+
+    // // Call the API
+    // const res = await fetch(url);
+
+    // // Handle non-OK responses
+    // if (!res.ok) {
+    //   throw new Error('Failed to fetch data');
+    // }
+
+    // // Parse the response body
+    // const data = await res.json();
+
+    // Pass data to the page component as props
     return {
-      notFound: true,
+      props: {
+        data: {}, // The data from the API response
+      },
+    };
+  } catch (error) {
+    console.error(error);
+    return {
+      props: {
+        error: 'Failed to fetch data',
+      },
     };
   }
-
-  return {
-    props: {
-      data: { event: JSON.parse(JSON.stringify(event)) },
-    },
-  };
 }

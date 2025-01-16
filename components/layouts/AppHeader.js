@@ -1,3 +1,5 @@
+'use client';
+
 import {
   AppBar,
   Box,
@@ -7,10 +9,11 @@ import {
   Paper,
   IconButton,
   Tooltip,
+  useColorScheme,
 } from '@mui/material';
 import LockIcon from '@mui/icons-material/Lock';
 import LogoutIcon from '@mui/icons-material/Logout';
-import { useRouter } from 'next/router';
+import { useRouter } from 'next/navigation';
 import Brightness4Icon from '@mui/icons-material/Brightness4';
 import Brightness7Icon from '@mui/icons-material/Brightness7';
 import { setAppState, useAppState } from '@/store';
@@ -28,7 +31,7 @@ function logout() {
 export default function AppHeader() {
   const router = useRouter();
   const user = useAppState((s) => s.user);
-  const themeMode = useAppState((s) => s.themeMode);
+  const { mode, setMode } = useColorScheme();
 
   return (
     <AppBar position="fixed" sx={{ backgroundColor: 'white', color: 'black' }}>
@@ -72,22 +75,29 @@ export default function AppHeader() {
             {!user && (
               <Link
                 href="/contribute"
-                sx={{
-                  alignItems: 'center',
-                  border: 'none',
-                  borderRadius: '20px',
-                  display: 'flex',
-                  flexDirection: 'row',
-                  padding: '0 10px',
-                  textDecoration: 'none',
-                  color: (t) => (t.palette.mode === 'dark' ? 'black' : 'white'),
-                  backgroundColor: (t) =>
-                    t.palette.mode === 'dark' ? 'white' : 'black',
-                  fontWeight: 'bold',
-                  mx: 1,
-                  letterSpacing: '1px',
-                  fontSize: '14px',
-                }}
+                sx={[
+                  {
+                    alignItems: 'center',
+                    border: 'none',
+                    borderRadius: '20px',
+                    display: 'flex',
+                    flexDirection: 'row',
+                    padding: '0 10px',
+                    textDecoration: 'none',
+                    fontWeight: 'bold',
+                    mx: 1,
+                    letterSpacing: '1px',
+                    fontSize: '14px',
+                    color: 'white',
+                    backgroundColor: 'black',
+                    height: '35px',
+                  },
+                  (theme) =>
+                    theme.applyStyles('dark', {
+                      color: 'black',
+                      backgroundColor: 'white',
+                    }),
+                ]}
               >
                 CONTRIBUTE
                 <Box className={styles.heart}>❤️</Box>
@@ -110,18 +120,12 @@ export default function AppHeader() {
                 sx={{ ml: 1 }}
                 color="inherit"
                 onClick={() => {
-                  const mode = themeMode === 'light' ? 'dark' : 'light';
-                  setAppState((s) => ({
-                    themeMode: mode,
-                  }));
-                  localStorage.setItem('themeMode', mode);
+                  const themeMode = mode === 'light' ? 'dark' : 'light';
+                  setMode(themeMode);
+                  localStorage.setItem('themeMode', themeMode);
                 }}
               >
-                {themeMode === 'dark' ? (
-                  <Brightness7Icon />
-                ) : (
-                  <Brightness4Icon />
-                )}
+                {mode === 'dark' ? <Brightness7Icon /> : <Brightness4Icon />}
               </IconButton>
             </Tooltip>
           </Box>

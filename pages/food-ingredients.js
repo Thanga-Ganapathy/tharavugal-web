@@ -98,7 +98,6 @@ export default function FoodIngredients({ data }) {
     </Layout>
   );
 }
-
 export async function getServerSideProps(context) {
   const db = await getDB();
   const col = db.collection('food-ingredients');
@@ -116,7 +115,6 @@ export async function getServerSideProps(context) {
       },
     }
   );
-
   const foods = JSON.parse(JSON.stringify(await cursor.toArray()));
   return {
     props: {

@@ -2,7 +2,7 @@ import { Box, Chip, Tooltip } from '@mui/material';
 
 export default function TimelineTitle({ title, toolTip }) {
   return (
-    <Box>
+    (<Box>
       <Box
         component="span"
         sx={{
@@ -19,16 +19,19 @@ export default function TimelineTitle({ title, toolTip }) {
             size="small"
             variant="outlined"
             label={title}
-            sx={{
+            sx={[{
               fontWeight: 'bold',
               background: '#FF851B',
-              color: (t) => (t.palette.mode === 'dark' ? 'black' : 'white'),
               borderColor: '#FF851B',
-              letterSpacing: '1px',
-            }}
+              letterSpacing: '1px'
+            }, t.palette.mode === 'dark' ? {
+              color: 'black'
+            } : {
+              color: 'white'
+            }]}
           />
         </Tooltip>
       </Box>
-    </Box>
+    </Box>)
   );
 }

@@ -1,4 +1,4 @@
-import DialogWindow from '@/components/app/DialogWindow';
+import DialogWindow from '@/components/DialogWindow';
 import ProgressiveImg from '@/components/ProgressiveImg';
 import Layout from '@/components/layouts/DefaultLayout';
 import { getDB } from '@/lib/db';
@@ -102,7 +102,6 @@ export default function ContributionLogs({ logs, R2_DOMAIN }) {
     </Layout>
   );
 }
-
 export async function getServerSideProps(context) {
   const db = await getDB();
   const col = db.collection('contribution-logs');
@@ -114,7 +113,6 @@ export async function getServerSideProps(context) {
       },
     }
   );
-
   const logs = JSON.parse(JSON.stringify(await cursor.toArray()));
   return {
     props: {
