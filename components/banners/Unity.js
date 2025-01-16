@@ -1,4 +1,4 @@
-import { Box, Alert, AlertTitle, Paper, Typography } from '@mui/material';
+import { Box, Alert, Paper } from '@mui/material';
 
 export default function UnityBanner() {
   return (

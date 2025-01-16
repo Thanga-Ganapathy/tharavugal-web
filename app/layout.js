@@ -1,7 +1,10 @@
-import { Box, CssBaseline, ThemeProvider, Toolbar } from '@mui/material';
+import { Box, CssBaseline, Paper, ThemeProvider, Toolbar } from '@mui/material';
 
 import AppHeader from '@/components/layouts/AppHeader';
 import theme from '@/theme';
+import UnityBanner from '@/components/banners/Unity';
+import Footer from '@/components/layouts/Footer';
+import UserAgreement from '@/components/layouts/UserAgreement';
 
 export default function Layout({ children }) {
   return (
@@ -23,13 +26,15 @@ export default function Layout({ children }) {
               component="main"
               sx={{
                 flex: 1, // Main content takes the remaining space
-                paddingTop: '50px', // Ensure content starts below the header
-                backgroundColor: '#f4f4f4', // Optional background color for main content
-                padding: 2, // Responsive padding
               }}
             >
-              {children}
+              <Paper>
+                <UnityBanner />
+                {children}
+              </Paper>
             </Box>
+            <Footer />
+            <UserAgreement />
           </Box>
         </ThemeProvider>
       </body>

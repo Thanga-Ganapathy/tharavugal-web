@@ -2,7 +2,7 @@ import { Box, Card, Divider, Typography } from '@mui/material';
 import { FcAdvertising } from 'react-icons/fc';
 import useSWRImmutable from 'swr/immutable';
 import { format } from 'date-fns';
-import Link from '../app/Link';
+import Link from '@/components/Link';
 
 function AnnounceBox({ data }) {
   return (

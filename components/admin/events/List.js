@@ -5,7 +5,7 @@ import ModelActionMenu from '../../ModelActionMenu';
 import Edit from './Edit';
 import APIClient from '@/utils/APIClient';
 import { EVENTS_STATUS } from '@/constants';
-import Link from '@/components/app/Link';
+import Link from '@/components/Link';
 
 export default function List({
   data = [],

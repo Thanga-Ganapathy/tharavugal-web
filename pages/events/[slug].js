@@ -25,7 +25,7 @@ import { getDB } from '@/lib/db';
 import { useRouter } from 'next/router';
 import { isEmpty } from '@opentf/std';
 import HeadingWithDivider from '@/components/HeadingWithDivider';
-import Link from '@/components/app/Link';
+import Link from '@/components/Link';
 import { TZDate } from '@date-fns/tz';
 
 export default function EventView({ data }) {

@@ -20,7 +20,7 @@ import Layout from '@/components/layouts/DefaultLayout';
 import { setAppState } from '@/store';
 import { useRouter } from 'next/router';
 import { USER_ROLES } from '@/constants';
-import Link from '@/components/app/Link';
+import Link from '@/components/Link';
 import { LoadingButton } from '@mui/lab';
 import { useState } from 'react';
 

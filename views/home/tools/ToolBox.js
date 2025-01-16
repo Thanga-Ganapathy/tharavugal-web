@@ -1,5 +1,5 @@
 import { Box, Typography } from '@mui/material';
-import { useRouter } from 'next/router';
+import { useRouter } from 'next/navigation';
 
 export default function ToolBox({ icon: Icon, label, path, active }) {
   const router = useRouter();

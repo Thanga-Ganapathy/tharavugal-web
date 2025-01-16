@@ -1,7 +1,7 @@
 import { Box, Divider, Typography } from '@mui/material';
 import TagIcon from '@mui/icons-material/Tag';
-import { useRouter } from 'next/router';
-import Tag from '../app/Tag';
+import { useRouter } from 'next/navigation';
+import Tag from '@/components/Tag';
 import { sortBy } from '@opentf/std';
 
 export default function TagsSuggestion() {

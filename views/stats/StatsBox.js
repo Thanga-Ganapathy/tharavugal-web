@@ -1,5 +1,5 @@
 import { Box, Typography } from '@mui/material';
-import Link from '../app/Link';
+import Link from '@/components/Link';
 
 export default function StatsBox({ name, count = 0, href }) {
   return (

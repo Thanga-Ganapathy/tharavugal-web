@@ -12,7 +12,7 @@ import {
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import ThamizhlWord from '../thamizhlDictionary/ThamizhlWord';
-import Link from '../app/Link';
+import Link from '../Link';
 
 export default function Kural({ data, chapter, index }) {
   const renderExplanations = (lang, langID) => {

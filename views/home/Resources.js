@@ -1,9 +1,9 @@
 import { Box, Card, Divider, Typography } from '@mui/material';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import AudioFileOutlinedIcon from '@mui/icons-material/AudioFileOutlined';
-import { useRouter } from 'next/router';
+import { useRouter } from 'next/navigation';
 import { FcDocument, FcLandscape, FcStart } from 'react-icons/fc';
-import Books from '../icons/Books';
+import Books from '@/icons/Books';
 
 function Resource({ name, icon: Icon, path }) {
   const router = useRouter();

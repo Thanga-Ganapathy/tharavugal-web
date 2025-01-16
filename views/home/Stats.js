@@ -4,7 +4,7 @@ import StatsBox from '../stats/StatsBox';
 import { FcStatistics } from 'react-icons/fc';
 import { ThreeDots } from 'react-loader-spinner';
 import useSWR from 'swr';
-import Link from '../app/Link';
+import Link from '@/components/Link';
 
 export default function Stats() {
   const { data: stats, error, isLoading } = useSWR('/api/quick-stats');

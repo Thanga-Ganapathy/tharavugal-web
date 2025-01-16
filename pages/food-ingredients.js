@@ -11,7 +11,7 @@ import {
 } from '@mui/material';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import ProgressiveImg from '@/components/ProgressiveImg';
-import Link from '@/components/app/Link';
+import Link from '@/components/Link';
 
 const CATEGORY_COLORS = {
   Vegetables: '#2ECC40',

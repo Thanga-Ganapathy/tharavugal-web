@@ -13,7 +13,7 @@ import {
 } from 'react-icons/fc';
 
 import ToolBox from './ToolBox';
-import Hamburger from '@/components/icons/Hamburger';
+import Hamburger from '@/icons/Hamburger';
 
 export default function Tools() {
   return (

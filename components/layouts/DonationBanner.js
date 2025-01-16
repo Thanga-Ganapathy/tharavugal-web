@@ -1,5 +1,5 @@
 import VolunteerActivismIcon from '@mui/icons-material/VolunteerActivism';
-import Link from '../app/Link';
+import Link from '../Link';
 import {
   Alert,
   AlertTitle,

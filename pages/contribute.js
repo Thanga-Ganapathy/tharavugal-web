@@ -11,7 +11,7 @@ import {
 import InfoIcon from '@mui/icons-material/Info';
 import HeadingWithDivider from '@/components/HeadingWithDivider';
 import Feedback from '@/components/Feedback';
-import Link from '@/components/app/Link';
+import Link from '@/components/Link';
 import DonationBanner from '@/components/layouts/DonationBanner';
 
 export default function Contribute() {

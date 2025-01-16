@@ -15,7 +15,6 @@ import { SWRConfig } from 'swr';
 import APIClient from '@/utils/APIClient';
 import { useMemo } from 'react';
 import { isStr } from '@opentf/std';
-import Loading from '@/components/app/Loading';
 import Head from 'next/head';
 import { META_INFO } from '@/constants';
 

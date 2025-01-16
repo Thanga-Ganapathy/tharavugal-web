@@ -1,8 +1,10 @@
-import { Box, Grid, Paper, Typography } from '@mui/material';
+'use client';
+
+import { Box, Grid2, Paper, Typography } from '@mui/material';
 import { format } from 'date-fns';
 import OpenInNewOutlinedIcon from '@mui/icons-material/OpenInNewOutlined';
 import Feedback from '../Feedback';
-import Link from '../app/Link';
+import Link from '../Link';
 
 function LI({ title, href, children }) {
   return (
@@ -51,30 +53,30 @@ export default function Footer() {
         (theme) => theme.applyStyles('dark', { backgroundColor: null }),
       ]}
     >
-      <Grid container px={3}>
-        <Grid item xs={12} sm={6} md={3}>
+      <Grid2 container px={3}>
+        <Grid2 item xs={12} sm={6} md={3}>
           <Heading title="Organization" />
           <Box mt={2} component="ul">
             <LI href="/about-us" title="About Us" />
             <LI href="/contact-us" title="Contact Us" />
           </Box>
-        </Grid>
-        <Grid item xs={12} sx={{ mt: { xs: 2, sm: 0 } }} sm={6} md={3}>
+        </Grid2>
+        <Grid2 item xs={12} sx={{ mt: { xs: 2, sm: 0 } }} sm={6} md={3}>
           <Heading title="Useful Links" />
           <Box mt={2} component="ul">
             <LI href="/work-pipeline" title="Work Pipeline" />
             <LI href="/faqs" title="FAQs" />
             <LI href="/kb" title="Knowledge Base" />
           </Box>
-        </Grid>
-        <Grid item xs={12} sx={{ mt: { xs: 2, sm: 0 } }} sm={6} md={3}>
+        </Grid2>
+        <Grid2 item xs={12} sx={{ mt: { xs: 2, sm: 0 } }} sm={6} md={3}>
           <Heading title="Legal" />
           <Box mt={2} component="ul">
             <LI href="/terms-conditions" title="Terms & Conditions" />
             <LI href="/privacy-policy" title="Privacy Policy" />
           </Box>
-        </Grid>
-        <Grid item xs={12} sx={{ mt: { xs: 2, sm: 0 } }} sm={6} md={3}>
+        </Grid2>
+        <Grid2 item xs={12} sx={{ mt: { xs: 2, sm: 0 } }} sm={6} md={3}>
           <Heading title="Others" />
           <Box mt={2} component="ul">
             <LI href="/credits" title="Credits" />
@@ -83,8 +85,8 @@ export default function Footer() {
               <OpenInNewOutlinedIcon sx={{ fontSize: '12px' }} />
             </LI>
           </Box>
-        </Grid>
-      </Grid>
+        </Grid2>
+      </Grid2>
       <Box sx={{ mt: 2, display: 'flex', justifyContent: 'center' }}>
         <Feedback />
       </Box>

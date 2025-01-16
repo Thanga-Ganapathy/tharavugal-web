@@ -10,12 +10,12 @@ import {
 import SearchIcon from '@mui/icons-material/Search';
 import CircularProgress from '@mui/material/CircularProgress';
 
-import DialogWindow from '../DialogWindow';
-import HeadingWithDivider from '../HeadingWithDivider';
+import DialogWindow from '@/components/DialogWindow';
+import HeadingWithDivider from '@/components/HeadingWithDivider';
 import { Form } from '@opentf/react-form';
 import APIClient from '@/utils/APIClient';
 import { useField } from '@opentf/react-form';
-import Link from '../app/Link';
+import Link from '@/components/Link';
 import { format } from 'date-fns';
 import useAlert from '@/hooks/useAlert';
 

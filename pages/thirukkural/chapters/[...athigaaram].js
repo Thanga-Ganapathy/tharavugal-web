@@ -7,7 +7,7 @@ import { thirukkural } from '@/data/thirukkural';
 import Kural from '@/components/thirukkural/Kural';
 import { useEffect } from 'react';
 import { useState } from 'react';
-import Link from '@/components/app/Link';
+import Link from '@/components/Link';
 import { sortBy } from '@opentf/std';
 import { isEmpty } from '@opentf/std';
 import { isNull } from '@opentf/std';

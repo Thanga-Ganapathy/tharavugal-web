@@ -19,7 +19,9 @@ import { useState } from 'react';
 import { useEffect } from 'react';
 import { TZDate } from '@date-fns/tz';
 
-export default function Events({ styles }) {
+import styles from './styles.module.css'
+
+export default function Events() {
   const [page, setPage] = useState(1);
   const { data: events, error, isLoading } = useSWR('/api/events?page=' + page);
 

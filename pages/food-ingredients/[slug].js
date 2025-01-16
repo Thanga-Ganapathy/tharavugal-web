@@ -16,7 +16,7 @@ import Ingredient from '@/components/foodIngredients/Ingredient';
 import ProgressiveImg from '@/components/ProgressiveImg';
 import Breadcrumbs from '@mui/material/Breadcrumbs';
 import NavigateNextIcon from '@mui/icons-material/NavigateNext';
-import Link from '@/components/app/Link';
+import Link from '@/components/Link';
 
 const CATEGORY_COLORS = {
   Vegetables: '#2ECC40',

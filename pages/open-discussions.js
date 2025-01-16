@@ -1,7 +1,7 @@
 import Layout from '@/components/layouts/DefaultLayout';
 import { Alert, Box, Paper, Tooltip, Typography } from '@mui/material';
 import ChatOutlinedIcon from '@mui/icons-material/ChatOutlined';
-import Link from '@/components/app/Link';
+import Link from '@/components/Link';
 
 function DiscussionBox({ title }) {
   return (

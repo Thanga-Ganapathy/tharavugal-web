@@ -1,4 +1,4 @@
-import Link from '@/components/app/Link';
+import Link from '@/components/Link';
 import SearchForm from '@/components/home/SearchForm';
 import Layout from '@/components/layouts/DefaultLayout';
 import { Masonry } from '@mui/lab';

@@ -9,7 +9,7 @@ import {
 } from '@mui/material';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import { thirukkural } from '@/data/thirukkural';
-import Link from '../app/Link';
+import Link from '../Link';
 import { sortBy } from '@opentf/std';
 
 export default function Chapters() {

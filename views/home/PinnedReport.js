@@ -1,7 +1,7 @@
 import { Box, Card, CardContent, Typography } from '@mui/material';
-import HeadingWithDivider from '../HeadingWithDivider';
+import HeadingWithDivider from '@/components/HeadingWithDivider';
 import { PushPin } from '@mui/icons-material';
-import Link from '../app/Link';
+import Link from '@/components/Link';
 
 export default function PinnedReport() {
   return (

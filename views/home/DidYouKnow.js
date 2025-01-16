@@ -1,8 +1,10 @@
+'use client';
+
 import { Box, Typography, Pagination, Alert, Button } from '@mui/material';
-import HeadingWithDivider from '../HeadingWithDivider';
+import HeadingWithDivider from '@/components/HeadingWithDivider';
 import { FcIdea } from 'react-icons/fc';
 import useSWRImmutable from 'swr/immutable';
-import Link from '../app/Link';
+import Link from '@/components/Link';
 import { useState } from 'react';
 import { ThreeDots } from 'react-loader-spinner';
 import MaleIcon from '@mui/icons-material/Male';
@@ -89,7 +91,7 @@ export default function DidYouKnow() {
               fontSize: '36px',
             }}
           >
-            {data.suddenDeaths.count}
+            {data?.suddenDeaths.count}
           </Box>{' '}
           <Box
             component="span"

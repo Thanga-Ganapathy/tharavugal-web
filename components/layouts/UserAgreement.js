@@ -1,7 +1,7 @@
 'use client';
 
 import { Box, Button, Typography } from '@mui/material';
-import Link from '../app/Link';
+import Link from '../Link';
 import { useState } from 'react';
 
 export default function UserAgreement() {
@@ -50,6 +50,7 @@ export default function UserAgreement() {
         </Typography>
         <Button
           variant="outlined"
+          size='small'
           sx={{ mt: 1, background: 'white', color: 'black' }}
           onClick={() => {
             localStorage.setItem('agreement', true);
@@ -60,6 +61,7 @@ export default function UserAgreement() {
         </Button>
         <Button
           variant="outlined"
+          size='small'
           sx={{ mt: 1, background: 'white', color: 'black', ml: 2 }}
           onClick={() => {
             localStorage.setItem('agreement', false);

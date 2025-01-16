@@ -1,5 +1,5 @@
 import HeadingWithDivider from '@/components/HeadingWithDivider';
-import Link from '@/components/app/Link';
+import Link from '@/components/Link';
 import Layout from '@/components/layouts/DefaultLayout';
 import kbData from '@/data/kb';
 import {

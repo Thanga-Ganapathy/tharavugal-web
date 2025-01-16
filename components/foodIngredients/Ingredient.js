@@ -7,7 +7,7 @@ import {
   Typography,
 } from '@mui/material';
 import OpenInNewOutlinedIcon from '@mui/icons-material/OpenInNewOutlined';
-import Link from '../app/Link';
+import Link from '../Link';
 
 export default function Ingredient({ data }) {
   return (

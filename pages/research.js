@@ -1,4 +1,4 @@
-import Link from '@/components/app/Link';
+import Link from '@/components/Link';
 import Layout from '@/components/layouts/DefaultLayout';
 import { Alert, Box, Typography } from '@mui/material';
 

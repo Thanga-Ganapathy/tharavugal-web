@@ -26,9 +26,9 @@ import { useRef } from 'react';
 import { useEffect } from 'react';
 import { arrReplace } from '@opentf/std';
 import DialogWindow from '../DialogWindow';
-import HeadingWithDivider from '../HeadingWithDivider';
+import HeadingWithDivider from '@/components/HeadingWithDivider';
 import { thirukkural } from '@/data/thirukkural/index';
-import Link from '../app/Link';
+import Link from '../Link';
 
 const miniSearch = MiniSearch.loadJSON(JSON.stringify(searchIndex), {
   fields: ['name', 'nameEn', 'text', 'textEn', 'textEnExp'],

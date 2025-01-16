@@ -5,7 +5,7 @@ import KeyboardIcon from '@mui/icons-material/Keyboard';
 import { FcCalendar } from 'react-icons/fc';
 
 import ToolBox from './tools/ToolBox';
-import OpenBook from '../icons/OpenBook';
+import OpenBook from '@/icons/OpenBook';
 
 export default function ThamizhlTools() {
   return (

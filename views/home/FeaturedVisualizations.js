@@ -1,12 +1,12 @@
 import { Box, Card, CardContent, Divider, Typography } from '@mui/material';
-import { useRouter } from 'next/router';
+import { useRouter } from 'next/navigation';
 import useAlert from '@/hooks/useAlert';
 import { endOfMonth, format, startOfMonth } from 'date-fns';
 import { FcDoughnutChart } from 'react-icons/fc';
-import Elephant from '../icons/Elephant';
-import Ambulance from '../icons/Ambulance';
-import Fire from '../icons/Fire';
-import Warning from '../icons/Warning';
+import Elephant from '@/icons/Elephant';
+import Ambulance from '@/icons/Ambulance';
+import Fire from '@/icons/Fire';
+import Warning from '@/icons/Warning';
 import randomGradientColor from '@/utils/randomGradientColor';
 import { TZDate } from '@date-fns/tz';
 

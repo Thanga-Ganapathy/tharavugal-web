@@ -16,11 +16,11 @@ import LogoutIcon from '@mui/icons-material/Logout';
 import { useRouter } from 'next/navigation';
 import Brightness4Icon from '@mui/icons-material/Brightness4';
 import Brightness7Icon from '@mui/icons-material/Brightness7';
-import { setAppState, useAppState } from '@/store';
+import { useAppState } from '@/store';
 import { USER_ROLES } from '@/constants';
 import styles from '../../pages/index.module.css';
 import AppDrawer from './AppDrawer';
-import Link from '../app/Link';
+import Link from '../Link';
 
 function logout() {
   window.sessionStorage.clear();

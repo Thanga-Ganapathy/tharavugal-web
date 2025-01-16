@@ -11,7 +11,7 @@ import { format } from 'date-fns';
 import ActionMenu from './ActionMenu';
 import { useRouter } from 'next/router';
 import { TZDate } from '@date-fns/tz';
-import Link from '../app/Link';
+import Link from '../Link';
 import ImageIcon from '@mui/icons-material/Image';
 import PlayCircleFilledIcon from '@mui/icons-material/PlayCircleFilled';
 import AnchorIcon from '@mui/icons-material/Anchor';
