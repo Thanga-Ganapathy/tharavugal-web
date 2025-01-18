@@ -183,7 +183,7 @@ export default function GlobalSearch() {
   };
 
   return (
-    (<Box sx={{ my: 2 }}>
+    (<Box sx={{ my: 1 }}>
       <Box sx={{ display: 'flex', justifyContent: 'center' }}>
         <Box
           onClick={() => setOpen(true)}

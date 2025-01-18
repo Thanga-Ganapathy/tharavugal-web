@@ -1,10 +1,10 @@
-import { Box, CssBaseline, Paper, ThemeProvider, Toolbar } from '@mui/material';
+import { Box, CssBaseline, ThemeProvider } from '@mui/material';
 
 import AppHeader from '@/components/layouts/AppHeader';
 import theme from '@/theme';
-import UnityBanner from '@/components/banners/Unity';
 import Footer from '@/components/layouts/Footer';
 import UserAgreement from '@/components/layouts/UserAgreement';
+import MainContent from '@/components/layouts/MainContent';
 
 export default function Layout({ children }) {
   return (
@@ -21,18 +21,9 @@ export default function Layout({ children }) {
             }}
           >
             <AppHeader />
-            <Toolbar variant="dense" />
-            <Box
-              component="main"
-              sx={{
-                flex: 1, // Main content takes the remaining space
-              }}
-            >
-              <Paper>
-                <UnityBanner />
-                {children}
-              </Paper>
-            </Box>
+
+            <MainContent>{children}</MainContent>
+
             <Footer />
             <UserAgreement />
           </Box>

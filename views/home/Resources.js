@@ -10,9 +10,17 @@ function Resource({ name, icon: Icon, path }) {
   return (
     <Chip
       variant="outlined"
-      sx={{
-        m: 1,
-      }}
+      color="default"
+      sx={[
+        {
+          m: 1,
+          bgcolor: 'white',
+        },
+        (t) =>
+          t.applyStyles('dark', {
+            background: 'black',
+          }),
+      ]}
       onClick={() => router.push(path)}
       label={name}
       icon={<Icon style={{ height: '16px' }} />}
@@ -23,9 +31,8 @@ function Resource({ name, icon: Icon, path }) {
 export default function Resources() {
   return (
     <Box
-      mt={1}
       sx={{
-        mt: 1,
+        // mt: 1,
         display: 'flex',
         flexWrap: 'wrap',
         justifyContent: 'center',
