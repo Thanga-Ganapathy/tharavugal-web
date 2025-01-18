@@ -1,7 +1,6 @@
 'use client';
 
 import { Box } from '@mui/material';
-import UnityBanner from '../banners/Unity';
 import Sidebar from '@/components/layouts/Sidebar';
 
 export default function MainContent({ children }) {
@@ -12,7 +11,7 @@ export default function MainContent({ children }) {
         {
           flex: 1, // Main content takes the remaining space
           background: '#E7EBF0',
-          p: 2,
+          // p: 2,
         },
         (t) =>
           t.applyStyles('dark', {
@@ -23,7 +22,7 @@ export default function MainContent({ children }) {
       <Box
         sx={{
           display: 'grid',
-          gridTemplateColumns: { xs: '1fr', md: '240px 1fr' }, // 1 column on small screens, 2 columns on medium and larger screens
+          gridTemplateColumns: { xs: '1fr', md: '200px 1fr' }, // 1 column on small screens, 2 columns on medium and larger screens
           columnGap: 2,
         }}
       >
@@ -46,7 +45,6 @@ export default function MainContent({ children }) {
             padding: 2,
           }}
         >
-          <UnityBanner />
           {children}
         </Box>
       </Box>

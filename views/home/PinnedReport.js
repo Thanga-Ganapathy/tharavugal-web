@@ -10,7 +10,7 @@ export default function PinnedReport() {
         title="Pinned Report"
         icon={PushPin}
         sx={{ px: 1 }}
-        // iconSX={{ color: '#85144b' }}
+        iconSX={{ color: 'red', height: '25px' }}
       />
       <Box mt={1}>
         <Card variant="outlined">
