@@ -24,9 +24,14 @@ import ResearchProjects from './ResearchProjects';
 export default function Home() {
   return (
     <Box>
-      <Box sx={{ mt: { xs: 2, sm: 1, md: 0 } }}>
+      <Box
+        sx={{
+          mt: { xs: 2, sm: 1, md: 0 },
+        }}
+      >
         <GlobalSearch />
       </Box>
+      <Resources />
       <Box
         sx={{
           display: { md: 'grid' },
@@ -36,10 +41,6 @@ export default function Home() {
       >
         <Box>
           <Events />
-
-          <Paper sx={{ mt: 2 }}>
-            <Resources />
-          </Paper>
 
           <Paper sx={{ mt: 2 }}>
             <Sections />
