@@ -1,8 +1,10 @@
+'use client';
+
 import { Box, Chip, Tooltip } from '@mui/material';
 
 export default function TimelineTitle({ title, toolTip }) {
   return (
-    (<Box>
+    <Box>
       <Box
         component="span"
         sx={{
@@ -19,19 +21,22 @@ export default function TimelineTitle({ title, toolTip }) {
             size="small"
             variant="outlined"
             label={title}
-            sx={[{
-              fontWeight: 'bold',
-              background: '#FF851B',
-              borderColor: '#FF851B',
-              letterSpacing: '1px'
-            }, t.palette.mode === 'dark' ? {
-              color: 'black'
-            } : {
-              color: 'white'
-            }]}
+            sx={[
+              {
+                fontWeight: 'bold',
+                background: '#FF851B',
+                borderColor: '#FF851B',
+                letterSpacing: '1px',
+                color: 'white',
+              },
+              (t) =>
+                t.applyStyles('dark', {
+                  color: 'black',
+                }),
+            ]}
           />
         </Tooltip>
       </Box>
-    </Box>)
+    </Box>
   );
 }

@@ -1,0 +1,14 @@
+
+.heart {
+  display: inline-block;
+  font-size: 25px;
+  animation: beat 1s infinite alternate;
+  transform-origin: center;
+}
+
+/* Heart beat animation */
+@keyframes beat {
+  to {
+    transform: scale(0.75);
+  }
+}

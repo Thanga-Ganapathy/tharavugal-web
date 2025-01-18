@@ -3,9 +3,14 @@
 import { Box, Button, Typography } from '@mui/material';
 import Link from '../Link';
 import { useState } from 'react';
+import { useEffect } from 'react';
 
 export default function UserAgreement() {
-  const [agreement, setAgreement] = useState(localStorage.getItem('agreement'));
+  const [agreement, setAgreement] = useState(false);
+
+  useEffect(() => {
+    setAgreement(window.localStorage.getItem('agreement'));
+  }, []);
 
   if (agreement === null) {
     return (
@@ -50,7 +55,7 @@ export default function UserAgreement() {
         </Typography>
         <Button
           variant="outlined"
-          size='small'
+          size="small"
           sx={{ mt: 1, background: 'white', color: 'black' }}
           onClick={() => {
             localStorage.setItem('agreement', true);
@@ -61,7 +66,7 @@ export default function UserAgreement() {
         </Button>
         <Button
           variant="outlined"
-          size='small'
+          size="small"
           sx={{ mt: 1, background: 'white', color: 'black', ml: 2 }}
           onClick={() => {
             localStorage.setItem('agreement', false);

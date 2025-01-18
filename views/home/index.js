@@ -1,6 +1,6 @@
 'use client';
 
-import { Box, Paper } from '@mui/material';
+import { Box, Paper, Typography } from '@mui/material';
 
 import Events from '@/components/Events';
 
@@ -18,6 +18,8 @@ import TagsSuggestion from './TagsSuggestion';
 import GlobalSearch from './GlobalSearch';
 import DidYouKnow from './DidYouKnow';
 import PinnedReport from './PinnedReport';
+import Link from '@/components/Link';
+import { PushPin } from '@mui/icons-material';
 
 export default function Home() {
   return (
@@ -38,12 +40,21 @@ export default function Home() {
         }}
       >
         <Box>
+          <Box sx={{ display: 'flex' }}>
+            <PushPin sx={{ color: 'red' }} />
+            <Link
+              href="/reports/republic-of-india-general-election-parliamentary-constituencies-2024"
+              sx={{ mb: 1 }}
+            >
+              <Typography>
+                The Republic of India 🇮🇳  - General Election - Parliamentary
+                Constituencies (2024) Report
+              </Typography>
+            </Link>
+          </Box>
           <Events />
         </Box>
         <Box>
-          <Paper sx={{ mt: { xs: 2, sm: 0 } }}>
-            <PinnedReport />
-          </Paper>
           <Paper sx={{ mt: 2 }}>
             <Stats />
           </Paper>

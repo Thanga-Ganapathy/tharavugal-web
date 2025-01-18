@@ -18,7 +18,7 @@ import Brightness4Icon from '@mui/icons-material/Brightness4';
 import Brightness7Icon from '@mui/icons-material/Brightness7';
 import { useAppState } from '@/store';
 import { USER_ROLES } from '@/constants';
-import styles from '../../pages/index.module.css';
+import styles from './styles.module.css';
 import AppDrawer from './AppDrawer';
 import Link from '../Link';
 

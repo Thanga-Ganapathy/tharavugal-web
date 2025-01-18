@@ -1,3 +1,5 @@
+'use client'
+
 import {
   Box,
   Card,
@@ -9,7 +11,7 @@ import {
 } from '@mui/material';
 import { format } from 'date-fns';
 import ActionMenu from './ActionMenu';
-import { useRouter } from 'next/router';
+import { useRouter } from 'next/navigation';
 import { TZDate } from '@date-fns/tz';
 import Link from '../Link';
 import ImageIcon from '@mui/icons-material/Image';
