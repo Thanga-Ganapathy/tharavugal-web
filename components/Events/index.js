@@ -27,9 +27,6 @@ export default function Events() {
   const [page, setPage] = useState(1);
   const { data: events, error, isLoading } = useSWR('/api/events?page=' + page);
 
-  console.log('events', events);
-  
-
   useEffect(() => {
     window.scrollTo({
       top: 10,
@@ -38,8 +35,6 @@ export default function Events() {
   }, [events]);
 
   const renderEvents = () => {
-    console.log('renderEvents');
-    
     const eventsWithDate = events?.data.map((e) => ({
       ...e,
       date: format(new TZDate(e.startedAt, e.startTz), 'yyyy-MM-dd'),

@@ -1,5 +1,6 @@
+'use client';
+
 import Link from '@/components/Link';
-import Layout from '@/components/layouts/DefaultLayout';
 import {
   Alert,
   Box,
@@ -62,15 +63,20 @@ function numFormat(n) {
 
 function NumberBox({ value, text, variant }) {
   return (
-    (<Card
+    <Card
       variant="outlined"
-      sx={[{
-        m: 1
-      }, variant ? {
-        border: '1px solid red'
-      } : {
-        border: null
-      }]}
+      sx={[
+        {
+          m: 1,
+        },
+        variant
+          ? {
+              border: '1px solid red',
+            }
+          : {
+              border: null,
+            },
+      ]}
     >
       <CardContent sx={{ textAlign: 'center' }}>
         <Typography variant="h3" sx={{ textAlign: 'center' }}>
@@ -80,7 +86,7 @@ function NumberBox({ value, text, variant }) {
           {text}
         </Typography>
       </CardContent>
-    </Card>)
+    </Card>
   );
 }
 
@@ -185,8 +191,8 @@ export default function Report() {
         renderCell(params) {
           return renderDiff(params.row);
         },
-        valueGetter: (value) => {
-          return value.row.evmResult - value.row.evmCount;
+        valueGetter: (value, row) => {
+          return row.evmResult - row.evmCount;
         },
       },
     ];
@@ -280,10 +286,7 @@ export default function Report() {
   };
 
   return (
-    <Layout
-      title="The Republic of India - General Election - Parliamentary
-    Constituencies (2024)"
-    >
+    <>
       <Paper sx={{ p: 2, mt: 2 }}>
         <Box textAlign="center">
           <Typography variant="h5">
@@ -435,6 +438,6 @@ export default function Report() {
       >
         <Box sx={{ mb: 25 }}>{open && renderState()}</Box>
       </DialogWindow>
-    </Layout>
+    </>
   );
 }

@@ -1,3 +1,5 @@
+'use client';
+
 import VolunteerActivismIcon from '@mui/icons-material/VolunteerActivism';
 import Link from '../Link';
 import {
@@ -8,7 +10,7 @@ import {
   Paper,
   Typography,
 } from '@mui/material';
-import { useRouter } from 'next/router';
+import { useRouter } from 'next/navigation';
 
 export default function DonationBanner() {
   const router = useRouter();

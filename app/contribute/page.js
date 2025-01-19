@@ -1,13 +1,4 @@
-import Layout from '@/components/layouts/DefaultLayout';
-import {
-  Paper,
-  Typography,
-  Card,
-  CardContent,
-  Chip,
-  Box,
-  Alert,
-} from '@mui/material';
+import { Typography, Card, CardContent, Chip, Box, Alert } from '@mui/material';
 import InfoIcon from '@mui/icons-material/Info';
 import HeadingWithDivider from '@/components/HeadingWithDivider';
 import Feedback from '@/components/Feedback';
@@ -16,7 +7,7 @@ import DonationBanner from '@/components/layouts/DonationBanner';
 
 export default function Contribute() {
   return (
-    <Layout title="Contribute">
+    <Box>
       <Typography variant="h5" textAlign="center">
         🙏 Contribute
       </Typography>
@@ -279,6 +270,6 @@ export default function Contribute() {
           <CardContent></CardContent>
         </Card>
       </Box>
-    </Layout>
+    </Box>
   );
 }

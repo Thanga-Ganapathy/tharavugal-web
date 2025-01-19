@@ -185,48 +185,50 @@ export default function DidYouKnow() {
 
         <Box sx={{ display: 'flex', justifyContent: 'center' }}>
           <table>
-            <tr>
-              <td align="right">
-                <Box sx={{ display: 'flex', alignItems: 'center' }}>
-                  <MaleIcon sx={{ mr: 1 }} />
-                  <Typography sx={{ color: (t) => t.palette.info.main }}>
-                    Male:
+            <tbody>
+              <tr>
+                <td align="right">
+                  <Box sx={{ display: 'flex', alignItems: 'center' }}>
+                    <MaleIcon sx={{ mr: 1 }} />
+                    <Typography sx={{ color: (t) => t.palette.info.main }}>
+                      Male:
+                    </Typography>
+                  </Box>
+                </td>
+                <td>
+                  <Typography
+                    sx={{
+                      ml: 1,
+                      color: (t) => t.palette.error.main,
+                      fontWeight: 'bold',
+                    }}
+                  >
+                    {data.suicideCases.male}
                   </Typography>
-                </Box>
-              </td>
-              <td>
-                <Typography
-                  sx={{
-                    ml: 1,
-                    color: (t) => t.palette.error.main,
-                    fontWeight: 'bold',
-                  }}
-                >
-                  {data.suicideCases.male}
-                </Typography>
-              </td>
-            </tr>
-            <tr>
-              <td align="right">
-                <Box sx={{ display: 'flex', alignItems: 'center' }}>
-                  <FemaleIcon sx={{ mr: 1 }} />
-                  <Typography sx={{ color: (t) => t.palette.info.main }}>
-                    Female:
+                </td>
+              </tr>
+              <tr>
+                <td align="right">
+                  <Box sx={{ display: 'flex', alignItems: 'center' }}>
+                    <FemaleIcon sx={{ mr: 1 }} />
+                    <Typography sx={{ color: (t) => t.palette.info.main }}>
+                      Female:
+                    </Typography>
+                  </Box>
+                </td>
+                <td>
+                  <Typography
+                    sx={{
+                      ml: 1,
+                      color: (t) => t.palette.error.main,
+                      fontWeight: 'bold',
+                    }}
+                  >
+                    {data.suicideCases.female}
                   </Typography>
-                </Box>
-              </td>
-              <td>
-                <Typography
-                  sx={{
-                    ml: 1,
-                    color: (t) => t.palette.error.main,
-                    fontWeight: 'bold',
-                  }}
-                >
-                  {data.suicideCases.female}
-                </Typography>
-              </td>
-            </tr>
+                </td>
+              </tr>
+            </tbody>
           </table>
         </Box>
 
