@@ -180,6 +180,7 @@ export default function Contribute() {
               <br />
               <br />
               Some of the areas like:
+            </Typography>
               <ul>
                 <li>
                   We need <strong>Thamizhl</strong> language scholars to verify{' '}
@@ -190,7 +191,6 @@ export default function Contribute() {
                   more thamizhl dictionary words here.
                 </li>
               </ul>
-            </Typography>
           </CardContent>
         </Card>
         <Card sx={{ mt: 2 }}>

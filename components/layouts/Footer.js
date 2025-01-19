@@ -53,15 +53,15 @@ export default function Footer() {
         (theme) => theme.applyStyles('dark', { backgroundColor: null }),
       ]}
     >
-      <Grid2 container px={3}>
-        <Grid2 item xs={12} sm={6} md={3}>
+      <Grid2 container px={3} spacing={3}>
+        <Grid2 size="grow" xs={12} sm={6} md={3}>
           <Heading title="Organization" />
           <Box mt={2} component="ul">
             <LI href="/about-us" title="About Us" />
             <LI href="/contact-us" title="Contact Us" />
           </Box>
         </Grid2>
-        <Grid2 item xs={12} sx={{ mt: { xs: 2, sm: 0 } }} sm={6} md={3}>
+        <Grid2 size="grow" xs={12} sx={{ mt: { xs: 2, sm: 0 } }} sm={6} md={3}>
           <Heading title="Useful Links" />
           <Box mt={2} component="ul">
             <LI href="/work-pipeline" title="Work Pipeline" />
@@ -69,14 +69,14 @@ export default function Footer() {
             <LI href="/kb" title="Knowledge Base" />
           </Box>
         </Grid2>
-        <Grid2 item xs={12} sx={{ mt: { xs: 2, sm: 0 } }} sm={6} md={3}>
+        <Grid2 size="grow" xs={12} sx={{ mt: { xs: 2, sm: 0 } }} sm={6} md={3}>
           <Heading title="Legal" />
           <Box mt={2} component="ul">
             <LI href="/terms-conditions" title="Terms & Conditions" />
             <LI href="/privacy-policy" title="Privacy Policy" />
           </Box>
         </Grid2>
-        <Grid2 item xs={12} sx={{ mt: { xs: 2, sm: 0 } }} sm={6} md={3}>
+        <Grid2 size="grow" xs={12} sx={{ mt: { xs: 2, sm: 0 } }} sm={6} md={3}>
           <Heading title="Others" />
           <Box mt={2} component="ul">
             <LI href="/credits" title="Credits" />
