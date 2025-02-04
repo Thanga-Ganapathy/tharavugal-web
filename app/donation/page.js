@@ -23,9 +23,10 @@ export default function Donation() {
           Every donation helps us continue our work and create meaningful
           change.
         </Typography>
-        <Typography variant="h6" sx={{ mt: 2 }}>
-          - No amount is too small to make a difference.
-        </Typography>
+        
+        <Alert severity="success" sx={{ mt: 2 }}>
+          No amount is too small to make a difference.
+        </Alert>
 
         <Alert severity="warning" sx={{ mt: 2 }}>
           Currently, we cannot integrate any Payment Gateway into our app; once

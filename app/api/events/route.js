@@ -1,7 +1,7 @@
 import { getDB } from '@/lib/db';
 import { reverse } from '@opentf/std';
 
-async function getParentLocations(locationIds, locationsCollection) {
+export async function getParentLocations(locationIds, locationsCollection) {
   // Recursive function to fetch parent locations for each locationId
   const fetchParentLocations = async (parentId) => {
     if (!parentId) {

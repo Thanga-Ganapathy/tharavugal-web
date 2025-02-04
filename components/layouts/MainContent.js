@@ -11,7 +11,6 @@ export default function MainContent({ children }) {
         {
           flex: 1, // Main content takes the remaining space
           background: '#E7EBF0',
-          // p: 2,
         },
         (t) =>
           t.applyStyles('dark', {
@@ -30,7 +29,7 @@ export default function MainContent({ children }) {
         <Box
           sx={{
             position: { md: 'sticky' }, // Sticky on medium screens and above
-            top: 0, // Align to the top of the screen
+            top: 100, // Align to the top of the screen
             gridColumn: { md: '1 / 2' }, // Sidebar occupies the first 30% on medium and larger screens
             display: { xs: 'none', md: 'block' }, // Hide sidebar on small screens
           }}
@@ -41,6 +40,7 @@ export default function MainContent({ children }) {
         {/* Main Content Area */}
         <Box
           sx={{
+            minHeight: '100vh',
             gridColumn: { xs: '1', md: '2' }, // Main content takes full width on small screens, 70% on larger screens
             padding: 2,
           }}

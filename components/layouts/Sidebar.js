@@ -116,7 +116,7 @@ const Sidebar = () => {
         <ListItemButton
           component={Link}
           href="/thamizhl-தமிழ்"
-          selected={pathname === '/thamizhl-தமிழ்'} // Check if current path matches
+          selected={decodeURIComponent(pathname) === '/thamizhl-தமிழ்'} // Check if current path matches
         >
           <ListItemIcon>
             <FcReading />

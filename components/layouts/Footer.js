@@ -46,7 +46,6 @@ export default function Footer() {
       component="footer"
       sx={[
         {
-          mt: 5,
           p: 3,
           backgroundColor: 'black',
         },
