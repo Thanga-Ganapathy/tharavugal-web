@@ -11,8 +11,14 @@ export async function GET(req) {
       .find({}, { projection: { _id: 0 } })
       .sort({ updatedAt: -1 });
 
-    return new Response(JSON.stringify({ data: await data.toArray() }), { status: 200 });
+    return new Response(JSON.stringify({ data: await data.toArray() }), {
+      status: 200,
+      headers: { 'Content-Type': 'application/json' },
+    });
   } catch (error) {
-    return new Response(JSON.stringify({ message: error.message }), { status: 500 });
+    return new Response(JSON.stringify({ message: error.message }), {
+      status: 500,
+      headers: { 'Content-Type': 'application/json' },
+    });
   }
 }

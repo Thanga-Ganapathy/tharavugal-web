@@ -19,7 +19,10 @@ export async function GET(req) {
       },
       { $project: { data: 1, _id: 0 } },
     ];
-    let cursor = collection.aggregate(aggArr, { maxTimeMS: 60000, allowDiskUse: true });
+    let cursor = collection.aggregate(aggArr, {
+      maxTimeMS: 60000,
+      allowDiskUse: true,
+    });
     let result = await cursor.toArray();
     const lightningCount = {
       killed: result.reduce((prev, cur) => {
@@ -44,7 +47,10 @@ export async function GET(req) {
       },
       { $project: { data: 1, _id: 0 } },
     ];
-    cursor = collection.aggregate(aggArr, { maxTimeMS: 60000, allowDiskUse: true });
+    cursor = collection.aggregate(aggArr, {
+      maxTimeMS: 60000,
+      allowDiskUse: true,
+    });
     result = await cursor.toArray();
     const suddenDeathsCount = result.filter((r) => {
       const p = r.data.public.death.people[0];
@@ -62,7 +68,10 @@ export async function GET(req) {
       },
       { $project: { data: 1, _id: 0 } },
     ];
-    cursor = collection.aggregate(aggArr, { maxTimeMS: 60000, allowDiskUse: true });
+    cursor = collection.aggregate(aggArr, {
+      maxTimeMS: 60000,
+      allowDiskUse: true,
+    });
     result = await cursor.toArray();
     const suicideCount = sum(result, ({ data }) => data.public.death.count);
     const suicideMaleCount = result.reduce((prev, cur) => {
@@ -84,9 +93,12 @@ export async function GET(req) {
           female: suicideFemaleCount,
         },
       }),
-      { status: 200 }
+      { status: 200, headers: { 'Content-Type': 'application/json' } }
     );
   } catch (error) {
-    return new Response(JSON.stringify({ message: error.message }), { status: 500 });
+    return new Response(JSON.stringify({ message: error.message }), {
+      status: 500,
+      headers: { 'Content-Type': 'application/json' },
+    });
   }
 }

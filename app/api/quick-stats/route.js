@@ -15,5 +15,8 @@ export async function GET(req) {
     locations: await locCol.estimatedDocumentCount(),
   };
 
-  return new Response(JSON.stringify({ data }), { status: 200 });
+  return new Response(JSON.stringify({ data }), {
+    status: 200,
+    headers: { 'Content-Type': 'application/json' },
+  });
 }

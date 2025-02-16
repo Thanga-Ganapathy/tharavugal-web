@@ -1,60 +1,84 @@
+import { isJSON } from "@opentf/std";
+
 export default class APIClient {
-  static async get(url, headers = {}) {
-    const res = await fetch(url, {
-      headers: {
-        Authorization: JSON.parse(localStorage.getItem('user'))?.authToken,
-        ...headers,
-      },
-    });
+  static getAuthHeaders(headers = {}) {
+    const user = localStorage.getItem('user');
 
-    if (!res.ok) {
-      const error = new Error(res.statusText);
-      error.status = res.status;
-      if (res.status === 401) {
-        window.sessionStorage.clear();
-        localStorage.removeItem('user');
-        window.location = '/';
+    if (isJSON(user)) {
+      try {
+        const parsedUser = JSON.parse(user);
+        const authToken = parsedUser?.authToken;
+        if (authToken) {
+          return {
+            Authorization: `Bearer ${authToken}`,
+            ...headers,
+          };
+        }
+      } catch (error) {
+        console.error('Error parsing user data from localStorage:', error);
       }
-      throw error;
     }
+  
+    return headers; // Return default headers if no authToken found
+  }
+  
+  static async request(url, options = {}) {
+    try {
+      const response = await fetch(url, options);
+      const contentType = response.headers.get('Content-Type');
+      const data = contentType && contentType.includes('application/json')
+        ? await response.json()
+        : await response.text();
 
-    return res.json();
+      if (!response.ok) {
+        if (response.status === 401) {
+          window.sessionStorage.clear();
+          localStorage.removeItem('user');
+          window.location = '/';
+        }
+        
+        // For 4xx (Client Errors) and 5xx (Server Errors), just throw an error
+        const error = new Error(data.message || response.statusText);
+        error.status = response.status;
+        error.data = data; // Include the response data in case of an error
+        throw error;
+      }
+
+      return data; // Return successful response
+    } catch (error) {
+      console.error('API Request Error:', error);
+      throw error; // Throw the error to be handled by the calling component
+    }
+  }
+
+  static async get(url, headers = {}) {
+    const options = {
+      method: 'GET',
+      headers: APIClient.getAuthHeaders(headers), // Directly call APIClient.getAuthHeaders
+    };
+    return APIClient.request(url, options); // Directly call APIClient.request
   }
 
   static async post(url, data, patch = false, headers = {}) {
-    const response = await fetch(url, {
+    const options = {
       method: patch ? 'PATCH' : 'POST',
       headers: {
         'Content-Type': 'application/json',
-        Authorization: JSON.parse(localStorage.getItem('user'))?.authToken,
-        ...headers,
+        ...APIClient.getAuthHeaders(headers), // Directly call APIClient.getAuthHeaders
       },
       body: JSON.stringify(data),
-    });
-
-    return {
-      ok: response.ok,
-      status: response.status,
-      data: await response.json(),
     };
+    return APIClient.request(url, options); // Directly call APIClient.request
   }
 
-  static async delete(url, data, headers = {}) {
-    const searchParams = new URLSearchParams(data);
-    const response = await fetch(url + `?${searchParams.toString()}`, {
+  static async delete(url, data = {}, headers = {}) {
+    const searchParams = new URLSearchParams(data).toString();
+    const options = {
       method: 'DELETE',
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: JSON.parse(localStorage.getItem('user'))?.authToken,
-        ...headers,
-      },
-      body: null,
-    });
-
-    return {
-      ok: response.ok,
-      status: response.status,
-      data: await response.json(),
+      headers: APIClient.getAuthHeaders(headers), // Directly call APIClient.getAuthHeaders
     };
+
+    const deleteUrl = searchParams ? `${url}?${searchParams}` : url;
+    return APIClient.request(deleteUrl, options); // Directly call APIClient.request
   }
 }
