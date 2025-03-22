@@ -1,7 +1,7 @@
 import { Typography, Card, CardContent, Chip, Box, Alert } from '@mui/material';
 import InfoIcon from '@mui/icons-material/Info';
 import HeadingWithDivider from '@/components/HeadingWithDivider';
-import Feedback from '@/components/Feedback';
+import Feedback from '@/views/Feedback';
 import Link from '@/components/Link';
 import DonationBanner from '@/components/layouts/DonationBanner';
 
