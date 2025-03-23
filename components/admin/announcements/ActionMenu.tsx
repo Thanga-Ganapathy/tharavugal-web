@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, MouseEvent } from 'react';
 import Button from '@mui/material/Button';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
@@ -10,13 +10,17 @@ import useAlert from '@/hooks/useAlert';
 import Edit from './Edit';
 import DialogWindow from '@/components/DialogWindow';
 
-export default function ActionMenu({ row }) {
+interface ActionMenuProps {
+  row: { id: string; [key: string]: any };
+}
+
+export default function ActionMenu({ row }: ActionMenuProps) {
   const [editOpen, setEditOpen] = useState(false);
-  const [anchorEl, setAnchorEl] = useState(null);
+  const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
   const showAlert = useAlert();
 
-  const handleClick = (event) => {
+  const handleClick = (event: MouseEvent<HTMLElement>) => {
     setAnchorEl(event.currentTarget);
   };
 
@@ -44,7 +48,7 @@ export default function ActionMenu({ row }) {
   };
 
   return (
-    (<div>
+    <div>
       <Button
         size="small"
         variant="outlined"
@@ -68,20 +72,20 @@ export default function ActionMenu({ row }) {
       >
         <MenuItem onClick={handleEdit}>
           <EditIcon
-            fontSize="18"
-            sx={theme => ({
+            fontSize="inherit"
+            sx={(theme) => ({
               mr: 1,
-              color: theme.palette.text.secondary
+              color: theme.palette.text.secondary,
             })}
           />{' '}
           Edit
         </MenuItem>
         <MenuItem onClick={handleDelete}>
           <DeleteIcon
-            fontSize="18"
-            sx={theme => ({
+            fontSize="inherit"
+            sx={(theme) => ({
               mr: 1,
-              color: theme.palette.text.secondary
+              color: theme.palette.text.secondary,
             })}
           />{' '}
           Delete
@@ -94,6 +98,6 @@ export default function ActionMenu({ row }) {
       >
         <Edit record={row} />
       </DialogWindow>
-    </div>)
+    </div>
   );
 }

@@ -1,0 +1,328 @@
+import {
+  Box,
+  Button,
+  Card,
+  CardContent,
+  Alert,
+  MenuItem,
+  MenuList,
+  Paper,
+  Popper,
+  Tooltip,
+  Chip,
+  AlertTitle,
+} from '@mui/material';
+import SearchIcon from '@mui/icons-material/Search';
+import { Form, Field } from '@opentf/react-form';
+import MiniSearch from 'minisearch';
+import searchIndex from '@/data/thirukkural/searchIndex.json';
+import { useField } from '@opentf/react-form';
+import { useState, useRef, useEffect } from 'react';
+import { sort, isEmpty, arrReplace } from '@opentf/std';
+import { useId } from 'react';
+import { TaInput } from '@opentf/react-ta-input';
+import DialogWindow from '../DialogWindow';
+import HeadingWithDivider from '@/components/HeadingWithDivider';
+import { thirukkural } from '@/data/thirukkural/index';
+import Link from '../Link';
+
+const miniSearch = MiniSearch.loadJSON(JSON.stringify(searchIndex), {
+  fields: ['name', 'nameEn', 'text', 'textEn', 'textEnExp'],
+  searchOptions: { prefix: true },
+});
+
+interface SearchInputFieldProps {
+  name: string;
+  lang: string;
+}
+
+function SearchInputField({ name, lang }: SearchInputFieldProps) {
+  const inputRef = useRef<HTMLInputElement>(null);
+  const [anchorEl, setAnchorEl] = useState<HTMLElement | null>(null);
+  const [options, setOptions] = useState<string[]>([]);
+  const { field } = useField(name);
+  const id = useId();
+
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+
+  useEffect(() => {
+    inputRef.current?.focus();
+  }, []);
+
+  useEffect(() => {
+    if (field.value) {
+      const term = field.value.split(' ').at(-1) || '';
+      const list = miniSearch.autoSuggest(term);
+      const opts = new Set<string>();
+      for (const obj of list) {
+        for (const term of obj.terms) {
+          opts.add(term);
+          if (opts.size >= 5) break;
+        }
+      }
+      setOptions(sort([...opts].slice(0, 5), 'asc'));
+    } else {
+      setOptions([]);
+    }
+  }, [field.value]);
+
+  return (
+    <Box
+      lang={lang}
+      component={TaInput}
+      inputRef={inputRef}
+      onChange={field.onChange}
+      sx={{ width: { xs: '75%', md: '75%' } }}
+    >
+      <Box
+        ref={inputRef}
+        autoFocus
+        component="input"
+        autoComplete="off"
+        placeholder="தேடுக | Search"
+        onFocus={(e) => setAnchorEl(e.currentTarget)}
+        onBlur={(e) => {
+          if (e.relatedTarget?.getAttribute('role') !== 'menuitem') {
+            setAnchorEl(null);
+          }
+        }}
+        value={field.value}
+        sx={(theme) => ({
+          width: '100%',
+          p: 2,
+          borderRadius: '20px',
+          outline: 'none',
+          border: '1px solid',
+          borderColor: '#2D3843',
+          backgroundColor: '#1A2027',
+          fontSize: '16px',
+          color: 'white',
+          '&:focus': {
+            borderColor: theme.palette.primary.main,
+          },
+          ...theme.applyStyles('light', {
+            borderColor: '#E0E3E7',
+            backgroundColor: 'white',
+            color: 'black',
+          }),
+        })}
+      />
+      <Popper
+        id={id}
+        open={Boolean(anchorEl) && !isEmpty(options)}
+        anchorEl={anchorEl}
+        placement="bottom-start"
+        sx={{ p: 0 }}
+        disablePortal
+      >
+        <Paper sx={{ p: 0 }}>
+          <MenuList>
+            {options.map((l, i) => (
+              <MenuItem
+                key={i}
+                onClick={() => {
+                  const v = arrReplace(field.value.split(' '), null, 1, l).join(
+                    ' '
+                  );
+                  field.onChange(v);
+                  handleClose();
+                }}
+              >
+                {l}
+              </MenuItem>
+            ))}
+          </MenuList>
+        </Paper>
+      </Popper>
+    </Box>
+  );
+}
+
+interface ResultBoxProps {
+  id: number;
+}
+
+function ResultBox({ id }: ResultBoxProps) {
+  const chapterNo = Math.ceil(id / 10) - 1;
+  const kuralNo = (id % 10) - 1;
+  const chapter = thirukkural.chapters[chapterNo];
+  const kural = chapter.kurals.at(kuralNo);
+
+  return (
+    <Card sx={{ mb: 2 }} variant="outlined">
+      <CardContent>
+        <Link href={`/thirukkural/chapters/${chapter.slug}/${id}`}>
+          <Box
+            component="div"
+            dangerouslySetInnerHTML={{
+              __html: kural.translations[0].explanations[0].text,
+            }}
+          />
+        </Link>
+        <Box sx={{ textAlign: 'right', mt: 1 }}>
+          <Chip
+            size="small"
+            color="info"
+            label={`${chapter.name} - ${chapter.translations[0].text}`}
+          />
+        </Box>
+      </CardContent>
+    </Card>
+  );
+}
+
+export default function Search() {
+  const [open, setOpen] = useState(false);
+  const [result, setResult] = useState<any[]>([]);
+
+  const handleSubmit = (values: { searchText: string }) => {
+    const list = miniSearch.search(values.searchText);
+    setResult(list);
+  };
+
+  return (
+    <Box sx={{ my: 2 }}>
+      <Box sx={{ display: 'flex', justifyContent: 'center' }}>
+        <Box
+          onClick={() => setOpen(true)}
+          sx={[
+            {
+              width: { xs: '80%', md: '50%' },
+              position: 'relative',
+            },
+            open
+              ? {
+                  visibility: 'hidden',
+                }
+              : {
+                  visibility: 'visible',
+                },
+          ]}
+        >
+          <SearchIcon
+            color="primary"
+            fontSize="large"
+            sx={{
+              position: 'absolute',
+              right: '15px',
+              top: '8px',
+            }}
+          />
+          <Box
+            component="input"
+            readOnly
+            autoComplete="off"
+            placeholder="தேடுக | Search"
+            sx={(theme) => ({
+              width: '100%',
+              p: 2,
+              borderRadius: '20px',
+              outline: 'none',
+              border: '1px solid',
+              borderColor: '#2D3843',
+              backgroundColor: '#1A2027',
+              fontSize: '16px',
+              color: 'white',
+              '&:focus': {
+                borderColor: theme.palette.primary.main,
+              },
+              ...theme.applyStyles('light', {
+                borderColor: '#E0E3E7',
+                backgroundColor: 'white',
+                color: 'black',
+              }),
+            })}
+          />
+        </Box>
+      </Box>
+      <DialogWindow
+        title="Search"
+        variant="large"
+        open={open}
+        onClose={() => {
+          setOpen(false);
+          setResult([]);
+        }}
+      >
+        <Box>
+          <Box
+            component={Form}
+            initialValues={{ searchText: '' }}
+            sx={{
+              width: '100%',
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center',
+            }}
+            onSubmit={handleSubmit}
+          >
+            <SearchInputField name="searchText" lang="ta" />
+            <Tooltip title="Search" sx={{ ml: 2 }}>
+              <Button
+                color="primary"
+                variant="contained"
+                size="medium"
+                type="submit"
+              >
+                <SearchIcon />
+              </Button>
+            </Tooltip>
+          </Box>
+          <Box
+            sx={{
+              mt: 4,
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center',
+            }}
+          >
+            <Box component="span" sx={{ mr: 2 }}>
+              Try:{' '}
+            </Box>{' '}
+            <Chip
+              sx={{ mx: 1 }}
+              size="small"
+              color="secondary"
+              variant="outlined"
+              label="கல்வி"
+            />
+            <Chip
+              sx={{ mx: 1 }}
+              size="small"
+              color="secondary"
+              variant="outlined"
+              label="Elephant"
+            />
+            <Chip
+              sx={{ mx: 1 }}
+              size="small"
+              color="secondary"
+              variant="outlined"
+              label="காதல்"
+            />
+          </Box>
+          <HeadingWithDivider
+            title={`Results ${result.length > 0 ? `(${result.length})` : ''}`}
+            sx={{ my: 2 }}
+          />
+          {result.map((r, i) => (
+            <ResultBox key={i} id={r.id} />
+          ))}
+          {isEmpty(result) && (
+            <Alert severity="info">
+              <AlertTitle>No result.</AlertTitle>
+              You can use the Virtual Keyboard by clicking the icon below the
+              search bar.
+              <br />
+              <br />
+              You can also change the default Thamizhl (தமிழ்) input to System
+              input.
+            </Alert>
+          )}
+        </Box>
+      </DialogWindow>
+    </Box>
+  );
+}

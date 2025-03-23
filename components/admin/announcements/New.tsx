@@ -3,10 +3,14 @@ import Form from './Form';
 import useAlert from '@/hooks/useAlert';
 import { announcementsSchema } from '@/schema';
 
-export default function New({ onClose }) {
+interface NewProps {
+  onClose: () => void;
+}
+
+export default function New({ onClose }: NewProps) {
   const showAlert = useAlert();
 
-  const handleSubmit = async (values) => {
+  const handleSubmit = async (values: Record<string, any>) => {
     const result = await APIClient.post(
       '/api/admin/announcements',
       announcementsSchema.safeParse(values).data

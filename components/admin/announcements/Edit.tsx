@@ -4,8 +4,15 @@ import useAlert from '@/hooks/useAlert';
 import { announcementsSchema } from '@/schema';
 import { useState, useEffect } from 'react';
 
-export default function Edit({ record }) {
-  const [state, setState] = useState({ loading: true, initialValues: null });
+interface EditProps {
+  record: { id: string; [key: string]: any };
+}
+
+export default function Edit({ record }: EditProps) {
+  const [state, setState] = useState<{
+    loading: boolean;
+    initialValues: Record<string, any> | null;
+  }>({ loading: true, initialValues: null });
   const showAlert = useAlert();
 
   const fetchRecord = async () => {
@@ -20,7 +27,7 @@ export default function Edit({ record }) {
     fetchRecord();
   }, []);
 
-  const handleSubmit = async (values) => {
+  const handleSubmit = async (values: Record<string, any>) => {
     const result = await APIClient.post(
       '/api/admin/announcements',
       announcementsSchema.safeParse(values).data,

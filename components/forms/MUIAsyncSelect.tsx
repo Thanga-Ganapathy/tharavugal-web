@@ -5,7 +5,13 @@ import { useField } from '@opentf/react-form';
 import { debounce } from 'lodash';
 
 export default function MUIAsyncSelectField({
-  name, label, url, multiple, optionLabel = 'name', optionValue = 'id'
+  name,
+  label,
+  url,
+  multiple,
+  getOptionLabel,
+  optionLabel = 'name',
+  optionValue = 'id',
 }) {
   const [options, setOptions] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -33,6 +39,14 @@ export default function MUIAsyncSelectField({
     [url]
   );
 
+  const handleOptionLabel = (option) => {
+    if (getOptionLabel) {
+      return getOptionLabel(option)  
+    }
+
+    return option[optionLabel];
+  };
+
   return (
     <Autocomplete
       filterOptions={(x) => x} // Prevents default filtering behavior
@@ -40,7 +54,7 @@ export default function MUIAsyncSelectField({
       multiple={multiple}
       disablePortal
       options={options}
-      getOptionLabel={(option) => option[optionLabel] || ''} // Display the label from the object
+      getOptionLabel={handleOptionLabel} // Display the label from the object
       renderInput={(params) => (
         <TextField
           {...params}

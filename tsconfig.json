@@ -1,0 +1,42 @@
+{
+  "compilerOptions": {
+    "target": "ES2020", // Or "ESNext" if you prefer cutting-edge features
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext" // Ensures latest ECMAScript features are included
+    ],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": true, // For better type safety
+    "noEmit": true,
+    "incremental": true,
+    "module": "esnext", // Uses the latest ECMAScript module system
+    "esModuleInterop": true,
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "preserve", // Modern JSX for React 17+ support
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
+    "baseUrl": ".",
+    "paths": {
+      "@/*": [
+        "./*"
+      ]
+    },
+    "useUnknownInCatchVariables": true // Optional, but recommended for better error handling
+  },
+  "include": [
+    "next-env.d.ts",
+    ".next/types/**/*.ts",
+    "**/*.ts",
+    "**/*.tsx"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}

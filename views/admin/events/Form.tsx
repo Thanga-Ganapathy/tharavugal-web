@@ -10,6 +10,7 @@ import MUITimeField from '@/components/forms/MUITimeField';
 import MUIAutoCompleteField from '@/components/forms/MUIAutoCompleteField';
 import MUIAsyncSelectField from '@/components/forms/MUIAsyncSelect';
 import { useEffect } from 'react';
+import { reverse } from '@opentf/std';
 
 function slugify(str, locations, id) {
   let out =
@@ -30,8 +31,14 @@ function SlugField({ name, label }) {
 
   useEffect(() => {
     console.log('values.locations', values.locations);
-    
-    field.onChange(slugify(values.title, values.locations.map(l => l.name), values.id));
+
+    field.onChange(
+      slugify(
+        values.title,
+        values.locations.map((l) => l.name),
+        values.id
+      )
+    );
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [values.title, values.locations]);
 
@@ -58,6 +65,12 @@ export default function EventsForm({
   if (index !== -1) {
     tzOptions[index] = 'Asia/Kolkata';
   }
+
+  const handleLocationOptionLabel = (option) => {
+    const parentLocation = option.parentLocations.map((l) => l.name).join(' > ');
+
+    return `${parentLocation} > ${option.name}`;
+  };
 
   return (
     <Box>
@@ -106,7 +119,7 @@ export default function EventsForm({
           <MUIAsyncSelectField
             name="categories"
             label="Categories"
-            url="/api/event-categories"
+            url="/api/admin/event-categories"
             multiple
           />
         </Box>
@@ -115,6 +128,7 @@ export default function EventsForm({
             name="locations"
             label="Locations"
             url="/api/admin/locations"
+            getOptionLabel={handleLocationOptionLabel}
             multiple
           />
         </Box>

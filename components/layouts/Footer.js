@@ -3,7 +3,7 @@
 import { Box, Grid2, Paper, Typography } from '@mui/material';
 import { format } from 'date-fns';
 import OpenInNewOutlinedIcon from '@mui/icons-material/OpenInNewOutlined';
-import Feedback from '../Feedback';
+import Feedback from '../../views/Feedback';
 import Link from '../Link';
 
 function LI({ title, href, children }) {

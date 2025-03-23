@@ -1,6 +1,6 @@
 {
   "name": "tharavugal-org-website",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
@@ -32,7 +32,7 @@
     "date-fns": "^4.1.0",
     "filesize": "^10.1.0",
     "immer": "^10.1.1",
-    "jose": "^5.9.6",
+    "jose": "^6.0.10",
     "jstoxml": "^3.2.8",
     "lodash": "^4.17.21",
     "minisearch": "^6.3.0",
@@ -48,6 +48,7 @@
     "zod": "^3.23.8"
   },
   "devDependencies": {
+    "@types/node": "22.13.11",
     "@types/react": "^18.3.1",
     "@types/react-dom": "^18.3.0",
     "eslint": "9.18.0",

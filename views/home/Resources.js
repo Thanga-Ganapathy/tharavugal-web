@@ -15,6 +15,7 @@ function Resource({ name, icon: Icon, path }) {
         {
           m: 1,
           bgcolor: 'white',
+          px: '5px'
         },
         (t) =>
           t.applyStyles('dark', {

@@ -4,11 +4,11 @@ import {
   Avatar,
   Box,
   Button,
-  Card,
   Checkbox,
   Divider,
   FormControlLabel,
   Grid2,
+  Paper,
   TextField,
   Typography,
 } from '@mui/material';
@@ -36,8 +36,7 @@ export default function SignIn() {
         '/api/signin',
         Object.fromEntries(data)
       );
-      console.log('result', result);
-      
+
       setAppState((s) => ({
         ...s,
         user: result.data.user,
@@ -54,10 +53,9 @@ export default function SignIn() {
   };
 
   return (
-    <Card
+    <Paper
       sx={{
         p: 3,
-        marginTop: 8,
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
@@ -69,56 +67,58 @@ export default function SignIn() {
       <Typography component="h1" variant="h5">
         Sign in
       </Typography>
-      <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
-        <TextField
-          margin="normal"
-          required
-          fullWidth
-          id="email"
-          label="Email Address"
-          name="email"
-          autoComplete="email"
-          autoFocus
-        />
-        <TextField
-          margin="normal"
-          required
-          fullWidth
-          name="password"
-          label="Password"
-          type="password"
-          id="password"
-          autoComplete="current-password"
-        />
-        <FormControlLabel
-          control={<Checkbox value="remember" color="primary" />}
-          label="Remember me"
-        />
-        <Button
-          loading={loading}
-          sx={{ mt: 3, mb: 2 }}
-          loadingIndicator="Signing..."
-          variant="contained"
-          type="submit"
-          fullWidth
-        >
-          Sign In
-        </Button>
-        <Grid2 container>
-          <Grid2 item xs>
-            <Link href="#" variant="body2">
-              Forgot password?
-            </Link>
-          </Grid2>
-        </Grid2>
-
-        <Box mt={3}>
-          <Divider>Or</Divider>
-          <Button variant="contained" fullWidth sx={{ mt: 3 }} disabled>
-            Create account
+      <Box sx={{ maxWidth: '340px' }}>
+        <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
+          <TextField
+            margin="normal"
+            required
+            fullWidth
+            id="email"
+            label="Email Address"
+            name="email"
+            autoComplete="email"
+            autoFocus
+          />
+          <TextField
+            margin="normal"
+            required
+            fullWidth
+            name="password"
+            label="Password"
+            type="password"
+            id="password"
+            autoComplete="current-password"
+          />
+          <FormControlLabel
+            control={<Checkbox value="remember" color="primary" />}
+            label="Remember me"
+          />
+          <Button
+            loading={loading}
+            sx={{ mt: 3, mb: 2 }}
+            loadingIndicator="Signing..."
+            variant="contained"
+            type="submit"
+            fullWidth
+          >
+            Sign In
           </Button>
+          <Grid2 container>
+            <Grid2 item xs>
+              <Link href="#" variant="body2">
+                Forgot password?
+              </Link>
+            </Grid2>
+          </Grid2>
+
+          <Box mt={3}>
+            <Divider>Or</Divider>
+            <Button variant="contained" fullWidth sx={{ mt: 3 }} disabled>
+              Create account
+            </Button>
+          </Box>
         </Box>
       </Box>
-    </Card>
+    </Paper>
   );
 }

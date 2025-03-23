@@ -1,7 +1,5 @@
+import Dashboard from '@/components/admin/dashboard';
+
 export default function AdminPage() {
-  return (
-    <h1>
-      Hello admin
-    </h1>
-  )
+  return <Dashboard />;
 }

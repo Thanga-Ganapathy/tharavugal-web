@@ -48,6 +48,12 @@ const routesConfig = {
 };
 
 async function authorize(req, route) {
+  const authHeader = req.headers.get('authorization');
+  
+  if (!authHeader) {
+    return false
+  }
+
   const authPayload = await Auth.isAuthenticated(
     req.headers.get('authorization')
   );
@@ -81,6 +87,7 @@ export async function middleware(req, res) {
   const protectedRoute = matchRoute(path, routesConfig.protected);
 
   if (protectedRoute) {
+    
     const isAllowed = await authorize(req, protectedRoute);
 
     if (!isAllowed) {

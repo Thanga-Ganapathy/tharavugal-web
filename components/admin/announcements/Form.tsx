@@ -5,11 +5,17 @@ import { Form } from '@opentf/react-form';
 import MUITextField from '@/components/forms/MUITextField';
 import MUITextAreaField from '@/components/forms/MUITextAreaField';
 
+interface FormProps {
+  initialValues: Record<string, any>;
+  onSubmit: (values: Record<string, any>) => void;
+  update?: boolean;
+}
+
 export default function eventLocationsForm({
   initialValues,
   onSubmit,
   update = false,
-}) {
+}: FormProps) {
   return (
     <Box>
       <Form

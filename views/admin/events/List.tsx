@@ -1,11 +1,11 @@
 import { Box } from '@mui/material';
 import { DataGrid } from '@mui/x-data-grid';
 
-import ModelActionMenu from '../../ModelActionMenu';
 import Edit from './Edit';
 import APIClient from '@/utils/APIClient';
 import { EVENTS_STATUS } from '@/constants';
 import Link from '@/components/Link';
+import ListActionMenu from '@/components/ListActionMenu';
 
 export default function List({
   data = [],
@@ -37,7 +37,7 @@ export default function List({
       width: 150,
       renderCell(params) {
         return (
-          <ModelActionMenu
+          <ListActionMenu
             url="/api/admin/events"
             row={params.row}
             Edit={Edit}

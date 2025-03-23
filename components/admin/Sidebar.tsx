@@ -1,13 +1,23 @@
-import { List, ListItem, ListItemButton, ListItemText } from '@mui/material';
-import { useRouter } from 'next/router';
+'use client';
 
-function Menu({ obj }) {
+import { List, ListItem, ListItemButton, ListItemText } from '@mui/material';
+import { usePathname, useRouter } from 'next/navigation';
+
+interface MenuProps {
+  obj: { menu: string; path: string };
+}
+
+function Menu({ obj }: MenuProps) {
+  const pathname = usePathname();
   const router = useRouter();
 
+  console.log('pathname', pathname);
+  
+  
   return (
     <ListItem disablePadding>
       <ListItemButton
-        selected={router.pathname === obj.path}
+        selected={pathname === obj.path}
         onClick={() => router.push(obj.path)}
       >
         <ListItemText primary={obj.menu} />
